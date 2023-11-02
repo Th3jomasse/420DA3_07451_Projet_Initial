@@ -36,7 +36,7 @@ public class ExampleDAO : IDao<ExampleDTO, int> {
     public ExampleDTO Delete(ExampleDTO instance) {
         instance.DateDeleted = DateTime.Now;
         _ = this.context.Examples.Remove(instance);
-        _ = this.context.SaveChanges(true);
+        _ = this.context.SaveChanges();
         return instance;
     }
 }
