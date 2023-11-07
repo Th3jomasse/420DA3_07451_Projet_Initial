@@ -1,3 +1,4 @@
+using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
@@ -13,12 +14,12 @@ namespace _420DA3_07451_Projet_Initial.Presentation;
 /// Hérite de <see cref="Form"/> et implémente <see cref="IDtoManagementView{DtoType}"/>.
 /// </remarks>
 public partial class ExampleDtoWindow : Form, IDtoManagementView<ExampleDTO> {
-    private readonly ExampleService service;
+    private readonly AbstractFacade facade;
     private ExampleDTO workingDtoInstance;
     private ViewIntentEnum? workingViewIntent;
 
-    public ExampleDtoWindow(ExampleService service) {
-        this.service = service;
+    public ExampleDtoWindow(AbstractFacade facade) {
+        this.facade = facade;
         // création d'une instance de DTO vide juste pour garantir qu'il y aura quelque chose
         // dans le champ associé et éviter de devoir dealer avec un type nullable.
         this.workingDtoInstance = new ExampleDTO("", null);

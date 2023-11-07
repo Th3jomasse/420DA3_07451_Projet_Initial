@@ -12,7 +12,7 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 /// Fausse classe de login. Je n'ai pas eu le choix de la créer pour pouvoir fournir
 /// une classe de service de login concrète à mon exemple de facade.
 /// </summary>
-internal class FakeLoginService : AbstractLoginService {
+public class FakeLoginService : AbstractLoginService {
 
     public FakeLoginService(AbstractApplication parentApp) {
         parentApp.RegisterDependent(this);

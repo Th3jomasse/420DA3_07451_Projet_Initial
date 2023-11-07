@@ -34,7 +34,6 @@ public abstract class AbstractDtoService<DtoType, DtoIdType> : AbstractService
     where DtoType : class, IDto<DtoIdType>, new()
     where DtoIdType : struct, IEquatable<DtoIdType> {
 
-    public abstract AbstractFacade ParentFacade { get; protected set; }
     protected abstract AbstractDao<DtoType, DtoIdType> Dao { get; }
     protected abstract IDtoManagementView<DtoType> DtoManagementWindow { get; }
 

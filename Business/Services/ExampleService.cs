@@ -18,17 +18,14 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 /// </remarks>
 public class ExampleService : AbstractDtoService<ExampleDTO, int> {
 
-    public override AbstractFacade ParentFacade { get; protected set; }
-
     protected override ExampleDAO Dao { get; }
 
     protected override ExampleDtoWindow DtoManagementWindow { get; }
 
     public ExampleService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
-        this.ParentFacade = facade;
         this.Dao = new ExampleDAO(context);
-        this.DtoManagementWindow = new ExampleDtoWindow(this);
+        this.DtoManagementWindow = new ExampleDtoWindow(facade);
     }
 
     /// <summary>
