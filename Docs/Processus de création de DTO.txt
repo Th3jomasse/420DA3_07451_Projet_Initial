@@ -1,0 +1,5 @@
+﻿
+1) Créer la classe vide
+2) Changer la visibilité de la classe à public
+3) Faire hériter la classe de AbstractDto<DtoIdType> en passant le type (int) de l'Id comme valeur de DtoIdType
+4) Ajouter la configuration de l'entité à votre classe de contexte.

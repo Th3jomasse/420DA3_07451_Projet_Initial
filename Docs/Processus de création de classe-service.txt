@@ -1,0 +1,33 @@
+﻿
+1) créer la classe vide
+2) Changer la visibilité de la classe à public
+3) Faire hériter la classe de 
+	- AbstractService pour un service général qui n'est pas associé à la gestion d'une entité en particulier
+	OU
+	- AbstractLoginService pour un service spécifique pour l'authentification (login)
+	OU
+	- AbstractDtoService<DtoType, DtoIdType> pour un service spécifique à la gestion d'une entité 
+		(passer le type de l'entité à DtoType et le type de l'Id de l'entité à DtoIdType)
+
+4) Faire implémenter la classe abstraite par "Show potential fixes..." dans Visual Studio
+
+===== SI HÉRITE DE AbstractDtoService<VotreTypeDeDto, TypeDeIdDeVotreDto>
+
+4.a) Remplacer le type de la propriété 'Dao' générée (ça devrait lui avoir généré 
+	AbstractDao<VotreTypeDeDto, TypeDeIdDeVotreDto> comme type) par la classe concrète de votre Dao
+	Exemple: 
+	protected override AbstractDao<TestDTO, int> Dao {...} 
+	-> 
+	protected override TestDAO Dao {...}
+	
+4.b) Remplacer le type de la propriété 'DtoManagementWindow' générée (ça devrait lui avoir généré 
+	IDtoManagementView<VotreTypeDeDto> comme type) par la classe concrète de votre fenêtre de
+	gestion pour cette entité
+	Exemple: 
+	protected override IDtoManagementView<TestDTO> DtoManagementWindow {...} 
+	-> 
+	protected override TestWindow DtoManagementWindow {...}
+
+===== FIN SI
+
+5) Remplacer les 'throw new NotImplementedException()' générés automatiquement par de quoi de fonctionnel.

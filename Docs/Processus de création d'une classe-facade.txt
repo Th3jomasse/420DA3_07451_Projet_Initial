@@ -1,0 +1,7 @@
+﻿
+1) Créer la classe vide
+2) Changer la visibilité de la classe à public
+3) Faire hériter la classe de AbstractFacade
+4) Faire implémenter la classe abstraite par "Show potential fixes..." dans Visual Studio
+4) Faire generer un constructeur par "Show potential fixes..." dans Visual Studio
+5) Remplacer les 'throw new NotImplementedException()' générés automatiquement par de quoi de fonctionnel.

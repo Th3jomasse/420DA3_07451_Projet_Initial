@@ -1,0 +1,22 @@
+﻿
+1) Créer la classe vide
+2) Changer la visibilité de la classe à public
+3) Faire hériter la classe de AbstractDao<DtoType, DtoIdType> en passant le type de l'entité 
+	(sa classe) comme valeur à DtoType et le type (int) de l'Id comme valeur à DtoIdType
+4) Faire implémenter la classe abstraite par "Show potential fixes..." dans Visual Studio
+
+===== NOTE:
+
+Vu que le type de la classe-contexte est "AbstractContext", vous n'aurez pas accès directement 
+	aux propriétés de type DbSet<TEntity> de votre classe de contexte concrète. Pour accéder 
+	à celles-ci, utilisez la méthode GetDbSet<TEntity>() qui existe dans AbstractContext.
+
+	Exemple (dans vos DAOs) :
+	AU LIEU DE
+	this.Context.Examples.Where[...]
+	->
+	this.Context.GetDbSet<ExampleDTO>.Where[...]
+
+===== FIN NOTE
+
+5) Remplacer les 'throw new NotImplementedException()' générés automatiquement par de quoi de fonctionnel.

@@ -1,0 +1,4 @@
+﻿
+1) créer la classe vide
+2) Changer la visibilité de la classe à public
+3) Faire hériter la classe de AbstractContext
