@@ -1,12 +1,18 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 
 /// <summary>
-/// 
+/// Exemple de classe de contexte. A SUPPRIMER QUAND VOUS AUREZ FINI VOTRE PROPRE APPLICATION.
 /// </summary>
-public class ExampleContext : DbContext {
+/// <remarks>
+/// Hérite de <see cref="AbstractContext"/>.
+/// </remarks>
+public class ExampleContext : AbstractContext {
 
     /*
      * N'UTILISEZ PAS CETTE CLASSE. FAITES VOTRE PROPRE CLASSE DE CONTEXTE.
@@ -67,6 +73,8 @@ public class ExampleContext : DbContext {
             .HasColumnOrder(6)
             .HasColumnName("Version")
             .IsRowVersion();
+
+        _ = modelBuilder.Entity<ExampleDTO>().HasData(new ExampleDTO("TestName", "TestDescription") { Id = 1 });
 
         /*
          * N'UTILISEZ PAS CETTE CLASSE. FAITES VOTRE PROPRE CLASSE DE CONTEXTE.

@@ -1,6 +1,6 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class ExampleDtoForm {
+partial class ExampleDtoWindow {
     /// <summary>
     ///  Required designer variable.
     /// </summary>
