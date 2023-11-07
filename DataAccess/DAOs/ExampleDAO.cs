@@ -20,9 +20,9 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 /// Notez que je redéfini (override) deux de ces méthodes pour leur ajouter une fonctionnalité.
 /// </remarks>
 public class ExampleDAO : AbstractDao<ExampleDTO, int> {
-    protected override ExampleContext Context { get; }
+    protected override AbstractContext Context { get; }
 
-    public ExampleDAO(ExampleContext context) : base() { 
+    public ExampleDAO(AbstractContext context) : base() { 
         this.Context = context;
     }
 
