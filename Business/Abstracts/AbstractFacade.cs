@@ -1,4 +1,6 @@
-﻿namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using System.Reflection;
+
+namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
 
 /// <summary>
 /// Classe abstraite fournissant des services de terminaison (shutdown) pour les
@@ -27,6 +29,46 @@ public abstract class AbstractFacade : IFacade {
     /// <param name="dependent">L'objet dépendent à ajouter au registre.</param>
     public void RegisterDependent(IStoppable dependent) {
         this.Dependents.Add(dependent);
+    }
+
+    /// <summary>
+    /// Méthode pour obtenir, à partir d'un <see cref="AbstractFacade"/>, un <see cref="IService"/> quelconque 
+    /// existant dans une facade concrète.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Recoit le type (classe) du service à obtenir dans <typeparamref name="ServiceType"/>.<br/>
+    /// Lance des exceptions si aucune propriété ou champ du type requis est définie dans la facade concrète
+    /// ou si cette propriété/champ n'est pas initialisée avec un objet du type requis.
+    /// </para>
+    /// <para>
+    /// Le type <see cref="AbstractFacade"/> ne défini pas de propriétés de service en lui-même.
+    /// Ce sont les facades concrètes qui possèdent des propriétés de services selon les tâches
+    /// du rôle représenté par la facade. Cependant, pour que les services et fenêtres graphiques
+    /// puissent utiliser les divers services tout en restant compatible avec diverses facades concrètes,
+    /// elles doivent recevoir un objet du type abstrait. Cette méthode permet de tenter d'obtenir un 
+    /// service spécifique directement à partir de <see cref="AbstractFacade"/>.
+    /// </para>
+    /// </remarks>
+    /// <typeparam name="ServiceType">Le type (classe) du service requis.</typeparam>
+    /// <returns></returns>
+    /// <exception cref="Exception">Si aucune propriété initialisée du type requis existe dans la facade concrète.</exception>
+    public ServiceType GetService<ServiceType>() where ServiceType : IService {
+        List<PropertyInfo> properties = this.GetType().GetProperties().ToList();
+        foreach (PropertyInfo property in properties) {
+            if (property.PropertyType == typeof(ServiceType)) {
+                return (ServiceType) (property.GetValue(this) 
+                    ?? throw new Exception($"Property of type [{typeof(ServiceType).Name}] is empty (not initialized)."));
+            }
+        }
+        List<FieldInfo> fields = this.GetType().GetFields().ToList();
+        foreach (FieldInfo field in fields) {
+            if (field.FieldType == typeof(ServiceType)) {
+                return (ServiceType) (field.GetValue(this)
+                    ?? throw new Exception($"Field of type [{typeof(ServiceType).Name}] is empty (not initialized)."));
+            }
+        }
+        throw new Exception($"Facade does not posess a property or field of type [{typeof(ServiceType).Name}].");
     }
 
 

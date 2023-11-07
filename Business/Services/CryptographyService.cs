@@ -9,7 +9,7 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 /// <remarks>
 /// Hérite de <see cref="AbstractService"/>.
 /// </remarks>
-internal class CryptographyService : AbstractService {
+public class CryptographyService : AbstractService {
     // Paramètres de hashage.
     private const int SALT_SIZE = 16; // sel cryptographique de 128 bits
     private const int KEY_SIZE = 32; // clé cryptographique de 256 bits
