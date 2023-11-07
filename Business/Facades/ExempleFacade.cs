@@ -28,7 +28,7 @@ public class ExempleFacade : AbstractFacade {
 
         // Création des services requis pour les tâches de la facade (donc selon le rôle de l'utilisateur)
         this.ExampleService = new ExampleService(this, dbContext);
-        this.mainMenu = new ExampleMainMenu(this, this.ExampleService);
+        this.mainMenu = new ExampleMainMenu(this);
     }
 
     /// <summary>

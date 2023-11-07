@@ -12,9 +12,9 @@ public partial class ExampleMainMenu : Form {
     private readonly ExampleService service;
     private readonly AbstractFacade facade;
 
-    public ExampleMainMenu(AbstractFacade facade, ExampleService service) {
+    public ExampleMainMenu(AbstractFacade facade) {
         this.facade = facade;
-        this.service = service;
+        this.service = facade.GetService<ExampleService>();
         this.InitializeComponent();
         // remplissage du combobox d'ExemplesDTO sélectionnable
         this.RefreshList();
