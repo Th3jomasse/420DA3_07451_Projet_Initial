@@ -14,4 +14,5 @@ public class RoleDTO : AbstractDTO<int> {
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
+
 }
