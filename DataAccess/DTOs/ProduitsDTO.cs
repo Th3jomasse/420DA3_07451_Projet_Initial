@@ -14,6 +14,7 @@ public class ProduitsDTO : AbstractDTO<int> {
     public int ClientId { get; set; }
     public int FournisseurId { get; set; }
     public int CategorieId { get; set; }
+    public decimal PrixUnitaire { get; set; }
     public int UnitesEnStock { get; set; }
     public int UnitesCommandees { get; set; }
     public int NiveauDeReappro { get; set; }
@@ -23,7 +24,6 @@ public class ProduitsDTO : AbstractDTO<int> {
     public DateTime DateCreated { get; set; }
     public DateTime DateUpdated { get; set; }
     public DateTime DateDeleted { get; set; }
-
     public ProduitsDTO(string nom, string description, int upc) {
         this.Nom = nom;
         this.Description = description;
@@ -38,6 +38,6 @@ public class ProduitsDTO : AbstractDTO<int> {
     public static bool ValidateDescription(string description) {
         return description.Length >= DESCRIPTION_MIN_LENGTH && description.Length <= DESCRIPTION_MAX_LENGTH;
     }
-   
+
 
 }
