@@ -10,6 +10,9 @@ public class RoleDTO : AbstractDTO<int> {
 
     public string RoleName { get; set; } = null!;
     public string RoleDescription { get; set; } = null!;
+    public DateTime? DateCreate { get; set; }
+    public DateTime? DateUpdate { get; set; }
+    public DateTime? DateDelete { get; set; }
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
