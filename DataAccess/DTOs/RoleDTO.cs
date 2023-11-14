@@ -20,4 +20,16 @@ public class RoleDTO : AbstractDTO<int> {
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
 
+    public RoleDTO(string nameRole, string descriptionRole) {
+        this.RoleName = nameRole;
+        this.RoleDescription = descriptionRole;
+    }
+
+    public static bool ValidateNameRole(string nameRole) {
+        return nameRole.Length >= NAME_MIN_LENGTH && nameRole.Length <= NAME_MAX_LENGTH;
+    }
+
+    public static bool ValidateDescriptionRole(string descriptionRole) {
+        return descriptionRole.Length >= ROLEDESCRIPTION_MAX_LENGTH;
+    }
 }

@@ -18,5 +18,18 @@ public class UserDTO : AbstractDTO<int> {
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
+    public const int PASSWORD_MIN_LENGTH = 8;
+    public const int PASSWORD_MAX_LENGTH = 64;
 
+    public UserDTO(string nameUser, string passwordUser) {
+        this.UserName = nameUser;
+        this.Password = passwordUser;
+    }
+
+    public static bool ValidateNameUser(string nameUser) {
+        return nameUser.Length >= NAME_MIN_LENGTH && nameUser.Length <= NAME_MAX_LENGTH;
+    }
+    public static bool ValidatePasswordUser(string passwordUser) {
+        return passwordUser.Length >= NAME_MIN_LENGTH && passwordUser.Length <= NAME_MAX_LENGTH;
+    }
 }
