@@ -10,7 +10,7 @@ namespace _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 /// recoit le type de l'entité spécifique dans <typeparamref name="DtoType"/>.
 /// </remarks>
 /// <typeparam name="DtoType">Le type de l'entité spécifique gérée par la classe de fenêtre de gestion d'entité</typeparam>
-public interface IDtoManagementView<DtoType> 
+public interface IDtoManagementView<DtoType> : IDisposable
     where DtoType : IDto {
 
     /// <summary>
