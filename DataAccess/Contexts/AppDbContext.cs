@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 
-public class AppDbContext : AbstractContext
-{
-#region Fournisseurs
+public class AppDbContext : AbstractContext {
+    #region Fournisseurs
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
+    public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
+    public DbSet<DTOs.Pivots.ShippingOrderProducts> ShippingOrderProducts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         base.OnConfiguring(optionsBuilder);
-
-
 
         _ = optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=.\\SQL2022DEV;Database=420da3_07451_projet_initial;Integrated Security=true;TrustServerCertificate=true;");
     }
@@ -25,14 +25,14 @@ public class AppDbContext : AbstractContext
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
 
-
+    #region Fournisseurs
         _ = modelBuilder.Entity<FournisseursDTO>()
             .ToTable("Fournisseurs")
             .HasKey(fournisseurs => fournisseurs.Id);
 
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.Id)
             .HasColumnOrder(0);
-        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.Name)
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.NomFournisseur)
             .HasColumnOrder(1)
             .HasColumnType($"nvarchar({FournisseursDTO.NAME_MAX_LENGTH})")
             .HasColumnName("Name");
@@ -63,34 +63,19 @@ public class AppDbContext : AbstractContext
             .HasColumnName("Version")
             .IsRowVersion();
 
-        _ = modelBuilder.Entity<FournisseursDTO>().HasData(new FournisseursDTO("TestName", "TestDescription") { Id = 1 });
+        _ = modelBuilder.Entity<FournisseursDTO>().HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
+        
+    #endregion
 
-
-    }
-#endregion
-
-#region Produits
-    public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        base.OnConfiguring(optionsBuilder);
-
-
-
-        _ = optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=.\\SQL2022DEV;Database=420da3_07451_projet_initial;Integrated Security=true;TrustServerCertificate=true;");
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        base.OnModelCreating(modelBuilder);
-
-
+    #region Produits
+        
         _ = modelBuilder.Entity<ProduitsDTO>()
             .ToTable("Produits")
             .HasKey(produits => produits.Id);
 
         _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Id)
             .HasColumnOrder(0);
-        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Name)
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.NomProduit)
             .HasColumnOrder(1)
             .HasColumnType($"nvarchar({ProduitsDTO.NAME_MAX_LENGTH})")
             .HasColumnName("Name");
@@ -121,35 +106,25 @@ public class AppDbContext : AbstractContext
             .HasColumnName("Version")
             .IsRowVersion();
 
-        _ = modelBuilder.Entity<ProduitsDTO>().HasData(new ProduitsDTO("TestName", "TestDescription") { Id = 1 });
+        _ = modelBuilder.Entity<ProduitsDTO>().HasData(new ProduitsDTO("TestNomProduit", "TestDescription") { Id = 1 });
 
-
-    }
     #endregion
 
     #region Association ShippingOrder - Product
-    public DbSet<DTOs.Pivots.ShippingOrderProducts> ShippingOrderProducts { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        base.OnConfiguring(optionsBuilder);
-
-        _ = optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=.\\SQL2022DEV;Database=420da3_07451_projet_initial;Integrated Security=true;TrustServerCertificate=true;");
-    }
-    protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        base.OnModelCreating(modelBuilder);
-
-         _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
-             .ShippingOrderProducts(sop => new { sop.ShippingOrderId, sop.ProductId });)
+        
+        
+        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+            .ShippingOrderProducts(sop => new { sop.ShippingOrderId, sop.ProductId });
          
-         _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
-             .HasOne(sop => sop.ShippingOrder)
-             .WithMany(so => so.Products)
-             .HasForeignKey(sop => sop.ShippingOrderId);
-         
-         _ = modelBuilder.ENtity<DTOs.Pivots.ShippingOrderProducts>()
-             .HasOne(sop => sop.Product)
-             .WithMany(p => p.ShippingOrders)
-             .HasForeignKey(sop => sop.ProductId);
+        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+            .HasOne(sop => sop.ShippingOrder)
+            .WithMany(so => so.Products)
+            .HasForeignKey(sop => sop.ShippingOrderId);
+        
+        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+            .HasOne(sop => sop.Product)
+            .WithMany(p => p.ShippingOrders)
+            .HasForeignKey(sop => sop.ProductId);
+    #endregion
     }
-#endregion
 }
