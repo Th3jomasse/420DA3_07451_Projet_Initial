@@ -8,20 +8,37 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class FournisseursDTO : AbstractDTO<int> {
     public int FournisseurId { get; set; }
-    public string NomFournisseur { get; set; }
-    public string AdresseId { get; set; }
-    public string NomResponsable { get; set; }
-    public string PrenomResponsable { get; set; }
-    public string TelephoneResponsable { get; set; }
+    public string NomFournisseur { get; set; } = null!;
+    public int AdresseId { get; set; }
+    public string? NomResponsable { get; set; }
+    public string? PrenomResponsable { get; set; }
+    public string? CourrielResponsable { get; set; }
+    public string? TelephoneResponsable { get; set; }
     public byte[] RowVersion { get; set; } = null!;
-    public DateTime DateCreated { get; set; }
-    public DateTime DateUpdated { get; set; }
+    public DateTime? DateCreated { get; set; }
+    public DateTime? DateUpdated { get; set; }
+    public DateTime? DateDeleted { get; set; }
 
 
-    public FournisseursDTO(string nomFournisseur, string nomResponsable, string prenomResponsable) {
+    public FournisseursDTO(string nomFournisseur, string nomResponsable, string prenomResponsable, string courrielResponsable, string telephoneResponsable) {
         this.NomFournisseur = nomFournisseur;
         this.NomResponsable = nomResponsable;
         this.PrenomResponsable = prenomResponsable;
+        this.CourrielResponsable = courrielResponsable;
+        this.TelephoneResponsable = telephoneResponsable;
+    }
+
+    protected FournisseursDTO(int id, string nomFournisseur,int adresseId, string nomResponsable, string prenomResponsable,
+        string courrielResponsable, string telephoneResponsable, DateTime? dateCreated,
+        DateTime? dateUpdated, DateTime? dateDeleted, byte[] rowVersion)
+        : this(nomFournisseur, nomResponsable, prenomResponsable, courrielResponsable, telephoneResponsable)
+    {
+        this.FournisseurId = id;
+        this.AdresseId = adresseId;
+        this.DateCreated = dateCreated;
+        this.DateUpdated = dateUpdated;
+        this.DateDeleted = dateDeleted;
+        this.RowVersion = rowVersion;
     }
 
     public static bool ValidateNomFournisseur(string nomFournisseur) {
@@ -32,7 +49,10 @@ public class FournisseursDTO : AbstractDTO<int> {
     }
     public static bool ValidatePrenomResponsable(string prenomResponsable) {
         return prenomResponsable.Length >= PRENOMRESPONSABLE_MIN_LENGTH && prenomResponsable.Length <= PRENOMRESPONSABLE_MAX_LENGTH;
-    }       
+    }
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.NomFournisseur;
+    }
 
 
 }

@@ -15,6 +15,12 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
         this.Context = context;
     }
 
+    public override FournisseursDTO Create(FournisseursDTO instance)
+    {
+        instance.DateCreated = DateTime.Now;
+        return base.Create(instance);
+    }
+
     public override FournisseursDTO Update(FournisseursDTO instance) {
         instance.DateUpdated = DateTime.Now;
         return base.Update(instance);
@@ -23,5 +29,15 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
     public override FournisseursDTO Delete(FournisseursDTO instance) {
         instance.DateDeleted = DateTime.Now;
         return base.Delete(instance);
+    }
+
+    public override IEnumerable<FournisseursDTO> GetAll()
+    {
+        return base.GetAll().Where(x => x.DateDeleted == null);
+    }
+
+    public override FournisseursDTO GetById(int id)
+    {
+        return base.GetById(id);
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 
@@ -14,6 +15,7 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 /// </summary>
 public abstract class AbstractContext : DbContext {
 
+    
     /// <summary>
     /// Méthode générique permettant d'obtenir le <see cref="DbSet{TEntity}"/> d'une entité
     /// spécifique défini dans une classe de contexte concrète.<br/>
