@@ -21,9 +21,9 @@ public class UserDTO : AbstractDTO<int> {
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameUser, string passwordUser) {
-        this.UserName = nameUser;
-        this.Password = passwordUser;
+    public UserDTO(string nameuser, string passworduser) {
+        this.UserName = nameuser;
+        this.Password = passworduser;
     }
 
     public static bool ValidateNameUser(string nameUser) {

@@ -26,4 +26,9 @@ internal class RoleDAO : AbstractDao<RoleDTO, int> {
         instance.DateDelete = DateTime.Now;
         return base.Delete(instance);
     }
+    public override RoleDTO Create(RoleDTO instance) {
+
+        instance.DateCreate = DateTime.Now;
+        return base.Create(instance);
+    }
 }
