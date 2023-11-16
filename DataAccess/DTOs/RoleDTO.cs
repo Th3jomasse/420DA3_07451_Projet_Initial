@@ -20,9 +20,10 @@ public class RoleDTO : AbstractDTO<int> {
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
 
-    public RoleDTO(string nameRole, string descriptionRole) {
+    public RoleDTO(string nameRole, string descriptionRole, string Userid) {
         this.RoleName = nameRole;
         this.RoleDescription = descriptionRole;
+        this.UserId = Userid;
     }
 
     public static bool ValidateNameRole(string nameRole) {
@@ -31,5 +32,9 @@ public class RoleDTO : AbstractDTO<int> {
 
     public static bool ValidateDescriptionRole(string descriptionRole) {
         return descriptionRole.Length >= ROLEDESCRIPTION_MAX_LENGTH;
+    }
+
+    public static implicit operator RoleDTO(string v) {
+        throw new NotImplementedException();
     }
 }

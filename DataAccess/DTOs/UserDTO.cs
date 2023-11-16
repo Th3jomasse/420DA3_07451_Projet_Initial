@@ -21,9 +21,10 @@ public class UserDTO : AbstractDTO<int> {
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameuser, string passworduser) {
+    public UserDTO(string nameuser, string passworduser, string Roleid) {
         this.UserName = nameuser;
         this.Password = passworduser;
+        this.RoleId = Roleid;
     }
 
     public static bool ValidateNameUser(string nameUser) {
@@ -31,5 +32,9 @@ public class UserDTO : AbstractDTO<int> {
     }
     public static bool ValidatePasswordUser(string passwordUser) {
         return passwordUser.Length >= NAME_MIN_LENGTH && passwordUser.Length <= NAME_MAX_LENGTH;
+    }
+
+    public static implicit operator UserDTO(string v) {
+        throw new NotImplementedException();
     }
 }

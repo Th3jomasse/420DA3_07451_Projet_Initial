@@ -15,6 +15,8 @@ public class AppDbContext : AbstractContext {
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
     public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
     public DbSet<DTOs.Pivots.ShippingOrderProducts> ShippingOrderProducts { get; set; }
+    public DbSet<DTOs.UserDTO> users { get; set; }
+    public DbSet<DTOs.RoleDTO> Roles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         base.OnConfiguring(optionsBuilder);
@@ -125,6 +127,47 @@ public class AppDbContext : AbstractContext {
             .HasOne(sop => sop.Product)
             .WithMany(p => p.ShippingOrders)
             .HasForeignKey(sop => sop.ProductId);
-    #endregion
+        #endregion
+
+        #region Users
+        _ = modelBuilder.Entity<UserDTO>()
+            .ToTable("Users")
+            .HasKey(users => users.UserId);
+
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.UserId)
+            .HasColumnOrder(0);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.UserName)
+            .HasColumnOrder(1)
+            .HasColumnType($"nvarchar({UserDTO.NAME_MAX_LENGTH})")
+            .HasColumnName("Name");
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Password)
+            .HasColumnOrder(2)
+            .HasColumnType($"nvarchar({UserDTO.NAME_MAX_LENGTH})")
+            .HasColumnName("PasswordHash")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.RoleId)
+            .HasColumnOrder(3)
+            .HasColumnName("RoleId")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateCreation)
+            .HasColumnOrder(4)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateCreation")
+            .HasDefaultValueSql("getdate()")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateUpdate)
+            .HasColumnOrder(5)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateUpdated")
+            .HasDefaultValueSql("getdate()")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateDelete)
+            .HasColumnOrder(6)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateDeleted")
+            .IsRequired(false);
+
+        _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleID") { Id = 1 });
+        #endregion
     }
 }
