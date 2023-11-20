@@ -37,4 +37,7 @@ public class UserDTO : AbstractDTO<int> {
     public static implicit operator UserDTO(string v) {
         throw new NotImplementedException();
     }
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.UserName;
+    }
 }

@@ -129,7 +129,7 @@ public class AppDbContext : AbstractContext {
             .HasForeignKey(sop => sop.ProductId);
         #endregion
 
-        #region Users
+    #region Users
         _ = modelBuilder.Entity<UserDTO>()
             .ToTable("Users")
             .HasKey(users => users.UserId);
@@ -168,6 +168,47 @@ public class AppDbContext : AbstractContext {
             .IsRequired(false);
 
         _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleID") { Id = 1 });
+        #endregion
+
+        #region Roles
+        _ = modelBuilder.Entity<RoleDTO>()
+            .ToTable("Users")
+            .HasKey(users => users.UserId);
+
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.UserId)
+            .HasColumnOrder(0);
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.RoleName)
+            .HasColumnOrder(1)
+            .HasColumnType($"nvarchar({RoleDTO.NAME_MAX_LENGTH})")
+            .HasColumnName("RoleName");
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.RoleDescription)
+            .HasColumnOrder(2)
+            .HasColumnType($"nvarchar({RoleDTO.NAME_MAX_LENGTH})")
+            .HasColumnName("RoleDescription")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.UserId)
+            .HasColumnOrder(3)
+            .HasColumnName("UserId")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.DateCreate)
+            .HasColumnOrder(4)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateCreation")
+            .HasDefaultValueSql("getdate()")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.DateUpdate)
+            .HasColumnOrder(5)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateUpdated")
+            .HasDefaultValueSql("getdate()")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<RoleDTO>().Property(users => users.DateDelete)
+            .HasColumnOrder(6)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateDeleted")
+            .IsRequired(false);
+
+        _ = modelBuilder.Entity<RoleDTO>().HasData(new RoleDTO("TestRoleName", "TestRoleDescription", "TestUserId") { Id = 1 });
         #endregion
     }
 }

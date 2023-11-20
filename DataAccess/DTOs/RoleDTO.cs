@@ -37,4 +37,7 @@ public class RoleDTO : AbstractDTO<int> {
     public static implicit operator RoleDTO(string v) {
         throw new NotImplementedException();
     }
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.RoleName;
+    }
 }
