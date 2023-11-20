@@ -44,9 +44,9 @@ public class UserDAO: AbstractDao<UserDTO, int> {
             .Include(user => user.RoleId)
             .ToList();
     }
-    public UserDTO? GetByUsername(string username) { 
+    public UserDTO? GetByUsername(string nameUser) { 
         return this.Context.GetDbSet<UserDTO>()
-            .Where(user => user.UserName == username)
+            .Where(user => user.UserName == nameUser)
             .Include(user => user.RoleId)
             .SingleOrDefault();
     }
