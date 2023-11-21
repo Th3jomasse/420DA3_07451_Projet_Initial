@@ -11,6 +11,7 @@ public class RoleDTO : AbstractDTO<int> {
     public int RoleId { get; set; }
     public string RoleName { get; set; } = null!;
     public string RoleDescription { get; set; } = null!;
+    public byte[] RowVersion { get; set; }
     public UserDTO UserId { get; set; }
     public DateTime? DateCreate { get; set; }
     public DateTime? DateUpdate { get; set; }
@@ -20,10 +21,11 @@ public class RoleDTO : AbstractDTO<int> {
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
 
-    public RoleDTO(string nameRole, string descriptionRole, string UserId) {
+    public RoleDTO(string nameRole, string descriptionRole, string userId, byte[] rowVersion) {
         this.RoleName = nameRole;
         this.RoleDescription = descriptionRole;
-        this.UserId = UserId;
+        this.UserId = userId;
+        this.RowVersion = rowVersion;
     }
 
     public static bool ValidateNameRole(string nameRole) {
@@ -38,6 +40,6 @@ public class RoleDTO : AbstractDTO<int> {
         throw new NotImplementedException();
     }
     public override string ToString() {
-        return this.Id.ToString() + " - " + this.RoleName;
+        return this.RoleId.ToString() + " - " + this.RoleName + " - " + this.RoleDescription + " = " + this.UserId + " = " + this.DateCreate + " = " + this.DateUpdate + " = " + this.DateDelete;
     }
 }

@@ -11,6 +11,7 @@ public class UserDTO : AbstractDTO<int> {
     public int UserId { get; set; }
     public string UserName { get; set; } = null!;
     public string Password { get; set; } = null!;
+    public byte[] RowVersion { get; set; } = null;
     public RoleDTO RoleId { get; set; }
     public DateTime? DateCreation { get; set; }
     public DateTime? DateUpdate { get; set; }
@@ -21,10 +22,11 @@ public class UserDTO : AbstractDTO<int> {
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameUser, string passwordUser, string RoleId) {
+    public UserDTO(string nameUser, string passwordUser, string roleId, byte[] rowVersion) {
         this.UserName = nameUser;
         this.Password = passwordUser;
-        this.RoleId = RoleId;
+        this.RoleId = roleId;
+        this.RowVersion = rowVersion;
     }
 
     public static bool ValidateNameUser(string nameUser) {
@@ -38,6 +40,6 @@ public class UserDTO : AbstractDTO<int> {
         throw new NotImplementedException();
     }
     public override string ToString() {
-        return this.Id.ToString() + " - " + this.UserName;
+        return this.UserId.ToString() + " - " + this.UserName + " = " + this.Password + " = " + this.RoleId + " = " + this.DateCreation + " = " + this.DateUpdate + " = " + this.DateDelete;
     }
 }
