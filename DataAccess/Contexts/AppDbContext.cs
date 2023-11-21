@@ -170,7 +170,7 @@ public class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleID") { Id = 1 });
         #endregion
 
-        #region Roles
+    #region Roles
         _ = modelBuilder.Entity<RoleDTO>()
             .ToTable("Users")
             .HasKey(users => users.UserId);

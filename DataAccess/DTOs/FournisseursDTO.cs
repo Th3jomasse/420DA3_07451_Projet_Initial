@@ -19,6 +19,14 @@ public class FournisseursDTO : AbstractDTO<int> {
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
 
+    public const int NOMFOURNISSEUR_MIN_LENGTH = 3;
+    public const int NOMFOURNISSEUR_MAX_LENGTH = 50;
+    public const int NOMRESPONSABLE_MIN_LENGTH = 3;
+    public const int NOMRESPONSABLE_MAX_LENGTH = 50;
+    public const int PRENOMRESPONSABLE_MIN_LENGTH = 3;
+    public const int PRENOMRESPONSABLE_MAX_LENGTH = 50;
+
+    public FournisseursDTO(){ }
 
     public FournisseursDTO(string nomFournisseur, string nomResponsable, string prenomResponsable, string courrielResponsable, string telephoneResponsable) {
         this.NomFournisseur = nomFournisseur;
@@ -53,6 +61,11 @@ public class FournisseursDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.NomFournisseur;
     }
+    public override string ToInsert()
+    {
+        return $"INSERT INTO Fournisseurs (NomFournisseur, NomResponsable, PrenomResponsable, CourrielResponsable, TelephoneResponsable) " +
+               $"VALUES ('{this.NomFournisseur}', '{this.NomResponsable}', '{this.PrenomResponsable}', '{this.CourrielResponsable}', '{this.TelephoneResponsable}')";
+    }           
 
 
 }
