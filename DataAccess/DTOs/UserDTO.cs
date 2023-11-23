@@ -10,24 +10,28 @@ public class UserDTO : AbstractDTO<int> {
 
     public int UserId { get; set; }
     public string UserName { get; set; } = null!;
-    public string Password { get; set; } = null!;
+    public string Password { get; set; }
     public byte[]? RowVersion { get; set; } = null;
     public RoleDTO RoleId { get; set; }
     public DateTime? DateCreation { get; set; }
-    public DateTime? DateUpdate { get; set; }
-    public DateTime? DateDelete { get; set; }
+    public WarehouseDTO Warehouse { get; set; }
+    public WarehouseDTO Id { get; set; }
+    //public DateTime? DateUpdate { get; set; }
+    //public DateTime? DateDelete { get; set; }
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameUser, string passwordUser, int userId) {
+    public UserDTO(string nameUser, string passwordUser, int userId, WarehouseDTO warehouse, WarehouseDTO id) {
         this.UserName = nameUser;
         this.Password = passwordUser;
         this.UserId = userId;
+        this.Warehouse = warehouse;
+        this.Id = id;
     }
-    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion)
+    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion, WarehouseDTO warehouse, WarehouseDTO id)
         : this(userName, passWord, userId) {
         this.UserId = userId;
         this.RowVersion = rowVersion;

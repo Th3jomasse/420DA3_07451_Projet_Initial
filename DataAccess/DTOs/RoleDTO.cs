@@ -13,13 +13,17 @@ public class RoleDTO : AbstractDTO<int> {
     public string RoleDescription { get; set; } = null!;
     public byte[]? RowVersion { get; set; } = null;
     public UserDTO UserId { get; set; }
-    public DateTime? DateCreate { get; set; }
-    public DateTime? DateUpdate { get; set; }
-    public DateTime? DateDelete { get; set; }
+    //public DateTime? DateCreate { get; set; }
+    //public DateTime? DateUpdate { get; set; }
+    //public DateTime? DateDelete { get; set; }
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
+
+    public const int ADMINISTRATOR_ROLE_ID = 1;
+    public const int OFFICE_EMPLOYEE_ROLE_ID = 2;
+    public const int WAREHOUSE_EMPLOYEE_ROLE_ID = 3;
 
     public RoleDTO(string nameRole, string descriptionRole) {
         this.RoleName = nameRole;
