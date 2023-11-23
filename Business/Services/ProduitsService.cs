@@ -40,4 +40,33 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
     protected override IDtoManagementView<ProduitsDTO> DtoManagementWindow {
         get { throw new NotImplementedException(); }
     }
+
+    public ProduitsDTO? FindProduitById(int id) {
+        return this.Dao.GetById(id);
+    }
+
+    public ProduitsDTO? FindProduitByCode(int code) {
+        return this.Dao.GetByCode(code);
+    }
+
+    public ProduitsDTO? FindProduitByNom(string nom) {
+        return this.Dao.GetByNom(nom);
+    }
+
+    public ProduitsDTO? FindProduitByUpc(int upc) {
+        return this.Dao.GetByUpc(upc);
+    }
+
+    public ProduitsDTO? FindProduitByClientId(int clientId) {
+        return this.Dao.GetByClientId(clientId);
+    }
+
+    public ProduitsDTO? FindProduitByFournisseurId(int fournisseurId) {
+        return this.Dao.GetByFournisseurId(fournisseurId);
+    }
+
+    public ProduitsDTO? FindProduitByCodeFournisseur(int codeFournisseur) {
+        return this.Dao.GetByCodeFournisseur(codeFournisseur);
+    }
+    
 }

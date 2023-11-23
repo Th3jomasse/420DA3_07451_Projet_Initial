@@ -31,9 +31,30 @@ public class FournisseursService : AbstractDtoService<FournisseursDTO, int>
             this.DtoManagementWindow.Dispose();
         }
     }
+
     protected override IDtoManagementView<FournisseursDTO> DtoManagementWindow
     {
         get { throw new NotImplementedException(); }
+    }
+
+    public FournisseursDTO? FindFournisseurById(int id) {
+        return this.Dao.GetById(id);
+    }
+
+    public FournisseursDTO? FindFournisseurByCode(int code) {
+        return this.Dao.GetByCode(code);
+    }
+
+    public FournisseursDTO? FindFournisseurByNom(string nom) {
+        return this.Dao.GetByNom(nom);
+    }
+
+    public FournisseursDTO? FindFournisseurByTelephone(string telephone) {
+        return this.Dao.GetByTelephone(telephone);
+    }
+
+    public FournisseursDTO? FindFournisseurByAdresse(string adresse) {
+        return this.Dao.GetByAdresse(adresse);
     }
     
 }

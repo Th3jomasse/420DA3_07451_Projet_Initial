@@ -38,4 +38,28 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
     {
         return base.GetById(id);
     }
+
+    public ProduitsDTO? GetByCode(int code) {
+        return this.GetAll().FirstOrDefault(x => x.CodeProduit == code);
+    }
+
+    public ProduitsDTO? GetByNom(string nom) {
+        return this.GetAll().FirstOrDefault(x => x.NomProduit == nom);
+    }
+
+    public ProduitsDTO? GetByUpc(int upc) {
+        return this.GetAll().FirstOrDefault(x => x.Upc == upc);
+    }
+
+    public ProduitsDTO? GetByClientId(int clientId) {
+        return this.GetAll().FirstOrDefault(x => x.ClientId == clientId);
+    }
+
+    public ProduitsDTO? GetByFournisseurId(int fournisseurId) {
+        return this.GetAll().FirstOrDefault(x => x.FournisseurId == fournisseurId);
+    }
+
+    public ProduitsDTO? GetByCodeFournisseur(int codeFournisseur) {
+        return this.GetAll().FirstOrDefault(x => x.CodeFournisseur == codeFournisseur);
+    }
 }

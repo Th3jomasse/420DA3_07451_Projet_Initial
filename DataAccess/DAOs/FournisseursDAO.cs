@@ -40,4 +40,19 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
     {
         return base.GetById(id);
     }
+
+    public FournisseursDTO? GetByCode(int code) {
+        return this.GetAll().FirstOrDefault(x => x.CodeFournisseur == code);
+    }
+    public FournisseursDTO? GetByNom(string nom) {
+        return this.GetAll().FirstOrDefault(x => x.NomFournisseur == nom);
+    }
+
+    public FournisseursDTO? GetByTelephone(string telephone) {
+        return this.GetAll().FirstOrDefault(x => x.Telephone == telephone);
+    }
+
+    public FournisseursDTO? GetByAdresse(string adresse) {
+        return this.GetAll().FirstOrDefault(x => x.Adresse == adresse);
+    }
 }

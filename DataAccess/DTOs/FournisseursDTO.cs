@@ -65,8 +65,32 @@ public class FournisseursDTO : AbstractDTO<int> {
     {
         return $"INSERT INTO Fournisseurs (NomFournisseur, NomResponsable, PrenomResponsable, CourrielResponsable, TelephoneResponsable) " +
                $"VALUES ('{this.NomFournisseur}', '{this.NomResponsable}', '{this.PrenomResponsable}', '{this.CourrielResponsable}', '{this.TelephoneResponsable}')";
-    }           
+    }
 
+    public override string ToUpdate() {
+        return $"UPDATE Fournisseurs SET NomFournisseur = '{this.NomFournisseur}', NomResponsable = '{this.NomResponsable}', PrenomResponsable = '{this.PrenomResponsable}', CourrielResponsable = '{this.CourrielResponsable}', TelephoneResponsable = '{this.TelephoneResponsable}' " +
+               $"WHERE FournisseurId = {this.Id}";
+    }
+
+    public override string ToDelete() {
+        return $"DELETE FROM Fournisseurs WHERE FournisseurId = {this.Id}";
+    }
+
+    public override string ToSelect() {
+        return $"SELECT * FROM Fournisseurs WHERE FournisseurId = {this.Id}";
+    }
+
+    public override string ToSelectAll() {
+        return $"SELECT * FROM Fournisseurs";
+    }
+
+    public override string ToSelectLast() {
+        return $"SELECT TOP 1 * FROM Fournisseurs ORDER BY FournisseurId DESC";
+    }
+
+    public override string ToSelectBy(string field, string value) {
+        return $"SELECT * FROM Fournisseurs WHERE {field} = '{value}'";
+    }
 
 }
 

@@ -22,6 +22,13 @@ public class ProduitsDTO : AbstractDTO<int> {
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
 
+    public const int UPC_MIN_LENGTH = 3;
+    public const int UPC_MAX_LENGTH = 50;
+    public const int NOM_MIN_LENGTH = 3;
+    public const int NOM_MAX_LENGTH = 50;
+    public const int DESCRIPTION_MIN_LENGTH = 3;
+    public const int DESCRIPTION_MAX_LENGTH = 50;
+
     public ProduitsDTO(string nom, string description, int upc)
     {
         this.NomProduit = nom;
@@ -57,6 +64,39 @@ public class ProduitsDTO : AbstractDTO<int> {
     {
         return $"INSERT INTO Produits (ProduitUpc, NomProduit, Description, ClientId, FournisseurId, CodeFournisseur, UnitesEnStock, NiveauDeReappro, PoidsKilo, RowVersion, DateCreated, DateUpdated, DateDeleted) " +
             $"VALUES ({this.ProduitUpc}, '{this.NomProduit}', '{this.Description}', {this.ClientId}, {this.FournisseurId}, {this.CodeFournisseur}, {this.UnitesEnStock}, {this.NiveauDeReappro}, {this.PoidsKilo}, {this.RowVersion}, {this.DateCreated}, {this.DateUpdated}, {this.DateDeleted})";
+    }
+
+    public override string ToUpdate() {
+        return $"UPDATE Produits SET ProduitUpc = {this.ProduitUpc}, NomProduit = '{this.NomProduit}', Description = '{this.Description}', ClientId = {this.ClientId}, FournisseurId = {this.FournisseurId}, CodeFournisseur = {this.CodeFournisseur}, UnitesEnStock = {this.UnitesEnStock}, NiveauDeReappro = {this.NiveauDeReappro}, PoidsKilo = {this.PoidsKilo}, RowVersion = {this.RowVersion}, DateCreated = {this.DateCreated}, DateUpdated = {this.DateUpdated}, DateDeleted = {this.DateDeleted} " +
+            $"WHERE ProduitId = {this.Id}";
+    }
+
+    public override string ToDelete() {
+        return $"DELETE FROM Produits WHERE ProduitId = {this.Id}";
+    }
+
+    public override string ToSelect() {
+        return $"SELECT * FROM Produits WHERE ProduitId = {this.Id}";
+    }
+
+    public override string ToSelectAll() {
+        return $"SELECT * FROM Produits";
+    }
+
+    public override string ToSelectLast() {
+        return $"SELECT TOP 1 * FROM Produits ORDER BY ProduitId DESC";
+    }
+
+    public override string ToSelectByForeignKey() {
+        return $"SELECT * FROM Produits WHERE FournisseurId = {this.FournisseurId}";
+    }
+
+    public override string ToSelectByForeignKey2() {
+        return $"SELECT * FROM Produits WHERE ClientId = {this.ClientId}";
+    }
+
+    public override string ToSelectByForeignKey3() {
+        return $"SELECT * FROM Produits WHERE CodeFournisseur = {this.CodeFournisseur}";
     }
 
 }

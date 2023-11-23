@@ -108,7 +108,35 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(6)
             .HasColumnName("Version")
             .IsRowVersion();
-
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Upc)
+            .HasColumnOrder(7)
+            .HasColumnName("Upc")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.ClientId)
+            .HasColumnOrder(8)
+            .HasColumnName("ClientId")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.FournisseurId)
+            .HasColumnOrder(9)
+            .HasColumnName("FournisseurId")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.CodeFournisseur)
+            .HasColumnOrder(10)
+            .HasColumnName("CodeFournisseur")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.UnitesEnStock)
+            .HasColumnOrder(11)
+            .HasColumnName("UnitesEnStock")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.NiveauDeReappro)
+            .HasColumnOrder(12)
+            .HasColumnName("NiveauDeReappro")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.PoidsKilo)
+            .HasColumnOrder(13)
+            .HasColumnName("PoidsKilo")
+            .IsRequired(true);
+        
         _ = modelBuilder.Entity<ProduitsDTO>().HasData(new ProduitsDTO("TestNomProduit", "TestDescription") { Id = 1 });
 
     #endregion
@@ -168,7 +196,18 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(7)
             .HasColumnName("WarehouseId")
             .IsRequired(true);
-
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateUpdated)
+            .HasColumnOrder(8)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateUpdated")
+            .HasDefaultValueSql("getdate()")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateDeleted)
+            .HasColumnOrder(9)
+            .HasColumnType("datetime2(7)")
+            .HasColumnName("DateDeleted")
+            .IsRequired(false);
+       
         _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleId", "TestWarehouse", "TestWarehouseId") { Id = 1 });
         #endregion
 
