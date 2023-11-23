@@ -16,18 +16,6 @@ public class UserDAO: AbstractDao<UserDTO, int> {
     public UserDAO(AbstractContext context) : base() {
         this.Context = context;
     }
-
-    public override UserDTO Update(UserDTO instance) {
-
-        instance.DateUpdate = DateTime.Now;
-        return base.Update(instance);
-    }
-
-    public override UserDTO Delete(UserDTO instance) {
-
-        instance.DateDelete = DateTime.Now;
-        return base.Delete(instance);
-    }
     public override UserDTO Create(UserDTO instance) {
 
         instance.DateCreation = DateTime.Now;
@@ -35,7 +23,7 @@ public class UserDAO: AbstractDao<UserDTO, int> {
     }
     public override UserDTO? GetById(int identifier) {
         return this.Context.GetDbSet<UserDTO>()
-            .Where(user => user.Id == identifier)
+            .Where(user => user.UserId == identifier)
             .Include(user => user.RoleId)
             .SingleOrDefault();
     }

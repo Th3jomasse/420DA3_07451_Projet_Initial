@@ -31,12 +31,18 @@ public class UserDTO : AbstractDTO<int> {
         this.Warehouse = warehouse;
         this.Id = id;
     }
-    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion, WarehouseDTO warehouse, WarehouseDTO id)
+    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion)
         : this(userName, passWord, userId) {
         this.UserId = userId;
         this.RowVersion = rowVersion;
     }
     public UserDTO() : base() { }
+
+    public UserDTO(string userName, string passWord, int userId) {
+        this.UserName = userName;
+        this.Password = passWord;
+        this.UserId = userId;
+    }
 
     public static bool ValidateNameUser(string nameUser) {
         return nameUser.Length >= NAME_MIN_LENGTH && nameUser.Length <= NAME_MAX_LENGTH;

@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
@@ -12,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class RoleService : AbstractDtoService<RoleDTO, int>{
-    protected override RoleDAO theDao { get; }
+    protected override RoleDAO Dao { get; }
 
-    protected override ExampleDtoWindow DtoManagementWindow { get; }
+    protected override RoleManagementForm DtoManagementWindow { get; }
 
     public RoleService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
-        this.theDao = new RoleDAO(context);
-        this.DtoManagementWindow = new ExampleDtoWindow(facade);
+        this.Dao = new RoleDAO(context);
+        this.DtoManagementWindow = new RoleManagementForm(facade);
     }
 
     public override void Shutdown() {
