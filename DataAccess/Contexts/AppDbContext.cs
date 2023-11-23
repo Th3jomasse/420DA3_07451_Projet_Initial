@@ -156,23 +156,20 @@ public class AppDbContext : AbstractContext {
             .HasColumnName("DateCreation")
             .HasDefaultValueSql("getdate()")
             .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateUpdate)
-            .HasColumnOrder(5)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateUpdated")
-            .HasDefaultValueSql("getdate()")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateDelete)
-            .HasColumnOrder(6)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateDeleted")
-            .IsRequired(false);
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.RowVersion)
-            .HasColumnOrder(7)
+            .HasColumnOrder(5)
             .HasColumnName("Version")
             .IsRowVersion();
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Warehouse)
+            .HasColumnOrder(6)
+            .HasColumnName("Warehouse")
+            .IsRequired(true);
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Id)
+            .HasColumnOrder(7)
+            .HasColumnName("WarehouseId")
+            .IsRequired(true);
 
-        _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleId") { Id = 1 });
+        _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleId", "TestWarehouse", "TestWarehouseId") { Id = 1 });
         #endregion
 
     #region Roles
@@ -195,29 +192,12 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(3)
             .HasColumnName("UserId")
             .IsRequired(true);
-        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.DateCreate)
-            .HasColumnOrder(4)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateCreation")
-            .HasDefaultValueSql("getdate()")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.DateUpdate)
-            .HasColumnOrder(5)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateUpdated")
-            .HasDefaultValueSql("getdate()")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.DateDelete)
-            .HasColumnOrder(6)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateDeleted")
-            .IsRequired(false);
         _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.RowVersion)
-            .HasColumnOrder(7)
+            .HasColumnOrder(4)
             .HasColumnName("Version")
             .IsRowVersion();
 
-        _ = modelBuilder.Entity<RoleDTO>().HasData(new RoleDTO("TestRoleName", "TestRoleDescription", "TestUserId") { Id = 1 });
+        _ = modelBuilder.Entity<RoleDTO>().HasData(new RoleDTO("TestRoleName", "TestRoleDescription") { Id = 1 });
         #endregion
     }
 }
