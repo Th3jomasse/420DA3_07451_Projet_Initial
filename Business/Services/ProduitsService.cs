@@ -10,6 +10,15 @@ using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation;
 
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
+using _420DA3_07451_Projet_Initial.Presentation.DTOs;
+
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
 

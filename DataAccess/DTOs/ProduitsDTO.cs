@@ -52,10 +52,11 @@ public class ProduitsDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.NomProduit;
     }
+
     public override string ToInsert()
     {
-        return $"INSERT INTO Produits (ProduitUpc, NomProduit, Description, UnitesEnStock, NiveauDeReappro, PoidsKilo) " +
-               $"VALUES ('{this.ProduitUpc}', '{this.NomProduit}', '{this.Description}', '{this.UnitesEnStock}', '{this.NiveauDeReappro}', '{this.PoidsKilo}')";
+        return $"INSERT INTO Produits (ProduitUpc, NomProduit, Description, ClientId, FournisseurId, CodeFournisseur, UnitesEnStock, NiveauDeReappro, PoidsKilo, RowVersion, DateCreated, DateUpdated, DateDeleted) " +
+            $"VALUES ({this.ProduitUpc}, '{this.NomProduit}', '{this.Description}', {this.ClientId}, {this.FournisseurId}, {this.CodeFournisseur}, {this.UnitesEnStock}, {this.NiveauDeReappro}, {this.PoidsKilo}, {this.RowVersion}, {this.DateCreated}, {this.DateUpdated}, {this.DateDeleted})";
     }
 
 }
