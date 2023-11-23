@@ -21,11 +21,16 @@ public class RoleDTO : AbstractDTO<int> {
     public const int NAME_MAX_LENGTH = 64;
     public const int ROLEDESCRIPTION_MAX_LENGTH = 256;
 
-    public RoleDTO(string nameRole, string descriptionRole, string userId) {
+    public RoleDTO(string nameRole, string descriptionRole) {
         this.RoleName = nameRole;
         this.RoleDescription = descriptionRole;
-        this.UserId = userId;
     }
+    protected RoleDTO(int roleId, string roleName, string roleDescription, byte[] rowVersion) 
+        : this(roleName, roleDescription) {
+        this.RoleId = roleId;
+        this.RowVersion = rowVersion;
+    }
+    public RoleDTO() : base() { }
 
     public static bool ValidateNameRole(string nameRole) {
         return nameRole.Length >= NAME_MIN_LENGTH && nameRole.Length <= NAME_MAX_LENGTH;
@@ -39,6 +44,6 @@ public class RoleDTO : AbstractDTO<int> {
         throw new NotImplementedException();
     }
     public override string ToString() {
-        return this.RoleId.ToString() + " - " + this.RoleName + " - " + this.RoleDescription + " = " + this.UserId + " = " + this.DateCreate + " = " + this.DateUpdate + " = " + this.DateDelete;
+        return this.RoleId.ToString() + " - " + this.RoleName;
     }
 }

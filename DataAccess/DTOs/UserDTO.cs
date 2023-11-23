@@ -22,11 +22,17 @@ public class UserDTO : AbstractDTO<int> {
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameUser, string passwordUser, string roleId) {
+    public UserDTO(string nameUser, string passwordUser, int userId) {
         this.UserName = nameUser;
         this.Password = passwordUser;
-        this.RoleId = roleId;
+        this.UserId = userId;
     }
+    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion)
+        : this(userName, passWord, userId) {
+        this.UserId = userId;
+        this.RowVersion = rowVersion;
+    }
+    public UserDTO() : base() { }
 
     public static bool ValidateNameUser(string nameUser) {
         return nameUser.Length >= NAME_MIN_LENGTH && nameUser.Length <= NAME_MAX_LENGTH;
@@ -39,6 +45,6 @@ public class UserDTO : AbstractDTO<int> {
         throw new NotImplementedException();
     }
     public override string ToString() {
-        return this.UserId.ToString() + " - " + this.UserName + " = " + this.Password + " = " + this.RoleId + " = " + this.DateCreation + " = " + this.DateUpdate + " = " + this.DateDelete;
+        return this.UserId.ToString() + " - " + this.UserName;
     }
 }
