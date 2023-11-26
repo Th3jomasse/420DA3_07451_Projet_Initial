@@ -16,8 +16,6 @@ public class UserDTO : AbstractDTO<int> {
     public DateTime? DateCreation { get; set; }
     public WarehouseDTO Warehouse { get; set; }
     public WarehouseDTO Id { get; set; }
-    //public DateTime? DateUpdate { get; set; }
-    //public DateTime? DateDelete { get; set; }
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;

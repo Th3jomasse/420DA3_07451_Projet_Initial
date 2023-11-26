@@ -24,41 +24,21 @@ partial class RoleManagementForm {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        PrenomtextBox = new TextBox();
-        Prenomlabel = new Label();
         actionButton = new Button();
         cancelButton = new Button();
-        dateCreatedLabel = new Label();
-        dateCreatedBox = new DateTimePicker();
-        descriptionLabel = new Label();
+        roleDescriptionLabel = new Label();
         descriptionTextBox = new TextBox();
-        nameTextBox = new TextBox();
-        nameLabel = new Label();
+        roleNameTextBox = new TextBox();
+        RolenameLabel = new Label();
         idTextBox = new TextBox();
         idLabel = new Label();
-        RoleIdlabel = new Label();
+        userIdlabel = new Label();
         RoleIdtextBox = new TextBox();
         this.SuspendLayout();
         // 
-        // PrenomtextBox
-        // 
-        PrenomtextBox.Location = new Point(154, 90);
-        PrenomtextBox.Name = "PrenomtextBox";
-        PrenomtextBox.Size = new Size(331, 23);
-        PrenomtextBox.TabIndex = 45;
-        // 
-        // Prenomlabel
-        // 
-        Prenomlabel.Location = new Point(25, 89);
-        Prenomlabel.Name = "Prenomlabel";
-        Prenomlabel.Size = new Size(123, 23);
-        Prenomlabel.TabIndex = 44;
-        Prenomlabel.Text = "Prenom:";
-        Prenomlabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
         // actionButton
         // 
-        actionButton.Location = new Point(543, 396);
+        actionButton.Location = new Point(253, 239);
         actionButton.Name = "actionButton";
         actionButton.Size = new Size(113, 23);
         actionButton.TabIndex = 43;
@@ -67,62 +47,45 @@ partial class RoleManagementForm {
         // 
         // cancelButton
         // 
-        cancelButton.Location = new Point(662, 396);
+        cancelButton.Location = new Point(372, 239);
         cancelButton.Name = "cancelButton";
         cancelButton.Size = new Size(113, 23);
         cancelButton.TabIndex = 42;
         cancelButton.Text = "Cancel";
         cancelButton.UseVisualStyleBackColor = true;
         // 
-        // dateCreatedLabel
+        // roleDescriptionLabel
         // 
-        dateCreatedLabel.Location = new Point(25, 266);
-        dateCreatedLabel.Name = "dateCreatedLabel";
-        dateCreatedLabel.Size = new Size(123, 23);
-        dateCreatedLabel.TabIndex = 37;
-        dateCreatedLabel.Text = "Date Created:";
-        dateCreatedLabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // dateCreatedBox
-        // 
-        dateCreatedBox.Enabled = false;
-        dateCreatedBox.Location = new Point(154, 266);
-        dateCreatedBox.Name = "dateCreatedBox";
-        dateCreatedBox.Size = new Size(331, 23);
-        dateCreatedBox.TabIndex = 36;
-        // 
-        // descriptionLabel
-        // 
-        descriptionLabel.Location = new Point(25, 170);
-        descriptionLabel.Name = "descriptionLabel";
-        descriptionLabel.Size = new Size(123, 23);
-        descriptionLabel.TabIndex = 35;
-        descriptionLabel.Text = "Description:";
-        descriptionLabel.TextAlign = ContentAlignment.MiddleRight;
+        roleDescriptionLabel.Location = new Point(25, 117);
+        roleDescriptionLabel.Name = "roleDescriptionLabel";
+        roleDescriptionLabel.Size = new Size(123, 23);
+        roleDescriptionLabel.TabIndex = 35;
+        roleDescriptionLabel.Text = "RoleDescription:";
+        roleDescriptionLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // descriptionTextBox
         // 
-        descriptionTextBox.Location = new Point(154, 170);
+        descriptionTextBox.Location = new Point(154, 117);
         descriptionTextBox.Multiline = true;
         descriptionTextBox.Name = "descriptionTextBox";
         descriptionTextBox.Size = new Size(331, 90);
         descriptionTextBox.TabIndex = 34;
         // 
-        // nameTextBox
+        // roleNameTextBox
         // 
-        nameTextBox.Location = new Point(154, 61);
-        nameTextBox.Name = "nameTextBox";
-        nameTextBox.Size = new Size(331, 23);
-        nameTextBox.TabIndex = 33;
+        roleNameTextBox.Location = new Point(154, 61);
+        roleNameTextBox.Name = "roleNameTextBox";
+        roleNameTextBox.Size = new Size(331, 23);
+        roleNameTextBox.TabIndex = 33;
         // 
-        // nameLabel
+        // RolenameLabel
         // 
-        nameLabel.Location = new Point(25, 60);
-        nameLabel.Name = "nameLabel";
-        nameLabel.Size = new Size(123, 23);
-        nameLabel.TabIndex = 32;
-        nameLabel.Text = "Name:";
-        nameLabel.TextAlign = ContentAlignment.MiddleRight;
+        RolenameLabel.Location = new Point(25, 60);
+        RolenameLabel.Name = "RolenameLabel";
+        RolenameLabel.Size = new Size(123, 23);
+        RolenameLabel.TabIndex = 32;
+        RolenameLabel.Text = "RoleName:";
+        RolenameLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // idTextBox
         // 
@@ -138,21 +101,21 @@ partial class RoleManagementForm {
         idLabel.Name = "idLabel";
         idLabel.Size = new Size(123, 23);
         idLabel.TabIndex = 30;
-        idLabel.Text = "ID:";
+        idLabel.Text = "RoleID:";
         idLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // RoleIdlabel
+        // userIdlabel
         // 
-        RoleIdlabel.Location = new Point(25, 118);
-        RoleIdlabel.Name = "RoleIdlabel";
-        RoleIdlabel.Size = new Size(123, 23);
-        RoleIdlabel.TabIndex = 46;
-        RoleIdlabel.Text = "RoleId:";
-        RoleIdlabel.TextAlign = ContentAlignment.MiddleRight;
+        userIdlabel.Location = new Point(25, 88);
+        userIdlabel.Name = "userIdlabel";
+        userIdlabel.Size = new Size(123, 23);
+        userIdlabel.TabIndex = 46;
+        userIdlabel.Text = "UserId:";
+        userIdlabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // RoleIdtextBox
         // 
-        RoleIdtextBox.Location = new Point(154, 118);
+        RoleIdtextBox.Location = new Point(154, 88);
         RoleIdtextBox.Name = "RoleIdtextBox";
         RoleIdtextBox.ReadOnly = true;
         RoleIdtextBox.Size = new Size(331, 23);
@@ -162,19 +125,15 @@ partial class RoleManagementForm {
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.ClientSize = new Size(800, 450);
+        this.ClientSize = new Size(586, 285);
         this.Controls.Add(RoleIdtextBox);
-        this.Controls.Add(RoleIdlabel);
-        this.Controls.Add(PrenomtextBox);
-        this.Controls.Add(Prenomlabel);
+        this.Controls.Add(userIdlabel);
         this.Controls.Add(actionButton);
         this.Controls.Add(cancelButton);
-        this.Controls.Add(dateCreatedLabel);
-        this.Controls.Add(dateCreatedBox);
-        this.Controls.Add(descriptionLabel);
+        this.Controls.Add(roleDescriptionLabel);
         this.Controls.Add(descriptionTextBox);
-        this.Controls.Add(nameTextBox);
-        this.Controls.Add(nameLabel);
+        this.Controls.Add(roleNameTextBox);
+        this.Controls.Add(RolenameLabel);
         this.Controls.Add(idTextBox);
         this.Controls.Add(idLabel);
         this.Name = "RoleManagementForm";
@@ -184,19 +143,14 @@ partial class RoleManagementForm {
     }
 
     #endregion
-
-    private TextBox PrenomtextBox;
-    private Label Prenomlabel;
     private Button actionButton;
     private Button cancelButton;
-    private Label dateCreatedLabel;
-    private DateTimePicker dateCreatedBox;
-    private Label descriptionLabel;
+    private Label roleDescriptionLabel;
     private TextBox descriptionTextBox;
-    private TextBox nameTextBox;
-    private Label nameLabel;
+    private TextBox roleNameTextBox;
+    private Label RolenameLabel;
     private TextBox idTextBox;
     private Label idLabel;
-    private Label RoleIdlabel;
+    private Label userIdlabel;
     private TextBox RoleIdtextBox;
 }
