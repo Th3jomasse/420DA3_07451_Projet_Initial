@@ -27,7 +27,7 @@ partial class RoleManagementForm {
         actionButton = new Button();
         cancelButton = new Button();
         roleDescriptionLabel = new Label();
-        descriptionTextBox = new TextBox();
+        roleDescriptionTextBox = new TextBox();
         roleNameTextBox = new TextBox();
         RolenameLabel = new Label();
         idTextBox = new TextBox();
@@ -63,13 +63,13 @@ partial class RoleManagementForm {
         roleDescriptionLabel.Text = "RoleDescription:";
         roleDescriptionLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // descriptionTextBox
+        // roleDescriptionTextBox
         // 
-        descriptionTextBox.Location = new Point(154, 117);
-        descriptionTextBox.Multiline = true;
-        descriptionTextBox.Name = "descriptionTextBox";
-        descriptionTextBox.Size = new Size(331, 90);
-        descriptionTextBox.TabIndex = 34;
+        roleDescriptionTextBox.Location = new Point(154, 117);
+        roleDescriptionTextBox.Multiline = true;
+        roleDescriptionTextBox.Name = "roleDescriptionTextBox";
+        roleDescriptionTextBox.Size = new Size(331, 90);
+        roleDescriptionTextBox.TabIndex = 34;
         // 
         // roleNameTextBox
         // 
@@ -131,7 +131,7 @@ partial class RoleManagementForm {
         this.Controls.Add(actionButton);
         this.Controls.Add(cancelButton);
         this.Controls.Add(roleDescriptionLabel);
-        this.Controls.Add(descriptionTextBox);
+        this.Controls.Add(roleDescriptionTextBox);
         this.Controls.Add(roleNameTextBox);
         this.Controls.Add(RolenameLabel);
         this.Controls.Add(idTextBox);
@@ -146,7 +146,7 @@ partial class RoleManagementForm {
     private Button actionButton;
     private Button cancelButton;
     private Label roleDescriptionLabel;
-    private TextBox descriptionTextBox;
+    private TextBox roleDescriptionTextBox;
     private TextBox roleNameTextBox;
     private Label RolenameLabel;
     private TextBox idTextBox;
