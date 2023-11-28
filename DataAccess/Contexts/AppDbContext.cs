@@ -176,9 +176,10 @@ public class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.Password)
             .HasColumnType($"nvarchar(128)")
             .HasColumnName("Username");
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Id)
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.WarehouseId)
             .HasColumnType($"int")
-            .HasColumnName("WarehouseId");
+            .HasColumnName("WarehouseId")
+            .IsRequired(false);
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateCreation)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateCreation")
