@@ -12,12 +12,14 @@ using Microsoft.EntityFrameworkCore;
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 
 public class AppDbContext : AbstractContext {
-    #region Fournisseurs
+
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
     public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
     public DbSet<DTOs.Pivots.ShippingOrderProducts> ShippingOrderProducts { get; set; }
     public DbSet<DTOs.UserDTO> Users { get; set; }
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
+    public DbSet<AddressDTO> Addresses { get; set; }
+    public DbSet<RestockOrderDTO> RestockOrders { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         base.OnConfiguring(optionsBuilder);
@@ -28,7 +30,95 @@ public class AppDbContext : AbstractContext {
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
 
-    #region Fournisseurs
+        #region Addresses
+
+        _ = modelBuilder.Entity<AddressDTO>()
+            .ToTable("Addresses")
+            .HasKey(addr => addr.Id);
+
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.CivicNumber)
+            .HasColumnName("CivicNumber")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.Street)
+            .HasColumnName("Street")
+            .HasColumnType($"nvarchar({AddressDTO.STREET_MAX_LENGTH})");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.City)
+            .HasColumnName("City")
+            .HasColumnType($"nvarchar({AddressDTO.CITY_MAX_LENGTH})");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.Province)
+            .HasColumnName("Province")
+            .HasColumnType($"nvarchar({AddressDTO.PROVINCE_MAX_LENGTH})");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.Country)
+            .HasColumnName("Country")
+            .HasColumnType($"nvarchar({AddressDTO.COUNTRY_MAX_LENGTH})");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.PostalCode)
+            .HasColumnName("PostalCode")
+            .HasColumnType($"nvarchar({AddressDTO.POSTALCODE_MAX_LENGTH})");
+        _ = modelBuilder.Entity<AddressDTO>().Property(addr => addr.Rowversion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
+
+        #endregion
+
+
+        #region Restock Orders
+
+        _ = modelBuilder.Entity<RestockOrderDTO>()
+            .ToTable("RestockOrders")
+            .HasKey(ro => ro.Id);
+
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.Status)
+            .HasColumnName("Status")
+            .HasColumnType("nvarchar(16)")
+            .HasConversion<string>();
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.DestinationWarehouseId)
+            .HasColumnName("DestinationWarehouse")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.ProduitId)
+            .HasColumnName("ProduitId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.Quantity)
+            .HasColumnName("Quantity")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.CreationDate)
+            .HasColumnName("CreationDate")
+            .HasColumnType("datetime2(7)")
+            .HasPrecision(7)
+            .HasDefaultValueSql("GETDATE()")
+            .ValueGeneratedOnAdd();
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.CompletionDate)
+            .HasColumnName("CompletionDate")
+            .HasColumnType("datetime2(7)")
+            .HasPrecision(7)
+            .IsRequired(false);
+        _ = modelBuilder.Entity<RestockOrderDTO>().Property(ro => ro.Rowversion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
+        // Restock Order Relations
+        _ = modelBuilder.Entity<RestockOrderDTO>()
+            .HasOne(ro => ro.DestinationWarehouse)
+            .WithMany(wh => wh.RestockOrders)
+            .HasForeignKey(ro => ro.DestinationWarehouseId);
+        // TODO: RestockOrder - Produit 
+        // FIXME: pas de propriété de bavigation pour les ROs dans ProduitsDTO
+        _ = modelBuilder.Entity<RestockOrderDTO>()
+            .HasOne(ro => ro.Produit)
+            .WithMany(produit => produit.RestockOrders)
+            .HasForeignKey(ro => ro.ProduitId);
+
+
+        #endregion
+
+
+        #region Fournisseurs
         _ = modelBuilder.Entity<FournisseursDTO>()
             .ToTable("Fournisseurs")
             .HasKey(fournisseurs => fournisseurs.Id);
@@ -68,9 +158,9 @@ public class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<FournisseursDTO>().HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
         
-    #endregion
+        #endregion
 
-    #region Produits
+        #region Produits
         
         _ = modelBuilder.Entity<ProduitsDTO>()
             .ToTable("Produits")
@@ -139,9 +229,9 @@ public class AppDbContext : AbstractContext {
         
         _ = modelBuilder.Entity<ProduitsDTO>().HasData(new ProduitsDTO("TestNomProduit", "TestDescription") { Id = 1 });
 
-    #endregion
+        #endregion
 
-    #region Association ShippingOrder - Product
+        #region Association ShippingOrder - Product
         
         
         _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
@@ -156,9 +246,11 @@ public class AppDbContext : AbstractContext {
             .HasOne(sop => sop.Product)
             .WithMany(p => p.ShippingOrders)
             .HasForeignKey(sop => sop.ProductId);
+
         #endregion
 
-    #region Users
+        #region Users
+
         _ = modelBuilder.Entity<UserDTO>()
             .ToTable("Users")
             .HasKey(users => users.Id);
@@ -187,9 +279,11 @@ public class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.RowVersion)
             .HasColumnName("Version")
             .IsRowVersion();
+
         #endregion
 
-    #region Roles
+        #region Roles
+
         _ = modelBuilder.Entity<RoleDTO>()
             .ToTable("Roles")
             .HasKey(roles => roles.Id);
@@ -207,6 +301,9 @@ public class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.RowVersion)
             .HasColumnName("Version")
             .IsRowVersion();
+
         #endregion
+    
+    
     }
 }
