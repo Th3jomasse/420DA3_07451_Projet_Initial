@@ -30,7 +30,7 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
         instance.DateDeleted = DateTime.Now;
         return base.Delete(instance);
     }
-    public override IEnumerable<ProduitsDTO> GetAll() {
+    private IEnumerable<ProduitsDTO> GetAll() {
         return base.GetAll().Where(x => x.DateDeleted == null);
     }
 
@@ -38,21 +38,13 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
     {
         return base.GetById(id);
     }
-
-    public ProduitsDTO? GetByCode(int code) {
-        return this.GetAll().FirstOrDefault(x => x.CodeProduit == code);
-    }
-
+    
     public ProduitsDTO? GetByNom(string nom) {
         return this.GetAll().FirstOrDefault(x => x.NomProduit == nom);
     }
 
     public ProduitsDTO? GetByUpc(int upc) {
-        return this.GetAll().FirstOrDefault(x => x.Upc == upc);
-    }
-
-    public ProduitsDTO? GetByClientId(int clientId) {
-        return this.GetAll().FirstOrDefault(x => x.ClientId == clientId);
+        return this.GetAll().FirstOrDefault(x => x.ProduitUpc == upc);
     }
 
     public ProduitsDTO? GetByFournisseurId(int fournisseurId) {
