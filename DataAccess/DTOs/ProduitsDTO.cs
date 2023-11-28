@@ -11,7 +11,7 @@ public class ProduitsDTO : AbstractDTO<int> {
     public int ProduitUpc { get; set; }
     public string NomProduit { get; set; } = null!;
     public string? Description { get; set; }
-    public int ClientId { get; set; }
+    public int UserId { get; set; }
     public int FournisseurId { get; set; }
     public int CodeFournisseur { get; set; }
     public int UnitesEnStock { get; set; }
