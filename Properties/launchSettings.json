@@ -1,0 +1,27 @@
+{
+  "profiles": {
+    "420DA3_07451_Projet_Initial": {
+      "commandName": "Project"
+    },
+    "JonathanTest": {
+      "commandName": "Project",
+      "commandLineArgs": "-jonathanTest"
+    },
+    "GuillaumeTest": {
+      "commandName": "Project",
+      "commandLineArgs": "-guillaumeTest"
+    },
+    "ReneClaudeTest": {
+      "commandName": "Project",
+      "commandLineArgs": "-reneclaudeTest"
+    },
+    "LouayTest": {
+      "commandName": "Project",
+      "commandLineArgs": "-louayTest"
+    },
+    "SamuelTest": {
+      "commandName": "Project",
+      "commandLineArgs": "-samuelTest"
+    }
+  }
+}
