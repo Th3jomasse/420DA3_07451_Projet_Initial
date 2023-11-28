@@ -53,6 +53,14 @@ internal class RestockOrderService : AbstractDtoService<RestockOrderDTO, int> {
         return newROs;
     }
 
+    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(WarehouseDTO warehouse) {
+        return this.Dao.GetAllIncompleteForWarehouse(warehouse);
+    }
+
+    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(int warehouseId) {
+        return this.Dao.GetAllIncompleteForWarehouse(warehouseId);
+    }
+
     private RestockOrderDTO CreateRestockOrderFor(ProduitsDTO produit, int quantity) {
         // FIXME: ProduitDTO n'a pas ses propriétés de navigation
         WarehouseDTO targettedWarehouse;
