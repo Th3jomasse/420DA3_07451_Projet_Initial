@@ -23,19 +23,21 @@ public class UserDAO: AbstractDao<UserDTO, int> {
     }
     public override UserDTO? GetById(int identifier) {
         return this.Context.GetDbSet<UserDTO>()
-            .Where(user => user.UserId == identifier)
-            .Include(user => user.RoleId)
+            .Where(user => user.Id == identifier)
+            .Include(user => user.Warehouse)
+            .Include(user => user.Roles)
             .SingleOrDefault();
     }
     public override List<UserDTO> GetAll() {
         return this.Context.GetDbSet<UserDTO>()
-            .Include(user => user.RoleId)
+            .Include(user => user)
             .ToList();
     }
-    public UserDTO? GetByUsername(string nameUser) { 
+    public UserDTO? GetByUsername(string username) {
         return this.Context.GetDbSet<UserDTO>()
-            .Where(user => user.UserName == nameUser)
-            .Include(user => user.RoleId)
+            .Where(user => user.UserName == username)
+            .Include(user => user.Roles)
+            .Include(user => user.Warehouse)
             .SingleOrDefault();
     }
 }

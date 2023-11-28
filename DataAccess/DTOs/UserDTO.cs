@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +13,19 @@ public class UserDTO : AbstractDTO<int> {
     public string Password { get; set; }
     public byte[]? RowVersion { get; set; } = null;
     public DateTime? DateCreation { get; set; }
-    public WarehouseDTO Warehouse { get; set; }
-    public WarehouseDTO Id { get; set; }
+    public int? Warehouse { get; set; }
+    public WarehouseDTO WarehouseId { get; set; }
+    public List<RoleDTO> Roles { get; set; } = null!;
+    public WarehouseDTO? WarehouseWork { get; set; } = null!;
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string username, string passwordHash, int? warehouseId)
+    public UserDTO(string username, string passwordHash, int? warehouseWork)
         : this(username, passwordHash) {
-        this.Id = warehouseId;
+        this.WarehouseWork = warehouseWork;
     }
     protected UserDTO(int id, string username, string passwordHash, int? warehouseId, DateTime dateCreation, byte[] rowVersion)
         : this(username, passwordHash, warehouseId) {
@@ -48,6 +51,6 @@ public class UserDTO : AbstractDTO<int> {
         throw new NotImplementedException();
     }
     public override string ToString() {
-        return this.UserId.ToString() + " - " + this.UserName;
+        return this.Id.ToString() + " - " + this.UserName;
     }
 }

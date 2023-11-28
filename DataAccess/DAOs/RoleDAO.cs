@@ -21,22 +21,33 @@ public class RoleDAO : AbstractDao<RoleDTO, int> {
     public override RoleDTO? GetById(int identifier) {
         return this.Context.GetDbSet<RoleDTO>()
             .Where(role => role.Id == identifier)
-            .Include(role => role.RoleId)
             .SingleOrDefault();
     }
     public override List<RoleDTO> GetAll() {
         return this.Context.GetDbSet<RoleDTO>()
-            .Include(role => role.RoleId)
             .ToList();
     }
     public RoleDTO? GetByRoleName(string nameRole) {
         return this.Context.GetDbSet<RoleDTO>()
             .Where(role => role.RoleName == nameRole)
-            .Include(role => role.RoleId)
             .SingleOrDefault();
     }
+    public RoleDTO GetAdminRole() {
+        return this.GetById(RoleDTO.ADMINISTRATOR_ROLE_ID) ?? throw new Exception("Le Role d'administrateur n'existe pas.");
+    }
 
-    internal List<RoleDTO> SearchRole(string userInput) {
-        throw new NotImplementedException();
+    public RoleDTO GetOfficeEmployeeRole() {
+        return this.GetById(RoleDTO.OFFICE_EMPLOYEE_ROLE_ID) ?? throw new Exception("Le Role d'employé de bureau n'existe pas.");
+    }
+
+    public RoleDTO GetWarehouseEmployeeRole() {
+        return this.GetById(RoleDTO.WAREHOUSE_EMPLOYEE_ROLE_ID) ?? throw new Exception("Le Role d'employe d'entrepôt n'existe pas.");
+    }
+
+    public List<RoleDTO> SearchRole(string userInput) {
+        return this.Context.GetDbSet<RoleDTO>().Where(
+                role => role.RoleName.StartsWith(userInput)
+                || (role.RoleDescription != null && role.RoleDescription.StartsWith(userInput))
+            ).ToList();
     }
 }
