@@ -46,13 +46,15 @@ public abstract class AbstractDtoService<DtoType, DtoIdType> : AbstractService
     /// pour que des valeurs puissent être données aux propriétés de l'entité via l'interface graphique et ensuite sauvegarde le tout
     /// dans la source de données via <see cref="AbstractDao{DtoType, DtoIdType}.Create(DtoType)"/>.
     /// </remarks>
-    /// <returns>L'instance de l'entité créée, remplie en valeurs et sauvegardée.</returns>
-    public virtual DtoType CreateNewDtoInstance() {
+    /// <returns>L'instance de l'entité créée, remplie en valeurs et sauvegardée ou <see langword="null"/> 
+    /// si l'utilisateur a annulé l'opération dans l'interface graphique.</returns>
+    public virtual DtoType? CreateNewDtoInstance() {
         DtoType dto = new DtoType();
         if (this.DtoManagementWindow.OpenForCreation(dto) == DialogResult.OK) {
             _ = this.Dao.Create(dto);
+            return dto;
         }
-        return dto;
+        return null;
     }
 
 
