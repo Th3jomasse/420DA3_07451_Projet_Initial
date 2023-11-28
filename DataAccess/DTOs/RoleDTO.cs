@@ -8,14 +8,10 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class RoleDTO : AbstractDTO<int> {
 
-    public int RoleId { get; set; }
     public string RoleName { get; set; } = null!;
     public string RoleDescription { get; set; } = null!;
     public byte[]? RowVersion { get; set; } = null;
-    public UserDTO UserId { get; set; }
-    //public DateTime? DateCreate { get; set; }
-    //public DateTime? DateUpdate { get; set; }
-    //public DateTime? DateDelete { get; set; }
+    public List<UserDTO> UtilisateursPossedantRole { get; set; } = null!;
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
@@ -25,13 +21,16 @@ public class RoleDTO : AbstractDTO<int> {
     public const int OFFICE_EMPLOYEE_ROLE_ID = 2;
     public const int WAREHOUSE_EMPLOYEE_ROLE_ID = 3;
 
-    public RoleDTO(string nameRole, string descriptionRole) {
-        this.RoleName = nameRole;
-        this.RoleDescription = descriptionRole;
+    public RoleDTO(string roleName) : this() {
+        this.RoleName = roleName;
     }
-    protected RoleDTO(int roleId, string roleName, string roleDescription, byte[] rowVersion) 
+    public RoleDTO(string roleName, string? roleDescription = null)
+        : this(roleName) {
+        this.RoleDescription = roleDescription;
+    }
+    protected RoleDTO(int roleid, string roleName, string? roleDescription, byte[] rowVersion)
         : this(roleName, roleDescription) {
-        this.RoleId = roleId;
+        this.Id = roleid;
         this.RowVersion = rowVersion;
     }
     public RoleDTO() : base() { }

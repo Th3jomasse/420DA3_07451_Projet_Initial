@@ -161,82 +161,51 @@ public class AppDbContext : AbstractContext {
     #region Users
         _ = modelBuilder.Entity<UserDTO>()
             .ToTable("Users")
-            .HasKey(users => users.UserId);
+            .HasKey(users => users.Id);
 
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.UserId)
-            .HasColumnOrder(0);
+        _ = modelBuilder.Entity<UserDTO>()
+            .HasIndex(users => users.UserName)
+            .IsUnique(true);
+
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Id)
+            .HasColumnType("int")
+            .HasColumnName("UserId");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.UserName)
-            .HasColumnOrder(1)
-            .HasColumnType($"nvarchar({UserDTO.NAME_MAX_LENGTH})")
-            .HasColumnName("Name");
+            .HasColumnType($"nvarchar(32)")
+            .HasColumnName("Username");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.Password)
-            .HasColumnOrder(2)
-            .HasColumnType($"nvarchar({UserDTO.NAME_MAX_LENGTH})")
-            .HasColumnName("PasswordHash")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.RoleId)
-            .HasColumnOrder(3)
-            .HasColumnName("RoleId")
-            .IsRequired(true);
+            .HasColumnType($"nvarchar(128)")
+            .HasColumnName("Username");
+        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Id)
+            .HasColumnType($"int")
+            .HasColumnName("WarehouseId");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateCreation)
-            .HasColumnOrder(4)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateCreation")
-            .HasDefaultValueSql("getdate()")
-            .IsRequired(true);
+            .HasDefaultValueSql("getdate()");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.RowVersion)
-            .HasColumnOrder(5)
             .HasColumnName("Version")
             .IsRowVersion();
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Warehouse)
-            .HasColumnOrder(6)
-            .HasColumnName("Warehouse")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.Id)
-            .HasColumnOrder(7)
-            .HasColumnName("WarehouseId")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateUpdated)
-            .HasColumnOrder(8)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateUpdated")
-            .HasDefaultValueSql("getdate()")
-            .IsRequired(true);
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateDeleted)
-            .HasColumnOrder(9)
-            .HasColumnType("datetime2(7)")
-            .HasColumnName("DateDeleted")
-            .IsRequired(false);
-       
-        _ = modelBuilder.Entity<UserDTO>().HasData(new UserDTO("TestUsername", "TestPassword", "TestRoleId", "TestWarehouse", "TestWarehouseId") { Id = 1 });
         #endregion
 
     #region Roles
         _ = modelBuilder.Entity<RoleDTO>()
             .ToTable("Roles")
-            .HasKey(roles => roles.RoleId);
+            .HasKey(roles => roles.Id);
 
-        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.UserId)
-            .HasColumnOrder(0);
+        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.Id)
+            .HasColumnType($"int")
+            .HasColumnName("RoleId");
         _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.RoleName)
-            .HasColumnOrder(1)
-            .HasColumnType($"nvarchar({RoleDTO.NAME_MAX_LENGTH})")
+            .HasColumnType($"nvarchar(128)")
             .HasColumnName("RoleName");
         _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.RoleDescription)
-            .HasColumnOrder(2)
-            .HasColumnType($"nvarchar({RoleDTO.NAME_MAX_LENGTH})")
+            .HasColumnType($"nvarchar(256)")
             .HasColumnName("RoleDescription")
             .IsRequired(true);
-        _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.UserId)
-            .HasColumnOrder(3)
-            .HasColumnName("UserId")
-            .IsRequired(true);
         _ = modelBuilder.Entity<RoleDTO>().Property(roles => roles.RowVersion)
-            .HasColumnOrder(4)
             .HasColumnName("Version")
             .IsRowVersion();
-
-        _ = modelBuilder.Entity<RoleDTO>().HasData(new RoleDTO("TestRoleName", "TestRoleDescription") { Id = 1 });
         #endregion
     }
 }

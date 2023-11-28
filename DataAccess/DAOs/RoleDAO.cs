@@ -35,4 +35,8 @@ public class RoleDAO : AbstractDao<RoleDTO, int> {
             .Include(role => role.RoleId)
             .SingleOrDefault();
     }
+
+    internal List<RoleDTO> SearchRole(string userInput) {
+        throw new NotImplementedException();
+    }
 }

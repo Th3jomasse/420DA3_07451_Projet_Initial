@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class UserDTO : AbstractDTO<int> {
 
-    public int UserId { get; set; }
     public string UserName { get; set; } = null!;
     public string Password { get; set; }
     public byte[]? RowVersion { get; set; } = null;
-    public RoleDTO RoleId { get; set; }
     public DateTime? DateCreation { get; set; }
     public WarehouseDTO Warehouse { get; set; }
     public WarehouseDTO Id { get; set; }
@@ -22,24 +20,21 @@ public class UserDTO : AbstractDTO<int> {
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 64;
 
-    public UserDTO(string nameUser, string passwordUser, int userId, WarehouseDTO warehouse, WarehouseDTO id) {
-        this.UserName = nameUser;
-        this.Password = passwordUser;
-        this.UserId = userId;
-        this.Warehouse = warehouse;
-        this.Id = id;
+    public UserDTO(string username, string passwordHash, int? warehouseId)
+        : this(username, passwordHash) {
+        this.Id = warehouseId;
     }
-    protected UserDTO(int userId, string userName, string passWord, byte[] rowVersion)
-        : this(userName, passWord, userId) {
-        this.UserId = userId;
+    protected UserDTO(int id, string username, string passwordHash, int? warehouseId, DateTime dateCreation, byte[] rowVersion)
+        : this(username, passwordHash, warehouseId) {
+        this.Id = id;
+        this.DateCreation = dateCreation;
         this.RowVersion = rowVersion;
     }
     public UserDTO() : base() { }
 
-    public UserDTO(string userName, string passWord, int userId) {
-        this.UserName = userName;
-        this.Password = passWord;
-        this.UserId = userId;
+    public UserDTO(string username, string passwordHash) : base() {
+        this.UserName = username;
+        this.Password = passwordHash;
     }
 
     public static bool ValidateNameUser(string nameUser) {
