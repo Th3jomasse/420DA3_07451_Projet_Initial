@@ -12,7 +12,7 @@ namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
 public abstract class AbstractFacade : IFacade {
     protected AbstractApplication ParentApplication { get; set; }
     protected List<IStoppable> Dependents { get; set; }
-    public AbstractLoginService LoginService { get; private set; }
+    public AbstractLoginService LoginService { get; protected set; }
 
     protected AbstractFacade(AbstractApplication parentApp, AbstractLoginService loginService) {
         parentApp.RegisterDependent(this);
