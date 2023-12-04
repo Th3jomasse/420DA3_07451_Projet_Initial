@@ -24,63 +24,64 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
         // création d'une instance de DTO vide juste pour garantir qu'il y aura quelque chose
         // dans le champ associé et éviter de devoir dealer avec un type nullable.
         this.workingDtoInstance = new RoleDTO("", null);
-        InitializeComponent();
+        this.InitializeComponent();
     }
+    /// <summary>
+    /// Ouvre le formulaire pour créer un nouveau rôle avec l'instance vierge fournie.
+    /// </summary>
+    /// <param name="blankInstance">L'instance vierge à utiliser pour créer un nouveau rôle.</param>
+    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
     public DialogResult OpenForCreation(RoleDTO blankInstance) {
-        // Set de l'instance à travailler sur et de l'intention
         this.workingDtoInstance = blankInstance;
         this.workingViewIntent = ViewIntentEnum.Creation;
 
-        // Changement du texte du bouton d'action.
         this.actionButton.Text = "Create";
-        // Activation des contrôles graphiques pour entrer/modifier les données.
         this.EnableEditableFields();
-        // chargement des valeurs de l'instance reçue en paramètre dans les contrôles graphiques.
         this.SetFields(blankInstance);
 
         return this.ShowDialog();
     }
-
+    /// <summary>
+    /// Ouvre le formulaire pour supprimer un rôle existant avec l'instance fournie.
+    /// </summary>
+    /// <param name="instance">L'instance représentant le rôle à supprimer.</param>
+    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
     public DialogResult OpenForDeletion(RoleDTO instance) {
-        // Set de l'instance à travailler sur et de l'intention
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Deletion;
 
-        // Changement du texte du bouton d'action.
         this.actionButton.Text = "Delete";
-        // Désctivation des contrôles graphiques pour empêcher la modification des données.
         this.DisableEditableFields();
-        // chargement des valeurs de l'instance reçue en paramètre dans les contrôles graphiques.
         this.SetFields(instance);
 
         return this.ShowDialog();
     }
-
+    /// <summary>
+    /// Ouvre le formulaire pour éditer un rôle existant avec l'instance fournie.
+    /// </summary>
+    /// <param name="instance">L'instance représentant le rôle à éditer.</param>
+    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
     public DialogResult OpenForEdition(RoleDTO instance) {
-        // Set de l'instance à travailler sur et de l'intention
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Edition;
 
-        // Changement du texte du bouton d'action.
         this.actionButton.Text = "Save";
-        // Activation des contrôles graphiques pour entrer/modifier les données.
         this.EnableEditableFields();
-        // chargement des valeurs de l'instance reçue en paramètre dans les contrôles graphiques.
         this.SetFields(instance);
 
         return this.ShowDialog();
     }
-
+    /// <summary>
+    /// Ouvre le formulaire pour visualiser un rôle existant avec l'instance fournie.
+    /// </summary>
+    /// <param name="instance">L'instance représentant le rôle à visualiser.</param>
+    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
     public DialogResult OpenForVisualization(RoleDTO instance) {
-        // Set de l'instance à travailler sur et de l'intention
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Visualization;
 
-        // Changement du texte du bouton d'action.
         this.actionButton.Text = "OK";
-        // Désctivation des contrôles graphiques pour empêcher la modification des données.
         this.DisableEditableFields();
-        // chargement des valeurs de l'instance reçue en paramètre dans les contrôles graphiques.
         this.SetFields(instance);
 
         return this.ShowDialog();
