@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ProduitsDTO : AbstractDTO<int> {
-    public int ProduitId { get; set; }
+    
     public int ProduitUpc { get; set; }
     public string NomProduit { get; set; } = null!;
     public string? Description { get; set; }
@@ -38,7 +38,7 @@ public class ProduitsDTO : AbstractDTO<int> {
     protected ProduitsDTO(int id, int upc, string nom, string description, int unitesEnStock, int niveauDeReappro, decimal poids, DateTime? dateCreated,
         DateTime? dateUpdated, DateTime? dateDeleted, byte[] rowVersion) 
         : this(nom, description, upc){
-        this.ProduitId = id;
+        this.Id = id;
         this.UnitesEnStock = unitesEnStock;
         this.NiveauDeReappro = niveauDeReappro;
         this.PoidsKilo = poids;

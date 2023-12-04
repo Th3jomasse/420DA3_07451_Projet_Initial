@@ -1,4 +1,7 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Facades;
+using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using System;
@@ -8,15 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
+
 public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
+    private AbstractFacade context;
+
     protected override AbstractContext Context { get; }
 
     public FournisseursDAO(AbstractContext context) : base() {
         this.Context = context;
     }
 
-    public override FournisseursDTO Create(FournisseursDTO instance)
-    {
+    public override FournisseursDTO Create(FournisseursDTO instance) {
         instance.DateCreated = DateTime.Now;
         return base.Create(instance);
     }
@@ -31,28 +36,39 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
         return base.Delete(instance);
     }
 
-    public override IEnumerable<FournisseursDTO> GetAll()
-    {
+    private IEnumerable<FournisseursDTO> GetAll() {
         return base.GetAll().Where(x => x.DateDeleted == null);
     }
 
-    public override FournisseursDTO GetById(int id)
-    {
+
+    public override FournisseursDTO GetById(int id) {
         return base.GetById(id);
     }
 
-    public FournisseursDTO? GetByCode(int code) {
-        return this.GetAll().FirstOrDefault(x => x.CodeFournisseur == code);
-    }
     public FournisseursDTO? GetByNom(string nom) {
         return this.GetAll().FirstOrDefault(x => x.NomFournisseur == nom);
     }
 
-    public FournisseursDTO? GetByTelephone(string telephone) {
-        return this.GetAll().FirstOrDefault(x => x.Telephone == telephone);
+    public List<FournisseursDTO> GetByTelephone(string telephone) {
+        return this.Context.GetDbSet<FournisseursDTO>()
+            .Where(tel =>
+                tel.TelephoneResponsable.Contains(telephone)
+            ).ToList();
     }
 
-    public FournisseursDTO? GetByAdresse(string adresse) {
-        return this.GetAll().FirstOrDefault(x => x.Adresse == adresse);
+    public List<FournisseursDTO> GetByAddresse(string userInput) {
+        List<AddressDTO> addresses = AddressService.SearchAddresses(userInput);
+        List<FournisseursDTO> fournisseurs = new List<FournisseursDTO>();
+        FournisseursService FournisseursService = new FournisseursService(this.context);
+        foreach (AddressDTO addresse in addresses) {
+            FournisseursDTO? fournisseur = FournisseursService.FindFournisseurByAddresse(addresse.Id);
+            if (fournisseur != null) {
+                fournisseurs.Add(fournisseur);
+            }
+        }
+        return fournisseurs;
     }
 }
+
+
+
