@@ -35,6 +35,10 @@ public class FournisseursService : AbstractDtoService<FournisseursDTO, int> {
         }
     }
 
+    public List<FournisseursDTO> FindAllFournisseurs() {
+        return this.Dao.GetAll();
+    }
+
     public FournisseursDTO? FindFournisseurById(int id) {
         return this.Dao.GetById(id);
     }
@@ -47,7 +51,7 @@ public class FournisseursService : AbstractDtoService<FournisseursDTO, int> {
         return this.Dao.GetByTelephone(telephone);
     }
 
-    public FournisseursDTO? FindFournisseurByAddresse(int addresseId) {
+    public List<FournisseursDTO> FindFournisseurByAddresse(int addresseId) {
         return this.Dao.GetByAddresse(addresseId.ToString());
     }
 }

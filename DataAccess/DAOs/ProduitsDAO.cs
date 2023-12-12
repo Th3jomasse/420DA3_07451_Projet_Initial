@@ -1,6 +1,8 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
+    private AbstractFacade context;
     protected override AbstractContext Context { get; }
 
     public ProduitsDAO(AbstractContext context) : base() {
@@ -30,13 +33,14 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
         instance.DateDeleted = DateTime.Now;
         return base.Delete(instance);
     }
-    private IEnumerable<ProduitsDTO> GetAll() {
-        return base.GetAll().Where(x => x.DateDeleted == null);
+    public override List<ProduitsDTO> GetAll() {
+        return this.Context.GetDbSet<ProduitsDTO>()
+            .ToList();
     }
 
     public override ProduitsDTO GetById(int id)
     {
-        return base.GetById(id);
+        return this.GetAll().FirstOrDefault(x => x.Id == id);
     }
     
     public ProduitsDTO? GetByNom(string nom) {
@@ -47,11 +51,11 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
         return this.GetAll().FirstOrDefault(x => x.ProduitUpc == upc);
     }
 
-    public ProduitsDTO? GetByFournisseurId(int fournisseurId) {
-        return this.GetAll().FirstOrDefault(x => x.FournisseurId == fournisseurId);
+    public List<ProduitsDTO> GetByFournisseurId(int fournisseurId) {
+        return this.GetAll().Where(x => x.FournisseurId == fournisseurId).ToList();
     }
 
-    public ProduitsDTO? GetByCodeFournisseur(int codeFournisseur) {
-        return this.GetAll().FirstOrDefault(x => x.CodeFournisseur == codeFournisseur);
+    public List<ProduitsDTO> GetByCodeFournisseur(int codeFournisseur) {
+        return base.GetAll().Where(x => x.CodeFournisseur == codeFournisseur).ToList();
     }
 }

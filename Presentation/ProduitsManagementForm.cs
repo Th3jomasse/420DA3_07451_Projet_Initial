@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class ProduitsManagementForm : Form {
+public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsDTO> {
     private readonly ProduitsService service;
     private readonly AbstractFacade facade;
     public ProduitsManagementForm(AbstractFacade facade) {
@@ -78,6 +79,23 @@ public partial class ProduitsManagementForm : Form {
 
     private void buttonExit_Click(object sender, EventArgs e) {
         this.Hide();
-        this.facade.ShowMainMenu();
     }
-}
+    public DialogResult OpenForCreation(ProduitsDTO blankInstance) {
+        // TODO: (Prof) Complete form code
+        throw new NotImplementedException();
+    }
+
+    public DialogResult OpenForDeletion(ProduitsDTO instance) {
+        // TODO: (Prof) Complete form code
+        throw new NotImplementedException();
+    }
+
+    public DialogResult OpenForEdition(ProduitsDTO instance) {
+        // TODO: (Prof) Complete form code
+        throw new NotImplementedException();
+    }
+
+    public DialogResult OpenForVisualization(ProduitsDTO instance) {
+        // TODO: (Prof) Complete form code
+        throw new NotImplementedException();
+    }

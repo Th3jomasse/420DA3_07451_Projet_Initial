@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs.PivotsDAO;
-internal class ShippingOrderProductDAO
+public class ShippingOrderProductDAO
 {
     private readonly AppDbContext context;
     

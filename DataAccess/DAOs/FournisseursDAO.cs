@@ -36,24 +36,22 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
         return base.Delete(instance);
     }
 
-    private IEnumerable<FournisseursDTO> GetAll() {
-        return base.GetAll().Where(x => x.DateDeleted == null);
+    public override List<FournisseursDTO> GetAll() {
+        return this.Context.GetDbSet<FournisseursDTO>()
+            .ToList();
     }
 
 
     public override FournisseursDTO GetById(int id) {
-        return base.GetById(id);
+        return this.GetAll().FirstOrDefault(x => x.Id == id);
     }
 
-    public FournisseursDTO? GetByNom(string nom) {
+    public FournisseursDTO GetByNom(string nom) {
         return this.GetAll().FirstOrDefault(x => x.NomFournisseur == nom);
     }
 
-    public List<FournisseursDTO> GetByTelephone(string telephone) {
-        return this.Context.GetDbSet<FournisseursDTO>()
-            .Where(tel =>
-                tel.TelephoneResponsable.Contains(telephone)
-            ).ToList();
+    public FournisseursDTO GetByTelephone(string telephoneResponsable) {
+        return this.GetAll().FirstOrDefault(x => x.TelephoneResponsable == telephoneResponsable);
     }
 
     public List<FournisseursDTO> GetByAddresse(string userInput) {

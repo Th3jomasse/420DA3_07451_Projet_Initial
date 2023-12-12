@@ -15,7 +15,7 @@ public class AppDbContext : AbstractContext {
 
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
     public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
-    public DbSet<DTOs.Pivots.ShippingOrderProducts> ShippingOrderProducts { get; set; }
+    public DbSet<ShippingOrderProducts> ShippingOrderProducts { get; set; }
     public DbSet<DTOs.UserDTO> Users { get; set; }
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
     public DbSet<AddressDTO> Addresses { get; set; }
