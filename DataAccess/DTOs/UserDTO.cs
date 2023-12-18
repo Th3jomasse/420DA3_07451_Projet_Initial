@@ -14,9 +14,9 @@ public class UserDTO : AbstractDTO<int> {
     public byte[]? RowVersion { get; set; } = null;
     public DateTime? DateCreation { get; set; }
     public int? Warehouse { get; set; }
-    public WarehouseDTO WarehouseId { get; set; }
+    public EntrepotDTO WarehouseId { get; set; }
     public List<RoleDTO> Roles { get; set; } = new List<RoleDTO>();
-    public WarehouseDTO? WarehouseWork { get; set; } = null!;
+    public EntrepotDTO? WarehouseWork { get; set; } = null!;
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
@@ -31,7 +31,7 @@ public class UserDTO : AbstractDTO<int> {
     /// <param name="warehouseWork">L'entrepôt de travail associé.</param>
     public UserDTO(string username, string passwordHash, int? warehouseWork)
     : this(username, passwordHash) {
-        this.WarehouseWork = warehouseWork.HasValue ? new WarehouseDTO { Id = warehouseWork.Value } : null;
+        this.WarehouseWork = warehouseWork.HasValue ? new EntrepotDTO { Id = warehouseWork.Value } : null;
     }
 
     /// <summary>
