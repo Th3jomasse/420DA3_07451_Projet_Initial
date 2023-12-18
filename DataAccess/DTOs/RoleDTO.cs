@@ -87,4 +87,6 @@ public class RoleDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.RoleName;
     }
+    // Propriété de navigation vers les utilisateurs possédant ce rôle
+    public List<UserDTO> UtilisateursPossedantRoles { get; set; } = new List<UserDTO>();
 }

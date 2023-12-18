@@ -91,4 +91,10 @@ public class UserDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.UserName;
     }
+    // Propriété de navigation vers les rôles de l'utilisateur
+    public List<RoleDTO> Role { get; set; } = new List<RoleDTO>();
+
+    // Propriétés de navigation pour les commandes et expéditions associées à l'utilisateur
+    public List<RestockOrderDTO> PurchaseOrders { get; set; } = new List<RestockOrderDTO>();
+    public List<ShipOrdersDTO> ShippingOrders { get; set; } = new List<ShipOrdersDTO>();
 }
