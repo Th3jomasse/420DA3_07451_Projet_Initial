@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
 /// </remarks>
 public abstract class AbstractLoginService : AbstractService {
 
-    protected User? LoggedInUser { get; set; }
+    protected UserDTO? LoggedInUser { get; set; }
 
     /// <summary>
     /// Retourne l'utilisateur authentifié (logged in).
@@ -29,6 +30,6 @@ public abstract class AbstractLoginService : AbstractService {
     /// multiples occasions.
     /// </remarks>
     /// <returns>L'utilisateur authentifié</returns>
-    public abstract User GetLoggedInUser();
+    public abstract UserDTO GetLoggedInUser();
 
 }
