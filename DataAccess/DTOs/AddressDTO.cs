@@ -28,8 +28,7 @@ public class AddressDTO : AbstractDTO<int> {
     // Navigation Properties
     public FournisseursDTO? FournisseurAssocie { get; set; }
     public WarehouseDTO? WarehouseAssociee { get; set; }
-    // FIXME: where's the client entity?
-    //public ClientDTO? ClientAssocie { get; set; }
+    public ClientDTO? ClientAssocie { get; set; }
 
 
     #region Constructors

@@ -20,7 +20,7 @@ public class RestockOrderDTO : AbstractDTO<int> {
 
 
     // Navigation Properties
-    public WarehouseDTO DestinationWarehouse { get; set; } = null!;
+    public EntrepotDTO DestinationWarehouse { get; set; } = null!;
     public ProduitsDTO Produit { get; set; } = null!;
 
 
