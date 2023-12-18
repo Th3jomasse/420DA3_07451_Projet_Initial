@@ -1,5 +1,4 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Business.Services;
+﻿using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
@@ -13,20 +12,27 @@ using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class LoginForm : Form {
+    private LoginService LoginService { get; set; }
 
-    private readonly UserService service;
-    private readonly AbstractFacade facade;
-
-    public LoginForm(AbstractFacade facade) {
-
-        this.facade = facade;
-        this.service = facade.GetService<UserService>();
+    public LoginForm(LoginService parentService) {
+        this.LoginService = parentService;
         this.InitializeComponent();
-
     }
 
     private void label4_Click(object sender, EventArgs e) {
 
+    }
+
+    private void LoginButton_Click(object sender, EventArgs e) {
+
+        // TODO: Validation avant d'appeler les méthodes du service
+
+        try {
+            this.LoginService.AttemptLogin(this.textBoxUserName.Text, this.textBoxPassword.Text);
+            this.DialogResult = DialogResult.OK;
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message, "Errur!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     private void textBoxUserName_TextChanged(object sender, EventArgs e) {
@@ -36,6 +42,8 @@ public partial class LoginForm : Form {
     private void textBoxPassword_TextChanged(object sender, EventArgs e) {
 
     }
+
+    /*
 
     private void buttonLogin_Click(object sender, EventArgs e) {
         string username = this.textBoxUserName.Text;
@@ -81,6 +89,8 @@ public partial class LoginForm : Form {
             MessageBox.Show("Role Invalide","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+    */
 
     private void linkLabelForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 

@@ -91,7 +91,7 @@ partial class LoginForm {
         this.buttonLogin.TabIndex = 1;
         this.buttonLogin.Text = "Login";
         this.buttonLogin.UseVisualStyleBackColor = true;
-        this.buttonLogin.Click += this.buttonLogin_Click;
+        this.buttonLogin.Click += this.LoginButton_Click;
         // 
         // textBoxUserName
         // 
