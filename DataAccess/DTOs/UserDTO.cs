@@ -15,7 +15,6 @@ public class UserDTO : AbstractDTO<int> {
     public byte[]? RowVersion { get; set; } = null;
     public DateTime? DateCreation { get; set; }
     public int? Warehouse { get; set; }
-    public EntrepotDTO WarehouseId { get; set; }
     public EntrepotDTO? WarehouseWork { get; set; } = null!;
     // Propriétés de navigation pour les commandes et expéditions associées à l'utilisateur
     public List<RestockOrderDTO> PurchaseOrders { get; set; } = new List<RestockOrderDTO>();
