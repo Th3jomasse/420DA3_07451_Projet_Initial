@@ -13,9 +13,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
+
 public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsDTO> {
     private readonly ProduitsService service;
     private readonly AbstractFacade facade;
+
     public ProduitsManagementForm(AbstractFacade facade) {
         this.facade = facade;
         this.service = facade.GetService<ProduitsService>();
@@ -42,14 +44,24 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
 
     private void buttonSearch_Click(object sender, EventArgs e) {
 
-
+        string searchTerm = this.textBoxSearch.Text.Trim();
+        List<ProduitsDTO> filteredProducts = this.service.SearchProduits(searchTerm);
+        object selected = this.dataGridViewProduits.SelectedRows;
+        this.dataGridViewProduits.Rows.Clear();
+        this.dataGridViewProduits.Rows.AddRange(filteredProducts.ToArray());
+        this.dataGridViewProduits.SelectedRows = (DataGridViewSelectedRowCollection) selected;
+        this.dataGridViewProduits.Refresh();
     }
 
     private void buttonDelete_Click(object sender, EventArgs e) {
-        ProduitsDTO? deletedInstance = this.service.DeleteDtoInstance((ProduitsDTO) this.dataGridViewProduits.SelectedRows[0]);
-        if (deletedInstance is not null) {
-            _ = this.service.DisplayDtoInstance(deletedInstance);
-            this.RefreshList();
+        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
+            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
+            ProduitsDTO? deletedInstance = selectedRow.DataBoundItem as ProduitsDTO;
+            if (deletedInstance is not null) {
+                _ = this.service.DeleteDtoInstance(deletedInstance);
+                _ = this.service.DisplayDtoInstance(deletedInstance);
+                this.RefreshList();
+            }
         }
     }
 
@@ -62,40 +74,97 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
     }
 
     private void ProduitsManagementForm_Load(object sender, EventArgs e) {
-
+        RefreshList();
     }
 
     private void buttonEdit_Click(object sender, EventArgs e) {
-        ProduitsDTO? editedInstance = this.service.EditDtoInstance((ProduitsDTO) this.dataGridViewProduits.SelectedRows[0]);
-        if (editedInstance is not null) {
-            _ = this.service.DisplayDtoInstance(editedInstance);
-            this.RefreshList();
+
+        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
+            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
+            ProduitsDTO? editedInstance = selectedRow.DataBoundItem as ProduitsDTO;
+            if (editedInstance is not null) {
+                _ = this.service.UpdateDtoInstance(editedInstance);
+                _ = this.service.DisplayDtoInstance(editedInstance);
+                this.RefreshList();
+            }
         }
     }
 
     private void buttonView_Click(object sender, EventArgs e) {
-        _ = this.service.DisplayDtoInstance((ProduitsDTO) this.dataGridViewProduits.SelectedRows[0]);
+        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
+            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
+            ProduitsDTO? displayInstance = selectedRow.DataBoundItem as ProduitsDTO;
+            if (displayInstance is not null) {
+                _ = this.service.DisplayDtoInstance(displayInstance);
+                this.RefreshList();
+            }
+        }
     }
 
     private void buttonExit_Click(object sender, EventArgs e) {
         this.Hide();
     }
+
+    private void textBoxProduitId_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void comboBoxFournisseurs_SelectedIndexChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxFournisseurId_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitUpc_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitNom_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitDesc_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitUnitStock_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitPoids_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxProduitMinStock_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void dataGridViewFournisseurs_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+    }
+
+    private void dataGridViewProduits_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+    }
     public DialogResult OpenForCreation(ProduitsDTO blankInstance) {
-        // TODO: (Prof) Complete form code
+        // TODO:  Complete form code
         throw new NotImplementedException();
     }
 
     public DialogResult OpenForDeletion(ProduitsDTO instance) {
-        // TODO: (Prof) Complete form code
+        // TODO:  Complete form code
         throw new NotImplementedException();
     }
 
     public DialogResult OpenForEdition(ProduitsDTO instance) {
-        // TODO: (Prof) Complete form code
+        // TODO: Complete form code
         throw new NotImplementedException();
     }
 
     public DialogResult OpenForVisualization(ProduitsDTO instance) {
-        // TODO: (Prof) Complete form code
+        // TODO:  Complete form code
         throw new NotImplementedException();
     }
+}

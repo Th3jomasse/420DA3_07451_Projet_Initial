@@ -71,6 +71,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitId.Name = "textBoxProduitId";
         this.textBoxProduitId.Size = new Size(224, 23);
         this.textBoxProduitId.TabIndex = 1;
+        this.textBoxProduitId.TextChanged += this.textBoxProduitId_TextChanged;
         // 
         // dataGridViewProduits
         // 
@@ -80,6 +81,7 @@ partial class ProduitsManagementForm {
         this.dataGridViewProduits.RowTemplate.Height = 25;
         this.dataGridViewProduits.Size = new Size(818, 460);
         this.dataGridViewProduits.TabIndex = 2;
+        this.dataGridViewProduits.CellContentClick += this.dataGridViewProduits_CellContentClick;
         this.dataGridViewProduits.CellDoubleClick += this.dataGridViewProduits_CellDoubleClick;
         // 
         // dataGridViewFournisseurs
@@ -90,6 +92,7 @@ partial class ProduitsManagementForm {
         this.dataGridViewFournisseurs.RowTemplate.Height = 25;
         this.dataGridViewFournisseurs.Size = new Size(373, 460);
         this.dataGridViewFournisseurs.TabIndex = 3;
+        this.dataGridViewFournisseurs.CellContentClick += this.dataGridViewFournisseurs_CellContentClick;
         this.dataGridViewFournisseurs.CellDoubleClick += this.dataGridViewFournisseurs_CellDoubleClick;
         // 
         // buttonNew
@@ -128,6 +131,7 @@ partial class ProduitsManagementForm {
         this.textBoxFournisseurId.Name = "textBoxFournisseurId";
         this.textBoxFournisseurId.Size = new Size(224, 23);
         this.textBoxFournisseurId.TabIndex = 8;
+        this.textBoxFournisseurId.TextChanged += this.textBoxFournisseurId_TextChanged;
         // 
         // textBoxProduitNom
         // 
@@ -135,6 +139,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitNom.Name = "textBoxProduitNom";
         this.textBoxProduitNom.Size = new Size(300, 23);
         this.textBoxProduitNom.TabIndex = 9;
+        this.textBoxProduitNom.TextChanged += this.textBoxProduitNom_TextChanged;
         // 
         // textBoxProduitDesc
         // 
@@ -142,6 +147,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitDesc.Name = "textBoxProduitDesc";
         this.textBoxProduitDesc.Size = new Size(300, 23);
         this.textBoxProduitDesc.TabIndex = 10;
+        this.textBoxProduitDesc.TextChanged += this.textBoxProduitDesc_TextChanged;
         // 
         // textBoxProduitUpc
         // 
@@ -149,6 +155,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitUpc.Name = "textBoxProduitUpc";
         this.textBoxProduitUpc.Size = new Size(300, 23);
         this.textBoxProduitUpc.TabIndex = 11;
+        this.textBoxProduitUpc.TextChanged += this.textBoxProduitUpc_TextChanged;
         // 
         // textBoxProduitUnitStock
         // 
@@ -156,6 +163,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitUnitStock.Name = "textBoxProduitUnitStock";
         this.textBoxProduitUnitStock.Size = new Size(224, 23);
         this.textBoxProduitUnitStock.TabIndex = 12;
+        this.textBoxProduitUnitStock.TextChanged += this.textBoxProduitUnitStock_TextChanged;
         // 
         // textBoxProduitPoids
         // 
@@ -163,6 +171,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitPoids.Name = "textBoxProduitPoids";
         this.textBoxProduitPoids.Size = new Size(224, 23);
         this.textBoxProduitPoids.TabIndex = 13;
+        this.textBoxProduitPoids.TextChanged += this.textBoxProduitPoids_TextChanged;
         // 
         // textBoxProduitMinStock
         // 
@@ -170,6 +179,7 @@ partial class ProduitsManagementForm {
         this.textBoxProduitMinStock.Name = "textBoxProduitMinStock";
         this.textBoxProduitMinStock.Size = new Size(224, 23);
         this.textBoxProduitMinStock.TabIndex = 14;
+        this.textBoxProduitMinStock.TextChanged += this.textBoxProduitMinStock_TextChanged;
         // 
         // label2
         // 
@@ -259,6 +269,7 @@ partial class ProduitsManagementForm {
         this.comboBoxFournisseurs.Name = "comboBoxFournisseurs";
         this.comboBoxFournisseurs.Size = new Size(222, 23);
         this.comboBoxFournisseurs.TabIndex = 24;
+        this.comboBoxFournisseurs.SelectedIndexChanged += this.comboBoxFournisseurs_SelectedIndexChanged;
         // 
         // buttonEdit
         // 

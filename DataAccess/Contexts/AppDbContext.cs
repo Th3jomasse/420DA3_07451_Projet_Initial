@@ -260,6 +260,7 @@ public class AppDbContext : AbstractContext {
             .HasForeignKey(sp => sp.ProduitId);
 
         #endregion
+
         #region Association User - Role
 
         _ = modelBuilder.Entity<UserRoles>()

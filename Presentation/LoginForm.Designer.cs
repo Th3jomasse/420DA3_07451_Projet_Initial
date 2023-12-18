@@ -28,23 +28,23 @@ partial class LoginForm {
         this.panel1 = new Panel();
         this.label2 = new Label();
         this.button1 = new Button();
-        this.button2 = new Button();
-        this.textBox1 = new TextBox();
+        this.buttonLogin = new Button();
+        this.textBoxUserName = new TextBox();
         this.label1 = new Label();
         this.panel2 = new Panel();
+        this.pictureBox4 = new PictureBox();
+        this.pictureBox3 = new PictureBox();
         this.linkLabel2 = new LinkLabel();
-        this.linkLabel1 = new LinkLabel();
+        this.linkLabelForgotPassword = new LinkLabel();
         this.label4 = new Label();
-        this.textBox2 = new TextBox();
+        this.textBoxPassword = new TextBox();
         this.label3 = new Label();
         this.pictureBox2 = new PictureBox();
-        this.pictureBox3 = new PictureBox();
-        this.pictureBox4 = new PictureBox();
         this.panel1.SuspendLayout();
         this.panel2.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) this.pictureBox2).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) this.pictureBox3).BeginInit();
         ((System.ComponentModel.ISupportInitialize) this.pictureBox4).BeginInit();
+        ((System.ComponentModel.ISupportInitialize) this.pictureBox3).BeginInit();
+        ((System.ComponentModel.ISupportInitialize) this.pictureBox2).BeginInit();
         this.SuspendLayout();
         // 
         // panel1
@@ -81,25 +81,27 @@ partial class LoginForm {
         this.button1.TabIndex = 0;
         this.button1.UseVisualStyleBackColor = true;
         // 
-        // button2
+        // buttonLogin
         // 
-        this.button2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.button2.ForeColor = Color.Black;
-        this.button2.Location = new Point(108, 314);
-        this.button2.Name = "button2";
-        this.button2.Size = new Size(190, 44);
-        this.button2.TabIndex = 1;
-        this.button2.Text = "Login";
-        this.button2.UseVisualStyleBackColor = true;
+        this.buttonLogin.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.buttonLogin.ForeColor = Color.Black;
+        this.buttonLogin.Location = new Point(108, 314);
+        this.buttonLogin.Name = "buttonLogin";
+        this.buttonLogin.Size = new Size(190, 44);
+        this.buttonLogin.TabIndex = 1;
+        this.buttonLogin.Text = "Login";
+        this.buttonLogin.UseVisualStyleBackColor = true;
+        this.buttonLogin.Click += this.buttonLogin_Click;
         // 
-        // textBox1
+        // textBoxUserName
         // 
-        this.textBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.textBox1.ForeColor = Color.White;
-        this.textBox1.Location = new Point(63, 173);
-        this.textBox1.Name = "textBox1";
-        this.textBox1.Size = new Size(285, 26);
-        this.textBox1.TabIndex = 2;
+        this.textBoxUserName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.textBoxUserName.ForeColor = Color.White;
+        this.textBoxUserName.Location = new Point(63, 173);
+        this.textBoxUserName.Name = "textBoxUserName";
+        this.textBoxUserName.Size = new Size(285, 26);
+        this.textBoxUserName.TabIndex = 2;
+        this.textBoxUserName.TextChanged += this.textBoxUserName_TextChanged;
         // 
         // label1
         // 
@@ -119,17 +121,39 @@ partial class LoginForm {
         this.panel2.Controls.Add(this.pictureBox4);
         this.panel2.Controls.Add(this.pictureBox3);
         this.panel2.Controls.Add(this.linkLabel2);
-        this.panel2.Controls.Add(this.linkLabel1);
-        this.panel2.Controls.Add(this.button2);
+        this.panel2.Controls.Add(this.linkLabelForgotPassword);
+        this.panel2.Controls.Add(this.buttonLogin);
         this.panel2.Controls.Add(this.label4);
-        this.panel2.Controls.Add(this.textBox2);
+        this.panel2.Controls.Add(this.textBoxPassword);
         this.panel2.Controls.Add(this.label3);
         this.panel2.Controls.Add(this.label1);
-        this.panel2.Controls.Add(this.textBox1);
+        this.panel2.Controls.Add(this.textBoxUserName);
         this.panel2.Location = new Point(0, 49);
         this.panel2.Name = "panel2";
         this.panel2.Size = new Size(410, 440);
         this.panel2.TabIndex = 4;
+        // 
+        // pictureBox4
+        // 
+        this.pictureBox4.BackColor = Color.Transparent;
+        this.pictureBox4.Image = (Image) resources.GetObject("pictureBox4.Image");
+        this.pictureBox4.Location = new Point(25, 229);
+        this.pictureBox4.Name = "pictureBox4";
+        this.pictureBox4.Size = new Size(32, 27);
+        this.pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+        this.pictureBox4.TabIndex = 11;
+        this.pictureBox4.TabStop = false;
+        // 
+        // pictureBox3
+        // 
+        this.pictureBox3.BackColor = Color.Transparent;
+        this.pictureBox3.Image = (Image) resources.GetObject("pictureBox3.Image");
+        this.pictureBox3.Location = new Point(25, 172);
+        this.pictureBox3.Name = "pictureBox3";
+        this.pictureBox3.Size = new Size(32, 27);
+        this.pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+        this.pictureBox3.TabIndex = 10;
+        this.pictureBox3.TabStop = false;
         // 
         // linkLabel2
         // 
@@ -144,18 +168,19 @@ partial class LoginForm {
         this.linkLabel2.TabStop = true;
         this.linkLabel2.Text = "Create Account";
         // 
-        // linkLabel1
+        // linkLabelForgotPassword
         // 
-        this.linkLabel1.AutoSize = true;
-        this.linkLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.linkLabel1.ForeColor = Color.White;
-        this.linkLabel1.LinkColor = Color.FromArgb(  0,   0,   64);
-        this.linkLabel1.Location = new Point(128, 281);
-        this.linkLabel1.Name = "linkLabel1";
-        this.linkLabel1.Size = new Size(159, 20);
-        this.linkLabel1.TabIndex = 7;
-        this.linkLabel1.TabStop = true;
-        this.linkLabel1.Text = "Forgot Password ?";
+        this.linkLabelForgotPassword.AutoSize = true;
+        this.linkLabelForgotPassword.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.linkLabelForgotPassword.ForeColor = Color.White;
+        this.linkLabelForgotPassword.LinkColor = Color.FromArgb(  0,   0,   64);
+        this.linkLabelForgotPassword.Location = new Point(128, 281);
+        this.linkLabelForgotPassword.Name = "linkLabelForgotPassword";
+        this.linkLabelForgotPassword.Size = new Size(159, 20);
+        this.linkLabelForgotPassword.TabIndex = 7;
+        this.linkLabelForgotPassword.TabStop = true;
+        this.linkLabelForgotPassword.Text = "Forgot Password ?";
+        this.linkLabelForgotPassword.LinkClicked += this.linkLabelForgotPassword_LinkClicked;
         // 
         // label4
         // 
@@ -169,14 +194,15 @@ partial class LoginForm {
         this.label4.Text = "Password";
         this.label4.Click += this.label4_Click;
         // 
-        // textBox2
+        // textBoxPassword
         // 
-        this.textBox2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.textBox2.ForeColor = Color.White;
-        this.textBox2.Location = new Point(63, 230);
-        this.textBox2.Name = "textBox2";
-        this.textBox2.Size = new Size(285, 26);
-        this.textBox2.TabIndex = 5;
+        this.textBoxPassword.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.textBoxPassword.ForeColor = Color.White;
+        this.textBoxPassword.Location = new Point(63, 230);
+        this.textBoxPassword.Name = "textBoxPassword";
+        this.textBoxPassword.Size = new Size(285, 26);
+        this.textBoxPassword.TabIndex = 5;
+        this.textBoxPassword.TextChanged += this.textBoxPassword_TextChanged;
         // 
         // label3
         // 
@@ -200,28 +226,6 @@ partial class LoginForm {
         this.pictureBox2.TabIndex = 6;
         this.pictureBox2.TabStop = false;
         // 
-        // pictureBox3
-        // 
-        this.pictureBox3.BackColor = Color.Transparent;
-        this.pictureBox3.Image = (Image) resources.GetObject("pictureBox3.Image");
-        this.pictureBox3.Location = new Point(25, 172);
-        this.pictureBox3.Name = "pictureBox3";
-        this.pictureBox3.Size = new Size(32, 27);
-        this.pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-        this.pictureBox3.TabIndex = 10;
-        this.pictureBox3.TabStop = false;
-        // 
-        // pictureBox4
-        // 
-        this.pictureBox4.BackColor = Color.Transparent;
-        this.pictureBox4.Image = (Image) resources.GetObject("pictureBox4.Image");
-        this.pictureBox4.Location = new Point(25, 229);
-        this.pictureBox4.Name = "pictureBox4";
-        this.pictureBox4.Size = new Size(32, 27);
-        this.pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-        this.pictureBox4.TabIndex = 11;
-        this.pictureBox4.TabStop = false;
-        // 
         // LoginForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,9 +244,9 @@ partial class LoginForm {
         this.panel1.PerformLayout();
         this.panel2.ResumeLayout(false);
         this.panel2.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize) this.pictureBox2).EndInit();
-        ((System.ComponentModel.ISupportInitialize) this.pictureBox3).EndInit();
         ((System.ComponentModel.ISupportInitialize) this.pictureBox4).EndInit();
+        ((System.ComponentModel.ISupportInitialize) this.pictureBox3).EndInit();
+        ((System.ComponentModel.ISupportInitialize) this.pictureBox2).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -252,14 +256,14 @@ partial class LoginForm {
     private Panel panel1;
     private Button button1;
     private Label label2;
-    private Button button2;
-    private TextBox textBox1;
+    private Button buttonLogin;
+    private TextBox textBoxUserName;
     private Label label1;
     private Panel panel2;
     private LinkLabel linkLabel2;
-    private LinkLabel linkLabel1;
+    private LinkLabel linkLabelForgotPassword;
     private Label label4;
-    private TextBox textBox2;
+    private TextBox textBoxPassword;
     private Label label3;
     private PictureBox pictureBox2;
     private PictureBox pictureBox4;
