@@ -9,17 +9,17 @@ public class AmazouneApp : AbstractApplication {
 
     private IFacade? facade;
     private readonly FakeLoginService loginService;
-    private readonly ExampleContext dbContext;
+    private readonly AppDbContext dbContext;
 
     public AmazouneApp() : base() {
        
         ApplicationConfiguration.Initialize();
         this.loginService = new FakeLoginService(this);
-        this.dbContext = new ExampleContext();
+        this.dbContext = new AppDbContext();
     }
 
     public override void Start() {
-        this.facade = new ExempleFacade(this, this.dbContext, this.loginService);
+        this.facade = new AmazouneFacade(this, this.dbContext, this.loginService);
         this.facade.Start();
     }
     public override void Shutdown() {
