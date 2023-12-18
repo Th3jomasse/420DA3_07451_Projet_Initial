@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PIvots;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,8 @@ public class RoleDTO : AbstractDTO<int> {
     /// Initialise une nouvelle instance de la classe <see cref="RoleDTO"/>.
     /// </summary>
     public RoleDTO() : base() { }
+
+    public List<UserRoles> UserRoles { get; set; } = new List<UserRoles>();
 
     /// <summary>
     /// Valide la longueur du nom du rôle.

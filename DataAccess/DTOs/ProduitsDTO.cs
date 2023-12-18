@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,6 @@ public class ProduitsDTO : AbstractDTO<int> {
     public int ProduitUpc { get; set; }
     public string NomProduit { get; set; } = null!;
     public string? Description { get; set; }
-    public int UserId { get; set; }
     public int FournisseurId { get; set; }
     public int CodeFournisseur { get; set; }
     public int UnitesEnStock { get; set; }
@@ -21,6 +21,7 @@ public class ProduitsDTO : AbstractDTO<int> {
     public DateTime? DateCreated { get; set; }
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
+    public int ClientId { get; set; }
 
     public const int UPC_MIN_LENGTH = 3;
     public const int UPC_MAX_LENGTH = 50;
@@ -30,6 +31,10 @@ public class ProduitsDTO : AbstractDTO<int> {
     public const int DESCRIPTION_MAX_LENGTH = 50;
 
     public ProduitsDTO() { }
+    public List<ShipmentsDTO> Shipments { get; set; } = null!;
+    public List<ShipOrdersDTO> ShipOrders { get; set; } = null!;
+    public List<RestockOrderDTO> RestockOrders { get; set; } = null!;
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
 
     public ProduitsDTO(string nom, string description, int upc)
     {

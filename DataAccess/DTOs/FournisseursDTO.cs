@@ -24,6 +24,7 @@ public class FournisseursDTO : AbstractDTO<int> {
     public const int NOMRESPONSABLE_MAX_LENGTH = 50;
     public const int PRENOMRESPONSABLE_MIN_LENGTH = 3;
     public const int PRENOMRESPONSABLE_MAX_LENGTH = 50;
+    public const int COURRIELRESPONSABLE_MIN_LENGTH = 3;
 
     public FournisseursDTO(){ }
 

@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,7 @@ public class ShipOrdersDTO: AbstractDTO<int> {
     public DateTime? DateCreated { get; set; }
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
+
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
 
 }
