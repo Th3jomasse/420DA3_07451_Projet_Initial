@@ -30,20 +30,34 @@ partial class AdminMainMenu {
         this.mainPanel = new TableLayoutPanel();
         this.addressManagementPanel = new Panel();
         this.addressMgmtMainPanel = new Panel();
+        this.deleteAddressButton = new Button();
+        this.editAddressButton = new Button();
+        this.viewAddressButton = new Button();
+        this.filteredAddresses = new ListBox();
+        this.addressSearchTextBox = new TextBox();
         this.existingAddressesLabel = new Label();
         this.createAddressButton = new Button();
         this.addressMgmtTopBar = new Panel();
-        this.label1 = new Label();
-        this.addressSearchTextBox = new TextBox();
-        this.filteredAddresses = new ListBox();
-        this.viewAddressButton = new Button();
-        this.editAddressButton = new Button();
-        this.deleteAddressButton = new Button();
+        this.addressMgmtLabel = new Label();
+        this.clientsMgmtPanel = new Panel();
+        this.clientMgmtTopBar = new Panel();
+        this.clientMgmtLabel = new Label();
+        this.clientMgmtMainPanel = new Panel();
+        this.clientCreateButton = new Button();
+        this.existingClientsLabel = new Label();
+        this.clientFilteringBox = new TextBox();
+        this.filteredClients = new ListBox();
+        this.clientDeleteButton = new Button();
+        this.clientEditButton = new Button();
+        this.clientViewButton = new Button();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
         this.addressManagementPanel.SuspendLayout();
         this.addressMgmtMainPanel.SuspendLayout();
         this.addressMgmtTopBar.SuspendLayout();
+        this.clientsMgmtPanel.SuspendLayout();
+        this.clientMgmtTopBar.SuspendLayout();
+        this.clientMgmtMainPanel.SuspendLayout();
         this.SuspendLayout();
         // 
         // bottomBarPanel
@@ -82,6 +96,7 @@ partial class AdminMainMenu {
         this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
         this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
         this.mainPanel.Controls.Add(this.addressManagementPanel, 1, 0);
+        this.mainPanel.Controls.Add(this.clientsMgmtPanel, 1, 1);
         this.mainPanel.Dock = DockStyle.Fill;
         this.mainPanel.Location = new Point(0, 40);
         this.mainPanel.Name = "mainPanel";
@@ -117,6 +132,59 @@ partial class AdminMainMenu {
         this.addressMgmtMainPanel.Size = new Size(210, 324);
         this.addressMgmtMainPanel.TabIndex = 1;
         // 
+        // deleteAddressButton
+        // 
+        this.deleteAddressButton.Dock = DockStyle.Top;
+        this.deleteAddressButton.Location = new Point(0, 245);
+        this.deleteAddressButton.Name = "deleteAddressButton";
+        this.deleteAddressButton.Size = new Size(210, 35);
+        this.deleteAddressButton.TabIndex = 6;
+        this.deleteAddressButton.Text = "Supprimer l'Adresse";
+        this.deleteAddressButton.UseVisualStyleBackColor = true;
+        this.deleteAddressButton.Click += this.DeleteAddressButton_Click;
+        // 
+        // editAddressButton
+        // 
+        this.editAddressButton.Dock = DockStyle.Top;
+        this.editAddressButton.Location = new Point(0, 210);
+        this.editAddressButton.Name = "editAddressButton";
+        this.editAddressButton.Size = new Size(210, 35);
+        this.editAddressButton.TabIndex = 5;
+        this.editAddressButton.Text = "Modifier l'Adresse";
+        this.editAddressButton.UseVisualStyleBackColor = true;
+        this.editAddressButton.Click += this.EditAddressButton_Click;
+        // 
+        // viewAddressButton
+        // 
+        this.viewAddressButton.Dock = DockStyle.Top;
+        this.viewAddressButton.Location = new Point(0, 175);
+        this.viewAddressButton.Name = "viewAddressButton";
+        this.viewAddressButton.Size = new Size(210, 35);
+        this.viewAddressButton.TabIndex = 4;
+        this.viewAddressButton.Text = "Voir Détails";
+        this.viewAddressButton.UseVisualStyleBackColor = true;
+        this.viewAddressButton.Click += this.ViewAddressButton_Click;
+        // 
+        // filteredAddresses
+        // 
+        this.filteredAddresses.Dock = DockStyle.Top;
+        this.filteredAddresses.FormattingEnabled = true;
+        this.filteredAddresses.ItemHeight = 15;
+        this.filteredAddresses.Location = new Point(0, 81);
+        this.filteredAddresses.Name = "filteredAddresses";
+        this.filteredAddresses.Size = new Size(210, 94);
+        this.filteredAddresses.TabIndex = 3;
+        this.filteredAddresses.SelectedIndexChanged += this.FilteredAddresses_SelectedIndexChanged;
+        // 
+        // addressSearchTextBox
+        // 
+        this.addressSearchTextBox.Dock = DockStyle.Top;
+        this.addressSearchTextBox.Location = new Point(0, 58);
+        this.addressSearchTextBox.Name = "addressSearchTextBox";
+        this.addressSearchTextBox.Size = new Size(210, 23);
+        this.addressSearchTextBox.TabIndex = 2;
+        this.addressSearchTextBox.TextChanged += this.AddressSearchTextBox_TextChanged;
+        // 
         // existingAddressesLabel
         // 
         this.existingAddressesLabel.Dock = DockStyle.Top;
@@ -140,76 +208,143 @@ partial class AdminMainMenu {
         // 
         // addressMgmtTopBar
         // 
-        this.addressMgmtTopBar.Controls.Add(this.label1);
+        this.addressMgmtTopBar.Controls.Add(this.addressMgmtLabel);
         this.addressMgmtTopBar.Dock = DockStyle.Top;
         this.addressMgmtTopBar.Location = new Point(10, 10);
         this.addressMgmtTopBar.Name = "addressMgmtTopBar";
         this.addressMgmtTopBar.Size = new Size(210, 40);
         this.addressMgmtTopBar.TabIndex = 0;
         // 
-        // label1
+        // addressMgmtLabel
         // 
-        this.label1.Dock = DockStyle.Fill;
-        this.label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.label1.Location = new Point(0, 0);
-        this.label1.Name = "label1";
-        this.label1.Size = new Size(210, 40);
-        this.label1.TabIndex = 0;
-        this.label1.Text = "Gestion des Adresses";
-        this.label1.TextAlign = ContentAlignment.MiddleCenter;
+        this.addressMgmtLabel.Dock = DockStyle.Fill;
+        this.addressMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.addressMgmtLabel.Location = new Point(0, 0);
+        this.addressMgmtLabel.Name = "addressMgmtLabel";
+        this.addressMgmtLabel.Size = new Size(210, 40);
+        this.addressMgmtLabel.TabIndex = 0;
+        this.addressMgmtLabel.Text = "Gestion des Adresses";
+        this.addressMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // addressSearchTextBox
+        // clientsMgmtPanel
         // 
-        this.addressSearchTextBox.Dock = DockStyle.Top;
-        this.addressSearchTextBox.Location = new Point(0, 58);
-        this.addressSearchTextBox.Name = "addressSearchTextBox";
-        this.addressSearchTextBox.Size = new Size(210, 23);
-        this.addressSearchTextBox.TabIndex = 2;
-        this.addressSearchTextBox.TextChanged += this.AddressSearchTextBox_TextChanged;
+        this.clientsMgmtPanel.Controls.Add(this.clientMgmtMainPanel);
+        this.clientsMgmtPanel.Controls.Add(this.clientMgmtTopBar);
+        this.clientsMgmtPanel.Dock = DockStyle.Fill;
+        this.clientsMgmtPanel.Location = new Point(239, 393);
+        this.clientsMgmtPanel.Name = "clientsMgmtPanel";
+        this.clientsMgmtPanel.Padding = new Padding(10);
+        this.clientsMgmtPanel.Size = new Size(230, 385);
+        this.clientsMgmtPanel.TabIndex = 1;
         // 
-        // filteredAddresses
+        // clientMgmtTopBar
         // 
-        this.filteredAddresses.Dock = DockStyle.Top;
-        this.filteredAddresses.FormattingEnabled = true;
-        this.filteredAddresses.ItemHeight = 15;
-        this.filteredAddresses.Location = new Point(0, 81);
-        this.filteredAddresses.Name = "filteredAddresses";
-        this.filteredAddresses.Size = new Size(210, 94);
-        this.filteredAddresses.TabIndex = 3;
-        this.filteredAddresses.SelectedIndexChanged += this.FilteredAddresses_SelectedIndexChanged;
+        this.clientMgmtTopBar.Controls.Add(this.clientMgmtLabel);
+        this.clientMgmtTopBar.Dock = DockStyle.Top;
+        this.clientMgmtTopBar.Location = new Point(10, 10);
+        this.clientMgmtTopBar.Name = "clientMgmtTopBar";
+        this.clientMgmtTopBar.Size = new Size(210, 40);
+        this.clientMgmtTopBar.TabIndex = 0;
         // 
-        // viewAddressButton
+        // clientMgmtLabel
         // 
-        this.viewAddressButton.Dock = DockStyle.Top;
-        this.viewAddressButton.Location = new Point(0, 175);
-        this.viewAddressButton.Name = "viewAddressButton";
-        this.viewAddressButton.Size = new Size(210, 35);
-        this.viewAddressButton.TabIndex = 4;
-        this.viewAddressButton.Text = "Voir Détails";
-        this.viewAddressButton.UseVisualStyleBackColor = true;
-        this.viewAddressButton.Click += this.ViewAddressButton_Click;
+        this.clientMgmtLabel.Dock = DockStyle.Fill;
+        this.clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.clientMgmtLabel.Location = new Point(0, 0);
+        this.clientMgmtLabel.Name = "clientMgmtLabel";
+        this.clientMgmtLabel.Size = new Size(210, 40);
+        this.clientMgmtLabel.TabIndex = 0;
+        this.clientMgmtLabel.Text = "Gestion des clients";
+        this.clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // editAddressButton
+        // clientMgmtMainPanel
         // 
-        this.editAddressButton.Dock = DockStyle.Top;
-        this.editAddressButton.Location = new Point(0, 210);
-        this.editAddressButton.Name = "editAddressButton";
-        this.editAddressButton.Size = new Size(210, 35);
-        this.editAddressButton.TabIndex = 5;
-        this.editAddressButton.Text = "Modifier l'Adresse";
-        this.editAddressButton.UseVisualStyleBackColor = true;
-        this.editAddressButton.Click += this.EditAddressButton_Click;
+        this.clientMgmtMainPanel.Controls.Add(this.clientDeleteButton);
+        this.clientMgmtMainPanel.Controls.Add(this.clientEditButton);
+        this.clientMgmtMainPanel.Controls.Add(this.clientViewButton);
+        this.clientMgmtMainPanel.Controls.Add(this.filteredClients);
+        this.clientMgmtMainPanel.Controls.Add(this.clientFilteringBox);
+        this.clientMgmtMainPanel.Controls.Add(this.existingClientsLabel);
+        this.clientMgmtMainPanel.Controls.Add(this.clientCreateButton);
+        this.clientMgmtMainPanel.Dock = DockStyle.Fill;
+        this.clientMgmtMainPanel.Location = new Point(10, 50);
+        this.clientMgmtMainPanel.Name = "clientMgmtMainPanel";
+        this.clientMgmtMainPanel.Size = new Size(210, 325);
+        this.clientMgmtMainPanel.TabIndex = 1;
         // 
-        // deleteAddressButton
+        // clientCreateButton
         // 
-        this.deleteAddressButton.Dock = DockStyle.Top;
-        this.deleteAddressButton.Location = new Point(0, 245);
-        this.deleteAddressButton.Name = "deleteAddressButton";
-        this.deleteAddressButton.Size = new Size(210, 35);
-        this.deleteAddressButton.TabIndex = 6;
-        this.deleteAddressButton.Text = "Supprimer l'Adresse";
-        this.deleteAddressButton.UseVisualStyleBackColor = true;
-        this.deleteAddressButton.Click += this.DeleteAddressButton_Click;
+        this.clientCreateButton.Dock = DockStyle.Top;
+        this.clientCreateButton.Location = new Point(0, 0);
+        this.clientCreateButton.Name = "clientCreateButton";
+        this.clientCreateButton.Size = new Size(210, 35);
+        this.clientCreateButton.TabIndex = 1;
+        this.clientCreateButton.Text = "Nouveau Client";
+        this.clientCreateButton.UseVisualStyleBackColor = true;
+        this.clientCreateButton.Click += this.ClientCreateButton_Click;
+        // 
+        // existingClientsLabel
+        // 
+        this.existingClientsLabel.Dock = DockStyle.Top;
+        this.existingClientsLabel.Location = new Point(0, 35);
+        this.existingClientsLabel.Name = "existingClientsLabel";
+        this.existingClientsLabel.Size = new Size(210, 23);
+        this.existingClientsLabel.TabIndex = 2;
+        this.existingClientsLabel.Text = "Clients existants:";
+        this.existingClientsLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // clientFilteringBox
+        // 
+        this.clientFilteringBox.Dock = DockStyle.Top;
+        this.clientFilteringBox.Location = new Point(0, 58);
+        this.clientFilteringBox.Name = "clientFilteringBox";
+        this.clientFilteringBox.Size = new Size(210, 23);
+        this.clientFilteringBox.TabIndex = 3;
+        this.clientFilteringBox.TextChanged += this.ClientFilteringBox_TextChanged;
+        // 
+        // filteredClients
+        // 
+        this.filteredClients.Dock = DockStyle.Top;
+        this.filteredClients.FormattingEnabled = true;
+        this.filteredClients.ItemHeight = 15;
+        this.filteredClients.Location = new Point(0, 81);
+        this.filteredClients.Name = "filteredClients";
+        this.filteredClients.Size = new Size(210, 94);
+        this.filteredClients.TabIndex = 4;
+        this.filteredClients.SelectedIndexChanged += this.FilteredClients_SelectedIndexChanged;
+        // 
+        // clientDeleteButton
+        // 
+        this.clientDeleteButton.Dock = DockStyle.Top;
+        this.clientDeleteButton.Location = new Point(0, 245);
+        this.clientDeleteButton.Name = "clientDeleteButton";
+        this.clientDeleteButton.Size = new Size(210, 35);
+        this.clientDeleteButton.TabIndex = 9;
+        this.clientDeleteButton.Text = "Supprimer l'Adresse";
+        this.clientDeleteButton.UseVisualStyleBackColor = true;
+        this.clientDeleteButton.Click += this.ClientDeleteButton_Click;
+        // 
+        // clientEditButton
+        // 
+        this.clientEditButton.Dock = DockStyle.Top;
+        this.clientEditButton.Location = new Point(0, 210);
+        this.clientEditButton.Name = "clientEditButton";
+        this.clientEditButton.Size = new Size(210, 35);
+        this.clientEditButton.TabIndex = 8;
+        this.clientEditButton.Text = "Modifier l'Adresse";
+        this.clientEditButton.UseVisualStyleBackColor = true;
+        this.clientEditButton.Click += this.ClientEditButton_Click;
+        // 
+        // clientViewButton
+        // 
+        this.clientViewButton.Dock = DockStyle.Top;
+        this.clientViewButton.Location = new Point(0, 175);
+        this.clientViewButton.Name = "clientViewButton";
+        this.clientViewButton.Size = new Size(210, 35);
+        this.clientViewButton.TabIndex = 7;
+        this.clientViewButton.Text = "Voir Détails";
+        this.clientViewButton.UseVisualStyleBackColor = true;
+        this.clientViewButton.Click += this.ClientViewButton_Click;
         // 
         // AdminMainMenu
         // 
@@ -228,6 +363,10 @@ partial class AdminMainMenu {
         this.addressMgmtMainPanel.ResumeLayout(false);
         this.addressMgmtMainPanel.PerformLayout();
         this.addressMgmtTopBar.ResumeLayout(false);
+        this.clientsMgmtPanel.ResumeLayout(false);
+        this.clientMgmtTopBar.ResumeLayout(false);
+        this.clientMgmtMainPanel.ResumeLayout(false);
+        this.clientMgmtMainPanel.PerformLayout();
         this.ResumeLayout(false);
     }
 
@@ -241,11 +380,22 @@ partial class AdminMainMenu {
     private Panel addressMgmtMainPanel;
     private Button createAddressButton;
     private Panel addressMgmtTopBar;
-    private Label label1;
+    private Label addressMgmtLabel;
     private Label existingAddressesLabel;
     private TextBox addressSearchTextBox;
     private Button viewAddressButton;
     private ListBox filteredAddresses;
     private Button deleteAddressButton;
     private Button editAddressButton;
+    private Panel clientsMgmtPanel;
+    private Panel clientMgmtTopBar;
+    private Panel clientMgmtMainPanel;
+    private Button clientCreateButton;
+    private Label clientMgmtLabel;
+    private Button clientDeleteButton;
+    private Button clientEditButton;
+    private Button clientViewButton;
+    private ListBox filteredClients;
+    private TextBox clientFilteringBox;
+    private Label existingClientsLabel;
 }

@@ -21,11 +21,12 @@ public partial class AdminMainMenu : Form {
     }
 
 
+
     #region Gestion des Adresses
 
 
     private void AddressSearchTextBox_TextChanged(object sender, EventArgs e) {
-        this.filteredAddresses.DataSource = 
+        this.filteredAddresses.DataSource =
             this.ParentFacade.GetService<AddressService>().SearchAddresses(this.addressSearchTextBox.Text);
     }
 
@@ -72,20 +73,76 @@ public partial class AdminMainMenu : Form {
     }
 
     private void FilteredAddresses_SelectedIndexChanged(object sender, EventArgs e) {
-        if (this.filteredAddresses.SelectedItem != null) { 
+        if (this.filteredAddresses.SelectedItem != null) {
             this.ActivateAddressButtons();
         } else {
             this.DeactivateAddressButtons();
         }
     }
 
-
-
     #endregion
 
+
+    #region Gestion des Clients
+
+    private void ClientCreateButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ClientService>().CreateNewDtoInstance();
+    }
+
+    private void ClientFilteringBox_TextChanged(object sender, EventArgs e) {
+        this.filteredClients.DataSource =
+            this.ParentFacade.GetService<ClientService>().SearchClientsByName(this.clientFilteringBox.Text);
+    }
+
+    private void ActivateClientsButtons() {
+        this.clientEditButton.Enabled = true;
+        this.clientViewButton.Enabled = true;
+        this.clientDeleteButton.Enabled = true;
+    }
+
+    private void DeactivateClientsButtons() {
+        this.clientEditButton.Enabled = false;
+        this.clientViewButton.Enabled = false;
+        this.clientDeleteButton.Enabled = false;
+    }
+
+    private void ClientViewButton_Click(object sender, EventArgs e) {
+        if (this.filteredClients.SelectedItem == null) {
+            _ = MessageBox.Show("Pas de client sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<ClientService>().DisplayDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+        }
+    }
+
+    private void ClientEditButton_Click(object sender, EventArgs e) {
+        if (this.filteredClients.SelectedItem == null) {
+            _ = MessageBox.Show("Pas de client sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<ClientService>().UpdateDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+        }
+    }
+
+    private void ClientDeleteButton_Click(object sender, EventArgs e) {
+        if (this.filteredClients.SelectedItem == null) {
+            _ = MessageBox.Show("Pas de client sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<ClientService>().DeleteDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+        }
+    }
+
+    private void FilteredClients_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.filteredAddresses.SelectedItem is not null) {
+            this.ActivateAddressButtons();
+        } else {
+            this.DeactivateAddressButtons();
+        }
+    }
+
+    #endregion
 
 
     private void ButtonQuit_Click(object sender, EventArgs e) {
         this.ParentFacade.ShutdownParentApplication();
     }
+
 }
