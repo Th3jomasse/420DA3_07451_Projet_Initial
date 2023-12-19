@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
@@ -29,6 +30,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.facade = facade;
         this.workingDtoInstance = new UserDTO("", null);
         this.InitializeComponent();
+        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
+        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
     }
     /// <summary>
     /// Ouvre le formulaire pour créer un nouvel utilisateur.
@@ -102,13 +105,13 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     private void SetFields(UserDTO dto)
     {
 
-        this.idTextBox.Text = dto.Id.ToString() ?? "";
+        this.userIdNumeric.Text = dto.Id.ToString() ?? "";
         this.nameTextBox.Text = dto.UserName ?? "";
 
         if (dto.DateCreation is null)
         {
-            this.dateCreatedBox.Format = DateTimePickerFormat.Custom;
-            this.dateCreatedBox.CustomFormat = "";
+            this.dateCreationTextBox.Format = DateTimePickerFormat.Custom;
+            this.dateCreationTextBox.CustomFormat = "";
         } else
         {
             this.dateCreatedBox.Format = DateTimePickerFormat.Long;
@@ -153,6 +156,18 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.dateCreationTextBox.Enabled = false;
         this.warehouseComboBox.Enabled = true;
         this.roleslistBox.Enabled = true;
+    }
+
+    public void LoadWarehousesInCombobox(List<EntrepotDTO> warehouseList) {
+        this.warehouseComboBox.Items.Clear();
+        this.nullWarehouseComboboxItemIndex = this.warehouseComboBox.Items.Add("Aucun");
+        this.warehouseComboBox.Items.AddRange(warehouseList.ToArray());
+        this.warehouseComboBox.Refresh();
+    }
+
+    public void LoadRolesListBox(List<RoleDTO> list) {
+        this.roleslistBox.Items.Clear();
+        this.roleslistBox.Items.AddRange(list.ToArray());
     }
 
     /// <summary>
