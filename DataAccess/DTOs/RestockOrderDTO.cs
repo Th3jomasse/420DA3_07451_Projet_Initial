@@ -91,4 +91,12 @@ public class RestockOrderDTO : AbstractDTO<int> {
     #endregion
 
 
+    public override string ToString() {
+        return this.Id 
+            + " - " + this.Produit.NomProduit 
+            + "(" + this.Quantity + ") " 
+            + this.CreationDate.ToString() 
+            + this.CompletionDate != null ? " - " + this.CompletionDate.ToString() : "";
+    }
+
 }

@@ -27,4 +27,8 @@ public class EntrepotDTO : AbstractDTO<int> {
         this.Version = version;
     }
 
+
+    public override string ToString() {
+        return this.Id + " - " + this.NomEntrepot;
+    }
 }
