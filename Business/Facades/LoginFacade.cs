@@ -23,7 +23,9 @@ internal class LoginFacade : AbstractFacade {
     }
 
     public override void Shutdown() {
-        throw new NotImplementedException();
+        foreach (IStoppable dependant in this.Dependents) {
+            dependant.Shutdown();
+        }
     }
 
     public override void Start() {

@@ -18,6 +18,8 @@ internal class AdminFacade : AbstractFacade {
     private AddressService AddressService { get; set; }
     private RestockOrderService RestockOrderService { get; set; }
 
+    // TODO: ajoutez des propriétés pour vos services ici
+
 
     public AdminFacade(AbstractApplication parentApp, AbstractLoginService loginService) : base(parentApp, loginService) {
         this.Context = new AppDbContext();
@@ -25,11 +27,19 @@ internal class AdminFacade : AbstractFacade {
         this.EntrepotService = new EntrepotService(this, this.Context);
         this.AddressService = new AddressService(this, this.Context);
         this.RestockOrderService = new RestockOrderService(this, this.Context);
+
+        // TODO: initialisez vos propriétés de services ici
+
         this.MainMenu = new AdminMainMenu(this);
     }
 
     public override void Shutdown() {
-        throw new NotImplementedException();
+        foreach (IStoppable dependant in this.Dependents) {
+            dependant.Shutdown();
+        }
+        if (!this.MainMenu.IsDisposed) {
+            this.MainMenu.Dispose();
+        }
     }
 
     public override void Start() {
