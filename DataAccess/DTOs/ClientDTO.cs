@@ -59,4 +59,8 @@ public class ClientDTO : AbstractDTO<int> {
         this.TelephonePersonneContact = telephonePersonneContact;
         this.Version = version;
     }
+
+    public override string ToString() {
+        return this.Id + " - " + this.NomClient;
+    }
 }

@@ -27,7 +27,7 @@ public class AddressDTO : AbstractDTO<int> {
 
     // Navigation Properties
     public FournisseursDTO? FournisseurAssocie { get; set; }
-    public WarehouseDTO? WarehouseAssociee { get; set; }
+    public EntrepotDTO? WarehouseAssociee { get; set; }
     public ClientDTO? ClientAssocie { get; set; }
 
 
@@ -147,4 +147,13 @@ public class AddressDTO : AbstractDTO<int> {
 
     #endregion
 
+
+    public override string ToString() {
+        return this.CivicNumber.ToString() 
+            + " " + this.Street 
+            + ", " + this.City 
+            + ", " + this.Province 
+            + ", " + this.Country 
+            + ", " + this.PostalCode;
+    }
 }
