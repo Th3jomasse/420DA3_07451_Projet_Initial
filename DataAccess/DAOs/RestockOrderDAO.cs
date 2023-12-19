@@ -1,4 +1,5 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business;
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,29 @@ public class RestockOrderDAO : AbstractDao<RestockOrderDTO, int> {
             .FirstOrDefault();
     }
 
-    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(WarehouseDTO warehouse) {
+    public List<RestockOrderDTO> SearchRestockOrdersByProduct(ProduitsDTO produit) {
+        return this.Context.GetDbSet<RestockOrderDTO>()
+            .Include(ro => ro.DestinationWarehouse)
+            .Include(ro => ro.Produit)
+            .Where(ro =>
+                ro.Produit.Id == produit.Id
+            )
+            .ToList();
+    }
+
+    public List<RestockOrderDTO> SearchRestockOrders(string filter) {
+        return this.Context.GetDbSet<RestockOrderDTO>()
+            .Include(ro => ro.DestinationWarehouse)
+            .Include(ro => ro.Produit)
+            .Where(ro =>
+                ro.Produit.NomProduit.StartsWith(filter)
+                || ro.CreationDate.ToString(LogisticsApp.STANDARD_DATETIME_FORMAT).Contains(filter)
+                || (ro.CompletionDate != null && ((DateTime)ro.CompletionDate).ToString(LogisticsApp.STANDARD_DATETIME_FORMAT).Contains(filter))
+            )
+            .ToList();
+    }
+
+    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(EntrepotDTO warehouse) {
         return this.GetAllIncompleteForWarehouse(warehouse.Id);
     }
 

@@ -1,4 +1,5 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Enums;
 using System;
 using System.Collections.Generic;
@@ -92,11 +93,15 @@ public class RestockOrderDTO : AbstractDTO<int> {
 
 
     public override string ToString() {
+        string complDate = "";
+        if (this.CompletionDate is not null) {
+            complDate = " - " + ((DateTime) this.CompletionDate).ToString(LogisticsApp.STANDARD_DATETIME_FORMAT);
+        }
         return this.Id 
             + " - " + this.Produit.NomProduit 
             + "(" + this.Quantity + ") " 
-            + this.CreationDate.ToString() 
-            + this.CompletionDate != null ? " - " + this.CompletionDate.ToString() : "";
+            + this.CreationDate.ToString(LogisticsApp.STANDARD_DATETIME_FORMAT) 
+            + complDate;
     }
 
 }
