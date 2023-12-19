@@ -20,7 +20,7 @@ public class UserDTO : AbstractDTO<int> {
     public List<RestockOrderDTO> PurchaseOrders { get; set; } = new List<RestockOrderDTO>();
     public List<ShipOrdersDTO> ShippingOrders { get; set; } = new List<ShipOrdersDTO>();
     // Propriété de navigation vers les rôles de l'utilisateur
-    public List<RoleDTO> Role { get; set; } = new List<RoleDTO>();
+    public List<RoleDTO> Roles { get; set; } = new List<RoleDTO>();
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
