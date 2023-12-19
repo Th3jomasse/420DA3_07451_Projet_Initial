@@ -1,4 +1,5 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Services;
+﻿using _420DA3_07451_Projet_Initial.Business.Facades;
+using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,17 @@ using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class LoginForm : Form {
+    private AmazouneFacade amazouneFacade;
+
     private LoginService LoginService { get; set; }
 
     public LoginForm(LoginService parentService) {
         this.LoginService = parentService;
         this.InitializeComponent();
+    }
+
+    public LoginForm(AmazouneFacade amazouneFacade) {
+        this.amazouneFacade = amazouneFacade;
     }
 
     private void label4_Click(object sender, EventArgs e) {

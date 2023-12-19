@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
+namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 public class ShippingOrderProducts {
     public int ShippingOrderId { get; set; }
     public ShipOrdersDTO ShippingOrder { get; set; } = null!;

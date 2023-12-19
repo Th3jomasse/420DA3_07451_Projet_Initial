@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs.PIvots;
+namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 public class UserRoles {
 
     public int UserId { get; set; }
