@@ -34,8 +34,9 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepots());
     }
 
-    private void LoadRolesListBox(Func<string, List<RoleDTO>> getRoles) {
-        throw new NotImplementedException();
+    public void LoadRolesListBox(List<RoleDTO> getRoles) {
+        this.roleslistBox.Items.Clear();
+        this.roleslistBox.Items.AddRange(getRoles.ToArray());
     }
 
     /// <summary>
@@ -161,14 +162,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
 
     public void LoadWarehousesInCombobox(List<EntrepotDTO> warehouseList) {
         this.warehouseComboBox.Items.Clear();
-        this.nullWarehouseComboboxItemIndex = this.warehouseComboBox.Items.Add("Aucun");
         this.warehouseComboBox.Items.AddRange(warehouseList.ToArray());
         this.warehouseComboBox.Refresh();
-    }
-
-    public void LoadRolesListBox(List<RoleDTO> list) {
-        this.roleslistBox.Items.Clear();
-        this.roleslistBox.Items.AddRange(list.ToArray());
     }
 
     /// <summary>
