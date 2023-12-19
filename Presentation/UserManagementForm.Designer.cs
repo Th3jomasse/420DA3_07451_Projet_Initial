@@ -30,8 +30,8 @@ partial class UserManagementForm
     {
         this.RoleslistBox = new ListBox();
         this.Roleslabel = new Label();
-        this.textBox2 = new TextBox();
-        this.textBox1 = new TextBox();
+        this.dateCreationTextBox = new TextBox();
+        this.passwordTextBox = new TextBox();
         this.passworedLabel = new Label();
         this.userIdNumeric = new ComboBox();
         this.warehousetextBox = new TextBox();
@@ -64,19 +64,19 @@ partial class UserManagementForm
         this.Roleslabel.Text = "Rôles:";
         this.Roleslabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // textBox2
+        // dateCreationTextBox
         // 
-        this.textBox2.Location = new Point(162, 161);
-        this.textBox2.Name = "textBox2";
-        this.textBox2.Size = new Size(331, 23);
-        this.textBox2.TabIndex = 53;
+        this.dateCreationTextBox.Location = new Point(162, 161);
+        this.dateCreationTextBox.Name = "dateCreationTextBox";
+        this.dateCreationTextBox.Size = new Size(331, 23);
+        this.dateCreationTextBox.TabIndex = 53;
         // 
-        // textBox1
+        // passwordTextBox
         // 
-        this.textBox1.Location = new Point(162, 71);
-        this.textBox1.Name = "textBox1";
-        this.textBox1.Size = new Size(331, 23);
-        this.textBox1.TabIndex = 52;
+        this.passwordTextBox.Location = new Point(162, 71);
+        this.passwordTextBox.Name = "passwordTextBox";
+        this.passwordTextBox.Size = new Size(331, 23);
+        this.passwordTextBox.TabIndex = 52;
         // 
         // passworedLabel
         // 
@@ -186,8 +186,8 @@ partial class UserManagementForm
         this.ClientSize = new Size(638, 333);
         this.Controls.Add(this.RoleslistBox);
         this.Controls.Add(this.Roleslabel);
-        this.Controls.Add(this.textBox2);
-        this.Controls.Add(this.textBox1);
+        this.Controls.Add(this.dateCreationTextBox);
+        this.Controls.Add(this.passwordTextBox);
         this.Controls.Add(this.passworedLabel);
         this.Controls.Add(this.userIdNumeric);
         this.Controls.Add(this.warehousetextBox);
@@ -210,8 +210,8 @@ partial class UserManagementForm
 
     private ListBox RoleslistBox;
     private Label Roleslabel;
-    private TextBox textBox2;
-    private TextBox textBox1;
+    private TextBox dateCreationTextBox;
+    private TextBox passwordTextBox;
     private Label passworedLabel;
     private ComboBox userIdNumeric;
     private TextBox warehousetextBox;
