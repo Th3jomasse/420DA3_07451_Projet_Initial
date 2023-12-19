@@ -61,8 +61,8 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
     }
 
     private void buttonSearch_Click(object sender, EventArgs e) {
-        string searchTermId = this.textBoxProduitId.Text.Trim();
-        string searchTermNom = this.textBoxProduitNom.Text.Trim();
+        string searchTermId = this.textBoxProdId.Text.Trim();
+        string searchTermNom = this.textBoxProdCodeFour.Text.Trim();
 
         if (!string.IsNullOrEmpty(searchTermId)) {
             // Search by ID
@@ -133,42 +133,6 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
 
     private void buttonExit_Click(object sender, EventArgs e) {
         this.Hide();
-    }
-
-    private void textBoxProduitId_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void comboBoxFournisseurs_SelectedIndexChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxFournisseurId_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitUpc_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitNom_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitDesc_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitUnitStock_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitPoids_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void textBoxProduitMinStock_TextChanged(object sender, EventArgs e) {
-
     }
    
     public DialogResult OpenForCreation(ProduitsDTO blankInstance) {
@@ -242,19 +206,19 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
         return this.ShowDialog();
     }
     private void SetFields(ProduitsDTO dto) {
-        this.textBoxProduitId.Text = dto.Id.ToString() ?? "";
-        this.textBoxProduitNom.Text = dto.NomProduit ?? "";
-        this.textBoxProduitUpc.Text = dto.ProduitUpc.ToString() ?? "";
-        this.textBoxProduitDesc.Text = dto.Description ?? "";
-        this.textBoxProduitUnitStock.Text = dto.UnitesEnStock.ToString() ?? "";
-        this.textBoxProduitPoids.Text = dto.PoidsKilo.ToString() ?? "";
-        this.textBoxProduitMinStock.Text = dto.NiveauDeReappro.ToString() ?? "";
+        this.textBoxProdId.Text = dto.Id.ToString() ?? "";
+        this.textBoxProdCodeFour.Text = dto.NomProduit ?? "";
+        this.textBoxProdUnitStock.Text = dto.ProduitUpc.ToString() ?? "";
+        this.textBoxProdKg.Text = dto.Description ?? "";
+        this.textBoxProdDesc.Text = dto.UnitesEnStock.ToString() ?? "";
+        this.textBoxProdMinUnit.Text = dto.PoidsKilo.ToString() ?? "";
+        this.textBoxProdUpc.Text = dto.NiveauDeReappro.ToString() ?? "";
 
         // Assuming comboBoxFournisseurs is a ComboBox and dto.FournisseurId is an int
         // You need to find the corresponding index for the item in the ComboBox
         int fournisseurId = dto.FournisseurId;
-        int index = comboBoxFournisseurs.FindStringExact(fournisseurId.ToString());
-        comboBoxFournisseurs.SelectedIndex = index;
+        int index = comboBoxProdFourId.FindStringExact(fournisseurId.ToString());
+        comboBoxProdFourId.SelectedIndex = index;
     }
 
 }

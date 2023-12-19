@@ -54,4 +54,8 @@ public class FournisseursService : AbstractDtoService<FournisseursDTO, int> {
     public FournisseursDTO? FindFournisseurByAddresse(int addresseId) {
         return this.Dao.GetByAddresse(addresseId.ToString()).FirstOrDefault();
     }
+
+    public FournisseursDTO? SearchFournisseur(string searchInput) {
+        return this.FindAllFournisseurs().FirstOrDefault(x => x.NomFournisseur == searchInput);
+    }
 }
