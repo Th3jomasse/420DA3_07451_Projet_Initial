@@ -16,7 +16,7 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs.PivotsDAO;
 
         public ShippingOrderProducts? GetShippingOrderProductById(int orderId, int productId) {
             return this.context.ShippingOrderProducts
-                .Where(sop => sop.OrderId == orderId && sop.ProductId == productId)
+                .Where(sop => sop.ShippingOrderId == orderId && sop.ProduitId == productId)
                 .SingleOrDefault();
         }
 
