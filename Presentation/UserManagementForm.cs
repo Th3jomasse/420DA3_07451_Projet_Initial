@@ -214,14 +214,20 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     }
 
     /// <summary>
+    /// Gère l'événement de clic du bouton Annuler, définissant le DialogResult sur Annuler.
+    /// </summary>
+    private void CancelButton_Click(object sender, EventArgs e) {
+        this.DialogResult = DialogResult.Cancel;
+    }
+
+    /// <summary>
     /// Gère l'événement de clic du bouton d'action.
     /// </summary>
     /// <param name="sender">L'objet déclenchant l'événement.</param>
     /// <param name="args">Les arguments de l'événement.</param>
-    private void OnActionButtonClick(object? sender, EventArgs args)
+    private void actionButton_Click(object sender, EventArgs e)
     {
-        switch (this.workingViewIntent)
-        {
+        switch (this.workingViewIntent) {
             case ViewIntentEnum.Creation:
                 this.DoCreateAction();
                 break;
@@ -236,13 +242,5 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
                 this.DoVisualizeAction();
                 break;
         }
-    }
-
-    /// <summary>
-    /// Gère l'événement de clic du bouton Annuler, définissant le DialogResult sur Annuler.
-    /// </summary>
-    private void CancelButton_Click(object sender, EventArgs e)
-    {
-        this.DialogResult = DialogResult.Cancel;
     }
 }
