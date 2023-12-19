@@ -122,18 +122,37 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     /// </summary>
     private void DisableEditableFields()
     {
+        this.userIdNumeric.Enabled = false;
         this.nameTextBox.Enabled = false;
-        this.roleIdTextBox.Enabled = false;
-        this.warehouseIdtextBox.Enabled = false;
+        this.passwordTextBox.Enabled = false;
+        this.passwordHashtextBox.Enabled = false;
+        this.dateCreationTextBox.Enabled = false;
+        this.warehouseComboBox.Enabled = false;
+        this.roleslistBox.Enabled = false;
     }
 
     /// <summary>
     /// Active les champs éditables du formulaire.
     /// </summary>
+    private void EnableEditableFieldsCreate()
+    {
+        this.userIdNumeric.Enabled = false;
+        this.nameTextBox.Enabled = true;
+        this.passwordTextBox.Enabled = true;
+        this.passwordHashtextBox.Enabled = false;
+        this.dateCreationTextBox.Enabled = false;
+        this.warehouseComboBox.Enabled = true;
+        this.roleslistBox.Enabled = true;
+    }
     private void EnableEditableFields()
     {
-        this.nameTextBox.Enabled = true;
-        this.roleIdTextBox.Enabled = true;
+        this.userIdNumeric.Enabled = false;
+        this.nameTextBox.Enabled = false;
+        this.passwordTextBox.Enabled = true;
+        this.passwordHashtextBox.Enabled = false;
+        this.dateCreationTextBox.Enabled = false;
+        this.warehouseComboBox.Enabled = true;
+        this.roleslistBox.Enabled = true;
     }
 
     /// <summary>

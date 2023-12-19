@@ -28,13 +28,12 @@ partial class UserManagementForm
     /// </summary>
     private void InitializeComponent()
     {
-        this.RoleslistBox = new ListBox();
+        this.roleslistBox = new ListBox();
         this.Roleslabel = new Label();
         this.dateCreationTextBox = new TextBox();
         this.passwordTextBox = new TextBox();
         this.passworedLabel = new Label();
         this.userIdNumeric = new ComboBox();
-        this.warehousetextBox = new TextBox();
         this.warehouselabel = new Label();
         this.passwordHashtextBox = new TextBox();
         this.passwordHashlabel = new Label();
@@ -44,16 +43,17 @@ partial class UserManagementForm
         this.nameTextBox = new TextBox();
         this.nameLabel = new Label();
         this.idLabel = new Label();
+        this.warehouseComboBox = new ComboBox();
         this.SuspendLayout();
         // 
-        // RoleslistBox
+        // roleslistBox
         // 
-        this.RoleslistBox.FormattingEnabled = true;
-        this.RoleslistBox.ItemHeight = 15;
-        this.RoleslistBox.Location = new Point(162, 184);
-        this.RoleslistBox.Name = "RoleslistBox";
-        this.RoleslistBox.Size = new Size(331, 94);
-        this.RoleslistBox.TabIndex = 55;
+        this.roleslistBox.FormattingEnabled = true;
+        this.roleslistBox.ItemHeight = 15;
+        this.roleslistBox.Location = new Point(162, 184);
+        this.roleslistBox.Name = "roleslistBox";
+        this.roleslistBox.Size = new Size(331, 94);
+        this.roleslistBox.TabIndex = 55;
         // 
         // Roleslabel
         // 
@@ -94,13 +94,6 @@ partial class UserManagementForm
         this.userIdNumeric.Name = "userIdNumeric";
         this.userIdNumeric.Size = new Size(331, 23);
         this.userIdNumeric.TabIndex = 50;
-        // 
-        // warehousetextBox
-        // 
-        this.warehousetextBox.Location = new Point(162, 132);
-        this.warehousetextBox.Name = "warehousetextBox";
-        this.warehousetextBox.Size = new Size(331, 23);
-        this.warehousetextBox.TabIndex = 49;
         // 
         // warehouselabel
         // 
@@ -179,18 +172,26 @@ partial class UserManagementForm
         this.idLabel.Text = "UserID:";
         this.idLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
+        // warehouseComboBox
+        // 
+        this.warehouseComboBox.FormattingEnabled = true;
+        this.warehouseComboBox.Location = new Point(162, 132);
+        this.warehouseComboBox.Name = "warehouseComboBox";
+        this.warehouseComboBox.Size = new Size(331, 23);
+        this.warehouseComboBox.TabIndex = 56;
+        // 
         // UserManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(638, 333);
-        this.Controls.Add(this.RoleslistBox);
+        this.Controls.Add(this.warehouseComboBox);
+        this.Controls.Add(this.roleslistBox);
         this.Controls.Add(this.Roleslabel);
         this.Controls.Add(this.dateCreationTextBox);
         this.Controls.Add(this.passwordTextBox);
         this.Controls.Add(this.passworedLabel);
         this.Controls.Add(this.userIdNumeric);
-        this.Controls.Add(this.warehousetextBox);
         this.Controls.Add(this.warehouselabel);
         this.Controls.Add(this.passwordHashtextBox);
         this.Controls.Add(this.passwordHashlabel);
@@ -208,13 +209,12 @@ partial class UserManagementForm
 
     #endregion
 
-    private ListBox RoleslistBox;
+    private ListBox roleslistBox;
     private Label Roleslabel;
     private TextBox dateCreationTextBox;
     private TextBox passwordTextBox;
     private Label passworedLabel;
     private ComboBox userIdNumeric;
-    private TextBox warehousetextBox;
     private Label warehouselabel;
     private TextBox passwordHashtextBox;
     private Label passwordHashlabel;
@@ -224,4 +224,5 @@ partial class UserManagementForm
     private TextBox nameTextBox;
     private Label nameLabel;
     private Label idLabel;
+    private ComboBox warehouseComboBox;
 }
