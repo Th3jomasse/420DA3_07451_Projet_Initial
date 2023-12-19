@@ -30,9 +30,14 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.facade = facade;
         this.workingDtoInstance = new UserDTO("", null);
         this.InitializeComponent();
-        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
-        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
+        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetRoles);
+        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepots());
     }
+
+    private void LoadRolesListBox(Func<string, List<RoleDTO>> getRoles) {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// Ouvre le formulaire pour créer un nouvel utilisateur.
     /// </summary>
@@ -102,22 +107,18 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     /// Définit les champs du formulaire en fonction des valeurs de l'objet UserDTO.
     /// </summary>
     /// <param name="dto">L'objet UserDTO utilisé pour remplir les champs du formulaire.</param>
-    private void SetFields(UserDTO dto)
+    private void SetFields(UserDTO instance)
     {
-
-        this.userIdNumeric.Text = dto.Id.ToString() ?? "";
-        this.nameTextBox.Text = dto.UserName ?? "";
-
-        if (dto.DateCreation is null)
-        {
-            this.dateCreationTextBox.Format = DateTimePickerFormat.Custom;
-            this.dateCreationTextBox.CustomFormat = "";
-        } else
-        {
-            this.dateCreatedBox.Format = DateTimePickerFormat.Long;
-            this.dateCreatedBox.Value = (DateTime) dto.DateCreation;
+        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
+            throw new Exception("Incorrect Username");
         }
-
+        if (!string.IsNullOrEmpty(this.passwordTextBox.Text)
+            && !UserDTO.ValidatePasswordUser(this.passwordTextBox.Text)) {
+            throw new Exception("Incorect password");
+        }
+        if (string.IsNullOrEmpty(this.passwordHashtextBox.Text)) {
+            throw new Exception("Password Hash is empty");
+        }
     }
 
     /// <summary>
