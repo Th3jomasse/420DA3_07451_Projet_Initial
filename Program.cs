@@ -11,7 +11,6 @@ internal static class Program {
     public static void Main(string[] args) {
         if (args.Contains("-jonathanTest")) {
             ApplicationConfiguration.Initialize();
-            Application.Run(new ProduitsManagementForm());
         }
 
         else if (args.Contains("-guillaumeTest")) {

@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using System;
 using System.Collections.Generic;
@@ -11,26 +12,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _420DA3_07451_Projet_Initial.Presentation.Enums;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 
 public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsDTO> {
     private readonly ProduitsService service;
-    private readonly AbstractFacade facade;
+    private readonly FournisseursService fournisseursService;
+    private readonly AbstractFacade ParentFacade;
+    private ProduitsDTO workingDtoInstance;
+    private ViewIntentEnum? workingViewIntent;
 
-    public ProduitsManagementForm(AbstractFacade facade) {
-        this.facade = facade;
-        this.service = facade.GetService<ProduitsService>();
+    public ProduitsManagementForm(AbstractFacade parentFacade) {
+        this.ParentFacade = parentFacade;
         this.InitializeComponent();
         this.RefreshList();
     }
 
     private void RefreshList() {
-        object selected = this.dataGridViewProduits.SelectedRows;
-        this.dataGridViewProduits.Rows.Clear();
-        this.dataGridViewProduits.Rows.AddRange(this.service.GetAllProduits().ToArray());
-        this.dataGridViewProduits.SelectedRows = (DataGridViewSelectedRowCollection) selected;
-        this.dataGridViewProduits.Refresh();
+        var productItems = this.listBoxProduits.SelectedItems.Cast<ProduitsDTO>().ToList();
+        var fournisseurItems = this.listBoxFournisseurs.SelectedItems.Cast<FournisseursDTO>().ToList();
+        this.listBoxProduits.DataSource = this.service.GetAllProduits();
+        this.listBoxFournisseurs.DataSource = this.fournisseursService.FindAllFournisseurs();
+        this.listBoxProduits.ClearSelected();
+        this.listBoxFournisseurs.ClearSelected();
+        foreach (var productItem in productItems) {
+            var index = this.listBoxProduits.Items.IndexOf(productItem);
+            if (index >= 0) {
+                this.listBoxProduits.SetSelected(index, true);
+            }
+        }
+
+        foreach (var fournisseurItem in fournisseurItems) {
+            var index = this.listBoxFournisseurs.Items.IndexOf(fournisseurItem);
+            if (index >= 0) {
+                this.listBoxFournisseurs.SetSelected(index, true);
+            }
+        }
     }
 
     private void buttonNew_Click(object sender, EventArgs e) {
@@ -43,20 +61,33 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
     }
 
     private void buttonSearch_Click(object sender, EventArgs e) {
+        string searchTermId = this.textBoxProduitId.Text.Trim();
+        string searchTermNom = this.textBoxProduitNom.Text.Trim();
 
-        string searchTerm = this.textBoxSearch.Text.Trim();
-        List<ProduitsDTO> filteredProducts = this.service.SearchProduits(searchTerm);
-        object selected = this.dataGridViewProduits.SelectedRows;
-        this.dataGridViewProduits.Rows.Clear();
-        this.dataGridViewProduits.Rows.AddRange(filteredProducts.ToArray());
-        this.dataGridViewProduits.SelectedRows = (DataGridViewSelectedRowCollection) selected;
-        this.dataGridViewProduits.Refresh();
+        if (!string.IsNullOrEmpty(searchTermId)) {
+            // Search by ID
+            if (int.TryParse(searchTermId, out int productId)) {
+                ProduitsDTO? filteredProducts = this.service.FindProduitById(productId);
+                this.listBoxProduits.DataSource = null;
+                this.listBoxProduits.DataSource = filteredProducts;
+            } else {
+                MessageBox.Show("Invalid ID format. Please enter a valid numeric ID.");
+            }
+        } else if (!string.IsNullOrEmpty(searchTermNom)) {
+            // Search by name
+            ProduitsDTO? filteredProducts = this.service.SearchProduct(searchTermNom);
+            this.listBoxProduits.DataSource = null;
+            this.listBoxProduits.DataSource = filteredProducts;
+        } else {
+            // Both textboxes are empty, display all products
+            this.RefreshList();
+        }
     }
 
+
     private void buttonDelete_Click(object sender, EventArgs e) {
-        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
-            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
-            ProduitsDTO? deletedInstance = selectedRow.DataBoundItem as ProduitsDTO;
+        if (this.listBoxProduits.SelectedItems.Count > 0) {
+            ProduitsDTO? deletedInstance = this.listBoxProduits.SelectedItem as ProduitsDTO;
             if (deletedInstance is not null) {
                 _ = this.service.DeleteDtoInstance(deletedInstance);
                 _ = this.service.DisplayDtoInstance(deletedInstance);
@@ -78,10 +109,8 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
     }
 
     private void buttonEdit_Click(object sender, EventArgs e) {
-
-        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
-            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
-            ProduitsDTO? editedInstance = selectedRow.DataBoundItem as ProduitsDTO;
+        if (this.listBoxProduits.SelectedItems.Count > 0) {
+            ProduitsDTO? editedInstance = this.listBoxProduits.SelectedItem as ProduitsDTO;
             if (editedInstance is not null) {
                 _ = this.service.UpdateDtoInstance(editedInstance);
                 _ = this.service.DisplayDtoInstance(editedInstance);
@@ -90,16 +119,17 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
         }
     }
 
+
     private void buttonView_Click(object sender, EventArgs e) {
-        if (this.dataGridViewProduits.SelectedRows.Count > 0) {
-            DataGridViewRow selectedRow = this.dataGridViewProduits.SelectedRows[0];
-            ProduitsDTO? displayInstance = selectedRow.DataBoundItem as ProduitsDTO;
+        if (this.listBoxProduits.SelectedItems.Count > 0) {
+            ProduitsDTO? displayInstance = this.listBoxProduits.SelectedItem as ProduitsDTO;
             if (displayInstance is not null) {
                 _ = this.service.DisplayDtoInstance(displayInstance);
                 this.RefreshList();
             }
         }
     }
+
 
     private void buttonExit_Click(object sender, EventArgs e) {
         this.Hide();
@@ -140,31 +170,91 @@ public partial class ProduitsManagementForm : Form, IDtoManagementView<ProduitsD
     private void textBoxProduitMinStock_TextChanged(object sender, EventArgs e) {
 
     }
-
-    private void dataGridViewFournisseurs_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-    }
-
-    private void dataGridViewProduits_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-    }
+   
     public DialogResult OpenForCreation(ProduitsDTO blankInstance) {
-        // TODO:  Complete form code
-        throw new NotImplementedException();
+        // Set the working instance and intent
+        this.workingDtoInstance = blankInstance;
+        this.workingViewIntent = ViewIntentEnum.Creation;
+
+        // Customize the form for creation
+       this.SetFields(blankInstance);
+
+        // Show the form modally
+        DialogResult result = this.ShowDialog();
+
+        // Check the result and perform actions if needed
+        if (result == DialogResult.OK) {
+            // The user clicked OK, you might want to perform additional actions
+            this.RefreshList(); // Refresh the list after creation
+        }
+
+        return result;
     }
 
     public DialogResult OpenForDeletion(ProduitsDTO instance) {
-        // TODO:  Complete form code
-        throw new NotImplementedException();
+        // Set the working instance and intent
+        this.workingDtoInstance = instance;
+        this.workingViewIntent = ViewIntentEnum.Deletion;
+
+        // Customize the form for deletion
+        
+        this.SetFields(instance); // Display details for confirmation
+
+        // Show the form modally
+        DialogResult result = this.ShowDialog();
+
+        // Check the result and perform actions if needed
+        if (result == DialogResult.OK) {
+            // The user confirmed deletion, you might want to perform additional actions
+            this.RefreshList(); // Refresh the list after deletion
+        }
+
+        return result;
     }
+
 
     public DialogResult OpenForEdition(ProduitsDTO instance) {
-        // TODO: Complete form code
-        throw new NotImplementedException();
+        // Set the working instance and intent
+        this.workingDtoInstance = instance;
+        this.workingViewIntent = ViewIntentEnum.Edition;
+        this.SetFields(instance);
+
+        // Show the form modally
+        DialogResult result = this.ShowDialog();
+
+        // Check the result and perform actions if needed
+        if (result == DialogResult.OK) {
+            // The user clicked OK, you might want to perform additional actions
+            this.RefreshList(); // Refresh the list after edition
+        }
+
+        return result;
     }
 
+
     public DialogResult OpenForVisualization(ProduitsDTO instance) {
-        // TODO:  Complete form code
-        throw new NotImplementedException();
+        // Set the working instance and intent
+        this.workingDtoInstance = instance;
+        this.workingViewIntent = ViewIntentEnum.Visualization;
+        this.SetFields(instance);
+
+        // Show the form modally
+        return this.ShowDialog();
     }
+    private void SetFields(ProduitsDTO dto) {
+        this.textBoxProduitId.Text = dto.Id.ToString() ?? "";
+        this.textBoxProduitNom.Text = dto.NomProduit ?? "";
+        this.textBoxProduitUpc.Text = dto.ProduitUpc.ToString() ?? "";
+        this.textBoxProduitDesc.Text = dto.Description ?? "";
+        this.textBoxProduitUnitStock.Text = dto.UnitesEnStock.ToString() ?? "";
+        this.textBoxProduitPoids.Text = dto.PoidsKilo.ToString() ?? "";
+        this.textBoxProduitMinStock.Text = dto.NiveauDeReappro.ToString() ?? "";
+
+        // Assuming comboBoxFournisseurs is a ComboBox and dto.FournisseurId is an int
+        // You need to find the corresponding index for the item in the ComboBox
+        int fournisseurId = dto.FournisseurId;
+        int index = comboBoxFournisseurs.FindStringExact(fournisseurId.ToString());
+        comboBoxFournisseurs.SelectedIndex = index;
+    }
+
 }

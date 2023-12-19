@@ -56,8 +56,12 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
     public List<ProduitsDTO> FindProduitByCodeFournisseur(int codeFournisseur) {
         return this.Dao.GetByCodeFournisseur(codeFournisseur);
     }
-    public List<ProduitsDTO> GetAllProduits(int id) {
+    public List<ProduitsDTO> GetAllProduits() {
         return this.Dao.GetAll();
+    }
+
+    public ProduitsDTO SearchProduct(string searchInput) {
+        return this.GetAllProduits().FirstOrDefault(x => x.NomProduit == searchInput || x.ProduitUpc.ToString() == searchInput);
     }
 
 }

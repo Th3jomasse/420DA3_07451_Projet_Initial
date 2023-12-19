@@ -246,15 +246,15 @@ public class AppDbContext : AbstractContext {
         #region Association ShippingOrder - Product
 
 
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
             .HasKey(sp => new { sp.ShippingOrderId, sp.ProduitId });
          
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
             .HasOne(sp => sp.ShippingOrder)
             .WithMany(so => so.ShippingOrderProducts)
             .HasForeignKey(sp => sp.ShippingOrderId);
         
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
             .HasOne(sp => sp.Produit)
             .WithMany(p => p.ShippingOrderProducts)
             .HasForeignKey(sp => sp.ProduitId);

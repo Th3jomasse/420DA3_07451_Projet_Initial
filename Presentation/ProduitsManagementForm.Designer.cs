@@ -26,8 +26,6 @@ partial class ProduitsManagementForm {
     private void InitializeComponent() {
         this.label1 = new Label();
         this.textBoxProduitId = new TextBox();
-        this.dataGridViewProduits = new DataGridView();
-        this.dataGridViewFournisseurs = new DataGridView();
         this.buttonNew = new Button();
         this.buttonSearch = new Button();
         this.buttonDelete = new Button();
@@ -51,8 +49,8 @@ partial class ProduitsManagementForm {
         this.buttonEdit = new Button();
         this.buttonView = new Button();
         this.buttonExit = new Button();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewProduits).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewFournisseurs).BeginInit();
+        this.listBoxFournisseurs = new ListBox();
+        this.listBoxProduits = new ListBox();
         this.SuspendLayout();
         // 
         // label1
@@ -72,28 +70,6 @@ partial class ProduitsManagementForm {
         this.textBoxProduitId.Size = new Size(224, 23);
         this.textBoxProduitId.TabIndex = 1;
         this.textBoxProduitId.TextChanged += this.textBoxProduitId_TextChanged;
-        // 
-        // dataGridViewProduits
-        // 
-        this.dataGridViewProduits.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dataGridViewProduits.Location = new Point(434, 282);
-        this.dataGridViewProduits.Name = "dataGridViewProduits";
-        this.dataGridViewProduits.RowTemplate.Height = 25;
-        this.dataGridViewProduits.Size = new Size(818, 460);
-        this.dataGridViewProduits.TabIndex = 2;
-        this.dataGridViewProduits.CellContentClick += this.dataGridViewProduits_CellContentClick;
-        this.dataGridViewProduits.CellDoubleClick += this.dataGridViewProduits_CellDoubleClick;
-        // 
-        // dataGridViewFournisseurs
-        // 
-        this.dataGridViewFournisseurs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dataGridViewFournisseurs.Location = new Point(12, 282);
-        this.dataGridViewFournisseurs.Name = "dataGridViewFournisseurs";
-        this.dataGridViewFournisseurs.RowTemplate.Height = 25;
-        this.dataGridViewFournisseurs.Size = new Size(373, 460);
-        this.dataGridViewFournisseurs.TabIndex = 3;
-        this.dataGridViewFournisseurs.CellContentClick += this.dataGridViewFournisseurs_CellContentClick;
-        this.dataGridViewFournisseurs.CellDoubleClick += this.dataGridViewFournisseurs_CellDoubleClick;
         // 
         // buttonNew
         // 
@@ -301,12 +277,32 @@ partial class ProduitsManagementForm {
         this.buttonExit.UseVisualStyleBackColor = true;
         this.buttonExit.Click += this.buttonExit_Click;
         // 
+        // listBoxFournisseurs
+        // 
+        this.listBoxFournisseurs.FormattingEnabled = true;
+        this.listBoxFournisseurs.ItemHeight = 15;
+        this.listBoxFournisseurs.Location = new Point(12, 282);
+        this.listBoxFournisseurs.Name = "listBoxFournisseurs";
+        this.listBoxFournisseurs.Size = new Size(416, 454);
+        this.listBoxFournisseurs.TabIndex = 28;
+        // 
+        // listBoxProduits
+        // 
+        this.listBoxProduits.FormattingEnabled = true;
+        this.listBoxProduits.ItemHeight = 15;
+        this.listBoxProduits.Location = new Point(451, 282);
+        this.listBoxProduits.Name = "listBoxProduits";
+        this.listBoxProduits.Size = new Size(801, 454);
+        this.listBoxProduits.TabIndex = 29;
+        // 
         // ProduitsManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.BackColor = Color.PeachPuff;
         this.ClientSize = new Size(1264, 754);
+        this.Controls.Add(this.listBoxProduits);
+        this.Controls.Add(this.listBoxFournisseurs);
         this.Controls.Add(this.buttonExit);
         this.Controls.Add(this.buttonView);
         this.Controls.Add(this.buttonEdit);
@@ -330,15 +326,11 @@ partial class ProduitsManagementForm {
         this.Controls.Add(this.buttonDelete);
         this.Controls.Add(this.buttonSearch);
         this.Controls.Add(this.buttonNew);
-        this.Controls.Add(this.dataGridViewFournisseurs);
-        this.Controls.Add(this.dataGridViewProduits);
         this.Controls.Add(this.textBoxProduitId);
         this.Controls.Add(this.label1);
         this.Name = "ProduitsManagementForm";
         this.Text = "ProduitsManagementForm";
         this.Load += this.ProduitsManagementForm_Load;
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewProduits).EndInit();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewFournisseurs).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -347,8 +339,6 @@ partial class ProduitsManagementForm {
 
     private Label label1;
     private TextBox textBoxProduitId;
-    private DataGridView dataGridViewProduits;
-    private DataGridView dataGridViewFournisseurs;
     private Button buttonNew;
     private Button buttonSearch;
     private Button buttonDelete;
@@ -372,4 +362,6 @@ partial class ProduitsManagementForm {
     private Button buttonEdit;
     private Button buttonView;
     private Button buttonExit;
+    private ListBox listBoxFournisseurs;
+    private ListBox listBoxProduits;
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 
