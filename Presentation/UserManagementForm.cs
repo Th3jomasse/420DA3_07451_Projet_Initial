@@ -255,15 +255,4 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     {
 
     }
-
-    //private void nameTextBox_TextChanged(object sender, EventArgs e)
-    //{
-    //    if (!UserDTO.Val(this.nameTextBox.Text)) {
-    //        this.nameTextBox.ForeColor = Color.Red;
-    //        this.nameTextBox.Invalidate(true);
-    //    } else {
-    //        this.nameTextBox.ForeColor = SystemColors.WindowText;
-    //        this.nameTextBox.Invalidate(true);
-    //    }
-    //}
 }

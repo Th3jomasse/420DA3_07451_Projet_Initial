@@ -33,7 +33,7 @@ partial class UserManagementForm
         this.nameTextBox = new TextBox();
         this.nameLabel = new Label();
         this.idLabel = new Label();
-        this.dateCreatedLabel = new Label();
+        this.dateCreatedlabel = new Label();
         this.passwordHashtextBox = new TextBox();
         this.passwordHashlabel = new Label();
         this.warehousetextBox = new TextBox();
@@ -42,11 +42,13 @@ partial class UserManagementForm
         this.textBox1 = new TextBox();
         this.passworedLabel = new Label();
         this.textBox2 = new TextBox();
+        this.Roleslabel = new Label();
+        this.RoleslistBox = new ListBox();
         this.SuspendLayout();
         // 
         // actionButton
         // 
-        this.actionButton.Location = new Point(269, 311);
+        this.actionButton.Location = new Point(269, 343);
         this.actionButton.Name = "actionButton";
         this.actionButton.Size = new Size(113, 23);
         this.actionButton.TabIndex = 27;
@@ -55,7 +57,7 @@ partial class UserManagementForm
         // 
         // cancelButton
         // 
-        this.cancelButton.Location = new Point(388, 311);
+        this.cancelButton.Location = new Point(388, 343);
         this.cancelButton.Name = "cancelButton";
         this.cancelButton.Size = new Size(113, 23);
         this.cancelButton.TabIndex = 26;
@@ -87,14 +89,14 @@ partial class UserManagementForm
         this.idLabel.Text = "UserID:";
         this.idLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // dateCreatedLabel
+        // dateCreatedlabel
         // 
-        this.dateCreatedLabel.Location = new Point(41, 199);
-        this.dateCreatedLabel.Name = "dateCreatedLabel";
-        this.dateCreatedLabel.Size = new Size(123, 23);
-        this.dateCreatedLabel.TabIndex = 21;
-        this.dateCreatedLabel.Text = "Date Created:";
-        this.dateCreatedLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.dateCreatedlabel.Location = new Point(41, 199);
+        this.dateCreatedlabel.Name = "dateCreatedlabel";
+        this.dateCreatedlabel.Size = new Size(123, 23);
+        this.dateCreatedlabel.TabIndex = 21;
+        this.dateCreatedlabel.Text = "Date Created:";
+        this.dateCreatedlabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // passwordHashtextBox
         // 
@@ -159,11 +161,31 @@ partial class UserManagementForm
         this.textBox2.Size = new Size(331, 23);
         this.textBox2.TabIndex = 37;
         // 
+        // Roleslabel
+        // 
+        this.Roleslabel.Location = new Point(41, 222);
+        this.Roleslabel.Name = "Roleslabel";
+        this.Roleslabel.Size = new Size(123, 23);
+        this.Roleslabel.TabIndex = 38;
+        this.Roleslabel.Text = "Rôles:";
+        this.Roleslabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // RoleslistBox
+        // 
+        this.RoleslistBox.FormattingEnabled = true;
+        this.RoleslistBox.ItemHeight = 15;
+        this.RoleslistBox.Location = new Point(170, 222);
+        this.RoleslistBox.Name = "RoleslistBox";
+        this.RoleslistBox.Size = new Size(331, 94);
+        this.RoleslistBox.TabIndex = 39;
+        // 
         // UserManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(636, 378);
+        this.Controls.Add(this.RoleslistBox);
+        this.Controls.Add(this.Roleslabel);
         this.Controls.Add(this.textBox2);
         this.Controls.Add(this.textBox1);
         this.Controls.Add(this.passworedLabel);
@@ -174,7 +196,7 @@ partial class UserManagementForm
         this.Controls.Add(this.passwordHashlabel);
         this.Controls.Add(this.actionButton);
         this.Controls.Add(this.cancelButton);
-        this.Controls.Add(this.dateCreatedLabel);
+        this.Controls.Add(this.dateCreatedlabel);
         this.Controls.Add(this.nameTextBox);
         this.Controls.Add(this.nameLabel);
         this.Controls.Add(this.idLabel);
@@ -191,7 +213,7 @@ partial class UserManagementForm
     private TextBox nameTextBox;
     private Label nameLabel;
     private Label idLabel;
-    private Label dateCreatedLabel;
+    private Label dateCreatedlabel;
     private TextBox passwordHashtextBox;
     private Label passwordHashlabel;
     private TextBox warehousetextBox;
@@ -200,4 +222,6 @@ partial class UserManagementForm
     private TextBox textBox1;
     private Label passworedLabel;
     private TextBox textBox2;
+    private Label Roleslabel;
+    private ListBox RoleslistBox;
 }
