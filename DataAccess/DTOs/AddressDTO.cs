@@ -65,10 +65,7 @@ public class AddressDTO : AbstractDTO<int> {
 
     public static bool ValidateCivicNumber(int civicNumber, bool optThrowExceptions = false) {
         try {
-            if (civicNumber < 1) {
-                throw new Exception("Civic number value cannot be 0 or less.");
-            }
-            return true;
+            return civicNumber < 1 ? throw new Exception("Civic number value cannot be 0 or less.") : true;
         } catch (Exception ex) {
             return optThrowExceptions 
                 ? throw new Exception("Invalid civic integer.", ex) 
@@ -78,10 +75,9 @@ public class AddressDTO : AbstractDTO<int> {
 
     public static bool ValidateStreet(string street, bool optThrowExceptions = false) {
         try {
-            if (street.Length > STREET_MAX_LENGTH) {
-                throw new Exception($"Street string length is over {STREET_MAX_LENGTH} characters.");
-            }
-            return true;
+            return street.Length > STREET_MAX_LENGTH
+                ? throw new Exception($"Street string length is over {STREET_MAX_LENGTH} characters.")
+                : true;
         } catch (Exception ex) {
             return optThrowExceptions
                 ? throw new Exception("Invalid street string.", ex)
@@ -91,10 +87,7 @@ public class AddressDTO : AbstractDTO<int> {
 
     public static bool ValidateCity(string city, bool optThrowExceptions = false) {
         try {
-            if (city.Length > CITY_MAX_LENGTH) {
-                throw new Exception($"City string length is over {CITY_MAX_LENGTH} characters.");
-            }
-            return true;
+            return city.Length > CITY_MAX_LENGTH ? throw new Exception($"City string length is over {CITY_MAX_LENGTH} characters.") : true;
         } catch (Exception ex) {
             return optThrowExceptions
                 ? throw new Exception("Invalid city string.", ex)
@@ -104,10 +97,9 @@ public class AddressDTO : AbstractDTO<int> {
 
     public static bool ValidateProvince(string province, bool optThrowExceptions = false) {
         try {
-            if (province.Length > PROVINCE_MAX_LENGTH) {
-                throw new Exception($"Province string length is over {PROVINCE_MAX_LENGTH} characters.");
-            }
-            return true;
+            return province.Length > PROVINCE_MAX_LENGTH
+                ? throw new Exception($"Province string length is over {PROVINCE_MAX_LENGTH} characters.")
+                : true;
         } catch (Exception ex) {
             return optThrowExceptions
                 ? throw new Exception("Invalid province string.", ex)
@@ -117,10 +109,9 @@ public class AddressDTO : AbstractDTO<int> {
 
     public static bool ValidateCountry(string country, bool optThrowExceptions = false) {
         try {
-            if (country.Length > COUNTRY_MAX_LENGTH) {
-                throw new Exception($"Country string length is over {COUNTRY_MAX_LENGTH} characters.");
-            }
-            return true;
+            return country.Length > COUNTRY_MAX_LENGTH
+                ? throw new Exception($"Country string length is over {COUNTRY_MAX_LENGTH} characters.")
+                : true;
         } catch (Exception ex) {
             return optThrowExceptions
                 ? throw new Exception("Invalid country string.", ex)
