@@ -14,12 +14,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
+public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
+{
     private readonly AbstractFacade facade;
     private RoleDTO workingDtoInstance;
     private ViewIntentEnum? workingViewIntent;
 
-    public RoleManagementForm(AbstractFacade facade) {
+    public RoleManagementForm(AbstractFacade facade)
+    {
         this.facade = facade;
         // création d'une instance de DTO vide juste pour garantir qu'il y aura quelque chose
         // dans le champ associé et éviter de devoir dealer avec un type nullable.
@@ -31,7 +33,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="blankInstance">L'instance vierge à utiliser pour créer un nouveau rôle.</param>
     /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForCreation(RoleDTO blankInstance) {
+    public DialogResult OpenForCreation(RoleDTO blankInstance)
+    {
         this.workingDtoInstance = blankInstance;
         this.workingViewIntent = ViewIntentEnum.Creation;
 
@@ -46,7 +49,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="instance">L'instance représentant le rôle à supprimer.</param>
     /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForDeletion(RoleDTO instance) {
+    public DialogResult OpenForDeletion(RoleDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Deletion;
 
@@ -61,7 +65,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="instance">L'instance représentant le rôle à éditer.</param>
     /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForEdition(RoleDTO instance) {
+    public DialogResult OpenForEdition(RoleDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Edition;
 
@@ -76,7 +81,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="instance">L'instance représentant le rôle à visualiser.</param>
     /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForVisualization(RoleDTO instance) {
+    public DialogResult OpenForVisualization(RoleDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Visualization;
 
@@ -91,7 +97,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// de l'instance de l'entité gérée reçue en paramètre.
     /// </summary>
     /// <param name="dto"></param>
-    private void SetFields(RoleDTO dto) {
+    private void SetFields(RoleDTO dto)
+    {
 
         this.idTextBox.Text = dto.Id.ToString() ?? "";
         this.roleNameTextBox.Text = dto.RoleName ?? "";
@@ -100,7 +107,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// <summary>
     /// Désactive les contrôles graphiques des champs de données
     /// </summary>
-    private void DisableEditableFields() {
+    private void DisableEditableFields()
+    {
         this.roleNameTextBox.Enabled = false;
         this.roleDescriptionTextBox.Enabled = false;
     }
@@ -108,7 +116,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// <summary>
     /// Active les contrôles graphiques des champs de données
     /// </summary>
-    private void EnableEditableFields() {
+    private void EnableEditableFields()
+    {
         this.roleNameTextBox.Enabled = true;
         this.roleDescriptionTextBox.Enabled = true;
     }
@@ -116,12 +125,15 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// <summary>
     /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de création
     /// </summary>
-    private void DoCreateAction() {
-        if (!RoleDTO.ValidateNameRole(this.roleNameTextBox.Text)) {
+    private void DoCreateAction()
+    {
+        if (!RoleDTO.ValidateNameRole(this.roleNameTextBox.Text))
+        {
             this.roleNameTextBox.Invalidate();
             return;
         }
-        if (!RoleDTO.ValidateDescriptionRole(this.roleDescriptionTextBox.Text)) {
+        if (!RoleDTO.ValidateDescriptionRole(this.roleDescriptionTextBox.Text))
+        {
             this.roleDescriptionLabel.Invalidate();
             return;
         }
@@ -134,19 +146,23 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// <summary>
     /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de visualisation
     /// </summary>
-    private void DoVisualizeAction() {
+    private void DoVisualizeAction()
+    {
         this.DialogResult = DialogResult.OK;
     }
 
     /// <summary>
     /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention d'édition
     /// </summary>
-    private void DoEditAction() {
-        if (!RoleDTO.ValidateNameRole(this.roleNameTextBox.Text)) {
+    private void DoEditAction()
+    {
+        if (!RoleDTO.ValidateNameRole(this.roleNameTextBox.Text))
+        {
             this.roleNameTextBox.Invalidate();
             return;
         }
-        if (!RoleDTO.ValidateDescriptionRole(this.roleDescriptionTextBox.Text)) {
+        if (!RoleDTO.ValidateDescriptionRole(this.roleDescriptionTextBox.Text))
+        {
             this.roleDescriptionLabel.Invalidate();
             return;
         }
@@ -159,7 +175,8 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// <summary>
     /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de suppression
     /// </summary>
-    private void DoDeleteAction() {
+    private void DoDeleteAction()
+    {
         this.DialogResult = DialogResult.OK;
     }
 
@@ -170,8 +187,10 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="args"></param>
-    private void OnActionButtonClick(object? sender, EventArgs args) {
-        switch (this.workingViewIntent) {
+    private void OnActionButtonClick(object? sender, EventArgs args)
+    {
+        switch (this.workingViewIntent)
+        {
             case ViewIntentEnum.Creation:
                 this.DoCreateAction();
                 break;
@@ -193,7 +212,27 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO> {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void CancelButton_Click(object sender, EventArgs e) {
+    private void CancelButton_Click(object sender, EventArgs e)
+    {
         this.DialogResult = DialogResult.Cancel;
+    }
+
+    private void actionButton_Click(object sender, EventArgs e)
+    {
+        switch (this.workingViewIntent) {
+            case ViewIntentEnum.Creation:
+                this.DoCreateAction();
+                break;
+            case ViewIntentEnum.Edition:
+                this.DoEditAction();
+                break;
+            case ViewIntentEnum.Deletion:
+                this.DoDeleteAction();
+                break;
+            case ViewIntentEnum.Visualization:
+            default:
+                this.DoVisualizeAction();
+                break;
+        }
     }
 }
