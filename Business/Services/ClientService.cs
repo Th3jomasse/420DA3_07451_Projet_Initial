@@ -22,21 +22,28 @@ internal class ClientService : AbstractDtoService<ClientDTO, int> {
         facade.RegisterDependent(this);
         this.ParentFacade = facade;
         this.Dao = new ClientDAO(context);
+        this.DtoManagementWindow = new ClientManagementForm(facade);
     }
 
     public List<ClientDTO> GetAllClients() {
         throw new NotImplementedException();
     }
 
+    public List<ClientDTO> SearchClients(string filter) {
+        return this.Dao.SearchClients(filter);
+    }
+
     public List<ClientDTO> SearchClientsByName(string clientName) {
-        throw new NotImplementedException();
+        return this.Dao.SearchClientsByClientName(clientName);
     }
 
     public List<ClientDTO> SearchClientsByIdString(string idString) {
-        throw new NotImplementedException();
+        return this.Dao.SearchClientsById(idString);
     }
 
     public override void Shutdown() {
-        throw new NotImplementedException();
+        if (!this.DtoManagementWindow.IsDisposed) {
+            this.DtoManagementWindow.Dispose();
+        }
     }
 }

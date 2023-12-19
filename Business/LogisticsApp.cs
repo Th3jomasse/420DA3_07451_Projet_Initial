@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business;
 internal class LogisticsApp : AbstractApplication {
+    public const string STANDARD_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private LoginFacade LoginFacade { get; set; }
     private AbstractFacade? MainFacade { get; set; }
     

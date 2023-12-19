@@ -26,11 +26,17 @@ internal class EntrepotService : AbstractDtoService<EntrepotDTO, int> {
     }
 
     public override void Shutdown() {
-        throw new NotImplementedException();
+        if (!this.DtoManagementWindow.IsDisposed) {
+            this.DtoManagementWindow.Dispose();
+        }
     }
 
     public List<EntrepotDTO> GetAllEntrepots() {
-        throw new NotImplementedException();
+        return this.Dao.GetAll();
+    }
+
+    public List<EntrepotDTO> SearchEntrepots(string filter) {
+        return this.Dao.SearchEntrepots(filter);
     }
 
 }

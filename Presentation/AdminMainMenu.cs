@@ -132,9 +132,9 @@ public partial class AdminMainMenu : Form {
 
     private void FilteredClients_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.filteredAddresses.SelectedItem is not null) {
-            this.ActivateAddressButtons();
+            this.ActivateClientsButtons();
         } else {
-            this.DeactivateAddressButtons();
+            this.DeactivateClientsButtons();
         }
     }
 

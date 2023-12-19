@@ -31,5 +31,28 @@ internal class ClientDAO : AbstractDao<ClientDTO, int> {
             .SingleOrDefault();
     }
 
+    public List<ClientDTO> SearchClients(string filter) {
+        return this.Context.GetDbSet<ClientDTO>()
+            .Include(client => client.ClientAddress)
+            .Include(client => client.AssignedWarehouse)
+            .Where(client => client.Id.ToString().StartsWith(filter) || client.NomClient.StartsWith(filter))
+            .ToList();
+    }
+
+    public List<ClientDTO> SearchClientsById(string idString) {
+        return this.Context.GetDbSet<ClientDTO>()
+            .Include(client => client.ClientAddress)
+            .Include(client => client.AssignedWarehouse)
+            .Where(client => client.Id.ToString().StartsWith(idString))
+            .ToList();
+    }
+
+    public List<ClientDTO> SearchClientsByClientName(string nameString) {
+        return this.Context.GetDbSet<ClientDTO>()
+            .Include(client => client.ClientAddress)
+            .Include(client => client.AssignedWarehouse)
+            .Where(client => client.NomClient.StartsWith(nameString))
+            .ToList();
+    }
 
 }
