@@ -47,11 +47,11 @@ public class FournisseursService : AbstractDtoService<FournisseursDTO, int> {
         return this.Dao.GetByNom(nom);
     }
 
-    public List<FournisseursDTO> FindFournisseurByTel(string telephone) {
+    public FournisseursDTO FindFournisseurByTel(string telephone) {
         return this.Dao.GetByTelephone(telephone);
     }
 
-    public List<FournisseursDTO> FindFournisseurByAddresse(int addresseId) {
-        return this.Dao.GetByAddresse(addresseId.ToString());
+    public FournisseursDTO? FindFournisseurByAddresse(int addresseId) {
+        return this.Dao.GetByAddresse(addresseId.ToString()).FirstOrDefault();
     }
 }

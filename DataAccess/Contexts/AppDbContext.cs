@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PIvots;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
@@ -17,6 +16,7 @@ public class AppDbContext : AbstractContext {
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
     public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
     public DbSet<ShippingOrderProducts> ShippingOrderProducts { get; set; }
+    public DbSet<UserRoles> UserRoles { get; set; }
     public DbSet<DTOs.UserDTO> Users { get; set; }
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
     public DbSet<AddressDTO> Addresses { get; set; }
@@ -294,11 +294,7 @@ public class AppDbContext : AbstractContext {
             .HasColumnName("Username");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.Password)
             .HasColumnType($"nvarchar(128)")
-            .HasColumnName("Username");
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.WarehouseId)
-            .HasColumnType($"int")
-            .HasColumnName("WarehouseId")
-            .IsRequired(false);
+            .HasColumnName("Password");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateCreation)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateCreation")

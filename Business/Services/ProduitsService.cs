@@ -37,8 +37,8 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.Dao.GetById(id);
     }
 
-    public ProduitsDTO FindProduitByCode(int code) {
-        return this.Dao.GetByCode(code);
+    public List<ProduitsDTO> FindProduitByCode(int code) {
+        return this.Dao.GetByCodeFournisseur(code);
     }
 
     public ProduitsDTO FindProduitByNom(string nom) {
@@ -49,10 +49,6 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.Dao.GetByUpc(upc);
     }
 
-    public List<ProduitsDTO> FindProduitByClientId(int clientId) {
-        return this.Dao.GetByClientId(clientId);
-    }
-
     public List<ProduitsDTO> FindProduitByFournisseurId(int fournisseurId) {
         return this.Dao.GetByFournisseurId(fournisseurId);
     }
@@ -61,7 +57,7 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.Dao.GetByCodeFournisseur(codeFournisseur);
     }
     public List<ProduitsDTO> GetAllProduits(int id) {
-        return this.Dao.GetAllProduits();
+        return this.Dao.GetAll();
     }
 
 }

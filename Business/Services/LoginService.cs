@@ -55,7 +55,7 @@ public class LoginService : AbstractLoginService {
     }
 
     public void AttemptLogin(string username, string password) {
-        UserDTO user = this.ParentFacade.GetService<UserService>().FindUserByUsername(username) ?? throw new Exception("Nom d'utilisateur invalide.").;
+        UserDTO user = this.ParentFacade.GetService<UserService>().FindUserByUsername(username) ?? throw new Exception("Nom d'utilisateur invalide.");
         this.LoggedInUser = 
             !CryptographyService.VerifyPassword(password, user.Password) 
                 ? throw new Exception("Mot de passe invalide.") 
