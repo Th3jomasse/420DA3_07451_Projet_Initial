@@ -14,7 +14,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
+public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
+{
     private readonly AbstractFacade facade;
     private UserDTO workingDtoInstance;
     private ViewIntentEnum? workingViewIntent;
@@ -23,7 +24,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// Initialise une nouvelle instance de la classe <see cref="UserManagementForm"/>.
     /// </summary>
     /// <param name="facade">La façade abstraite fournissant l'accès à la logique métier.</param>
-    public UserManagementForm(AbstractFacade facade) {
+    public UserManagementForm(AbstractFacade facade)
+    {
         this.facade = facade;
         this.workingDtoInstance = new UserDTO("", null);
         this.InitializeComponent();
@@ -33,7 +35,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// </summary>
     /// <param name="blankInstance">L'instance d'utilisateur vide à remplir et à créer.</param>
     /// <returns>Le résultat de la boîte de dialogue.</returns>
-    public DialogResult OpenForCreation(UserDTO blankInstance) {
+    public DialogResult OpenForCreation(UserDTO blankInstance)
+    {
         this.workingDtoInstance = blankInstance;
         this.workingViewIntent = ViewIntentEnum.Creation;
 
@@ -48,7 +51,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// </summary>
     /// <param name="instance">L'instance d'utilisateur à supprimer.</param>
     /// <returns>Le résultat de la boîte de dialogue.</returns>
-    public DialogResult OpenForDeletion(UserDTO instance) {
+    public DialogResult OpenForDeletion(UserDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Deletion;
 
@@ -63,7 +67,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// </summary>
     /// <param name="instance">L'instance d'utilisateur à éditer.</param>
     /// <returns>Le résultat de la boîte de dialogue.</returns>
-    public DialogResult OpenForEdition(UserDTO instance) {
+    public DialogResult OpenForEdition(UserDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Edition;
 
@@ -78,7 +83,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// </summary>
     /// <param name="instance">L'instance d'utilisateur à visualiser.</param>
     /// <returns>Le résultat de la boîte de dialogue.</returns>
-    public DialogResult OpenForVisualization(UserDTO instance) {
+    public DialogResult OpenForVisualization(UserDTO instance)
+    {
         this.workingDtoInstance = instance;
         this.workingViewIntent = ViewIntentEnum.Visualization;
 
@@ -93,15 +99,18 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// Définit les champs du formulaire en fonction des valeurs de l'objet UserDTO.
     /// </summary>
     /// <param name="dto">L'objet UserDTO utilisé pour remplir les champs du formulaire.</param>
-    private void SetFields(UserDTO dto) {
+    private void SetFields(UserDTO dto)
+    {
 
         this.idTextBox.Text = dto.Id.ToString() ?? "";
         this.nameTextBox.Text = dto.UserName ?? "";
 
-        if (dto.DateCreation is null) {
+        if (dto.DateCreation is null)
+        {
             this.dateCreatedBox.Format = DateTimePickerFormat.Custom;
             this.dateCreatedBox.CustomFormat = "";
-        } else {
+        } else
+        {
             this.dateCreatedBox.Format = DateTimePickerFormat.Long;
             this.dateCreatedBox.Value = (DateTime) dto.DateCreation;
         }
@@ -111,7 +120,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Désactive les champs éditables du formulaire.
     /// </summary>
-    private void DisableEditableFields() {
+    private void DisableEditableFields()
+    {
         this.nameTextBox.Enabled = false;
         this.roleIdTextBox.Enabled = false;
         this.warehouseIdtextBox.Enabled = false;
@@ -120,7 +130,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Active les champs éditables du formulaire.
     /// </summary>
-    private void EnableEditableFields() {
+    private void EnableEditableFields()
+    {
         this.nameTextBox.Enabled = true;
         this.roleIdTextBox.Enabled = true;
     }
@@ -128,12 +139,15 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Effectue l'action de création d'un utilisateur.
     /// </summary>
-    private void DoCreateAction() {
-        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
+    private void DoCreateAction()
+    {
+        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text))
+        {
             this.nameTextBox.Invalidate();
             return;
         }
-        if (!UserDTO.ValidateNameUser(this.passwordHashtextBox.Text)) {
+        if (!UserDTO.ValidateNameUser(this.passwordHashtextBox.Text))
+        {
             this.passwordHashtextBox.Invalidate();
             return;
         }
@@ -146,19 +160,23 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Effectue l'action de visualisation d'un utilisateur.
     /// </summary>
-    private void DoVisualizeAction() {
+    private void DoVisualizeAction()
+    {
         this.DialogResult = DialogResult.OK;
     }
 
     /// <summary>
     /// Effectue l'action de modification d'un utilisateur.
     /// </summary>
-    private void DoEditAction() {
-        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
+    private void DoEditAction()
+    {
+        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text))
+        {
             this.nameTextBox.Invalidate();
             return;
         }
-        if (!UserDTO.ValidatePasswordUser(this.passwordHashtextBox.Text)) {
+        if (!UserDTO.ValidatePasswordUser(this.passwordHashtextBox.Text))
+        {
             this.passwordHashtextBox.Invalidate();
             return;
         }
@@ -171,7 +189,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Effectue l'action de suppression d'un utilisateur.
     /// </summary>
-    private void DoDeleteAction() {
+    private void DoDeleteAction()
+    {
         this.DialogResult = DialogResult.OK;
     }
 
@@ -180,8 +199,10 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// </summary>
     /// <param name="sender">L'objet déclenchant l'événement.</param>
     /// <param name="args">Les arguments de l'événement.</param>
-    private void OnActionButtonClick(object? sender, EventArgs args) {
-        switch (this.workingViewIntent) {
+    private void OnActionButtonClick(object? sender, EventArgs args)
+    {
+        switch (this.workingViewIntent)
+        {
             case ViewIntentEnum.Creation:
                 this.DoCreateAction();
                 break;
@@ -201,7 +222,8 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO> {
     /// <summary>
     /// Gère l'événement de clic du bouton Annuler, définissant le DialogResult sur Annuler.
     /// </summary>
-    private void CancelButton_Click(object sender, EventArgs e) {
+    private void CancelButton_Click(object sender, EventArgs e)
+    {
         this.DialogResult = DialogResult.Cancel;
     }
 }
