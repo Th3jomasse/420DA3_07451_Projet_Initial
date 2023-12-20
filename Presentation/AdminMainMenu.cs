@@ -141,7 +141,16 @@ public partial class AdminMainMenu : Form {
     #endregion
 
     #region Gestion des Utilisateurs
-    private void ActivateUserButtons() {
+    private void UserComboBox_SelectedIndexChanged(object sender, EventArgs e) 
+    {
+        if (this.UserComboBox.SelectedItem != null) {
+            this.ActivateUserButtons();
+        } else {
+            this.DeactivateUserButtons();
+        }
+    }
+    private void ActivateUserButtons()
+    {
         this.EditUserButton.Enabled = true;
         this.ViewUserButton.Enabled = true;
         this.DeleteUserButton.Enabled = true;
@@ -158,24 +167,30 @@ public partial class AdminMainMenu : Form {
     private void ViewUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+        else
+        {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
 
     private void EditUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+        else
+        {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
 
     private void DeleteUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+        else
+        {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
     #endregion
@@ -225,8 +240,9 @@ public partial class AdminMainMenu : Form {
             _ = this.ParentFacade.GetService<RoleService>().DisplayDtoInstance((RoleDTO) this.RolesFilterListBox.SelectedItem);
         }
     }
-    public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) {
-        this.filteredAddresses.DataSource = this.ParentFacade.GetService<AddressService>().SearchAddresses(this.addressSearchTextBox.Text);
+    public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) 
+    {
+        this.RolesFilterListBox.DataSource = this.ParentFacade.GetService<RoleService>().SearchRole(this.RoleSearchTextBox.Text);
     }
     #endregion
 
