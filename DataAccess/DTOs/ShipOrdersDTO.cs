@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Enums;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,9 @@ public class ShipOrdersDTO: AbstractDTO<int> {
         this.ShipOrderDate = shipOrderDate;
         this.Status = ShipOrderEnum.NEW;
 
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
+
+}
     }
 
     protected ShipOrdersDTO(int warehouseid, int shipmentId, string destName, string destFirstName, string address,

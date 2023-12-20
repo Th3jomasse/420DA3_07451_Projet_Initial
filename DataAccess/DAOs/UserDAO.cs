@@ -30,7 +30,7 @@ public class UserDAO: AbstractDao<UserDTO, int> {
     }
     public override List<UserDTO> GetAll() {
         return this.Context.GetDbSet<UserDTO>()
-            .Include(user => user)
+            .Include(user => user.Roles)
             .ToList();
     }
     public UserDTO? GetByUsername(string username) {

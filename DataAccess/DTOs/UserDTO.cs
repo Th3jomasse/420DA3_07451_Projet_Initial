@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,9 +15,12 @@ public class UserDTO : AbstractDTO<int> {
     public byte[]? RowVersion { get; set; } = null;
     public DateTime? DateCreation { get; set; }
     public int? Warehouse { get; set; }
-    public WarehouseDTO WarehouseId { get; set; }
+    public EntrepotDTO? WarehouseWork { get; set; } = null!;
+    // Propriétés de navigation pour les commandes et expéditions associées à l'utilisateur
+    public List<RestockOrderDTO> PurchaseOrders { get; set; } = new List<RestockOrderDTO>();
+    public List<ShipOrdersDTO> ShippingOrders { get; set; } = new List<ShipOrdersDTO>();
+    // Propriété de navigation vers les rôles de l'utilisateur
     public List<RoleDTO> Roles { get; set; } = new List<RoleDTO>();
-    public WarehouseDTO? WarehouseWork { get; set; } = null!;
 
     public const int NAME_MIN_LENGTH = 4;
     public const int NAME_MAX_LENGTH = 64;
@@ -31,7 +35,7 @@ public class UserDTO : AbstractDTO<int> {
     /// <param name="warehouseWork">L'entrepôt de travail associé.</param>
     public UserDTO(string username, string passwordHash, int? warehouseWork)
     : this(username, passwordHash) {
-        this.WarehouseWork = warehouseWork.HasValue ? new WarehouseDTO { Id = warehouseWork.Value } : null;
+        this.WarehouseWork = warehouseWork.HasValue ? new EntrepotDTO { Id = warehouseWork.Value } : null;
     }
 
     /// <summary>
@@ -53,6 +57,8 @@ public class UserDTO : AbstractDTO<int> {
     /// Initialise une nouvelle instance de la classe <see cref="UserDTO"/>.
     /// </summary>
     public UserDTO() : base() { }
+
+    public List<UserRoles> UserRoles { get; set; } = new List<UserRoles>();
 
     /// <summary>
     /// Initialise une nouvelle instance de la classe <see cref="UserDTO"/> avec le nom d'utilisateur et le mot de passe.
@@ -91,4 +97,6 @@ public class UserDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.UserName;
     }
+
+
 }

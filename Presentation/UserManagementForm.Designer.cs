@@ -1,6 +1,7 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class UserManagementForm {
+partial class UserManagementForm
+{
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -10,8 +11,10 @@ partial class UserManagementForm {
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-        if (disposing && (components != null)) {
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
             components.Dispose();
         }
         base.Dispose(disposing);
@@ -23,180 +26,182 @@ partial class UserManagementForm {
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
-        actionButton = new Button();
-        cancelButton = new Button();
-        dateCreatedBox = new DateTimePicker();
-        roleIdLabel = new Label();
-        roleIdTextBox = new TextBox();
-        nameTextBox = new TextBox();
-        nameLabel = new Label();
-        idTextBox = new TextBox();
-        idLabel = new Label();
-        dateCreatedLabel = new Label();
-        passwordHashtextBox = new TextBox();
-        passwordHashlabel = new Label();
-        warehousetextBox = new TextBox();
-        warehouselabel = new Label();
-        warehouseIdlabel = new Label();
-        warehouseIdtextBox = new TextBox();
+    private void InitializeComponent()
+    {
+        this.roleslistBox = new ListBox();
+        this.Roleslabel = new Label();
+        this.dateCreationTextBox = new TextBox();
+        this.passwordTextBox = new TextBox();
+        this.passworedLabel = new Label();
+        this.userIdNumeric = new ComboBox();
+        this.warehouselabel = new Label();
+        this.passwordHashtextBox = new TextBox();
+        this.passwordHashlabel = new Label();
+        this.actionButton = new Button();
+        this.cancelButton = new Button();
+        this.dateCreatedlabel = new Label();
+        this.nameTextBox = new TextBox();
+        this.nameLabel = new Label();
+        this.idLabel = new Label();
+        this.warehouseComboBox = new ComboBox();
         this.SuspendLayout();
         // 
-        // actionButton
+        // roleslistBox
         // 
-        actionButton.Location = new Point(269, 279);
-        actionButton.Name = "actionButton";
-        actionButton.Size = new Size(113, 23);
-        actionButton.TabIndex = 27;
-        actionButton.Text = "Action";
-        actionButton.UseVisualStyleBackColor = true;
+        this.roleslistBox.FormattingEnabled = true;
+        this.roleslistBox.ItemHeight = 15;
+        this.roleslistBox.Location = new Point(162, 184);
+        this.roleslistBox.Name = "roleslistBox";
+        this.roleslistBox.Size = new Size(331, 94);
+        this.roleslistBox.TabIndex = 55;
         // 
-        // cancelButton
+        // Roleslabel
         // 
-        cancelButton.Location = new Point(388, 279);
-        cancelButton.Name = "cancelButton";
-        cancelButton.Size = new Size(113, 23);
-        cancelButton.TabIndex = 26;
-        cancelButton.Text = "Cancel";
-        cancelButton.UseVisualStyleBackColor = true;
+        this.Roleslabel.Location = new Point(33, 184);
+        this.Roleslabel.Name = "Roleslabel";
+        this.Roleslabel.Size = new Size(123, 23);
+        this.Roleslabel.TabIndex = 54;
+        this.Roleslabel.Text = "Rôles:";
+        this.Roleslabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // dateCreatedBox
+        // dateCreationTextBox
         // 
-        dateCreatedBox.Enabled = false;
-        dateCreatedBox.Location = new Point(170, 234);
-        dateCreatedBox.Name = "dateCreatedBox";
-        dateCreatedBox.Size = new Size(331, 23);
-        dateCreatedBox.TabIndex = 20;
+        this.dateCreationTextBox.Location = new Point(162, 161);
+        this.dateCreationTextBox.Name = "dateCreationTextBox";
+        this.dateCreationTextBox.Size = new Size(331, 23);
+        this.dateCreationTextBox.TabIndex = 53;
         // 
-        // roleIdLabel
+        // passwordTextBox
         // 
-        roleIdLabel.Location = new Point(41, 138);
-        roleIdLabel.Name = "roleIdLabel";
-        roleIdLabel.Size = new Size(123, 27);
-        roleIdLabel.TabIndex = 19;
-        roleIdLabel.Text = "RoleID:";
-        roleIdLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.passwordTextBox.Location = new Point(162, 71);
+        this.passwordTextBox.Name = "passwordTextBox";
+        this.passwordTextBox.Size = new Size(331, 23);
+        this.passwordTextBox.TabIndex = 52;
         // 
-        // roleIdTextBox
+        // passworedLabel
         // 
-        roleIdTextBox.Location = new Point(170, 138);
-        roleIdTextBox.Multiline = true;
-        roleIdTextBox.Name = "roleIdTextBox";
-        roleIdTextBox.Size = new Size(331, 27);
-        roleIdTextBox.TabIndex = 18;
+        this.passworedLabel.Location = new Point(33, 70);
+        this.passworedLabel.Name = "passworedLabel";
+        this.passworedLabel.Size = new Size(123, 23);
+        this.passworedLabel.TabIndex = 51;
+        this.passworedLabel.Text = "Passeword:";
+        this.passworedLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // nameTextBox
+        // userIdNumeric
         // 
-        nameTextBox.Location = new Point(170, 80);
-        nameTextBox.Name = "nameTextBox";
-        nameTextBox.Size = new Size(331, 23);
-        nameTextBox.TabIndex = 17;
-        // 
-        // nameLabel
-        // 
-        nameLabel.Location = new Point(41, 79);
-        nameLabel.Name = "nameLabel";
-        nameLabel.Size = new Size(123, 23);
-        nameLabel.TabIndex = 16;
-        nameLabel.Text = "Name:";
-        nameLabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // idTextBox
-        // 
-        idTextBox.Location = new Point(170, 51);
-        idTextBox.Name = "idTextBox";
-        idTextBox.ReadOnly = true;
-        idTextBox.Size = new Size(331, 23);
-        idTextBox.TabIndex = 15;
-        // 
-        // idLabel
-        // 
-        idLabel.Location = new Point(41, 50);
-        idLabel.Name = "idLabel";
-        idLabel.Size = new Size(123, 23);
-        idLabel.TabIndex = 14;
-        idLabel.Text = "UserID:";
-        idLabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // dateCreatedLabel
-        // 
-        dateCreatedLabel.Location = new Point(41, 234);
-        dateCreatedLabel.Name = "dateCreatedLabel";
-        dateCreatedLabel.Size = new Size(123, 23);
-        dateCreatedLabel.TabIndex = 21;
-        dateCreatedLabel.Text = "Date Created:";
-        dateCreatedLabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // passwordHashtextBox
-        // 
-        passwordHashtextBox.Location = new Point(170, 109);
-        passwordHashtextBox.Name = "passwordHashtextBox";
-        passwordHashtextBox.Size = new Size(331, 23);
-        passwordHashtextBox.TabIndex = 29;
-        // 
-        // passwordHashlabel
-        // 
-        passwordHashlabel.Location = new Point(41, 108);
-        passwordHashlabel.Name = "passwordHashlabel";
-        passwordHashlabel.Size = new Size(123, 23);
-        passwordHashlabel.TabIndex = 28;
-        passwordHashlabel.Text = "PassewordHash:";
-        passwordHashlabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // warehousetextBox
-        // 
-        warehousetextBox.Location = new Point(170, 172);
-        warehousetextBox.Name = "warehousetextBox";
-        warehousetextBox.Size = new Size(331, 23);
-        warehousetextBox.TabIndex = 33;
+        this.userIdNumeric.FormattingEnabled = true;
+        this.userIdNumeric.Location = new Point(162, 13);
+        this.userIdNumeric.Name = "userIdNumeric";
+        this.userIdNumeric.Size = new Size(331, 23);
+        this.userIdNumeric.TabIndex = 50;
         // 
         // warehouselabel
         // 
-        warehouselabel.Location = new Point(41, 171);
-        warehouselabel.Name = "warehouselabel";
-        warehouselabel.Size = new Size(123, 23);
-        warehouselabel.TabIndex = 32;
-        warehouselabel.Text = "Warehouse:";
-        warehouselabel.TextAlign = ContentAlignment.MiddleRight;
+        this.warehouselabel.Location = new Point(33, 131);
+        this.warehouselabel.Name = "warehouselabel";
+        this.warehouselabel.Size = new Size(123, 23);
+        this.warehouselabel.TabIndex = 48;
+        this.warehouselabel.Text = "Warehouse:";
+        this.warehouselabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // warehouseIdlabel
+        // passwordHashtextBox
         // 
-        warehouseIdlabel.Location = new Point(41, 201);
-        warehouseIdlabel.Name = "warehouseIdlabel";
-        warehouseIdlabel.Size = new Size(123, 27);
-        warehouseIdlabel.TabIndex = 31;
-        warehouseIdlabel.Text = "WarehouseID:";
-        warehouseIdlabel.TextAlign = ContentAlignment.MiddleRight;
+        this.passwordHashtextBox.Location = new Point(162, 103);
+        this.passwordHashtextBox.Name = "passwordHashtextBox";
+        this.passwordHashtextBox.Size = new Size(331, 23);
+        this.passwordHashtextBox.TabIndex = 47;
         // 
-        // warehouseIdtextBox
+        // passwordHashlabel
         // 
-        warehouseIdtextBox.Location = new Point(170, 201);
-        warehouseIdtextBox.Multiline = true;
-        warehouseIdtextBox.Name = "warehouseIdtextBox";
-        warehouseIdtextBox.Size = new Size(331, 27);
-        warehouseIdtextBox.TabIndex = 30;
+        this.passwordHashlabel.Location = new Point(33, 102);
+        this.passwordHashlabel.Name = "passwordHashlabel";
+        this.passwordHashlabel.Size = new Size(123, 23);
+        this.passwordHashlabel.TabIndex = 46;
+        this.passwordHashlabel.Text = "PassewordHash:";
+        this.passwordHashlabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // actionButton
+        // 
+        this.actionButton.Location = new Point(261, 305);
+        this.actionButton.Name = "actionButton";
+        this.actionButton.Size = new Size(113, 23);
+        this.actionButton.TabIndex = 45;
+        this.actionButton.Text = "Action";
+        this.actionButton.UseVisualStyleBackColor = true;
+        this.actionButton.Click += this.actionButton_Click;
+        // 
+        // cancelButton
+        // 
+        this.cancelButton.Location = new Point(380, 305);
+        this.cancelButton.Name = "cancelButton";
+        this.cancelButton.Size = new Size(113, 23);
+        this.cancelButton.TabIndex = 44;
+        this.cancelButton.Text = "Cancel";
+        this.cancelButton.UseVisualStyleBackColor = true;
+        // 
+        // dateCreatedlabel
+        // 
+        this.dateCreatedlabel.Location = new Point(33, 161);
+        this.dateCreatedlabel.Name = "dateCreatedlabel";
+        this.dateCreatedlabel.Size = new Size(123, 23);
+        this.dateCreatedlabel.TabIndex = 43;
+        this.dateCreatedlabel.Text = "Date Created:";
+        this.dateCreatedlabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // nameTextBox
+        // 
+        this.nameTextBox.Location = new Point(162, 42);
+        this.nameTextBox.Name = "nameTextBox";
+        this.nameTextBox.Size = new Size(331, 23);
+        this.nameTextBox.TabIndex = 42;
+        // 
+        // nameLabel
+        // 
+        this.nameLabel.Location = new Point(33, 41);
+        this.nameLabel.Name = "nameLabel";
+        this.nameLabel.Size = new Size(123, 23);
+        this.nameLabel.TabIndex = 41;
+        this.nameLabel.Text = "Name:";
+        this.nameLabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // idLabel
+        // 
+        this.idLabel.Location = new Point(33, 12);
+        this.idLabel.Name = "idLabel";
+        this.idLabel.Size = new Size(123, 23);
+        this.idLabel.TabIndex = 40;
+        this.idLabel.Text = "UserID:";
+        this.idLabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // warehouseComboBox
+        // 
+        this.warehouseComboBox.FormattingEnabled = true;
+        this.warehouseComboBox.Location = new Point(162, 132);
+        this.warehouseComboBox.Name = "warehouseComboBox";
+        this.warehouseComboBox.Size = new Size(331, 23);
+        this.warehouseComboBox.TabIndex = 56;
         // 
         // UserManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(638, 333);
-        this.Controls.Add(warehousetextBox);
-        this.Controls.Add(warehouselabel);
-        this.Controls.Add(warehouseIdlabel);
-        this.Controls.Add(warehouseIdtextBox);
-        this.Controls.Add(passwordHashtextBox);
-        this.Controls.Add(passwordHashlabel);
-        this.Controls.Add(actionButton);
-        this.Controls.Add(cancelButton);
-        this.Controls.Add(dateCreatedLabel);
-        this.Controls.Add(dateCreatedBox);
-        this.Controls.Add(roleIdLabel);
-        this.Controls.Add(roleIdTextBox);
-        this.Controls.Add(nameTextBox);
-        this.Controls.Add(nameLabel);
-        this.Controls.Add(idTextBox);
-        this.Controls.Add(idLabel);
+        this.Controls.Add(this.warehouseComboBox);
+        this.Controls.Add(this.roleslistBox);
+        this.Controls.Add(this.Roleslabel);
+        this.Controls.Add(this.dateCreationTextBox);
+        this.Controls.Add(this.passwordTextBox);
+        this.Controls.Add(this.passworedLabel);
+        this.Controls.Add(this.userIdNumeric);
+        this.Controls.Add(this.warehouselabel);
+        this.Controls.Add(this.passwordHashtextBox);
+        this.Controls.Add(this.passwordHashlabel);
+        this.Controls.Add(this.actionButton);
+        this.Controls.Add(this.cancelButton);
+        this.Controls.Add(this.dateCreatedlabel);
+        this.Controls.Add(this.nameTextBox);
+        this.Controls.Add(this.nameLabel);
+        this.Controls.Add(this.idLabel);
         this.Name = "UserManagementForm";
         this.Text = "UserManagementForm";
         this.ResumeLayout(false);
@@ -205,20 +210,20 @@ partial class UserManagementForm {
 
     #endregion
 
-    private Button actionButton;
-    private Button cancelButton;
-    private DateTimePicker dateCreatedBox;
-    private Label roleIdLabel;
-    private TextBox roleIdTextBox;
-    private TextBox nameTextBox;
-    private Label nameLabel;
-    private TextBox idTextBox;
-    private Label idLabel;
-    private Label dateCreatedLabel;
+    private ListBox roleslistBox;
+    private Label Roleslabel;
+    private TextBox dateCreationTextBox;
+    private TextBox passwordTextBox;
+    private Label passworedLabel;
+    private ComboBox userIdNumeric;
+    private Label warehouselabel;
     private TextBox passwordHashtextBox;
     private Label passwordHashlabel;
-    private TextBox warehousetextBox;
-    private Label warehouselabel;
-    private Label warehouseIdlabel;
-    private TextBox warehouseIdtextBox;
+    private Button actionButton;
+    private Button cancelButton;
+    private Label dateCreatedlabel;
+    private TextBox nameTextBox;
+    private Label nameLabel;
+    private Label idLabel;
+    private ComboBox warehouseComboBox;
 }

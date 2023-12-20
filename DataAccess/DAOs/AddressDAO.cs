@@ -44,6 +44,18 @@ public class AddressDAO : AbstractDao<AddressDTO, int> {
         return results;
     }
 
+    public List<AddressDTO> QuickSearch(string filter) {
+        return this.Context.GetDbSet<AddressDTO>()
+            .Where(addr =>
+                addr.CivicNumber.ToString().StartsWith(filter)
+                || addr.Id.ToString().StartsWith(filter)
+                || addr.Street.StartsWith(filter)
+                || addr.City.StartsWith(filter)
+                || addr.Province.StartsWith(filter)
+                || addr.Country.StartsWith(filter)
+            ).ToList();
+    }
+
     public List<AddressDTO> SearchByCivicNumber(int civicNumber) {
         return this.Context.GetDbSet<AddressDTO>()
             .Where(addr => 

@@ -25,19 +25,17 @@ partial class ProduitsManagementForm {
     /// </summary>
     private void InitializeComponent() {
         this.label1 = new Label();
-        this.textBoxProduitId = new TextBox();
-        this.dataGridViewProduits = new DataGridView();
-        this.dataGridViewFournisseurs = new DataGridView();
+        this.textBoxProdId = new TextBox();
         this.buttonNew = new Button();
         this.buttonSearch = new Button();
         this.buttonDelete = new Button();
-        this.textBoxFournisseurId = new TextBox();
-        this.textBoxProduitNom = new TextBox();
-        this.textBoxProduitDesc = new TextBox();
-        this.textBoxProduitUpc = new TextBox();
-        this.textBoxProduitUnitStock = new TextBox();
-        this.textBoxProduitPoids = new TextBox();
-        this.textBoxProduitMinStock = new TextBox();
+        this.textBoxProdFourName = new TextBox();
+        this.textBoxProdCodeFour = new TextBox();
+        this.textBoxProdKg = new TextBox();
+        this.textBoxProdUnitStock = new TextBox();
+        this.textBoxProdDesc = new TextBox();
+        this.textBoxProdMinUnit = new TextBox();
+        this.textBoxProdUpc = new TextBox();
         this.label2 = new Label();
         this.label3 = new Label();
         this.label4 = new Label();
@@ -47,54 +45,34 @@ partial class ProduitsManagementForm {
         this.label8 = new Label();
         this.label9 = new Label();
         this.label10 = new Label();
-        this.comboBoxFournisseurs = new ComboBox();
+        this.comboBoxProdFourId = new ComboBox();
         this.buttonEdit = new Button();
         this.buttonView = new Button();
         this.buttonExit = new Button();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewProduits).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewFournisseurs).BeginInit();
+        this.listBoxFournisseurs = new ListBox();
+        this.listBoxProduits = new ListBox();
         this.SuspendLayout();
         // 
         // label1
         // 
         this.label1.Font = new Font("Verdana", 24F, FontStyle.Bold, GraphicsUnit.Point);
-        this.label1.Location = new Point(12, 9);
+        this.label1.Location = new Point(14, 9);
         this.label1.Name = "label1";
         this.label1.Size = new Size(1240, 52);
         this.label1.TabIndex = 0;
         this.label1.Text = "Produits Management";
         this.label1.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxProduitId
+        // textBoxProdId
         // 
-        this.textBoxProduitId.Location = new Point(12, 117);
-        this.textBoxProduitId.Name = "textBoxProduitId";
-        this.textBoxProduitId.Size = new Size(224, 23);
-        this.textBoxProduitId.TabIndex = 1;
-        // 
-        // dataGridViewProduits
-        // 
-        this.dataGridViewProduits.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dataGridViewProduits.Location = new Point(434, 282);
-        this.dataGridViewProduits.Name = "dataGridViewProduits";
-        this.dataGridViewProduits.RowTemplate.Height = 25;
-        this.dataGridViewProduits.Size = new Size(818, 460);
-        this.dataGridViewProduits.TabIndex = 2;
-        this.dataGridViewProduits.CellDoubleClick += this.dataGridViewProduits_CellDoubleClick;
-        // 
-        // dataGridViewFournisseurs
-        // 
-        this.dataGridViewFournisseurs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        this.dataGridViewFournisseurs.Location = new Point(12, 282);
-        this.dataGridViewFournisseurs.Name = "dataGridViewFournisseurs";
-        this.dataGridViewFournisseurs.RowTemplate.Height = 25;
-        this.dataGridViewFournisseurs.Size = new Size(373, 460);
-        this.dataGridViewFournisseurs.TabIndex = 3;
-        this.dataGridViewFournisseurs.CellDoubleClick += this.dataGridViewFournisseurs_CellDoubleClick;
+        this.textBoxProdId.Location = new Point(12, 117);
+        this.textBoxProdId.Name = "textBoxProdId";
+        this.textBoxProdId.Size = new Size(224, 23);
+        this.textBoxProdId.TabIndex = 1;
         // 
         // buttonNew
         // 
-        this.buttonNew.Location = new Point(1070, 177);
+        this.buttonNew.Location = new Point(953, 120);
         this.buttonNew.Name = "buttonNew";
         this.buttonNew.Size = new Size(134, 50);
         this.buttonNew.TabIndex = 4;
@@ -104,7 +82,7 @@ partial class ProduitsManagementForm {
         // 
         // buttonSearch
         // 
-        this.buttonSearch.Location = new Point(1070, 65);
+        this.buttonSearch.Location = new Point(1093, 65);
         this.buttonSearch.Name = "buttonSearch";
         this.buttonSearch.Size = new Size(134, 49);
         this.buttonSearch.TabIndex = 5;
@@ -114,7 +92,7 @@ partial class ProduitsManagementForm {
         // 
         // buttonDelete
         // 
-        this.buttonDelete.Location = new Point(1070, 120);
+        this.buttonDelete.Location = new Point(1093, 120);
         this.buttonDelete.Name = "buttonDelete";
         this.buttonDelete.Size = new Size(134, 49);
         this.buttonDelete.TabIndex = 6;
@@ -122,54 +100,54 @@ partial class ProduitsManagementForm {
         this.buttonDelete.UseVisualStyleBackColor = true;
         this.buttonDelete.Click += this.buttonDelete_Click;
         // 
-        // textBoxFournisseurId
+        // textBoxProdFourName
         // 
-        this.textBoxFournisseurId.Location = new Point(12, 230);
-        this.textBoxFournisseurId.Name = "textBoxFournisseurId";
-        this.textBoxFournisseurId.Size = new Size(224, 23);
-        this.textBoxFournisseurId.TabIndex = 8;
+        this.textBoxProdFourName.Location = new Point(12, 230);
+        this.textBoxProdFourName.Name = "textBoxProdFourName";
+        this.textBoxProdFourName.Size = new Size(224, 23);
+        this.textBoxProdFourName.TabIndex = 8;
         // 
-        // textBoxProduitNom
+        // textBoxProdCodeFour
         // 
-        this.textBoxProduitNom.Location = new Point(276, 172);
-        this.textBoxProduitNom.Name = "textBoxProduitNom";
-        this.textBoxProduitNom.Size = new Size(300, 23);
-        this.textBoxProduitNom.TabIndex = 9;
+        this.textBoxProdCodeFour.Location = new Point(276, 172);
+        this.textBoxProdCodeFour.Name = "textBoxProdCodeFour";
+        this.textBoxProdCodeFour.Size = new Size(300, 23);
+        this.textBoxProdCodeFour.TabIndex = 9;
         // 
-        // textBoxProduitDesc
+        // textBoxProdKg
         // 
-        this.textBoxProduitDesc.Location = new Point(276, 230);
-        this.textBoxProduitDesc.Name = "textBoxProduitDesc";
-        this.textBoxProduitDesc.Size = new Size(300, 23);
-        this.textBoxProduitDesc.TabIndex = 10;
+        this.textBoxProdKg.Location = new Point(276, 230);
+        this.textBoxProdKg.Name = "textBoxProdKg";
+        this.textBoxProdKg.Size = new Size(300, 23);
+        this.textBoxProdKg.TabIndex = 10;
         // 
-        // textBoxProduitUpc
+        // textBoxProdUnitStock
         // 
-        this.textBoxProduitUpc.Location = new Point(276, 117);
-        this.textBoxProduitUpc.Name = "textBoxProduitUpc";
-        this.textBoxProduitUpc.Size = new Size(300, 23);
-        this.textBoxProduitUpc.TabIndex = 11;
+        this.textBoxProdUnitStock.Location = new Point(643, 230);
+        this.textBoxProdUnitStock.Name = "textBoxProdUnitStock";
+        this.textBoxProdUnitStock.Size = new Size(238, 23);
+        this.textBoxProdUnitStock.TabIndex = 11;
         // 
-        // textBoxProduitUnitStock
+        // textBoxProdDesc
         // 
-        this.textBoxProduitUnitStock.Location = new Point(643, 117);
-        this.textBoxProduitUnitStock.Name = "textBoxProduitUnitStock";
-        this.textBoxProduitUnitStock.Size = new Size(224, 23);
-        this.textBoxProduitUnitStock.TabIndex = 12;
+        this.textBoxProdDesc.Location = new Point(276, 117);
+        this.textBoxProdDesc.Name = "textBoxProdDesc";
+        this.textBoxProdDesc.Size = new Size(605, 23);
+        this.textBoxProdDesc.TabIndex = 12;
         // 
-        // textBoxProduitPoids
+        // textBoxProdMinUnit
         // 
-        this.textBoxProduitPoids.Location = new Point(643, 172);
-        this.textBoxProduitPoids.Name = "textBoxProduitPoids";
-        this.textBoxProduitPoids.Size = new Size(224, 23);
-        this.textBoxProduitPoids.TabIndex = 13;
+        this.textBoxProdMinUnit.Location = new Point(930, 230);
+        this.textBoxProdMinUnit.Name = "textBoxProdMinUnit";
+        this.textBoxProdMinUnit.Size = new Size(224, 23);
+        this.textBoxProdMinUnit.TabIndex = 13;
         // 
-        // textBoxProduitMinStock
+        // textBoxProdUpc
         // 
-        this.textBoxProduitMinStock.Location = new Point(643, 230);
-        this.textBoxProduitMinStock.Name = "textBoxProduitMinStock";
-        this.textBoxProduitMinStock.Size = new Size(224, 23);
-        this.textBoxProduitMinStock.TabIndex = 14;
+        this.textBoxProdUpc.Location = new Point(643, 172);
+        this.textBoxProdUpc.Name = "textBoxProdUpc";
+        this.textBoxProdUpc.Size = new Size(238, 23);
+        this.textBoxProdUpc.TabIndex = 14;
         // 
         // label2
         // 
@@ -183,86 +161,86 @@ partial class ProduitsManagementForm {
         // label3
         // 
         this.label3.AutoSize = true;
-        this.label3.Location = new Point(276, 99);
+        this.label3.Location = new Point(14, 154);
         this.label3.Name = "label3";
-        this.label3.Size = new Size(72, 15);
+        this.label3.Size = new Size(82, 15);
         this.label3.TabIndex = 16;
-        this.label3.Text = "Produit UPC";
+        this.label3.Text = "Fournisseur ID";
         // 
         // label4
         // 
         this.label4.AutoSize = true;
         this.label4.Location = new Point(276, 154);
         this.label4.Name = "label4";
-        this.label4.Size = new Size(76, 15);
+        this.label4.Size = new Size(99, 15);
         this.label4.TabIndex = 17;
-        this.label4.Text = "Produit Nom";
+        this.label4.Text = "Code Fournisseur";
         // 
         // label5
         // 
         this.label5.AutoSize = true;
         this.label5.Location = new Point(276, 212);
         this.label5.Name = "label5";
-        this.label5.Size = new Size(109, 15);
+        this.label5.Size = new Size(61, 15);
         this.label5.TabIndex = 18;
-        this.label5.Text = "Produit Description";
+        this.label5.Text = "Poids (Kg)";
         // 
         // label6
         // 
         this.label6.AutoSize = true;
-        this.label6.Location = new Point(643, 154);
+        this.label6.Location = new Point(930, 212);
         this.label6.Name = "label6";
-        this.label6.Size = new Size(103, 15);
+        this.label6.Size = new Size(88, 15);
         this.label6.TabIndex = 19;
-        this.label6.Text = "Produit Poids (KG)";
+        this.label6.Text = "Unitee minimal";
         // 
         // label7
         // 
         this.label7.AutoSize = true;
-        this.label7.Location = new Point(643, 99);
+        this.label7.Location = new Point(276, 99);
         this.label7.Name = "label7";
-        this.label7.Size = new Size(125, 15);
+        this.label7.Size = new Size(67, 15);
         this.label7.TabIndex = 20;
-        this.label7.Text = "Produit UniteeEnStock";
+        this.label7.Text = "Description";
         // 
         // label8
         // 
         this.label8.AutoSize = true;
         this.label8.Location = new Point(643, 212);
         this.label8.Name = "label8";
-        this.label8.Size = new Size(144, 15);
+        this.label8.Size = new Size(93, 15);
         this.label8.TabIndex = 21;
-        this.label8.Text = "Produit MinimumEnStock";
+        this.label8.Text = "Unitees en stock";
         // 
         // label9
         // 
         this.label9.AutoSize = true;
-        this.label9.Location = new Point(12, 154);
+        this.label9.Location = new Point(643, 154);
         this.label9.Name = "label9";
-        this.label9.Size = new Size(98, 15);
+        this.label9.Size = new Size(72, 15);
         this.label9.TabIndex = 22;
-        this.label9.Text = "Fournisseur Nom";
+        this.label9.Text = "Produit UPC";
         // 
         // label10
         // 
         this.label10.AutoSize = true;
         this.label10.Location = new Point(12, 212);
         this.label10.Name = "label10";
-        this.label10.Size = new Size(82, 15);
+        this.label10.Size = new Size(98, 15);
         this.label10.TabIndex = 23;
-        this.label10.Text = "Fournisseur ID";
+        this.label10.Text = "Fournisseur Nom";
         // 
-        // comboBoxFournisseurs
+        // comboBoxProdFourId
         // 
-        this.comboBoxFournisseurs.FormattingEnabled = true;
-        this.comboBoxFournisseurs.Location = new Point(14, 179);
-        this.comboBoxFournisseurs.Name = "comboBoxFournisseurs";
-        this.comboBoxFournisseurs.Size = new Size(222, 23);
-        this.comboBoxFournisseurs.TabIndex = 24;
+        this.comboBoxProdFourId.FormattingEnabled = true;
+        this.comboBoxProdFourId.Location = new Point(12, 172);
+        this.comboBoxProdFourId.Name = "comboBoxProdFourId";
+        this.comboBoxProdFourId.Size = new Size(224, 23);
+        this.comboBoxProdFourId.TabIndex = 24;
         // 
         // buttonEdit
         // 
-        this.buttonEdit.Location = new Point(930, 65);
+        this.buttonEdit.Location = new Point(953, 65);
         this.buttonEdit.Name = "buttonEdit";
         this.buttonEdit.Size = new Size(134, 49);
         this.buttonEdit.TabIndex = 25;
@@ -272,7 +250,7 @@ partial class ProduitsManagementForm {
         // 
         // buttonView
         // 
-        this.buttonView.Location = new Point(930, 120);
+        this.buttonView.Location = new Point(953, 687);
         this.buttonView.Name = "buttonView";
         this.buttonView.Size = new Size(134, 49);
         this.buttonView.TabIndex = 26;
@@ -282,7 +260,7 @@ partial class ProduitsManagementForm {
         // 
         // buttonExit
         // 
-        this.buttonExit.Location = new Point(930, 179);
+        this.buttonExit.Location = new Point(1093, 687);
         this.buttonExit.Name = "buttonExit";
         this.buttonExit.Size = new Size(134, 49);
         this.buttonExit.TabIndex = 27;
@@ -290,16 +268,36 @@ partial class ProduitsManagementForm {
         this.buttonExit.UseVisualStyleBackColor = true;
         this.buttonExit.Click += this.buttonExit_Click;
         // 
+        // listBoxFournisseurs
+        // 
+        this.listBoxFournisseurs.FormattingEnabled = true;
+        this.listBoxFournisseurs.ItemHeight = 15;
+        this.listBoxFournisseurs.Location = new Point(12, 282);
+        this.listBoxFournisseurs.Name = "listBoxFournisseurs";
+        this.listBoxFournisseurs.Size = new Size(912, 454);
+        this.listBoxFournisseurs.TabIndex = 28;
+        // 
+        // listBoxProduits
+        // 
+        this.listBoxProduits.FormattingEnabled = true;
+        this.listBoxProduits.ItemHeight = 15;
+        this.listBoxProduits.Location = new Point(953, 282);
+        this.listBoxProduits.Name = "listBoxProduits";
+        this.listBoxProduits.Size = new Size(274, 334);
+        this.listBoxProduits.TabIndex = 29;
+        // 
         // ProduitsManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.BackColor = Color.PeachPuff;
+        this.BackColor = Color.PaleTurquoise;
         this.ClientSize = new Size(1264, 754);
+        this.Controls.Add(this.listBoxProduits);
+        this.Controls.Add(this.listBoxFournisseurs);
         this.Controls.Add(this.buttonExit);
         this.Controls.Add(this.buttonView);
         this.Controls.Add(this.buttonEdit);
-        this.Controls.Add(this.comboBoxFournisseurs);
+        this.Controls.Add(this.comboBoxProdFourId);
         this.Controls.Add(this.label10);
         this.Controls.Add(this.label9);
         this.Controls.Add(this.label8);
@@ -309,25 +307,21 @@ partial class ProduitsManagementForm {
         this.Controls.Add(this.label4);
         this.Controls.Add(this.label3);
         this.Controls.Add(this.label2);
-        this.Controls.Add(this.textBoxProduitMinStock);
-        this.Controls.Add(this.textBoxProduitPoids);
-        this.Controls.Add(this.textBoxProduitUnitStock);
-        this.Controls.Add(this.textBoxProduitUpc);
-        this.Controls.Add(this.textBoxProduitDesc);
-        this.Controls.Add(this.textBoxProduitNom);
-        this.Controls.Add(this.textBoxFournisseurId);
+        this.Controls.Add(this.textBoxProdUpc);
+        this.Controls.Add(this.textBoxProdMinUnit);
+        this.Controls.Add(this.textBoxProdDesc);
+        this.Controls.Add(this.textBoxProdUnitStock);
+        this.Controls.Add(this.textBoxProdKg);
+        this.Controls.Add(this.textBoxProdCodeFour);
+        this.Controls.Add(this.textBoxProdFourName);
         this.Controls.Add(this.buttonDelete);
         this.Controls.Add(this.buttonSearch);
         this.Controls.Add(this.buttonNew);
-        this.Controls.Add(this.dataGridViewFournisseurs);
-        this.Controls.Add(this.dataGridViewProduits);
-        this.Controls.Add(this.textBoxProduitId);
+        this.Controls.Add(this.textBoxProdId);
         this.Controls.Add(this.label1);
         this.Name = "ProduitsManagementForm";
         this.Text = "ProduitsManagementForm";
         this.Load += this.ProduitsManagementForm_Load;
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewProduits).EndInit();
-        ((System.ComponentModel.ISupportInitialize) this.dataGridViewFournisseurs).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -335,19 +329,17 @@ partial class ProduitsManagementForm {
     #endregion
 
     private Label label1;
-    private TextBox textBoxProduitId;
-    private DataGridView dataGridViewProduits;
-    private DataGridView dataGridViewFournisseurs;
+    private TextBox textBoxProdId;
     private Button buttonNew;
     private Button buttonSearch;
     private Button buttonDelete;
-    private TextBox textBoxFournisseurId;
-    private TextBox textBoxProduitNom;
-    private TextBox textBoxProduitDesc;
-    private TextBox textBoxProduitUpc;
-    private TextBox textBoxProduitUnitStock;
-    private TextBox textBoxProduitPoids;
-    private TextBox textBoxProduitMinStock;
+    private TextBox textBoxProdFourName;
+    private TextBox textBoxProdCodeFour;
+    private TextBox textBoxProdKg;
+    private TextBox textBoxProdUnitStock;
+    private TextBox textBoxProdDesc;
+    private TextBox textBoxProdMinUnit;
+    private TextBox textBoxProdUpc;
     private Label label2;
     private Label label3;
     private Label label4;
@@ -357,8 +349,10 @@ partial class ProduitsManagementForm {
     private Label label8;
     private Label label9;
     private Label label10;
-    private ComboBox comboBoxFournisseurs;
+    private ComboBox comboBoxProdFourId;
     private Button buttonEdit;
     private Button buttonView;
     private Button buttonExit;
+    private ListBox listBoxFournisseurs;
+    private ListBox listBoxProduits;
 }

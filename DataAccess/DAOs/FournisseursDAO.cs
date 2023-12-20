@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
@@ -55,9 +56,10 @@ public class FournisseursDAO : AbstractDao<FournisseursDTO, int> {
     }
 
     public List<FournisseursDTO> GetByAddresse(string userInput) {
-        List<AddressDTO> addresses = AddressService.SearchAddresses(userInput);
+        AddressService addressService = new AddressService(this.context, new AppDbContext());
+        List<AddressDTO> addresses = addressService.SearchAddresses(userInput);
         List<FournisseursDTO> fournisseurs = new List<FournisseursDTO>();
-        FournisseursService FournisseursService = new FournisseursService(this.context);
+        FournisseursService FournisseursService = new FournisseursService(this.context, new AppDbContext());
         foreach (AddressDTO addresse in addresses) {
             FournisseursDTO? fournisseur = FournisseursService.FindFournisseurByAddresse(addresse.Id);
             if (fournisseur != null) {

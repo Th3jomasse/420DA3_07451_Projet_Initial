@@ -37,8 +37,8 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.Dao.GetById(id);
     }
 
-    public ProduitsDTO FindProduitByCode(int code) {
-        return this.Dao.GetByCode(code);
+    public List<ProduitsDTO> FindProduitByCode(int code) {
+        return this.Dao.GetByCodeFournisseur(code);
     }
 
     public ProduitsDTO FindProduitByNom(string nom) {
@@ -49,10 +49,6 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.Dao.GetByUpc(upc);
     }
 
-    public List<ProduitsDTO> FindProduitByClientId(int clientId) {
-        return this.Dao.GetByClientId(clientId);
-    }
-
     public List<ProduitsDTO> FindProduitByFournisseurId(int fournisseurId) {
         return this.Dao.GetByFournisseurId(fournisseurId);
     }
@@ -60,8 +56,17 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
     public List<ProduitsDTO> FindProduitByCodeFournisseur(int codeFournisseur) {
         return this.Dao.GetByCodeFournisseur(codeFournisseur);
     }
-    public List<ProduitsDTO> GetAllProduits(int id) {
-        return this.Dao.GetAllProduits();
+    public List<ProduitsDTO> GetAllProduits() {
+        return this.Dao.GetAll();
+    }
+
+    public ProduitsDTO SearchProduct(string searchInput) {
+        return this.GetAllProduits().FirstOrDefault(x => x.NomProduit == searchInput || x.ProduitUpc.ToString() == searchInput);
+    }
+
+    public List<ProduitsDTO> SearchProducts(string filter) {
+        // ajouté une méthode de recherche multiple (voir DAO) - Prof
+        return this.Dao.SearchProducts(filter);
     }
 
 }

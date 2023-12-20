@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
@@ -16,6 +16,7 @@ public class AppDbContext : AbstractContext {
     public DbSet<DTOs.FournisseursDTO> Fournisseurs { get; set; }
     public DbSet<DTOs.ProduitsDTO> Produits { get; set; }
     public DbSet<ShippingOrderProducts> ShippingOrderProducts { get; set; }
+    public DbSet<UserRoles> UserRoles { get; set; }
     public DbSet<DTOs.UserDTO> Users { get; set; }
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
     public DbSet<AddressDTO> Addresses { get; set; }
@@ -63,8 +64,7 @@ public class AppDbContext : AbstractContext {
 
 
         #endregion
-
-
+        
         #region Restock Orders
 
         _ = modelBuilder.Entity<RestockOrderDTO>()
@@ -107,8 +107,7 @@ public class AppDbContext : AbstractContext {
             .HasOne(ro => ro.DestinationWarehouse)
             .WithMany(wh => wh.RestockOrders)
             .HasForeignKey(ro => ro.DestinationWarehouseId);
-        // TODO: RestockOrder - Produit 
-        // FIXME: pas de propriété de bavigation pour les ROs dans ProduitsDTO
+
         _ = modelBuilder.Entity<RestockOrderDTO>()
             .HasOne(ro => ro.Produit)
             .WithMany(produit => produit.RestockOrders)
@@ -116,47 +115,66 @@ public class AppDbContext : AbstractContext {
 
 
         #endregion
-
-
+        
         #region Fournisseurs
         _ = modelBuilder.Entity<FournisseursDTO>()
             .ToTable("Fournisseurs")
             .HasKey(fournisseurs => fournisseurs.Id);
-
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.Id)
             .HasColumnOrder(0);
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.NomFournisseur)
             .HasColumnOrder(1)
-            .HasColumnType($"nvarchar({FournisseursDTO.NAME_MAX_LENGTH})")
-            .HasColumnName("Name");
-        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.Description)
+            .HasColumnType($"nvarchar({FournisseursDTO.NOMFOURNISSEUR_MAX_LENGTH})")
+            .HasColumnName("Nom Fournisseur");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.AddresseId)
             .HasColumnOrder(2)
-            .HasColumnType($"nvarchar({FournisseursDTO.DESCRIPTION_MAX_LENGTH})")
-            .HasColumnName("Description")
-            .IsRequired(false);
-        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.DateCreated)
+            .HasColumnType($"int")
+            .HasColumnName("Addresse Fournisseur");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.NomResponsable)
             .HasColumnOrder(3)
+            .HasColumnType($"nvarchar({FournisseursDTO.NOMRESPONSABLE_MAX_LENGTH})")
+            .HasColumnName("Nom Responsable");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.PrenomResponsable)
+            .HasColumnOrder(4)
+            .HasColumnType($"nvarchar({FournisseursDTO.PRENOMRESPONSABLE_MAX_LENGTH})")
+            .HasColumnName("Prenom Responsable");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.CourrielResponsable)
+            .HasColumnOrder(5)
+            .HasColumnType($"nvarchar({FournisseursDTO.COURRIELRESPONSABLE_MIN_LENGTH})")
+            .HasColumnName("Courriel Responsable");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.TelephoneResponsable)
+            .HasColumnOrder(6)
+            .HasColumnType($"nvarchar(10)")
+            .HasColumnName("Telephone Responsable");
+        _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.DateCreated)
+            .HasColumnOrder(7)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateCreated")
             .HasDefaultValueSql("getdate()")
             .IsRequired(true);
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.DateUpdated)
-            .HasColumnOrder(4)
+            .HasColumnOrder(8)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateUpdated")
             .HasDefaultValueSql("getdate()")
             .IsRequired(true);
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.DateDeleted)
-            .HasColumnOrder(5)
+            .HasColumnOrder(9)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateDeleted")
             .IsRequired(false);
         _ = modelBuilder.Entity<FournisseursDTO>().Property(fournisseurs => fournisseurs.RowVersion)
-            .HasColumnOrder(6)
+            .HasColumnOrder(10)
             .HasColumnName("Version")
             .IsRowVersion();
 
-        _ = modelBuilder.Entity<FournisseursDTO>().HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
+        _ = modelBuilder.Entity<FournisseursDTO>()
+            .HasMany(supplier => supplier.Produits)
+            .WithOne(produit => produit.FournisseurProduit)
+            .HasForeignKey(produit => produit.FournisseurId);
+
+        _ = modelBuilder.Entity<FournisseursDTO>()
+            .HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
         
         #endregion
 
@@ -165,12 +183,11 @@ public class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<ProduitsDTO>()
             .ToTable("Produits")
             .HasKey(produits => produits.Id);
-
         _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Id)
             .HasColumnOrder(0);
         _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.NomProduit)
             .HasColumnOrder(1)
-            .HasColumnType($"nvarchar({ProduitsDTO.NAME_MAX_LENGTH})")
+            .HasColumnType($"nvarchar({ProduitsDTO.NOM_MAX_LENGTH})")
             .HasColumnName("Name");
         _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Description)
             .HasColumnOrder(2)
@@ -198,7 +215,7 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(6)
             .HasColumnName("Version")
             .IsRowVersion();
-        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.Upc)
+        _ = modelBuilder.Entity<ProduitsDTO>().Property(produits => produits.ProduitUpc)
             .HasColumnOrder(7)
             .HasColumnName("Upc")
             .IsRequired(true);
@@ -226,26 +243,41 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(13)
             .HasColumnName("PoidsKilo")
             .IsRequired(true);
-        
-        _ = modelBuilder.Entity<ProduitsDTO>().HasData(new ProduitsDTO("TestNomProduit", "TestDescription") { Id = 1 });
 
+        
+        
         #endregion
 
         #region Association ShippingOrder - Product
-        
-        
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
-            .ShippingOrderProducts(sop => new { sop.ShippingOrderId, sop.ProductId });
+
+
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
+            .HasKey(sp => new { sp.ShippingOrderId, sp.ProduitId });
          
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
-            .HasOne(sop => sop.ShippingOrder)
-            .WithMany(so => so.Products)
-            .HasForeignKey(sop => sop.ShippingOrderId);
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
+            .HasOne(sp => sp.ShippingOrder)
+            .WithMany(so => so.ShippingOrderProducts)
+            .HasForeignKey(sp => sp.ShippingOrderId);
         
-        _ = modelBuilder.Entity<DTOs.Pivots.ShippingOrderProducts>()
-            .HasOne(sop => sop.Product)
-            .WithMany(p => p.ShippingOrders)
-            .HasForeignKey(sop => sop.ProductId);
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
+            .HasOne(sp => sp.Produit)
+            .WithMany(p => p.ShippingOrderProducts)
+            .HasForeignKey(sp => sp.ProduitId);
+
+        #endregion
+
+        #region Association User - Role
+
+        _ = modelBuilder.Entity<UserRoles>()
+            .HasKey(ur => new { ur.UserId, ur.RoleId });
+        _ = modelBuilder.Entity<UserRoles>()
+            .HasOne(ur => ur.User)
+            .WithMany(u => u.UserRoles)
+            .HasForeignKey(ur => ur.UserId);
+        _ = modelBuilder.Entity<UserRoles>()
+            .HasOne(ur => ur.Role)
+            .WithMany(r => r.UserRoles)
+            .HasForeignKey(ur => ur.RoleId);
 
         #endregion
 
@@ -267,11 +299,7 @@ public class AppDbContext : AbstractContext {
             .HasColumnName("Username");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.Password)
             .HasColumnType($"nvarchar(128)")
-            .HasColumnName("Username");
-        _ = modelBuilder.Entity<UserDTO>().Property(users => users.WarehouseId)
-            .HasColumnType($"int")
-            .HasColumnName("WarehouseId")
-            .IsRequired(false);
+            .HasColumnName("Password");
         _ = modelBuilder.Entity<UserDTO>().Property(users => users.DateCreation)
             .HasColumnType("datetime2(7)")
             .HasColumnName("DateCreation")
@@ -303,7 +331,106 @@ public class AppDbContext : AbstractContext {
             .IsRowVersion();
 
         #endregion
-    
-    
+
+
+        #region Clients
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .ToTable("Clients")
+            .HasKey(client => client.Id);
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.Id)
+            .HasColumnType("int")
+            .HasColumnName("Id");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.NomClient)
+            .HasColumnType($"nvarchar({ClientDTO.CLIENT_NAME_MAX_LENGTH})")
+            .HasColumnName("NomClient");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.AddressId)
+            .HasColumnType("int")
+            .HasColumnName("AddressId");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.WarehouseId)
+            .HasColumnType("int")
+            .HasColumnName("WarehouseId");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.NomPersonneContact)
+            .HasColumnType($"nvarchar({ClientDTO.CONTACT_NOM_MAX_LENGTH})")
+            .HasColumnName("NomContact");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.PrenomPersonneContact)
+            .HasColumnType($"nvarchar({ClientDTO.CONTACT_PRENOM_MAX_LENGTH})")
+            .HasColumnName("PrenomContact");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.CourrielPersonneContact)
+            .HasColumnType($"nvarchar({ClientDTO.CONTACT_COURRIEL_MAX_LENGTH})")
+            .HasColumnName("CourrielContact");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.TelephonePersonneContact)
+            .HasColumnType($"nvarchar({ClientDTO.CONTACT_TELEPHONE_MAX_LENGTH})")
+            .HasColumnName("TelephoneContact");
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .Property(client => client.Version)
+            .IsRowVersion();
+
+        // relations
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .HasOne(client => client.AssignedWarehouse)
+            .WithMany(wh => wh.Clients)
+            .HasForeignKey(client => client.WarehouseId);
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .HasOne(client => client.ClientAddress)
+            .WithOne(addr => addr.ClientAssocie)
+            .HasForeignKey<ClientDTO>(client => client.AddressId);
+
+
+        _ = modelBuilder.Entity<ClientDTO>()
+            .HasMany(client => client.ProduitsDuClient)
+            .WithOne(produit => produit.ClientProprietaireProduit)
+            .HasForeignKey(produit => produit.ClientId);
+
+        #endregion
+
+
+        #region Entrepot
+
+        _ = modelBuilder.Entity<EntrepotDTO>()
+            .ToTable("Entrepots")
+            .HasKey(wh => wh.Id);
+
+        _ = modelBuilder.Entity<EntrepotDTO>()
+            .Property(wh => wh.Id)
+            .HasColumnType("int")
+            .HasColumnName("Id");
+
+        _ = modelBuilder.Entity<EntrepotDTO>()
+            .Property(wh => wh.NomEntrepot)
+            .HasColumnType($"nvarchar({EntrepotDTO.NOM_ENTREPOT_MAX_LENGTH})")
+            .HasColumnName("NomEntrepot");
+
+        _ = modelBuilder.Entity<EntrepotDTO>()
+            .Property(wh => wh.AddressId)
+            .HasColumnType("int")
+            .HasColumnName("AddressId");
+
+        // relations
+
+
+        _ = modelBuilder.Entity<EntrepotDTO>().HasOne(wh => wh.Address).WithOne(addr => addr.WarehouseAssociee);
+
+        #endregion
+
     }
 }

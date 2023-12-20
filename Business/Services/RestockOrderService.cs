@@ -42,29 +42,27 @@ internal class RestockOrderService : AbstractDtoService<RestockOrderDTO, int> {
     /// </summary>
     /// <param name="produits">La liste de produits à vérifier.</param>
     /// <returns>La liste de <see cref="RestockOrderDTO"/> créés.</returns>
-    public List<RestockOrderDTO> RestockProduitsIfNeeded(List<ProduitsDTO> produits) {
+    public List<RestockOrderDTO> RestockProduitsIfNeeded(List<ProduitsDTO> produits, EntrepotDTO destinationWarehouse) {
         List<RestockOrderDTO> newROs = new List<RestockOrderDTO>();
         foreach (ProduitsDTO produit in produits) {
             if (produit.UnitesEnStock < (0.5 * produit.NiveauDeReappro)) {
                 int quantityNeeded = produit.NiveauDeReappro - produit.UnitesEnStock;
-                newROs.Add(this.CreateRestockOrderFor(produit, quantityNeeded));
+                newROs.Add(this.CreateRestockOrderFor(produit, quantityNeeded, destinationWarehouse));
             }
         }
         return newROs;
     }
 
-    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(WarehouseDTO warehouse) {
-        return this.Dao.GetAllIncompleteForWarehouse(warehouse);
+    public List<RestockOrderDTO> GetAllIncompleteForWarehouse(EntrepotDTO destinationWarehouse) {
+        return this.Dao.GetAllIncompleteForWarehouse(destinationWarehouse);
     }
 
     public List<RestockOrderDTO> GetAllIncompleteForWarehouse(int warehouseId) {
         return this.Dao.GetAllIncompleteForWarehouse(warehouseId);
     }
 
-    private RestockOrderDTO CreateRestockOrderFor(ProduitsDTO produit, int quantity) {
-        // FIXME: ProduitDTO n'a pas ses propriétés de navigation
-        WarehouseDTO targettedWarehouse;
-        RestockOrderDTO newRO = new RestockOrderDTO(targettedWarehouse.Id, produit.Id, quantity);
+    private RestockOrderDTO CreateRestockOrderFor(ProduitsDTO produit, int quantity, EntrepotDTO warehouse ) {
+        RestockOrderDTO newRO = new RestockOrderDTO(warehouse.Id,produit.Id, quantity);
         return this.Dao.Create(newRO);
     }
 }

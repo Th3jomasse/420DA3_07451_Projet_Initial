@@ -30,7 +30,7 @@ public class RoleService : AbstractDtoService<RoleDTO, int>{
     }
     //protected override IDtoManagementView<RoleDTO> DtoManagementWindows { get; }
 
-    public List<RoleDTO> GetRoles(string userInput) {
+    public List<RoleDTO> GetRoles() {
         return this.Dao.GetAll();
     }
     public List<RoleDTO>SearchRole(string userInput) {

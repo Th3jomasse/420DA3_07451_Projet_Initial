@@ -1,6 +1,7 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class RoleManagementForm {
+partial class RoleManagementForm
+{
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -10,8 +11,10 @@ partial class RoleManagementForm {
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-        if (disposing && (components != null)) {
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
             components.Dispose();
         }
         base.Dispose(disposing);
@@ -23,119 +26,121 @@ partial class RoleManagementForm {
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
-        actionButton = new Button();
-        cancelButton = new Button();
-        roleDescriptionLabel = new Label();
-        roleDescriptionTextBox = new TextBox();
-        roleNameTextBox = new TextBox();
-        RolenameLabel = new Label();
-        idTextBox = new TextBox();
-        idLabel = new Label();
-        userIdlabel = new Label();
-        RoleIdtextBox = new TextBox();
+    private void InitializeComponent()
+    {
+        this.actionButton = new Button();
+        this.cancelButton = new Button();
+        this.roleDescriptionLabel = new Label();
+        this.roleDescriptionTextBox = new TextBox();
+        this.roleNameTextBox = new TextBox();
+        this.RolenameLabel = new Label();
+        this.idTextBox = new TextBox();
+        this.idLabel = new Label();
+        this.userIdlabel = new Label();
+        this.RoleIdtextBox = new TextBox();
         this.SuspendLayout();
         // 
         // actionButton
         // 
-        actionButton.Location = new Point(253, 239);
-        actionButton.Name = "actionButton";
-        actionButton.Size = new Size(113, 23);
-        actionButton.TabIndex = 43;
-        actionButton.Text = "Action";
-        actionButton.UseVisualStyleBackColor = true;
+        this.actionButton.Location = new Point(253, 239);
+        this.actionButton.Name = "actionButton";
+        this.actionButton.Size = new Size(113, 23);
+        this.actionButton.TabIndex = 43;
+        this.actionButton.Text = "Action";
+        this.actionButton.UseVisualStyleBackColor = true;
+        this.actionButton.Click += this.actionButton_Click;
         // 
         // cancelButton
         // 
-        cancelButton.Location = new Point(372, 239);
-        cancelButton.Name = "cancelButton";
-        cancelButton.Size = new Size(113, 23);
-        cancelButton.TabIndex = 42;
-        cancelButton.Text = "Cancel";
-        cancelButton.UseVisualStyleBackColor = true;
+        this.cancelButton.Location = new Point(372, 239);
+        this.cancelButton.Name = "cancelButton";
+        this.cancelButton.Size = new Size(113, 23);
+        this.cancelButton.TabIndex = 42;
+        this.cancelButton.Text = "Cancel";
+        this.cancelButton.UseVisualStyleBackColor = true;
         // 
         // roleDescriptionLabel
         // 
-        roleDescriptionLabel.Location = new Point(25, 117);
-        roleDescriptionLabel.Name = "roleDescriptionLabel";
-        roleDescriptionLabel.Size = new Size(123, 23);
-        roleDescriptionLabel.TabIndex = 35;
-        roleDescriptionLabel.Text = "RoleDescription:";
-        roleDescriptionLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.roleDescriptionLabel.Location = new Point(25, 117);
+        this.roleDescriptionLabel.Name = "roleDescriptionLabel";
+        this.roleDescriptionLabel.Size = new Size(123, 23);
+        this.roleDescriptionLabel.TabIndex = 35;
+        this.roleDescriptionLabel.Text = "RoleDescription:";
+        this.roleDescriptionLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // roleDescriptionTextBox
         // 
-        roleDescriptionTextBox.Location = new Point(154, 117);
-        roleDescriptionTextBox.Multiline = true;
-        roleDescriptionTextBox.Name = "roleDescriptionTextBox";
-        roleDescriptionTextBox.Size = new Size(331, 90);
-        roleDescriptionTextBox.TabIndex = 34;
+        this.roleDescriptionTextBox.Location = new Point(154, 117);
+        this.roleDescriptionTextBox.Multiline = true;
+        this.roleDescriptionTextBox.Name = "roleDescriptionTextBox";
+        this.roleDescriptionTextBox.Size = new Size(331, 90);
+        this.roleDescriptionTextBox.TabIndex = 34;
         // 
         // roleNameTextBox
         // 
-        roleNameTextBox.Location = new Point(154, 61);
-        roleNameTextBox.Name = "roleNameTextBox";
-        roleNameTextBox.Size = new Size(331, 23);
-        roleNameTextBox.TabIndex = 33;
+        this.roleNameTextBox.Location = new Point(154, 61);
+        this.roleNameTextBox.Name = "roleNameTextBox";
+        this.roleNameTextBox.Size = new Size(331, 23);
+        this.roleNameTextBox.TabIndex = 33;
         // 
         // RolenameLabel
         // 
-        RolenameLabel.Location = new Point(25, 60);
-        RolenameLabel.Name = "RolenameLabel";
-        RolenameLabel.Size = new Size(123, 23);
-        RolenameLabel.TabIndex = 32;
-        RolenameLabel.Text = "RoleName:";
-        RolenameLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.RolenameLabel.Location = new Point(25, 60);
+        this.RolenameLabel.Name = "RolenameLabel";
+        this.RolenameLabel.Size = new Size(123, 23);
+        this.RolenameLabel.TabIndex = 32;
+        this.RolenameLabel.Text = "RoleName:";
+        this.RolenameLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // idTextBox
         // 
-        idTextBox.Location = new Point(154, 32);
-        idTextBox.Name = "idTextBox";
-        idTextBox.ReadOnly = true;
-        idTextBox.Size = new Size(331, 23);
-        idTextBox.TabIndex = 31;
+        this.idTextBox.Location = new Point(154, 32);
+        this.idTextBox.Name = "idTextBox";
+        this.idTextBox.ReadOnly = true;
+        this.idTextBox.Size = new Size(331, 23);
+        this.idTextBox.TabIndex = 31;
         // 
         // idLabel
         // 
-        idLabel.Location = new Point(25, 31);
-        idLabel.Name = "idLabel";
-        idLabel.Size = new Size(123, 23);
-        idLabel.TabIndex = 30;
-        idLabel.Text = "RoleID:";
-        idLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.idLabel.Location = new Point(25, 31);
+        this.idLabel.Name = "idLabel";
+        this.idLabel.Size = new Size(123, 23);
+        this.idLabel.TabIndex = 30;
+        this.idLabel.Text = "RoleID:";
+        this.idLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userIdlabel
         // 
-        userIdlabel.Location = new Point(25, 88);
-        userIdlabel.Name = "userIdlabel";
-        userIdlabel.Size = new Size(123, 23);
-        userIdlabel.TabIndex = 46;
-        userIdlabel.Text = "UserId:";
-        userIdlabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userIdlabel.Location = new Point(25, 88);
+        this.userIdlabel.Name = "userIdlabel";
+        this.userIdlabel.Size = new Size(123, 23);
+        this.userIdlabel.TabIndex = 46;
+        this.userIdlabel.Text = "UserId:";
+        this.userIdlabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // RoleIdtextBox
         // 
-        RoleIdtextBox.Location = new Point(154, 88);
-        RoleIdtextBox.Name = "RoleIdtextBox";
-        RoleIdtextBox.ReadOnly = true;
-        RoleIdtextBox.Size = new Size(331, 23);
-        RoleIdtextBox.TabIndex = 48;
+        this.RoleIdtextBox.Location = new Point(154, 88);
+        this.RoleIdtextBox.Name = "RoleIdtextBox";
+        this.RoleIdtextBox.ReadOnly = true;
+        this.RoleIdtextBox.Size = new Size(331, 23);
+        this.RoleIdtextBox.TabIndex = 48;
         // 
         // RoleManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(586, 285);
-        this.Controls.Add(RoleIdtextBox);
-        this.Controls.Add(userIdlabel);
-        this.Controls.Add(actionButton);
-        this.Controls.Add(cancelButton);
-        this.Controls.Add(roleDescriptionLabel);
-        this.Controls.Add(roleDescriptionTextBox);
-        this.Controls.Add(roleNameTextBox);
-        this.Controls.Add(RolenameLabel);
-        this.Controls.Add(idTextBox);
-        this.Controls.Add(idLabel);
+        this.Controls.Add(this.RoleIdtextBox);
+        this.Controls.Add(this.userIdlabel);
+        this.Controls.Add(this.actionButton);
+        this.Controls.Add(this.cancelButton);
+        this.Controls.Add(this.roleDescriptionLabel);
+        this.Controls.Add(this.roleDescriptionTextBox);
+        this.Controls.Add(this.roleNameTextBox);
+        this.Controls.Add(this.RolenameLabel);
+        this.Controls.Add(this.idTextBox);
+        this.Controls.Add(this.idLabel);
         this.Name = "RoleManagementForm";
         this.Text = "RoleManagementForm";
         this.ResumeLayout(false);

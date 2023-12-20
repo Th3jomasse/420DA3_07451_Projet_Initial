@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.PivotsDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,8 @@ public class RoleDTO : AbstractDTO<int> {
     /// </summary>
     public RoleDTO() : base() { }
 
+    public List<UserRoles> UserRoles { get; set; } = new List<UserRoles>();
+
     /// <summary>
     /// Valide la longueur du nom du rôle.
     /// </summary>
@@ -87,4 +90,6 @@ public class RoleDTO : AbstractDTO<int> {
     public override string ToString() {
         return this.Id.ToString() + " - " + this.RoleName;
     }
+    // Propriété de navigation vers les utilisateurs possédant ce rôle
+    public List<UserDTO> UtilisateursPossedantRoles { get; set; } = new List<UserDTO>();
 }

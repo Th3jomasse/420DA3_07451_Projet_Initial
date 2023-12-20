@@ -56,6 +56,19 @@ public class ProduitsDAO : AbstractDao<ProduitsDTO, int> {
     }
 
     public List<ProduitsDTO> GetByCodeFournisseur(int codeFournisseur) {
-        return base.GetAll().Where(x => x.CodeFournisseur == codeFournisseur).ToList();
+        return this.GetAll().Where(x => x.CodeFournisseur == codeFournisseur).ToList();
+    }
+
+    public List<ProduitsDTO> SearchProducts(string filter) {
+        return this.Context.GetDbSet<ProduitsDTO>()
+            .Include(produit => produit.ClientProprietaireProduit)
+                .ThenInclude(client => client.AssignedWarehouse)
+            .Include(produit => produit.FournisseurProduit)
+            .Where(produit => 
+                produit.Id.ToString().StartsWith(filter)
+                || produit.NomProduit.StartsWith(filter) 
+                || produit.ProduitUpc.ToString().StartsWith(filter) 
+                || produit.CodeFournisseur.ToString().StartsWith(filter))
+            .ToList();
     }
 }

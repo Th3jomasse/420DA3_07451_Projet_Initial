@@ -1,4 +1,7 @@
-﻿using System;
+﻿using _420DA3_07451_Projet_Initial.Business.Facades;
+using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +13,93 @@ using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class LoginForm : Form {
-    public LoginForm() {
-        InitializeComponent();
+    private AmazouneFacade amazouneFacade;
+
+    private LoginService LoginService { get; set; }
+
+    public LoginForm(LoginService parentService) {
+        this.LoginService = parentService;
+        this.InitializeComponent();
+    }
+
+    public LoginForm(AmazouneFacade amazouneFacade) {
+        this.amazouneFacade = amazouneFacade;
     }
 
     private void label4_Click(object sender, EventArgs e) {
+
+    }
+
+    private void LoginButton_Click(object sender, EventArgs e) {
+
+        // TODO: Validation avant d'appeler les méthodes du service
+
+        try {
+            this.LoginService.AttemptLogin(this.textBoxUserName.Text, this.textBoxPassword.Text);
+            this.DialogResult = DialogResult.OK;
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message, "Errur!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void textBoxUserName_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void textBoxPassword_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    /*
+
+    private void buttonLogin_Click(object sender, EventArgs e) {
+        string username = this.textBoxUserName.Text;
+        string password = this.textBoxPassword.Text;
+        UserDTO? user = this.service.FindUserByUsername(username);
+        if (user != null) {
+            if (user.Password == password) {
+                this.CurrentUser = user;
+                this.OpenFormBasedOnRole(user.Roles);
+                this.Close();
+            } else {
+                MessageBox.Show("Invalid password");
+            }
+        } else {
+            MessageBox.Show("Invalid username");
+        }
+    }
+
+    private void OpenFormBasedOnRole(List<RoleDTO> roles) {
+        if (roles.Count > 0) {
+            string roleName = roles[0].RoleName;
+            switch (roleName) {
+                case "Admin":
+                    this.UserManagementForm();
+                    break;
+                case "Manager":
+                    this.RoleManagementForm();
+                    break;
+                case "Bureau":
+                    this.ProduitsmanagementForm();
+                    break;
+                case "Entrepot":
+                    this.EntrepotManagementForm();
+                    break;
+                case "Secretaire":
+                    this.ClientManagementForm();
+                    break;
+                default:
+                    MessageBox.Show("Invalid role.","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+        } else {
+            MessageBox.Show("Role Invalide","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    */
+
+    private void linkLabelForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 
     }
 }

@@ -31,10 +31,6 @@ public class UserService : AbstractDtoService<UserDTO, int> {
             this.DtoManagementWindow.Dispose();
         }
     }
-    //protected override IDtoManagementView<UserDTO> DtoManagementWindow {
-    //    get { return new UserManagementForm(this.facade); }
-    //}
-
     public UserDTO? FindUserByUsername(string username) { 
         return this.Dao.GetByUsername(username);
     }
