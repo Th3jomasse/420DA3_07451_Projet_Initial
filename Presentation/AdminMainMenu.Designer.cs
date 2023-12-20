@@ -55,22 +55,22 @@ partial class AdminMainMenu
         this.clientMgmtTopBar = new Panel();
         this.clientMgmtLabel = new Label();
         this.panel1 = new Panel();
-        this.UserLabel = new Label();
-        this.createUserButton = new Button();
-        this.existingUserLabel = new Label();
+        this.DeleteUserButton = new Button();
+        this.EditUserButton = new Button();
+        this.ViewUserButton = new Button();
         this.UserComboBox = new ComboBox();
-        this.viewUserButton = new Button();
-        this.editUserButton = new Button();
-        this.deleteUserButton = new Button();
+        this.existingUserLabel = new Label();
+        this.CreateUserButton = new Button();
+        this.UserLabel = new Label();
         this.panel2 = new Panel();
+        this.RoleSearchTextBox = new TextBox();
+        this.RolesFilterListBox = new ListBox();
         this.roleDeleteButton = new Button();
         this.roleEditButton = new Button();
         this.roleViewButton = new Button();
         this.RoleSearchLabel = new Label();
         this.RoleCreateButton = new Button();
         this.RolesLabel = new Label();
-        this.RolesFilterListBox = new ListBox();
-        this.RoleSearchTextBox = new TextBox();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
         this.addressManagementPanel.SuspendLayout();
@@ -373,36 +373,55 @@ partial class AdminMainMenu
         // 
         // panel1
         // 
-        this.panel1.Controls.Add(this.deleteUserButton);
-        this.panel1.Controls.Add(this.editUserButton);
-        this.panel1.Controls.Add(this.viewUserButton);
+        this.panel1.Controls.Add(this.DeleteUserButton);
+        this.panel1.Controls.Add(this.EditUserButton);
+        this.panel1.Controls.Add(this.ViewUserButton);
         this.panel1.Controls.Add(this.UserComboBox);
         this.panel1.Controls.Add(this.existingUserLabel);
-        this.panel1.Controls.Add(this.createUserButton);
+        this.panel1.Controls.Add(this.CreateUserButton);
         this.panel1.Controls.Add(this.UserLabel);
         this.panel1.Location = new Point(475, 3);
         this.panel1.Name = "panel1";
         this.panel1.Size = new Size(230, 384);
         this.panel1.TabIndex = 2;
         // 
-        // UserLabel
+        // DeleteUserButton
         // 
-        this.UserLabel.AutoSize = true;
-        this.UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.UserLabel.Location = new Point(15, 20);
-        this.UserLabel.Name = "UserLabel";
-        this.UserLabel.Size = new Size(198, 21);
-        this.UserLabel.TabIndex = 0;
-        this.UserLabel.Text = "Gestion des Utilisateurs";
+        this.DeleteUserButton.Location = new Point(15, 295);
+        this.DeleteUserButton.Name = "DeleteUserButton";
+        this.DeleteUserButton.Size = new Size(198, 35);
+        this.DeleteUserButton.TabIndex = 6;
+        this.DeleteUserButton.Text = "Supprimer Utilisateur";
+        this.DeleteUserButton.UseVisualStyleBackColor = true;
+        this.DeleteUserButton.Click += this.DeleteUserButton_Click;
         // 
-        // createUserButton
+        // EditUserButton
         // 
-        this.createUserButton.Location = new Point(15, 50);
-        this.createUserButton.Name = "createUserButton";
-        this.createUserButton.Size = new Size(198, 35);
-        this.createUserButton.TabIndex = 1;
-        this.createUserButton.Text = "Nouveau Utilisateur";
-        this.createUserButton.UseVisualStyleBackColor = true;
+        this.EditUserButton.Location = new Point(15, 260);
+        this.EditUserButton.Name = "EditUserButton";
+        this.EditUserButton.Size = new Size(198, 35);
+        this.EditUserButton.TabIndex = 5;
+        this.EditUserButton.Text = "Modifier Utilisteur";
+        this.EditUserButton.UseVisualStyleBackColor = true;
+        this.EditUserButton.Click += this.EditUserButton_Click;
+        // 
+        // ViewUserButton
+        // 
+        this.ViewUserButton.Location = new Point(15, 225);
+        this.ViewUserButton.Name = "ViewUserButton";
+        this.ViewUserButton.Size = new Size(198, 35);
+        this.ViewUserButton.TabIndex = 4;
+        this.ViewUserButton.Text = "Voir Détails";
+        this.ViewUserButton.UseVisualStyleBackColor = true;
+        this.ViewUserButton.Click += this.ViewUserButton_Click;
+        // 
+        // UserComboBox
+        // 
+        this.UserComboBox.FormattingEnabled = true;
+        this.UserComboBox.Location = new Point(15, 111);
+        this.UserComboBox.Name = "UserComboBox";
+        this.UserComboBox.Size = new Size(198, 23);
+        this.UserComboBox.TabIndex = 3;
         // 
         // existingUserLabel
         // 
@@ -413,40 +432,25 @@ partial class AdminMainMenu
         this.existingUserLabel.TabIndex = 2;
         this.existingUserLabel.Text = "Utilisateurs existants";
         // 
-        // UserComboBox
+        // CreateUserButton
         // 
-        this.UserComboBox.FormattingEnabled = true;
-        this.UserComboBox.Location = new Point(15, 111);
-        this.UserComboBox.Name = "UserComboBox";
-        this.UserComboBox.Size = new Size(198, 23);
-        this.UserComboBox.TabIndex = 3;
+        this.CreateUserButton.Location = new Point(15, 50);
+        this.CreateUserButton.Name = "CreateUserButton";
+        this.CreateUserButton.Size = new Size(198, 35);
+        this.CreateUserButton.TabIndex = 1;
+        this.CreateUserButton.Text = "Nouveau Utilisateur";
+        this.CreateUserButton.UseVisualStyleBackColor = true;
+        this.CreateUserButton.Click += this.CreateUserButton_Click;
         // 
-        // viewUserButton
+        // UserLabel
         // 
-        this.viewUserButton.Location = new Point(15, 225);
-        this.viewUserButton.Name = "viewUserButton";
-        this.viewUserButton.Size = new Size(198, 35);
-        this.viewUserButton.TabIndex = 4;
-        this.viewUserButton.Text = "Voir Détails";
-        this.viewUserButton.UseVisualStyleBackColor = true;
-        // 
-        // editUserButton
-        // 
-        this.editUserButton.Location = new Point(15, 260);
-        this.editUserButton.Name = "editUserButton";
-        this.editUserButton.Size = new Size(198, 35);
-        this.editUserButton.TabIndex = 5;
-        this.editUserButton.Text = "Modifier Utilisteur";
-        this.editUserButton.UseVisualStyleBackColor = true;
-        // 
-        // deleteUserButton
-        // 
-        this.deleteUserButton.Location = new Point(15, 295);
-        this.deleteUserButton.Name = "deleteUserButton";
-        this.deleteUserButton.Size = new Size(198, 35);
-        this.deleteUserButton.TabIndex = 6;
-        this.deleteUserButton.Text = "Supprimer Utilisateur";
-        this.deleteUserButton.UseVisualStyleBackColor = true;
+        this.UserLabel.AutoSize = true;
+        this.UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.UserLabel.Location = new Point(15, 20);
+        this.UserLabel.Name = "UserLabel";
+        this.UserLabel.Size = new Size(198, 21);
+        this.UserLabel.TabIndex = 0;
+        this.UserLabel.Text = "Gestion des Utilisateurs";
         // 
         // panel2
         // 
@@ -462,6 +466,22 @@ partial class AdminMainMenu
         this.panel2.Name = "panel2";
         this.panel2.Size = new Size(230, 385);
         this.panel2.TabIndex = 3;
+        // 
+        // RoleSearchTextBox
+        // 
+        this.RoleSearchTextBox.Location = new Point(15, 108);
+        this.RoleSearchTextBox.Name = "RoleSearchTextBox";
+        this.RoleSearchTextBox.Size = new Size(198, 23);
+        this.RoleSearchTextBox.TabIndex = 15;
+        // 
+        // RolesFilterListBox
+        // 
+        this.RolesFilterListBox.FormattingEnabled = true;
+        this.RolesFilterListBox.ItemHeight = 15;
+        this.RolesFilterListBox.Location = new Point(15, 131);
+        this.RolesFilterListBox.Name = "RolesFilterListBox";
+        this.RolesFilterListBox.Size = new Size(198, 94);
+        this.RolesFilterListBox.TabIndex = 14;
         // 
         // roleDeleteButton
         // 
@@ -517,22 +537,6 @@ partial class AdminMainMenu
         this.RolesLabel.Size = new Size(149, 21);
         this.RolesLabel.TabIndex = 7;
         this.RolesLabel.Text = "Gestion des Rôles";
-        // 
-        // RolesFilterListBox
-        // 
-        this.RolesFilterListBox.FormattingEnabled = true;
-        this.RolesFilterListBox.ItemHeight = 15;
-        this.RolesFilterListBox.Location = new Point(15, 131);
-        this.RolesFilterListBox.Name = "RolesFilterListBox";
-        this.RolesFilterListBox.Size = new Size(198, 94);
-        this.RolesFilterListBox.TabIndex = 14;
-        // 
-        // RoleSearchTextBox
-        // 
-        this.RoleSearchTextBox.Location = new Point(15, 108);
-        this.RoleSearchTextBox.Name = "RoleSearchTextBox";
-        this.RoleSearchTextBox.Size = new Size(198, 23);
-        this.RoleSearchTextBox.TabIndex = 15;
         // 
         // AdminMainMenu
         // 
@@ -591,12 +595,12 @@ partial class AdminMainMenu
     private TextBox clientFilteringBox;
     private Label existingClientsLabel;
     private Panel panel1;
-    private Button deleteUserButton;
-    private Button editUserButton;
-    private Button viewUserButton;
+    private Button DeleteUserButton;
+    private Button EditUserButton;
+    private Button ViewUserButton;
     private ComboBox UserComboBox;
     private Label existingUserLabel;
-    private Button createUserButton;
+    private Button CreateUserButton;
     private Label UserLabel;
     private Panel panel2;
     private TextBox RoleSearchTextBox;

@@ -173,11 +173,54 @@ public partial class AdminMainMenu : Form
     }
 
     #endregion
+    #region Gestion des Utilisateurs
+    private void ActivateUserButtons() {
+        this.EditUserButton.Enabled = true;
+        this.ViewUserButton.Enabled = true;
+        this.DeleteUserButton.Enabled = true;
+    }
 
+    private void DeactivateUserButtons() {
+        this.EditUserButton.Enabled = false;
+        this.ViewUserButton.Enabled = false;
+        this.DeleteUserButton.Enabled = false;
+    }
+    private void CreateUserButton_Click(object sender, EventArgs e)
+    {
+        _ = this.ParentFacade.GetService<UserService>().CreateNewDtoInstance();
+    }
+    private void ViewUserButton_Click(object sender, EventArgs e) 
+    {
+        if (this.UserComboBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+    }
+
+    private void EditUserButton_Click(object sender, EventArgs e) 
+    {
+        if (this.UserComboBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+    }
+
+    private void DeleteUserButton_Click(object sender, EventArgs e) 
+    {
+        if (this.UserComboBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+    }
+    #endregion
 
     private void ButtonQuit_Click(object sender, EventArgs e)
     {
         this.ParentFacade.ShutdownParentApplication();
     }
+
 
 }
