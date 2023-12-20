@@ -66,16 +66,22 @@ public class LoginService : AbstractLoginService {
         return this.RequireLoggedInUser();
     }
 
-    public RoleDTO GetLoggedInUserRole() {
-        if (this.LoggedInUserRole == null || this.LoggedInUser == null) {
-            UserDTO loggedInUser = this.RequireLoggedInUser();
-            this.LoggedInUserRole = loggedInUser.Roles.Count > 1
-                ? this.RoleSelectionForm.ShowForUser(loggedInUser)
-                : loggedInUser.Roles.Count <= 0
-                    ? throw new Exception("L'utilisateur connecté n'a aucun de rôle associé.")
-                    : loggedInUser.Roles.First();
+    public RoleDTO RequireLoggedInUserRole() {
+        if (this.LoggedInUserRole == null) {
+            // Pas de rôle déjà sélectionné: forcer la sélection
+
+            this.LoggedInUserRole = this.RoleSelectionForm.ShowForUser(this.RequireLoggedInUser());
+
+            return this.LoggedInUserRole ?? throw new Exception("Something went wrong, le role selection form devrait avoir forcé la sélection et setté le rôle.");
+
+        } else {
+            // rôle déjà sélectionné, le retourner
+            return this.LoggedInUserRole;
         }
-        return this.LoggedInUserRole;
+    }
+
+    public RoleDTO GetLoggedInUserRole() {
+        return this.RequireLoggedInUserRole();
     }
 
 

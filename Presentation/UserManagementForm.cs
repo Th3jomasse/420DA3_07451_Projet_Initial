@@ -30,7 +30,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.facade = facade;
         this.workingDtoInstance = new UserDTO("", null);
         this.InitializeComponent();
-        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetRoles);
+        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetRoles());
         this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepots());
     }
 

@@ -17,6 +17,8 @@ public class EntrepotDTO : AbstractDTO<int> {
 
     public AddressDTO Address { get; set; }
     public List<ClientDTO> Clients { get; set; }
+    
+    public List<RestockOrderDTO> RestockOrders { get; set; }
 
     public EntrepotDTO() { }
 
