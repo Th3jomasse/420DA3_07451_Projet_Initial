@@ -151,15 +151,15 @@ public partial class AdminMainMenu : Form {
     }
     private void ActivateUserButtons()
     {
-        this.EditUserButton.Enabled = true;
-        this.ViewUserButton.Enabled = true;
-        this.DeleteUserButton.Enabled = true;
+        this.editUserButton.Enabled = true;
+        this.viewUserButton.Enabled = true;
+        this.deleteUserButton.Enabled = true;
     }
 
     private void DeactivateUserButtons() {
-        this.EditUserButton.Enabled = false;
-        this.ViewUserButton.Enabled = false;
-        this.DeleteUserButton.Enabled = false;
+        this.editUserButton.Enabled = false;
+        this.viewUserButton.Enabled = false;
+        this.deleteUserButton.Enabled = false;
     }
     private void CreateUserButton_Click(object sender, EventArgs e) {
         _ = this.ParentFacade.GetService<UserService>().CreateNewDtoInstance();
