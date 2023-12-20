@@ -183,6 +183,14 @@ public partial class AdminMainMenu : Form
     #endregion
 
     #region Gestion des Utilisateurs
+    private void UserComboBox_SelectedIndexChanged(object sender, EventArgs e) 
+    {
+        if (this.UserComboBox.SelectedItem != null) {
+            this.ActivateUserButtons();
+        } else {
+            this.DeactivateUserButtons();
+        }
+    }
     private void ActivateUserButtons()
     {
         this.EditUserButton.Enabled = true;
@@ -208,7 +216,7 @@ public partial class AdminMainMenu : Form
         }
         else
         {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
 
@@ -220,7 +228,7 @@ public partial class AdminMainMenu : Form
         }
         else
         {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
 
@@ -232,7 +240,7 @@ public partial class AdminMainMenu : Form
         }
         else
         {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
         }
     }
     #endregion
@@ -294,7 +302,7 @@ public partial class AdminMainMenu : Form
     }
     public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) 
     {
-        this.filteredAddresses.DataSource = this.ParentFacade.GetService<AddressService>().SearchAddresses(this.addressSearchTextBox.Text);
+        this.filteredAddresses.DataSource = this.ParentFacade.GetService<RoleService>().SearchRole(this.RoleSearchTextBox.Text);
     }
     #endregion
 
