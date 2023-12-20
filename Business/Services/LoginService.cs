@@ -15,11 +15,12 @@ public class LoginService : AbstractLoginService {
 
 
     private AbstractFacade ParentFacade { get; set; }
-    public UserDTO? LoggedInUser { get; protected set; }
     public RoleDTO? LoggedInUserRole { get; protected set; }
 
     [Obsolete("Fake constructor for appl start only. DO NOT USE.", false)]
-    public LoginService() { }
+    public LoginService() { 
+        // NE PÂS UTILISER CE CONSTRUCTEUR SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES
+    }
 
     public LoginService(AbstractFacade parentFacade) {
         parentFacade.RegisterDependent(this);
