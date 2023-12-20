@@ -18,6 +18,9 @@ public class FournisseursDTO : AbstractDTO<int> {
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
 
+
+    public List<ProduitsDTO> Produits { get; set; }
+
     public const int NOMFOURNISSEUR_MIN_LENGTH = 3;
     public const int NOMFOURNISSEUR_MAX_LENGTH = 50;
     public const int NOMRESPONSABLE_MIN_LENGTH = 3;

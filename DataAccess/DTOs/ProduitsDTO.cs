@@ -31,6 +31,12 @@ public class ProduitsDTO : AbstractDTO<int> {
     public const int DESCRIPTION_MAX_LENGTH = 50;
 
     public ProduitsDTO() { }
+
+    // Ajouté propriété de navigation manquantes
+    public ClientDTO ClientProprietaireProduit {  get; set; }
+    public FournisseursDTO FournisseurProduit { get; set; }
+
+
     public List<ShipmentsDTO> Shipments { get; set; } = null!;
     public List<ShipOrdersDTO> ShipOrders { get; set; } = null!;
     public List<RestockOrderDTO> RestockOrders { get; set; } = null!;

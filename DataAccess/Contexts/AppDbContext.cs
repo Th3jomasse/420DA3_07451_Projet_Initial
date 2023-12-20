@@ -108,8 +108,6 @@ public class AppDbContext : AbstractContext {
             .WithMany(wh => wh.RestockOrders)
             .HasForeignKey(ro => ro.DestinationWarehouseId);
 
-        // TODO: RestockOrder - Produit 
-        // FIXME: pas de propriété de bavigation pour les ROs dans ProduitsDTO
         _ = modelBuilder.Entity<RestockOrderDTO>()
             .HasOne(ro => ro.Produit)
             .WithMany(produit => produit.RestockOrders)
@@ -170,7 +168,13 @@ public class AppDbContext : AbstractContext {
             .HasColumnName("Version")
             .IsRowVersion();
 
-        _ = modelBuilder.Entity<FournisseursDTO>().HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
+        _ = modelBuilder.Entity<FournisseursDTO>()
+            .HasMany(supplier => supplier.Produits)
+            .WithOne(produit => produit.FournisseurProduit)
+            .HasForeignKey(produit => produit.FournisseurId);
+
+        _ = modelBuilder.Entity<FournisseursDTO>()
+            .HasData(new FournisseursDTO("TestNomFournisseurs", "TestDescription","TestPrenomResponsable","TestCourrielResponsable","TestTelephone") { Id = 1 });
         
         #endregion
 
@@ -239,6 +243,7 @@ public class AppDbContext : AbstractContext {
             .HasColumnOrder(13)
             .HasColumnName("PoidsKilo")
             .IsRequired(true);
+
         
         
         #endregion
@@ -330,94 +335,92 @@ public class AppDbContext : AbstractContext {
 
         #region Clients
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .ToTable("Clients")
             .HasKey(client => client.Id);
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.Id)
             .HasColumnType("int")
             .HasColumnName("Id");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.NomClient)
             .HasColumnType($"nvarchar({ClientDTO.CLIENT_NAME_MAX_LENGTH})")
             .HasColumnName("NomClient");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.AddressId)
             .HasColumnType("int")
             .HasColumnName("AddressId");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.WarehouseId)
             .HasColumnType("int")
             .HasColumnName("WarehouseId");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.NomPersonneContact)
             .HasColumnType($"nvarchar({ClientDTO.CONTACT_NOM_MAX_LENGTH})")
             .HasColumnName("NomContact");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.PrenomPersonneContact)
             .HasColumnType($"nvarchar({ClientDTO.CONTACT_PRENOM_MAX_LENGTH})")
             .HasColumnName("PrenomContact");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.CourrielPersonneContact)
             .HasColumnType($"nvarchar({ClientDTO.CONTACT_COURRIEL_MAX_LENGTH})")
             .HasColumnName("CourrielContact");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.TelephonePersonneContact)
             .HasColumnType($"nvarchar({ClientDTO.CONTACT_TELEPHONE_MAX_LENGTH})")
             .HasColumnName("TelephoneContact");
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .Property(client => client.Version)
             .IsRowVersion();
 
         // relations
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .HasOne(client => client.AssignedWarehouse)
             .WithMany(wh => wh.Clients)
             .HasForeignKey(client => client.WarehouseId);
 
-        modelBuilder.Entity<ClientDTO>()
+        _ = modelBuilder.Entity<ClientDTO>()
             .HasOne(client => client.ClientAddress)
             .WithOne(addr => addr.ClientAssocie)
             .HasForeignKey<ClientDTO>(client => client.AddressId);
 
-        // TODO: relation avec les produits
-        // quand les propriétés de navigation de celui-ci seront faites
-        /*
-        modelBuilder.Entity<ClientDTO>()
+
+        _ = modelBuilder.Entity<ClientDTO>()
             .HasMany(client => client.ProduitsDuClient)
-            .WithOne(produit => produit.PropDeNavDuClient);
-        */
+            .WithOne(produit => produit.ClientProprietaireProduit)
+            .HasForeignKey(produit => produit.ClientId);
 
         #endregion
 
 
         #region Entrepot
 
-        modelBuilder.Entity<EntrepotDTO>()
+        _ = modelBuilder.Entity<EntrepotDTO>()
             .ToTable("Entrepots")
             .HasKey(wh => wh.Id);
 
-        modelBuilder.Entity<EntrepotDTO>()
+        _ = modelBuilder.Entity<EntrepotDTO>()
             .Property(wh => wh.Id)
             .HasColumnType("int")
             .HasColumnName("Id");
 
-        modelBuilder.Entity<EntrepotDTO>()
+        _ = modelBuilder.Entity<EntrepotDTO>()
             .Property(wh => wh.NomEntrepot)
             .HasColumnType($"nvarchar({EntrepotDTO.NOM_ENTREPOT_MAX_LENGTH})")
             .HasColumnName("NomEntrepot");
 
-        modelBuilder.Entity<EntrepotDTO>()
+        _ = modelBuilder.Entity<EntrepotDTO>()
             .Property(wh => wh.AddressId)
             .HasColumnType("int")
             .HasColumnName("AddressId");
@@ -425,7 +428,7 @@ public class AppDbContext : AbstractContext {
         // relations
 
 
-        modelBuilder.Entity<EntrepotDTO>().HasOne(wh => wh.Address).WithOne(addr => addr.WarehouseAssociee);
+        _ = modelBuilder.Entity<EntrepotDTO>().HasOne(wh => wh.Address).WithOne(addr => addr.WarehouseAssociee);
 
         #endregion
 

@@ -64,4 +64,9 @@ public class ProduitsService : AbstractDtoService<ProduitsDTO, int> {
         return this.GetAllProduits().FirstOrDefault(x => x.NomProduit == searchInput || x.ProduitUpc.ToString() == searchInput);
     }
 
+    public List<ProduitsDTO> SearchProducts(string filter) {
+        // ajouté une méthode de recherche multiple (voir DAO) - Prof
+        return this.Dao.SearchProducts(filter);
+    }
+
 }
