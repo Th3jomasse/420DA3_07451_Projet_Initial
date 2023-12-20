@@ -1,6 +1,7 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class AdminMainMenu {
+partial class AdminMainMenu
+{
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -10,8 +11,10 @@ partial class AdminMainMenu {
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-        if (disposing && (components != null)) {
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
             components.Dispose();
         }
         base.Dispose(disposing);
@@ -23,7 +26,8 @@ partial class AdminMainMenu {
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
+    private void InitializeComponent()
+    {
         this.bottomBarPanel = new Panel();
         this.buttonQuit = new Button();
         this.topBarPanel = new Panel();
@@ -40,24 +44,43 @@ partial class AdminMainMenu {
         this.addressMgmtTopBar = new Panel();
         this.addressMgmtLabel = new Label();
         this.clientsMgmtPanel = new Panel();
-        this.clientMgmtTopBar = new Panel();
-        this.clientMgmtLabel = new Label();
         this.clientMgmtMainPanel = new Panel();
-        this.clientCreateButton = new Button();
-        this.existingClientsLabel = new Label();
-        this.clientFilteringBox = new TextBox();
-        this.filteredClients = new ListBox();
         this.clientDeleteButton = new Button();
         this.clientEditButton = new Button();
         this.clientViewButton = new Button();
+        this.filteredClients = new ListBox();
+        this.clientFilteringBox = new TextBox();
+        this.existingClientsLabel = new Label();
+        this.clientCreateButton = new Button();
+        this.clientMgmtTopBar = new Panel();
+        this.clientMgmtLabel = new Label();
+        this.panel1 = new Panel();
+        this.UserLabel = new Label();
+        this.createUserButton = new Button();
+        this.existingUserLabel = new Label();
+        this.UserComboBox = new ComboBox();
+        this.viewUserButton = new Button();
+        this.editUserButton = new Button();
+        this.deleteUserButton = new Button();
+        this.panel2 = new Panel();
+        this.roleDeleteButton = new Button();
+        this.roleEditButton = new Button();
+        this.roleViewButton = new Button();
+        this.RoleSearchLabel = new Label();
+        this.RoleCreateButton = new Button();
+        this.RolesLabel = new Label();
+        this.RolesFilterListBox = new ListBox();
+        this.RoleSearchTextBox = new TextBox();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
         this.addressManagementPanel.SuspendLayout();
         this.addressMgmtMainPanel.SuspendLayout();
         this.addressMgmtTopBar.SuspendLayout();
         this.clientsMgmtPanel.SuspendLayout();
-        this.clientMgmtTopBar.SuspendLayout();
         this.clientMgmtMainPanel.SuspendLayout();
+        this.clientMgmtTopBar.SuspendLayout();
+        this.panel1.SuspendLayout();
+        this.panel2.SuspendLayout();
         this.SuspendLayout();
         // 
         // bottomBarPanel
@@ -97,6 +120,8 @@ partial class AdminMainMenu {
         this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
         this.mainPanel.Controls.Add(this.addressManagementPanel, 1, 0);
         this.mainPanel.Controls.Add(this.clientsMgmtPanel, 1, 1);
+        this.mainPanel.Controls.Add(this.panel1, 2, 0);
+        this.mainPanel.Controls.Add(this.panel2, 2, 1);
         this.mainPanel.Dock = DockStyle.Fill;
         this.mainPanel.Location = new Point(0, 40);
         this.mainPanel.Name = "mainPanel";
@@ -237,26 +262,6 @@ partial class AdminMainMenu {
         this.clientsMgmtPanel.Size = new Size(230, 385);
         this.clientsMgmtPanel.TabIndex = 1;
         // 
-        // clientMgmtTopBar
-        // 
-        this.clientMgmtTopBar.Controls.Add(this.clientMgmtLabel);
-        this.clientMgmtTopBar.Dock = DockStyle.Top;
-        this.clientMgmtTopBar.Location = new Point(10, 10);
-        this.clientMgmtTopBar.Name = "clientMgmtTopBar";
-        this.clientMgmtTopBar.Size = new Size(210, 40);
-        this.clientMgmtTopBar.TabIndex = 0;
-        // 
-        // clientMgmtLabel
-        // 
-        this.clientMgmtLabel.Dock = DockStyle.Fill;
-        this.clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.clientMgmtLabel.Location = new Point(0, 0);
-        this.clientMgmtLabel.Name = "clientMgmtLabel";
-        this.clientMgmtLabel.Size = new Size(210, 40);
-        this.clientMgmtLabel.TabIndex = 0;
-        this.clientMgmtLabel.Text = "Gestion des clients";
-        this.clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // clientMgmtMainPanel
         // 
         this.clientMgmtMainPanel.Controls.Add(this.clientDeleteButton);
@@ -271,47 +276,6 @@ partial class AdminMainMenu {
         this.clientMgmtMainPanel.Name = "clientMgmtMainPanel";
         this.clientMgmtMainPanel.Size = new Size(210, 325);
         this.clientMgmtMainPanel.TabIndex = 1;
-        // 
-        // clientCreateButton
-        // 
-        this.clientCreateButton.Dock = DockStyle.Top;
-        this.clientCreateButton.Location = new Point(0, 0);
-        this.clientCreateButton.Name = "clientCreateButton";
-        this.clientCreateButton.Size = new Size(210, 35);
-        this.clientCreateButton.TabIndex = 1;
-        this.clientCreateButton.Text = "Nouveau Client";
-        this.clientCreateButton.UseVisualStyleBackColor = true;
-        this.clientCreateButton.Click += this.ClientCreateButton_Click;
-        // 
-        // existingClientsLabel
-        // 
-        this.existingClientsLabel.Dock = DockStyle.Top;
-        this.existingClientsLabel.Location = new Point(0, 35);
-        this.existingClientsLabel.Name = "existingClientsLabel";
-        this.existingClientsLabel.Size = new Size(210, 23);
-        this.existingClientsLabel.TabIndex = 2;
-        this.existingClientsLabel.Text = "Clients existants:";
-        this.existingClientsLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // clientFilteringBox
-        // 
-        this.clientFilteringBox.Dock = DockStyle.Top;
-        this.clientFilteringBox.Location = new Point(0, 58);
-        this.clientFilteringBox.Name = "clientFilteringBox";
-        this.clientFilteringBox.Size = new Size(210, 23);
-        this.clientFilteringBox.TabIndex = 3;
-        this.clientFilteringBox.TextChanged += this.ClientFilteringBox_TextChanged;
-        // 
-        // filteredClients
-        // 
-        this.filteredClients.Dock = DockStyle.Top;
-        this.filteredClients.FormattingEnabled = true;
-        this.filteredClients.ItemHeight = 15;
-        this.filteredClients.Location = new Point(0, 81);
-        this.filteredClients.Name = "filteredClients";
-        this.filteredClients.Size = new Size(210, 94);
-        this.filteredClients.TabIndex = 4;
-        this.filteredClients.SelectedIndexChanged += this.FilteredClients_SelectedIndexChanged;
         // 
         // clientDeleteButton
         // 
@@ -346,6 +310,230 @@ partial class AdminMainMenu {
         this.clientViewButton.UseVisualStyleBackColor = true;
         this.clientViewButton.Click += this.ClientViewButton_Click;
         // 
+        // filteredClients
+        // 
+        this.filteredClients.Dock = DockStyle.Top;
+        this.filteredClients.FormattingEnabled = true;
+        this.filteredClients.ItemHeight = 15;
+        this.filteredClients.Location = new Point(0, 81);
+        this.filteredClients.Name = "filteredClients";
+        this.filteredClients.Size = new Size(210, 94);
+        this.filteredClients.TabIndex = 4;
+        this.filteredClients.SelectedIndexChanged += this.FilteredClients_SelectedIndexChanged;
+        // 
+        // clientFilteringBox
+        // 
+        this.clientFilteringBox.Dock = DockStyle.Top;
+        this.clientFilteringBox.Location = new Point(0, 58);
+        this.clientFilteringBox.Name = "clientFilteringBox";
+        this.clientFilteringBox.Size = new Size(210, 23);
+        this.clientFilteringBox.TabIndex = 3;
+        this.clientFilteringBox.TextChanged += this.ClientFilteringBox_TextChanged;
+        // 
+        // existingClientsLabel
+        // 
+        this.existingClientsLabel.Dock = DockStyle.Top;
+        this.existingClientsLabel.Location = new Point(0, 35);
+        this.existingClientsLabel.Name = "existingClientsLabel";
+        this.existingClientsLabel.Size = new Size(210, 23);
+        this.existingClientsLabel.TabIndex = 2;
+        this.existingClientsLabel.Text = "Clients existants:";
+        this.existingClientsLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // clientCreateButton
+        // 
+        this.clientCreateButton.Dock = DockStyle.Top;
+        this.clientCreateButton.Location = new Point(0, 0);
+        this.clientCreateButton.Name = "clientCreateButton";
+        this.clientCreateButton.Size = new Size(210, 35);
+        this.clientCreateButton.TabIndex = 1;
+        this.clientCreateButton.Text = "Nouveau Client";
+        this.clientCreateButton.UseVisualStyleBackColor = true;
+        this.clientCreateButton.Click += this.ClientCreateButton_Click;
+        // 
+        // clientMgmtTopBar
+        // 
+        this.clientMgmtTopBar.Controls.Add(this.clientMgmtLabel);
+        this.clientMgmtTopBar.Dock = DockStyle.Top;
+        this.clientMgmtTopBar.Location = new Point(10, 10);
+        this.clientMgmtTopBar.Name = "clientMgmtTopBar";
+        this.clientMgmtTopBar.Size = new Size(210, 40);
+        this.clientMgmtTopBar.TabIndex = 0;
+        // 
+        // clientMgmtLabel
+        // 
+        this.clientMgmtLabel.Dock = DockStyle.Fill;
+        this.clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.clientMgmtLabel.Location = new Point(0, 0);
+        this.clientMgmtLabel.Name = "clientMgmtLabel";
+        this.clientMgmtLabel.Size = new Size(210, 40);
+        this.clientMgmtLabel.TabIndex = 0;
+        this.clientMgmtLabel.Text = "Gestion des clients";
+        this.clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // panel1
+        // 
+        this.panel1.Controls.Add(this.deleteUserButton);
+        this.panel1.Controls.Add(this.editUserButton);
+        this.panel1.Controls.Add(this.viewUserButton);
+        this.panel1.Controls.Add(this.UserComboBox);
+        this.panel1.Controls.Add(this.existingUserLabel);
+        this.panel1.Controls.Add(this.createUserButton);
+        this.panel1.Controls.Add(this.UserLabel);
+        this.panel1.Location = new Point(475, 3);
+        this.panel1.Name = "panel1";
+        this.panel1.Size = new Size(230, 384);
+        this.panel1.TabIndex = 2;
+        // 
+        // UserLabel
+        // 
+        this.UserLabel.AutoSize = true;
+        this.UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.UserLabel.Location = new Point(15, 20);
+        this.UserLabel.Name = "UserLabel";
+        this.UserLabel.Size = new Size(198, 21);
+        this.UserLabel.TabIndex = 0;
+        this.UserLabel.Text = "Gestion des Utilisateurs";
+        // 
+        // createUserButton
+        // 
+        this.createUserButton.Location = new Point(15, 50);
+        this.createUserButton.Name = "createUserButton";
+        this.createUserButton.Size = new Size(198, 35);
+        this.createUserButton.TabIndex = 1;
+        this.createUserButton.Text = "Nouveau Utilisateur";
+        this.createUserButton.UseVisualStyleBackColor = true;
+        // 
+        // existingUserLabel
+        // 
+        this.existingUserLabel.AutoSize = true;
+        this.existingUserLabel.Location = new Point(61, 93);
+        this.existingUserLabel.Name = "existingUserLabel";
+        this.existingUserLabel.Size = new Size(114, 15);
+        this.existingUserLabel.TabIndex = 2;
+        this.existingUserLabel.Text = "Utilisateurs existants";
+        // 
+        // UserComboBox
+        // 
+        this.UserComboBox.FormattingEnabled = true;
+        this.UserComboBox.Location = new Point(15, 111);
+        this.UserComboBox.Name = "UserComboBox";
+        this.UserComboBox.Size = new Size(198, 23);
+        this.UserComboBox.TabIndex = 3;
+        // 
+        // viewUserButton
+        // 
+        this.viewUserButton.Location = new Point(15, 225);
+        this.viewUserButton.Name = "viewUserButton";
+        this.viewUserButton.Size = new Size(198, 35);
+        this.viewUserButton.TabIndex = 4;
+        this.viewUserButton.Text = "Voir Détails";
+        this.viewUserButton.UseVisualStyleBackColor = true;
+        // 
+        // editUserButton
+        // 
+        this.editUserButton.Location = new Point(15, 260);
+        this.editUserButton.Name = "editUserButton";
+        this.editUserButton.Size = new Size(198, 35);
+        this.editUserButton.TabIndex = 5;
+        this.editUserButton.Text = "Modifier Utilisteur";
+        this.editUserButton.UseVisualStyleBackColor = true;
+        // 
+        // deleteUserButton
+        // 
+        this.deleteUserButton.Location = new Point(15, 295);
+        this.deleteUserButton.Name = "deleteUserButton";
+        this.deleteUserButton.Size = new Size(198, 35);
+        this.deleteUserButton.TabIndex = 6;
+        this.deleteUserButton.Text = "Supprimer Utilisateur";
+        this.deleteUserButton.UseVisualStyleBackColor = true;
+        // 
+        // panel2
+        // 
+        this.panel2.Controls.Add(this.RoleSearchTextBox);
+        this.panel2.Controls.Add(this.RolesFilterListBox);
+        this.panel2.Controls.Add(this.roleDeleteButton);
+        this.panel2.Controls.Add(this.roleEditButton);
+        this.panel2.Controls.Add(this.roleViewButton);
+        this.panel2.Controls.Add(this.RoleSearchLabel);
+        this.panel2.Controls.Add(this.RoleCreateButton);
+        this.panel2.Controls.Add(this.RolesLabel);
+        this.panel2.Location = new Point(475, 393);
+        this.panel2.Name = "panel2";
+        this.panel2.Size = new Size(230, 385);
+        this.panel2.TabIndex = 3;
+        // 
+        // roleDeleteButton
+        // 
+        this.roleDeleteButton.Location = new Point(15, 295);
+        this.roleDeleteButton.Name = "roleDeleteButton";
+        this.roleDeleteButton.Size = new Size(198, 35);
+        this.roleDeleteButton.TabIndex = 13;
+        this.roleDeleteButton.Text = "Supprimer Rôle";
+        this.roleDeleteButton.UseVisualStyleBackColor = true;
+        // 
+        // roleEditButton
+        // 
+        this.roleEditButton.Location = new Point(15, 260);
+        this.roleEditButton.Name = "roleEditButton";
+        this.roleEditButton.Size = new Size(198, 35);
+        this.roleEditButton.TabIndex = 12;
+        this.roleEditButton.Text = "Modifier Rôle";
+        this.roleEditButton.UseVisualStyleBackColor = true;
+        // 
+        // roleViewButton
+        // 
+        this.roleViewButton.Location = new Point(15, 225);
+        this.roleViewButton.Name = "roleViewButton";
+        this.roleViewButton.Size = new Size(198, 35);
+        this.roleViewButton.TabIndex = 11;
+        this.roleViewButton.Text = "Voir Détails";
+        this.roleViewButton.UseVisualStyleBackColor = true;
+        // 
+        // RoleSearchLabel
+        // 
+        this.RoleSearchLabel.AutoSize = true;
+        this.RoleSearchLabel.Location = new Point(72, 93);
+        this.RoleSearchLabel.Name = "RoleSearchLabel";
+        this.RoleSearchLabel.Size = new Size(79, 15);
+        this.RoleSearchLabel.TabIndex = 9;
+        this.RoleSearchLabel.Text = "Rôle existants";
+        // 
+        // RoleCreateButton
+        // 
+        this.RoleCreateButton.Location = new Point(15, 50);
+        this.RoleCreateButton.Name = "RoleCreateButton";
+        this.RoleCreateButton.Size = new Size(198, 35);
+        this.RoleCreateButton.TabIndex = 8;
+        this.RoleCreateButton.Text = "Nouveau Rôles";
+        this.RoleCreateButton.UseVisualStyleBackColor = true;
+        // 
+        // RolesLabel
+        // 
+        this.RolesLabel.AutoSize = true;
+        this.RolesLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.RolesLabel.Location = new Point(39, 20);
+        this.RolesLabel.Name = "RolesLabel";
+        this.RolesLabel.Size = new Size(149, 21);
+        this.RolesLabel.TabIndex = 7;
+        this.RolesLabel.Text = "Gestion des Rôles";
+        // 
+        // RolesFilterListBox
+        // 
+        this.RolesFilterListBox.FormattingEnabled = true;
+        this.RolesFilterListBox.ItemHeight = 15;
+        this.RolesFilterListBox.Location = new Point(15, 131);
+        this.RolesFilterListBox.Name = "RolesFilterListBox";
+        this.RolesFilterListBox.Size = new Size(198, 94);
+        this.RolesFilterListBox.TabIndex = 14;
+        // 
+        // RoleSearchTextBox
+        // 
+        this.RoleSearchTextBox.Location = new Point(15, 108);
+        this.RoleSearchTextBox.Name = "RoleSearchTextBox";
+        this.RoleSearchTextBox.Size = new Size(198, 23);
+        this.RoleSearchTextBox.TabIndex = 15;
+        // 
         // AdminMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -364,9 +552,13 @@ partial class AdminMainMenu {
         this.addressMgmtMainPanel.PerformLayout();
         this.addressMgmtTopBar.ResumeLayout(false);
         this.clientsMgmtPanel.ResumeLayout(false);
-        this.clientMgmtTopBar.ResumeLayout(false);
         this.clientMgmtMainPanel.ResumeLayout(false);
         this.clientMgmtMainPanel.PerformLayout();
+        this.clientMgmtTopBar.ResumeLayout(false);
+        this.panel1.ResumeLayout(false);
+        this.panel1.PerformLayout();
+        this.panel2.ResumeLayout(false);
+        this.panel2.PerformLayout();
         this.ResumeLayout(false);
     }
 
@@ -398,4 +590,21 @@ partial class AdminMainMenu {
     private ListBox filteredClients;
     private TextBox clientFilteringBox;
     private Label existingClientsLabel;
+    private Panel panel1;
+    private Button deleteUserButton;
+    private Button editUserButton;
+    private Button viewUserButton;
+    private ComboBox UserComboBox;
+    private Label existingUserLabel;
+    private Button createUserButton;
+    private Label UserLabel;
+    private Panel panel2;
+    private TextBox RoleSearchTextBox;
+    private ListBox RolesFilterListBox;
+    private Button roleDeleteButton;
+    private Button roleEditButton;
+    private Button roleViewButton;
+    private Label RoleSearchLabel;
+    private Button RoleCreateButton;
+    private Label RolesLabel;
 }
