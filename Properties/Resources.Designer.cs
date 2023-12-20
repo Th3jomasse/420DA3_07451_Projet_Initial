@@ -59,5 +59,15 @@ namespace _420DA3_07451_Projet_Initial.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_20px {
+            get {
+                object obj = ResourceManager.GetObject("plus_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
