@@ -491,6 +491,7 @@ partial class AdminMainMenu
         RoleDeleteButton.TabIndex = 13;
         RoleDeleteButton.Text = "Supprimer Rôle";
         RoleDeleteButton.UseVisualStyleBackColor = true;
+        RoleDeleteButton.Click += RoleDeleteButton_Click;
         // 
         // RoleEditButton
         // 
@@ -500,6 +501,7 @@ partial class AdminMainMenu
         RoleEditButton.TabIndex = 12;
         RoleEditButton.Text = "Modifier Rôle";
         RoleEditButton.UseVisualStyleBackColor = true;
+        RoleEditButton.Click += RoleEditButton_Click;
         // 
         // RoleViewButton
         // 
@@ -509,6 +511,7 @@ partial class AdminMainMenu
         RoleViewButton.TabIndex = 11;
         RoleViewButton.Text = "Voir Détails";
         RoleViewButton.UseVisualStyleBackColor = true;
+        RoleViewButton.Click += RoleViewButton_Click;
         // 
         // RoleSearchLabel
         // 

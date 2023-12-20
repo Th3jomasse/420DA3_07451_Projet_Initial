@@ -238,28 +238,63 @@ public partial class AdminMainMenu : Form
     #endregion
 
     #region Gestion des Rôles
-    private void ActivateRoleButtons() {
+    private void ActivateRoleButtons()
+    {
         this.RoleEditButton.Enabled = true;
         this.RoleViewButton.Enabled = true;
         this.RoleDeleteButton.Enabled = true;
     }
 
-    private void DeactivateRoleButtons() {
+    private void DeactivateRoleButtons()
+    {
         this.RoleEditButton.Enabled = false;
         this.RoleViewButton.Enabled = false;
         this.RoleDeleteButton.Enabled = false;
     }
-    private void RolesFilterListBox_SelectedIndexChanged(object sender, EventArgs e) 
+    private void RolesFilterListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (this.RolesFilterListBox.SelectedItem != null) {
+        if (this.RolesFilterListBox.SelectedItem != null)
+        {
             this.ActivateRoleButtons();
-        } else {
+        }
+        else
+        {
             this.DeactivateRoleButtons();
         }
     }
     private void RoleCreateButton_Click(object sender, EventArgs e)
     {
         _ = this.ParentFacade.GetService<RoleService>().CreateNewDtoInstance();
+    }
+    private void RoleViewButton_Click(object sender, EventArgs e) 
+    {
+        if (this.RolesFilterListBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Role sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<RoleService>().DisplayDtoInstance((RoleDTO) this.RolesFilterListBox.SelectedItem);
+        }
+    }
+
+    private void RoleEditButton_Click(object sender, EventArgs e) 
+    {
+        if (this.RolesFilterListBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Role sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<RoleService>().DisplayDtoInstance((RoleDTO) this.RolesFilterListBox.SelectedItem);
+        }
+    }
+
+    private void RoleDeleteButton_Click(object sender, EventArgs e) 
+    {
+        if (this.RolesFilterListBox.SelectedItem == null) {
+            _ = MessageBox.Show("Aucun Role sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<RoleService>().DisplayDtoInstance((RoleDTO) this.RolesFilterListBox.SelectedItem);
+        }
+    }
+    public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) 
+    {
+        this.filteredAddresses.DataSource = this.ParentFacade.GetService<AddressService>().SearchAddresses(this.addressSearchTextBox.Text);
     }
     #endregion
 
