@@ -174,50 +174,10 @@ public partial class AdminMainMenu : Form
 
     #endregion
 
-    #region Gestion des Utilisateurs
-    private void createUserButton_Click(object sender, EventArgs e)
-    {
-        _ = this.ParentFacade.GetService<UserService>().CreateNewDtoInstance();
-    }
-    private void viewUserButton_Click(object sender, EventArgs e)
-    {
-        if (this.UserComboBox.SelectedItem == null)
-        {
-            _ = MessageBox.Show("Aucun Utilisateur choici.");
-        } else
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
-        }
-    }
-    private void editUserButton_Click(object sender, EventArgs e) 
-    {
-        if (this.UserComboBox.SelectedItem == null) 
-        {
-            _ = MessageBox.Show("Aucun Utilisateur choici.");
-        } else 
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
-        }
-    }
-    private void deleteUserButton_Click(object sender, EventArgs e) 
-    {
-        if (this.UserComboBox.SelectedItem == null) 
-        {
-            _ = MessageBox.Show("Aucun Utilisateur choici.");
-        } else 
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
-        }
-    }
-    private void UserComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
 
-    }
-    #endregion
     private void ButtonQuit_Click(object sender, EventArgs e)
     {
         this.ParentFacade.ShutdownParentApplication();
     }
-
 
 }
