@@ -57,9 +57,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredAddresses.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas d'adresse sélectionnée.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.filteredAddresses.SelectedItem);
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.filteredAddresses.SelectedItem);
         }
     }
 
@@ -68,9 +69,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredAddresses.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas d'adresse sélectionnée.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<AddressService>().UpdateDtoInstance((AddressDTO) this.filteredAddresses.SelectedItem);
+            _ = this.ParentFacade.GetService<AddressService>().UpdateDtoInstance((AddressDTO)this.filteredAddresses.SelectedItem);
         }
 
     }
@@ -80,9 +82,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredAddresses.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas d'adresse sélectionnée.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<AddressService>().DeleteDtoInstance((AddressDTO) this.filteredAddresses.SelectedItem);
+            _ = this.ParentFacade.GetService<AddressService>().DeleteDtoInstance((AddressDTO)this.filteredAddresses.SelectedItem);
         }
 
     }
@@ -92,7 +95,8 @@ public partial class AdminMainMenu : Form
         if (this.filteredAddresses.SelectedItem != null)
         {
             this.ActivateAddressButtons();
-        } else
+        }
+        else
         {
             this.DeactivateAddressButtons();
         }
@@ -133,9 +137,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredClients.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas de client sélectionné.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<ClientService>().DisplayDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+            _ = this.ParentFacade.GetService<ClientService>().DisplayDtoInstance((ClientDTO)this.filteredClients.SelectedItem);
         }
     }
 
@@ -144,9 +149,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredClients.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas de client sélectionné.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<ClientService>().UpdateDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+            _ = this.ParentFacade.GetService<ClientService>().UpdateDtoInstance((ClientDTO)this.filteredClients.SelectedItem);
         }
     }
 
@@ -155,9 +161,10 @@ public partial class AdminMainMenu : Form
         if (this.filteredClients.SelectedItem == null)
         {
             _ = MessageBox.Show("Pas de client sélectionné.");
-        } else
+        }
+        else
         {
-            _ = this.ParentFacade.GetService<ClientService>().DeleteDtoInstance((ClientDTO) this.filteredClients.SelectedItem);
+            _ = this.ParentFacade.GetService<ClientService>().DeleteDtoInstance((ClientDTO)this.filteredClients.SelectedItem);
         }
     }
 
@@ -166,21 +173,25 @@ public partial class AdminMainMenu : Form
         if (this.filteredAddresses.SelectedItem is not null)
         {
             this.ActivateClientsButtons();
-        } else
+        }
+        else
         {
             this.DeactivateClientsButtons();
         }
     }
 
     #endregion
+
     #region Gestion des Utilisateurs
-    private void ActivateUserButtons() {
+    private void ActivateUserButtons()
+    {
         this.EditUserButton.Enabled = true;
         this.ViewUserButton.Enabled = true;
         this.DeleteUserButton.Enabled = true;
     }
 
-    private void DeactivateUserButtons() {
+    private void DeactivateUserButtons()
+    {
         this.EditUserButton.Enabled = false;
         this.ViewUserButton.Enabled = false;
         this.DeleteUserButton.Enabled = false;
@@ -189,31 +200,66 @@ public partial class AdminMainMenu : Form
     {
         _ = this.ParentFacade.GetService<UserService>().CreateNewDtoInstance();
     }
-    private void ViewUserButton_Click(object sender, EventArgs e) 
+    private void ViewUserButton_Click(object sender, EventArgs e)
     {
-        if (this.UserComboBox.SelectedItem == null) {
+        if (this.UserComboBox.SelectedItem == null)
+        {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+        else
+        {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
         }
     }
 
-    private void EditUserButton_Click(object sender, EventArgs e) 
+    private void EditUserButton_Click(object sender, EventArgs e)
     {
-        if (this.UserComboBox.SelectedItem == null) {
+        if (this.UserComboBox.SelectedItem == null)
+        {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
+        }
+        else
+        {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
         }
     }
 
-    private void DeleteUserButton_Click(object sender, EventArgs e) 
+    private void DeleteUserButton_Click(object sender, EventArgs e)
     {
-        if (this.UserComboBox.SelectedItem == null) {
+        if (this.UserComboBox.SelectedItem == null)
+        {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        } else {
-            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO) this.UserComboBox.SelectedItem);
         }
+        else
+        {
+            _ = this.ParentFacade.GetService<AddressService>().DisplayDtoInstance((AddressDTO)this.UserComboBox.SelectedItem);
+        }
+    }
+    #endregion
+
+    #region Gestion des Rôles
+    private void ActivateRoleButtons() {
+        this.RoleEditButton.Enabled = true;
+        this.RoleViewButton.Enabled = true;
+        this.RoleDeleteButton.Enabled = true;
+    }
+
+    private void DeactivateRoleButtons() {
+        this.RoleEditButton.Enabled = false;
+        this.RoleViewButton.Enabled = false;
+        this.RoleDeleteButton.Enabled = false;
+    }
+    private void RolesFilterListBox_SelectedIndexChanged(object sender, EventArgs e) 
+    {
+        if (this.RolesFilterListBox.SelectedItem != null) {
+            this.ActivateRoleButtons();
+        } else {
+            this.DeactivateRoleButtons();
+        }
+    }
+    private void RoleCreateButton_Click(object sender, EventArgs e)
+    {
+        _ = this.ParentFacade.GetService<RoleService>().CreateNewDtoInstance();
     }
     #endregion
 
