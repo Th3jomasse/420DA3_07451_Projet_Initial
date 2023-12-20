@@ -302,7 +302,7 @@ public partial class AdminMainMenu : Form
     }
     public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) 
     {
-        this.filteredAddresses.DataSource = this.ParentFacade.GetService<RoleService>().SearchRole(this.RoleSearchTextBox.Text);
+        this.RolesFilterListBox.DataSource = this.ParentFacade.GetService<RoleService>().SearchRole(this.RoleSearchTextBox.Text);
     }
     #endregion
 
