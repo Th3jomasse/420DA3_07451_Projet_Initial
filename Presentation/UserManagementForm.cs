@@ -120,7 +120,23 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         }
         if (string.IsNullOrEmpty(this.passwordHashtextBox.Text)) {
             throw new Exception("Password Hash is empty");
+        } 
+        this.workingDtoInstance = instance;
+        switch (this.workingViewIntent) {
+            case ViewIntentEnum.Creation:
+                this.EnableEditableFieldsCreate();
+                break;
+            case ViewIntentEnum.Edition:
+                this.EnableEditableFields();
+                break;
+            case ViewIntentEnum.Visualization:
+            case ViewIntentEnum.Deletion:
+            default:
+                this.DisableEditableFields();
+                break;        
         }
+        this.LoadUserDataInControls(instance);
+        _ = this.ShowDialog();
     }
 
     /// <summary>
