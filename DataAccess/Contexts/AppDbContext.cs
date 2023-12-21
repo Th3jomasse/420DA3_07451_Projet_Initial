@@ -318,14 +318,15 @@ public class AppDbContext : AbstractContext {
             .HasColumnType("nvarchar(256)");
         _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.PostalCode)
             .HasColumnName("PostalCode")
-            .HasColumnType("nvarchar(6)");
+            .HasColumnType("nvarchar(6)");        
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.ShipOrderDate)
+            .HasColumnName("ShipOrderDate")
+            .HasColumnType("datetime2(5)");
         _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.Status)
             .HasColumnName("Status")
             .HasColumnType("nvarchar(20)")
             .HasConversion<string>();
-        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.ShipOrderDate)
-            .HasColumnName("ShipOrderDate")
-            .HasColumnType("datetime2(5)");
+
         _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DateCompleted)
             .HasColumnName("DateCompleted")
             .HasColumnType("datetime2(5)");
