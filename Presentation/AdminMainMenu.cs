@@ -141,16 +141,14 @@ public partial class AdminMainMenu : Form {
     #endregion
 
     #region Gestion des Utilisateurs
-    private void UserComboBox_SelectedIndexChanged(object sender, EventArgs e) 
-    {
+    private void UserComboBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem != null) {
             this.ActivateUserButtons();
         } else {
             this.DeactivateUserButtons();
         }
     }
-    private void ActivateUserButtons()
-    {
+    private void ActivateUserButtons() {
         this.editUserButton.Enabled = true;
         this.viewUserButton.Enabled = true;
         this.deleteUserButton.Enabled = true;
@@ -167,30 +165,24 @@ public partial class AdminMainMenu : Form {
     private void ViewUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        }
-        else
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
+        } else {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
         }
     }
 
     private void EditUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        }
-        else
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
+        } else {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
         }
     }
 
     private void DeleteUserButton_Click(object sender, EventArgs e) {
         if (this.UserComboBox.SelectedItem == null) {
             _ = MessageBox.Show("Aucun Utilisateur Sélectionné.");
-        }
-        else
-        {
-            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO)this.UserComboBox.SelectedItem);
+        } else {
+            _ = this.ParentFacade.GetService<UserService>().DisplayDtoInstance((UserDTO) this.UserComboBox.SelectedItem);
         }
     }
     #endregion
@@ -240,11 +232,77 @@ public partial class AdminMainMenu : Form {
             _ = this.ParentFacade.GetService<RoleService>().DisplayDtoInstance((RoleDTO) this.RolesFilterListBox.SelectedItem);
         }
     }
-    public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) 
-    {
+    public void RoleSearchTextBox_TextChanged(object sender, EventArgs e) {
         this.RolesFilterListBox.DataSource = this.ParentFacade.GetService<RoleService>().SearchRole(this.RoleSearchTextBox.Text);
     }
     #endregion
+
+
+
+    #region Gestion des Entrepots
+
+    private void LoadEntrepotCombobox() {
+        this.entrepotSelector.DataSource = this.ParentFacade.GetService<EntrepotService>().GetAllEntrepots();
+    }
+
+    private void EntrepotSelector_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem is not null) {
+            this.ActivateEntrepotsButtons();
+        } else {
+            this.DeactivateEntrepotsButtons();
+        }
+    }
+
+    private void ActivateEntrepotsButtons() {
+        this.viewEntrepotButton.Enabled = true;
+        this.editEntrepotButton.Enabled = true;
+        this.deleteEntrepotButton.Enabled = true;
+    }
+
+    private void DeactivateEntrepotsButtons() {
+        this.viewEntrepotButton.Enabled = false;
+        this.editEntrepotButton.Enabled = false;
+        this.deleteEntrepotButton.Enabled = false;
+    }
+
+    private void CreateEntrepotButton_Click(object sender, EventArgs e) {
+        EntrepotDTO? newEntrepot = this.ParentFacade.GetService<EntrepotService>().CreateNewDtoInstance();
+        if (newEntrepot is not null) {
+            this.LoadEntrepotCombobox();
+            if (this.entrepotSelector.Items.Contains(newEntrepot)) {
+                this.entrepotSelector.SelectedItem = newEntrepot;
+            }
+        }
+    }
+
+    private void ViewEntrepotButton_Click(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem == null) {
+            _ = MessageBox.Show("Pas d'entrepôt sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<EntrepotService>().DisplayDtoInstance((EntrepotDTO) this.entrepotSelector.SelectedItem);
+        }
+    }
+
+    private void EditEntrepotButton_Click(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem == null) {
+            _ = MessageBox.Show("Pas d'entrepôt sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<EntrepotService>().UpdateDtoInstance((EntrepotDTO) this.entrepotSelector.SelectedItem);
+            this.LoadEntrepotCombobox();
+        }
+    }
+
+    private void DeleteEntrepotButton_Click(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem == null) {
+            _ = MessageBox.Show("Pas d'entrepôt sélectionné.");
+        } else {
+            _ = this.ParentFacade.GetService<EntrepotService>().DeleteDtoInstance((EntrepotDTO) this.entrepotSelector.SelectedItem);
+            this.LoadEntrepotCombobox();
+        }
+    }
+
+    #endregion
+
 
     private void ButtonQuit_Click(object sender, EventArgs e) {
         this.ParentFacade.ShutdownParentApplication();

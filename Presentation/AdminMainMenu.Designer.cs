@@ -82,6 +82,12 @@ partial class AdminMainMenu
         this.RoleCreateButton = new Button();
         this.RolesLabel = new Label();
         this.entrepotMgmtPanel = new Panel();
+        this.deleteEntrepotButton = new Button();
+        this.editEntrepotButton = new Button();
+        this.viewEntrepotButton = new Button();
+        this.entrepotSelector = new ComboBox();
+        this.existingEntrepotsLabel = new Label();
+        this.createEntrepotButton = new Button();
         this.entrepotMgmtHeaderLabel = new Label();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
@@ -691,6 +697,12 @@ partial class AdminMainMenu
         // 
         // entrepotMgmtPanel
         // 
+        this.entrepotMgmtPanel.Controls.Add(this.deleteEntrepotButton);
+        this.entrepotMgmtPanel.Controls.Add(this.editEntrepotButton);
+        this.entrepotMgmtPanel.Controls.Add(this.viewEntrepotButton);
+        this.entrepotMgmtPanel.Controls.Add(this.entrepotSelector);
+        this.entrepotMgmtPanel.Controls.Add(this.existingEntrepotsLabel);
+        this.entrepotMgmtPanel.Controls.Add(this.createEntrepotButton);
         this.entrepotMgmtPanel.Controls.Add(this.entrepotMgmtHeaderLabel);
         this.entrepotMgmtPanel.Dock = DockStyle.Fill;
         this.entrepotMgmtPanel.Location = new Point(3, 3);
@@ -698,6 +710,70 @@ partial class AdminMainMenu
         this.entrepotMgmtPanel.Padding = new Padding(10);
         this.entrepotMgmtPanel.Size = new Size(230, 384);
         this.entrepotMgmtPanel.TabIndex = 4;
+        // 
+        // deleteEntrepotButton
+        // 
+        this.deleteEntrepotButton.Dock = DockStyle.Top;
+        this.deleteEntrepotButton.Location = new Point(10, 174);
+        this.deleteEntrepotButton.Name = "deleteEntrepotButton";
+        this.deleteEntrepotButton.Size = new Size(210, 26);
+        this.deleteEntrepotButton.TabIndex = 7;
+        this.deleteEntrepotButton.Text = "Supprimer l'Entrepôt";
+        this.deleteEntrepotButton.UseVisualStyleBackColor = true;
+        this.deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
+        // 
+        // editEntrepotButton
+        // 
+        this.editEntrepotButton.Dock = DockStyle.Top;
+        this.editEntrepotButton.Location = new Point(10, 148);
+        this.editEntrepotButton.Name = "editEntrepotButton";
+        this.editEntrepotButton.Size = new Size(210, 26);
+        this.editEntrepotButton.TabIndex = 6;
+        this.editEntrepotButton.Text = "Modifier l'Entrepôt";
+        this.editEntrepotButton.UseVisualStyleBackColor = true;
+        this.editEntrepotButton.Click += this.EditEntrepotButton_Click;
+        // 
+        // viewEntrepotButton
+        // 
+        this.viewEntrepotButton.Dock = DockStyle.Top;
+        this.viewEntrepotButton.Location = new Point(10, 122);
+        this.viewEntrepotButton.Name = "viewEntrepotButton";
+        this.viewEntrepotButton.Size = new Size(210, 26);
+        this.viewEntrepotButton.TabIndex = 5;
+        this.viewEntrepotButton.Text = "Voir Détails";
+        this.viewEntrepotButton.UseVisualStyleBackColor = true;
+        this.viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
+        // 
+        // entrepotSelector
+        // 
+        this.entrepotSelector.Dock = DockStyle.Top;
+        this.entrepotSelector.FormattingEnabled = true;
+        this.entrepotSelector.Location = new Point(10, 99);
+        this.entrepotSelector.Name = "entrepotSelector";
+        this.entrepotSelector.Size = new Size(210, 23);
+        this.entrepotSelector.TabIndex = 4;
+        this.entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
+        // 
+        // existingEntrepotsLabel
+        // 
+        this.existingEntrepotsLabel.Dock = DockStyle.Top;
+        this.existingEntrepotsLabel.Location = new Point(10, 76);
+        this.existingEntrepotsLabel.Name = "existingEntrepotsLabel";
+        this.existingEntrepotsLabel.Size = new Size(210, 23);
+        this.existingEntrepotsLabel.TabIndex = 3;
+        this.existingEntrepotsLabel.Text = "Entrepôts existants:";
+        this.existingEntrepotsLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // createEntrepotButton
+        // 
+        this.createEntrepotButton.Dock = DockStyle.Top;
+        this.createEntrepotButton.Location = new Point(10, 50);
+        this.createEntrepotButton.Name = "createEntrepotButton";
+        this.createEntrepotButton.Size = new Size(210, 26);
+        this.createEntrepotButton.TabIndex = 2;
+        this.createEntrepotButton.Text = "Nouveau Entrepôt";
+        this.createEntrepotButton.UseVisualStyleBackColor = true;
+        this.createEntrepotButton.Click += this.CreateEntrepotButton_Click;
         // 
         // entrepotMgmtHeaderLabel
         // 
@@ -802,4 +878,10 @@ partial class AdminMainMenu
     private Label utilisateurSeparatorLabel;
     private Button newUserButton;
     private Label UserLabel;
+    private Button deleteEntrepotButton;
+    private Button editEntrepotButton;
+    private Button viewEntrepotButton;
+    private ComboBox entrepotSelector;
+    private Label existingEntrepotsLabel;
+    private Button createEntrepotButton;
 }
