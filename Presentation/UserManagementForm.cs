@@ -20,6 +20,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     private readonly AbstractFacade facade;
     private UserDTO workingDtoInstance;
     private ViewIntentEnum? workingViewIntent;
+    private int nullWarehouseCombobox = 0;
 
     /// <summary>
     /// Initialise une nouvelle instance de la classe <see cref="UserManagementForm"/>.
@@ -170,6 +171,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     public void LoadWarehousesInCombobox(List<EntrepotDTO> warehouseList) {
         this.warehouseComboBox.Items.Clear();
         this.warehouseComboBox.Items.AddRange(warehouseList.ToArray());
+        this.nullWarehouseCombobox = this.warehouseComboBox.Items.Add("Aucun");
         this.warehouseComboBox.Refresh();
     }
 
@@ -223,6 +225,20 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.DialogResult = DialogResult.OK;
     }
 
+    private void LoadUserDataInControls(UserDTO user) {
+        this.userIdNumeric.Text = user.Id.ToString();
+        this.nameTextBox.Text = user.UserName;
+        this.passwordHashtextBox.Text = user.Password;
+        this.dateCreationTextBox.Text = user.DateCreation.ToString();
+        this.warehouseComboBox.SelectedItem =
+            user.ShippingOrders is not null
+            ? user.ShippingOrders
+            : this.warehouseComboBox.Items[this.nullWarehouseCombobox];
+
+        foreach (RoleDTO role in user.Roles) {
+            this.roleslistBox.SelectedItems.Add(role);
+        }
+    }
     /// <summary>
     /// Effectue l'action de suppression d'un utilisateur.
     /// </summary>
