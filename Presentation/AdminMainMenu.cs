@@ -237,8 +237,6 @@ public partial class AdminMainMenu : Form {
     }
     #endregion
 
-
-
     #region Gestion des Entrepots
 
     private void LoadEntrepotCombobox() {
@@ -329,10 +327,81 @@ public partial class AdminMainMenu : Form {
     #endregion
 
     #region Gestion des Shipments
-    private void CreateShipmentButton_Click(object sender, EventArgs e) {
+
+    private void HideShipmentButtons() {
+        this.UpdateShipmentButton.Enabled = false;
+        this.DeleteShipmentButton.Enabled = false;
+        this.ViewShipmentButton.Enabled = false;   
 
     }
+    private void ShowShipmentButtons() {
+        this.UpdateShipmentButton.Enabled = true;
+        this.DeleteShipmentButton.Enabled = true;
+        this.ViewShipmentButton.Enabled = true;
+    }
+    private void CreateShipmentButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipmentsService>().CreateNewDtoInstance();
+    }
+    private void FilteredShipment_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.FilteredShipment.SelectedItem != null) {
+            this.ShowShipmentButtons();
+        } else {
+            this.HideShipmentButtons();
+        }
+    }
+    private void ViewShipmentButton_Click(object sender, EventArgs e) {
+
+        _ = this.ParentFacade.GetService<ShipmentsService>().DisplayDtoInstance((ShipmentsDTO) this.FilteredShipment.SelectedItem);
+    }
+
+    private void UpdateShipmentButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipmentsService>().UpdateDtoInstance((ShipmentsDTO) this.FilteredShipment.SelectedItem);
+    }
+
+    private void DeleteShipmentButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipmentsService>().DeleteDtoInstance((ShipmentsDTO) this.FilteredShipment.SelectedItem);
+    }
     #endregion
+
+    #region gestion des ShipOrders
+
+    private void HideShipOrdersButtons() {
+        this.UpdateShipOrderButton.Enabled = false;
+        this.DeleteShipOrderButton.Enabled = false;
+        this.ViewShipOrderButton.Enabled = false;
+
+    }
+    private void ShowShipOrdersButtons() {
+        this.UpdateShipOrderButton.Enabled = true;
+        this.DeleteShipOrderButton.Enabled = true;
+        this.ViewShipOrderButton.Enabled = true;
+    }
+
+    private void FilteredShipOrder_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.FilteredShipment.SelectedItem != null) {
+            this.ShowShipOrdersButtons();
+        } else {
+            this.HideShipOrdersButtons();
+        }
+    }
+    private void CreateShiporderButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipOrdersService>().CreateNewDtoInstance();
+    }
+
+    private void ViewShipOrderButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipOrdersService>().DisplayDtoInstance((ShipOrdersDTO) this.FilteredShipment.SelectedItem);
+    }
+
+    private void UpdateShipOrderButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipOrdersService>().UpdateDtoInstance((ShipOrdersDTO) this.FilteredShipment.SelectedItem);
+    }
+
+    private void DeleteShipOrderButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<ShipOrdersService>().DeleteDtoInstance((ShipOrdersDTO) this.FilteredShipment.SelectedItem);
+    }
+    #endregion 
+
+
     private void ButtonQuit_Click(object sender, EventArgs e) {
         this.ParentFacade.ShutdownParentApplication();
     }

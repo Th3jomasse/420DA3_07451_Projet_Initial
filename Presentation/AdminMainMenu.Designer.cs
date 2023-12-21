@@ -29,7 +29,14 @@ partial class AdminMainMenu {
         topBarPanel = new Panel();
         mainPanel = new TableLayoutPanel();
         shipmentOrderMgmtPanel = new Panel();
+        ViewShipOrderButton = new Button();
         shipmentOrdersMgmtHeaderLabel = new Label();
+        UpdateShipOrderButton = new Button();
+        DeleteShipOrderButton = new Button();
+        CreateShiporderButton = new Button();
+        ShipOrderLabel = new Label();
+        FilteredShipOrder = new ListBox();
+        ShipOrderSearchTextBox = new TextBox();
         restockOrdersMgmtPanel = new Panel();
         viewROButton = new Button();
         roSearchResultsListBox = new ListBox();
@@ -40,6 +47,13 @@ partial class AdminMainMenu {
         shipmentMgmtPanel = new Panel();
         shipmentMgmtHeaderLabel = new Label();
         fournisseursMgmtPanel = new Panel();
+        ViewShipmentButton = new Button();
+        UpdateShipmentButton = new Button();
+        DeleteShipmentButton = new Button();
+        FilteredShipment = new ListBox();
+        ShippingSearchTextBox = new TextBox();
+        ShipmentLabel = new Label();
+        CreateShipmentButton = new Button();
         fournisseursMgmtHeaderLabel = new Label();
         produitsMgmtPanel = new Panel();
         produitsMgmtHeaderLabel = new Label();
@@ -91,20 +105,6 @@ partial class AdminMainMenu {
         existingEntrepotsLabel = new Label();
         createEntrepotButton = new Button();
         entrepotMgmtHeaderLabel = new Label();
-        CreateShipmentButton = new Button();
-        this.ShipmentLabel = new Label();
-        textBox1 = new TextBox();
-        listBox1 = new ListBox();
-        button2 = new Button();
-        button3 = new Button();
-        ViewShipmentButton = new Button();
-        listBox2 = new ListBox();
-        textBox2 = new TextBox();
-        label2 = new Label();
-        button8 = new Button();
-        button5 = new Button();
-        button6 = new Button();
-        button7 = new Button();
         bottomBarPanel.SuspendLayout();
         mainPanel.SuspendLayout();
         shipmentOrderMgmtPanel.SuspendLayout();
@@ -180,20 +180,30 @@ partial class AdminMainMenu {
         // 
         // shipmentOrderMgmtPanel
         // 
-        shipmentOrderMgmtPanel.Controls.Add(button5);
+        shipmentOrderMgmtPanel.Controls.Add(ViewShipOrderButton);
         shipmentOrderMgmtPanel.Controls.Add(shipmentOrdersMgmtHeaderLabel);
-        shipmentOrderMgmtPanel.Controls.Add(button6);
-        shipmentOrderMgmtPanel.Controls.Add(button7);
-        shipmentOrderMgmtPanel.Controls.Add(button8);
-        shipmentOrderMgmtPanel.Controls.Add(label2);
-        shipmentOrderMgmtPanel.Controls.Add(listBox2);
-        shipmentOrderMgmtPanel.Controls.Add(textBox2);
+        shipmentOrderMgmtPanel.Controls.Add(UpdateShipOrderButton);
+        shipmentOrderMgmtPanel.Controls.Add(DeleteShipOrderButton);
+        shipmentOrderMgmtPanel.Controls.Add(CreateShiporderButton);
+        shipmentOrderMgmtPanel.Controls.Add(ShipOrderLabel);
+        shipmentOrderMgmtPanel.Controls.Add(FilteredShipOrder);
+        shipmentOrderMgmtPanel.Controls.Add(ShipOrderSearchTextBox);
         shipmentOrderMgmtPanel.Dock = DockStyle.Fill;
         shipmentOrderMgmtPanel.Location = new Point(947, 393);
         shipmentOrderMgmtPanel.Name = "shipmentOrderMgmtPanel";
         shipmentOrderMgmtPanel.Padding = new Padding(10);
         shipmentOrderMgmtPanel.Size = new Size(234, 385);
         shipmentOrderMgmtPanel.TabIndex = 9;
+        // 
+        // ViewShipOrderButton
+        // 
+        ViewShipOrderButton.Location = new Point(15, 235);
+        ViewShipOrderButton.Name = "ViewShipOrderButton";
+        ViewShipOrderButton.Size = new Size(210, 26);
+        ViewShipOrderButton.TabIndex = 14;
+        ViewShipOrderButton.Text = "Voir Détails";
+        ViewShipOrderButton.UseVisualStyleBackColor = true;
+        ViewShipOrderButton.Click += this.ViewShipOrderButton_Click;
         // 
         // shipmentOrdersMgmtHeaderLabel
         // 
@@ -205,6 +215,61 @@ partial class AdminMainMenu {
         shipmentOrdersMgmtHeaderLabel.TabIndex = 3;
         shipmentOrdersMgmtHeaderLabel.Text = "Gestion des ordres d'expédition";
         shipmentOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // UpdateShipOrderButton
+        // 
+        UpdateShipOrderButton.Location = new Point(15, 261);
+        UpdateShipOrderButton.Name = "UpdateShipOrderButton";
+        UpdateShipOrderButton.Size = new Size(210, 26);
+        UpdateShipOrderButton.TabIndex = 13;
+        UpdateShipOrderButton.Text = "Modifier l'Ordre d'Expédition";
+        UpdateShipOrderButton.UseVisualStyleBackColor = true;
+        UpdateShipOrderButton.Click += this.UpdateShipOrderButton_Click;
+        // 
+        // DeleteShipOrderButton
+        // 
+        DeleteShipOrderButton.Location = new Point(15, 287);
+        DeleteShipOrderButton.Name = "DeleteShipOrderButton";
+        DeleteShipOrderButton.Size = new Size(210, 26);
+        DeleteShipOrderButton.TabIndex = 12;
+        DeleteShipOrderButton.Text = "Supprimer l'Ordre d'Expédition";
+        DeleteShipOrderButton.UseVisualStyleBackColor = true;
+        DeleteShipOrderButton.Click += this.DeleteShipOrderButton_Click;
+        // 
+        // CreateShiporderButton
+        // 
+        CreateShiporderButton.Location = new Point(14, 69);
+        CreateShiporderButton.Name = "CreateShiporderButton";
+        CreateShiporderButton.Size = new Size(210, 26);
+        CreateShiporderButton.TabIndex = 12;
+        CreateShiporderButton.Text = "Nouvel Ordre d'Expédition";
+        CreateShiporderButton.UseVisualStyleBackColor = true;
+        CreateShiporderButton.Click += this.CreateShiporderButton_Click;
+        // 
+        // ShipOrderLabel
+        // 
+        ShipOrderLabel.AutoSize = true;
+        ShipOrderLabel.Location = new Point(41, 100);
+        ShipOrderLabel.Name = "ShipOrderLabel";
+        ShipOrderLabel.Size = new Size(163, 15);
+        ShipOrderLabel.TabIndex = 13;
+        ShipOrderLabel.Text = "Ordre d'Expéditions Existants:";
+        // 
+        // FilteredShipOrder
+        // 
+        FilteredShipOrder.FormattingEnabled = true;
+        FilteredShipOrder.ItemHeight = 15;
+        FilteredShipOrder.Location = new Point(15, 141);
+        FilteredShipOrder.Name = "FilteredShipOrder";
+        FilteredShipOrder.Size = new Size(210, 94);
+        FilteredShipOrder.TabIndex = 15;
+        // 
+        // ShipOrderSearchTextBox
+        // 
+        ShipOrderSearchTextBox.Location = new Point(14, 118);
+        ShipOrderSearchTextBox.Name = "ShipOrderSearchTextBox";
+        ShipOrderSearchTextBox.Size = new Size(210, 23);
+        ShipOrderSearchTextBox.TabIndex = 14;
         // 
         // restockOrdersMgmtPanel
         // 
@@ -308,11 +373,11 @@ partial class AdminMainMenu {
         // fournisseursMgmtPanel
         // 
         fournisseursMgmtPanel.Controls.Add(ViewShipmentButton);
-        fournisseursMgmtPanel.Controls.Add(button3);
-        fournisseursMgmtPanel.Controls.Add(button2);
-        fournisseursMgmtPanel.Controls.Add(listBox1);
-        fournisseursMgmtPanel.Controls.Add(textBox1);
-        fournisseursMgmtPanel.Controls.Add(this.ShipmentLabel);
+        fournisseursMgmtPanel.Controls.Add(UpdateShipmentButton);
+        fournisseursMgmtPanel.Controls.Add(DeleteShipmentButton);
+        fournisseursMgmtPanel.Controls.Add(FilteredShipment);
+        fournisseursMgmtPanel.Controls.Add(ShippingSearchTextBox);
+        fournisseursMgmtPanel.Controls.Add(ShipmentLabel);
         fournisseursMgmtPanel.Controls.Add(CreateShipmentButton);
         fournisseursMgmtPanel.Controls.Add(fournisseursMgmtHeaderLabel);
         fournisseursMgmtPanel.Dock = DockStyle.Fill;
@@ -321,6 +386,70 @@ partial class AdminMainMenu {
         fournisseursMgmtPanel.Padding = new Padding(10);
         fournisseursMgmtPanel.Size = new Size(234, 384);
         fournisseursMgmtPanel.TabIndex = 6;
+        // 
+        // ViewShipmentButton
+        // 
+        ViewShipmentButton.Location = new Point(15, 235);
+        ViewShipmentButton.Name = "ViewShipmentButton";
+        ViewShipmentButton.Size = new Size(210, 26);
+        ViewShipmentButton.TabIndex = 10;
+        ViewShipmentButton.Text = "Voir Détails";
+        ViewShipmentButton.UseVisualStyleBackColor = true;
+        ViewShipmentButton.Click += this.ViewShipmentButton_Click;
+        // 
+        // UpdateShipmentButton
+        // 
+        UpdateShipmentButton.Location = new Point(15, 261);
+        UpdateShipmentButton.Name = "UpdateShipmentButton";
+        UpdateShipmentButton.Size = new Size(210, 26);
+        UpdateShipmentButton.TabIndex = 9;
+        UpdateShipmentButton.Text = "Modifier l'Expédition";
+        UpdateShipmentButton.UseVisualStyleBackColor = true;
+        UpdateShipmentButton.Click += this.UpdateShipmentButton_Click;
+        // 
+        // DeleteShipmentButton
+        // 
+        DeleteShipmentButton.Location = new Point(15, 287);
+        DeleteShipmentButton.Name = "DeleteShipmentButton";
+        DeleteShipmentButton.Size = new Size(210, 26);
+        DeleteShipmentButton.TabIndex = 8;
+        DeleteShipmentButton.Text = "Supprimer l'Expédition";
+        DeleteShipmentButton.UseVisualStyleBackColor = true;
+        DeleteShipmentButton.Click += this.DeleteShipmentButton_Click;
+        // 
+        // FilteredShipment
+        // 
+        FilteredShipment.FormattingEnabled = true;
+        FilteredShipment.ItemHeight = 15;
+        FilteredShipment.Location = new Point(15, 141);
+        FilteredShipment.Name = "FilteredShipment";
+        FilteredShipment.Size = new Size(210, 94);
+        FilteredShipment.TabIndex = 7;
+        // 
+        // ShippingSearchTextBox
+        // 
+        ShippingSearchTextBox.Location = new Point(14, 118);
+        ShippingSearchTextBox.Name = "ShippingSearchTextBox";
+        ShippingSearchTextBox.Size = new Size(210, 23);
+        ShippingSearchTextBox.TabIndex = 6;
+        // 
+        // ShipmentLabel
+        // 
+        ShipmentLabel.AutoSize = true;
+        ShipmentLabel.Location = new Point(69, 100);
+        ShipmentLabel.Name = "ShipmentLabel";
+        ShipmentLabel.Size = new Size(116, 15);
+        ShipmentLabel.TabIndex = 5;
+        ShipmentLabel.Text = "Expédition Existante:";
+        // 
+        // CreateShipmentButton
+        // 
+        CreateShipmentButton.Location = new Point(14, 69);
+        CreateShipmentButton.Name = "CreateShipmentButton";
+        CreateShipmentButton.Size = new Size(210, 26);
+        CreateShipmentButton.TabIndex = 4;
+        CreateShipmentButton.Text = "Nouvelle Expédition";
+        CreateShipmentButton.UseVisualStyleBackColor = true;
         // 
         // fournisseursMgmtHeaderLabel
         // 
@@ -874,128 +1003,6 @@ partial class AdminMainMenu {
         entrepotMgmtHeaderLabel.Text = "Gestion des Entrepôts";
         entrepotMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // CreateShipmentButton
-        // 
-        CreateShipmentButton.Location = new Point(14, 69);
-        CreateShipmentButton.Name = "CreateShipmentButton";
-        CreateShipmentButton.Size = new Size(210, 26);
-        CreateShipmentButton.TabIndex = 4;
-        CreateShipmentButton.Text = "Nouvelle Expédition";
-        CreateShipmentButton.UseVisualStyleBackColor = true;
-        // 
-        // ShipmentLabel
-        // 
-        this.ShipmentLabel.AutoSize = true;
-        this.ShipmentLabel.Location = new Point(111, 101);
-        this.ShipmentLabel.Name = "ShipmentLabel";
-        this.ShipmentLabel.Size = new Size(38, 15);
-        this.ShipmentLabel.TabIndex = 5;
-        this.ShipmentLabel.Text = "label1";
-        // 
-        // textBox1
-        // 
-        textBox1.Location = new Point(14, 118);
-        textBox1.Name = "textBox1";
-        textBox1.Size = new Size(210, 23);
-        textBox1.TabIndex = 6;
-        // 
-        // listBox1
-        // 
-        listBox1.FormattingEnabled = true;
-        listBox1.ItemHeight = 15;
-        listBox1.Location = new Point(15, 141);
-        listBox1.Name = "listBox1";
-        listBox1.Size = new Size(210, 94);
-        listBox1.TabIndex = 7;
-        // 
-        // button2
-        // 
-        button2.Location = new Point(15, 287);
-        button2.Name = "button2";
-        button2.Size = new Size(210, 26);
-        button2.TabIndex = 8;
-        button2.Text = "button2";
-        button2.UseVisualStyleBackColor = true;
-        // 
-        // button3
-        // 
-        button3.Location = new Point(15, 261);
-        button3.Name = "button3";
-        button3.Size = new Size(210, 26);
-        button3.TabIndex = 9;
-        button3.Text = "button3";
-        button3.UseVisualStyleBackColor = true;
-        // 
-        // ViewShipmentButton
-        // 
-        ViewShipmentButton.Location = new Point(15, 235);
-        ViewShipmentButton.Name = "ViewShipmentButton";
-        ViewShipmentButton.Size = new Size(210, 26);
-        ViewShipmentButton.TabIndex = 10;
-        ViewShipmentButton.Text = "Voir Détails";
-        ViewShipmentButton.UseVisualStyleBackColor = true;
-        // 
-        // listBox2
-        // 
-        listBox2.FormattingEnabled = true;
-        listBox2.ItemHeight = 15;
-        listBox2.Location = new Point(15, 141);
-        listBox2.Name = "listBox2";
-        listBox2.Size = new Size(210, 94);
-        listBox2.TabIndex = 15;
-        // 
-        // textBox2
-        // 
-        textBox2.Location = new Point(14, 118);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new Size(210, 23);
-        textBox2.TabIndex = 14;
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Location = new Point(111, 101);
-        label2.Name = "label2";
-        label2.Size = new Size(38, 15);
-        label2.TabIndex = 13;
-        label2.Text = "label2";
-        // 
-        // button8
-        // 
-        button8.Location = new Point(14, 69);
-        button8.Name = "button8";
-        button8.Size = new Size(210, 26);
-        button8.TabIndex = 12;
-        button8.Text = "button8";
-        button8.UseVisualStyleBackColor = true;
-        // 
-        // button5
-        // 
-        button5.Location = new Point(15, 235);
-        button5.Name = "button5";
-        button5.Size = new Size(210, 26);
-        button5.TabIndex = 14;
-        button5.Text = "button5";
-        button5.UseVisualStyleBackColor = true;
-        // 
-        // button6
-        // 
-        button6.Location = new Point(15, 261);
-        button6.Name = "button6";
-        button6.Size = new Size(210, 26);
-        button6.TabIndex = 13;
-        button6.Text = "button6";
-        button6.UseVisualStyleBackColor = true;
-        // 
-        // button7
-        // 
-        button7.Location = new Point(15, 287);
-        button7.Name = "button7";
-        button7.Size = new Size(210, 26);
-        button7.TabIndex = 12;
-        button7.Text = "button7";
-        button7.UseVisualStyleBackColor = true;
-        // 
         // AdminMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1102,20 +1109,20 @@ partial class AdminMainMenu {
     private ListBox roSearchResultsListBox;
     private TextBox roSearchFilterTextBox;
     private Label existingROLabel;
-    private Button button8;
-    private Label label2;
-    private ListBox listBox2;
-    private TextBox textBox2;
+    private Button CreateShiporderButton;
+    private Label ShipOrderLabel;
+    private ListBox FilteredShipOrder;
+    private TextBox ShipOrderSearchTextBox;
     private Label label3;
     private Button ViewShipmentButton;
-    private Button button3;
-    private Button button2;
-    private ListBox listBox1;
-    private TextBox textBox1;
+    private Button UpdateShipmentButton;
+    private Button DeleteShipmentButton;
+    private ListBox FilteredShipment;
+    private TextBox ShippingSearchTextBox;
     private Label label1;
     private Button CreateShipmentButton;
-    private Button button5;
-    private Button button6;
-    private Button button7;
+    private Button ViewShipOrderButton;
+    private Button UpdateShipOrderButton;
+    private Button DeleteShipOrderButton;
     private Label ShipmentLabel;
 }

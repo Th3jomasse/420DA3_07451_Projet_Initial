@@ -69,7 +69,11 @@ public class ShipOrdersDAO: AbstractDao <ShipOrdersDTO,int> {
             .ToList();
     }
 
-
+    /// <summary>
+    /// Change le status de l'ordre d'expédition
+    /// </summary>
+    /// <param name="id">identificateur de l'ordre d'expédition</param>
+    /// <param name="status">Variable de l'enumérateur ShipOrderEnum</param>
     public void ChangeStatus(int id, ShipOrderEnum status) {
 
         _ = this.Context.GetDbSet<ShipOrdersDTO>()
