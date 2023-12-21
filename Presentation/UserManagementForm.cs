@@ -50,7 +50,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.workingViewIntent = ViewIntentEnum.Creation;
 
         this.actionButton.Text = "Create";
-        this.EnableEditableFields();
+        this.EnableEditableFieldsCreate();
         this.SetFields(blankInstance);
 
         return this.ShowDialog();
@@ -137,7 +137,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     }
 
     /// <summary>
-    /// Active les champs éditables du formulaire.
+    /// Active les champs éditables du formulaire pour les creations.
     /// </summary>
     private void EnableEditableFieldsCreate()
     {
@@ -149,6 +149,10 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.warehouseComboBox.Enabled = true;
         this.roleslistBox.Enabled = true;
     }
+
+    /// <summary>
+    /// Active les champs éditables du formulaire.
+    /// </summary>
     private void EnableEditableFields()
     {
         this.userIdNumeric.Enabled = false;
@@ -236,7 +240,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     /// </summary>
     /// <param name="sender">L'objet déclenchant l'événement.</param>
     /// <param name="args">Les arguments de l'événement.</param>
-    private void actionButton_Click(object sender, EventArgs e)
+    private void ActionButton_Click(object sender, EventArgs e)
     {
         switch (this.workingViewIntent) {
             case ViewIntentEnum.Creation:

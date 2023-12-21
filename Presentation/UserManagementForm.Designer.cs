@@ -128,7 +128,7 @@ partial class UserManagementForm
         this.actionButton.TabIndex = 45;
         this.actionButton.Text = "Action";
         this.actionButton.UseVisualStyleBackColor = true;
-        this.actionButton.Click += this.actionButton_Click;
+        this.actionButton.Click += this.ActionButton_Click;
         // 
         // cancelButton
         // 

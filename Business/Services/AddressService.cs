@@ -48,4 +48,8 @@ public class AddressService : AbstractDtoService<AddressDTO, int> {
     public AddressDTO? GetAddressById(int id) { 
         return this.Dao.GetById(id);
     }
+
+    public List<AddressDTO> GetAllAddresses() {
+        return this.Dao.GetAll();
+    }
 }

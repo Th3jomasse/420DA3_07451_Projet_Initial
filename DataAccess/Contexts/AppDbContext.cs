@@ -21,6 +21,8 @@ public class AppDbContext : AbstractContext {
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
     public DbSet<AddressDTO> Addresses { get; set; }
     public DbSet<RestockOrderDTO> RestockOrders { get; set; }
+    public DbSet<EntrepotDTO> Entrepots { get; set; }
+    public DbSet<ClientDTO> Clients { get; set; }
     public DbSet<ShipOrdersDTO> ShipOrders { get; set; }    
     public DbSet<ShipmentsDTO> Shipments { get; set; }
 
@@ -509,7 +511,6 @@ public class AppDbContext : AbstractContext {
             .WithOne(addr => addr.ClientAssocie)
             .HasForeignKey<ClientDTO>(client => client.AddressId);
 
-
         _ = modelBuilder.Entity<ClientDTO>()
             .HasMany(client => client.ProduitsDuClient)
             .WithOne(produit => produit.ClientProprietaireProduit)
@@ -541,8 +542,10 @@ public class AppDbContext : AbstractContext {
 
         // relations
 
-
-        _ = modelBuilder.Entity<EntrepotDTO>().HasOne(wh => wh.Address).WithOne(addr => addr.WarehouseAssociee);
+        _ = modelBuilder.Entity<EntrepotDTO>()
+            .HasOne(wh => wh.Address)
+            .WithOne(addr => addr.WarehouseAssociee)
+            .HasForeignKey<EntrepotDTO>(wh => wh.AddressId);
 
         #endregion
 

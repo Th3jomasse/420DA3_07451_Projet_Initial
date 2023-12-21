@@ -61,6 +61,10 @@ internal class RestockOrderService : AbstractDtoService<RestockOrderDTO, int> {
         return this.Dao.GetAllIncompleteForWarehouse(warehouseId);
     }
 
+    public List<RestockOrderDTO> SearchRestockOrders(string filterValue) {
+        return this.Dao.SearchRestockOrders(filterValue);
+    }
+
     private RestockOrderDTO CreateRestockOrderFor(ProduitsDTO produit, int quantity, EntrepotDTO warehouse ) {
         RestockOrderDTO newRO = new RestockOrderDTO(warehouse.Id,produit.Id, quantity);
         return this.Dao.Create(newRO);

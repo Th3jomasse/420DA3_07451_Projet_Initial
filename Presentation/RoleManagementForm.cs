@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
@@ -27,6 +28,7 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
         // dans le champ associé et éviter de devoir dealer avec un type nullable.
         this.workingDtoInstance = new RoleDTO("", null);
         this.InitializeComponent();
+        this.Load
     }
     /// <summary>
     /// Ouvre le formulaire pour créer un nouveau rôle avec l'instance vierge fournie.
@@ -181,33 +183,6 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
     }
 
     /// <summary>
-    /// Gestionnaire de l'événement clic du bouton d'action.
-    /// Déclenche les méthodes d'actions spécifiques selon l'intention au moment
-    /// de l'ouverture de la fenêtre.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="args"></param>
-    private void OnActionButtonClick(object? sender, EventArgs args)
-    {
-        switch (this.workingViewIntent)
-        {
-            case ViewIntentEnum.Creation:
-                this.DoCreateAction();
-                break;
-            case ViewIntentEnum.Edition:
-                this.DoEditAction();
-                break;
-            case ViewIntentEnum.Deletion:
-                this.DoDeleteAction();
-                break;
-            case ViewIntentEnum.Visualization:
-            default:
-                this.DoVisualizeAction();
-                break;
-        }
-    }
-
-    /// <summary>
     /// Gestionnaire de l'événement clic du bouton annuler.
     /// </summary>
     /// <param name="sender"></param>
@@ -217,7 +192,14 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
         this.DialogResult = DialogResult.Cancel;
     }
 
-    private void actionButton_Click(object sender, EventArgs e)
+    /// <summary>
+    /// Gestionnaire de l'événement clic du bouton d'action.
+    /// Déclenche les méthodes d'actions spécifiques selon l'intention au moment
+    /// de l'ouverture de la fenêtre.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
+    private void ActionButton_Click(object sender, EventArgs e)
     {
         switch (this.workingViewIntent) {
             case ViewIntentEnum.Creation:

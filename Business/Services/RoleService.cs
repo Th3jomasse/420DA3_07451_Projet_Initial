@@ -28,7 +28,6 @@ public class RoleService : AbstractDtoService<RoleDTO, int>{
             this.DtoManagementWindow.Dispose();
         }
     }
-    //protected override IDtoManagementView<RoleDTO> DtoManagementWindows { get; }
 
     public List<RoleDTO> GetRoles() {
         return this.Dao.GetAll();
