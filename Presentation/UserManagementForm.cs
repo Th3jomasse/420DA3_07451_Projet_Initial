@@ -249,7 +249,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     }
 
     private void SaveDataInInstance() {
-        this.ValidateChildren();
+        this.SetFields();
         this.workingDtoInstance.UserName = this.nameTextBox.Text;
         this.workingDtoInstance.Password = this.passwordHashtextBox.Text;
 
