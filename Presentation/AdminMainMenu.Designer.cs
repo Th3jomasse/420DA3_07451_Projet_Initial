@@ -89,6 +89,11 @@ partial class AdminMainMenu
         this.existingEntrepotsLabel = new Label();
         this.createEntrepotButton = new Button();
         this.entrepotMgmtHeaderLabel = new Label();
+        this.createROButton = new Button();
+        this.existingROLabel = new Label();
+        this.roSearchFilterTextBox = new TextBox();
+        this.roSearchResultsListBox = new ListBox();
+        this.viewROButton = new Button();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
         this.shipmentOrderMgmtPanel.SuspendLayout();
@@ -185,6 +190,11 @@ partial class AdminMainMenu
         // 
         // restockOrdersMgmtPanel
         // 
+        this.restockOrdersMgmtPanel.Controls.Add(this.viewROButton);
+        this.restockOrdersMgmtPanel.Controls.Add(this.roSearchResultsListBox);
+        this.restockOrdersMgmtPanel.Controls.Add(this.roSearchFilterTextBox);
+        this.restockOrdersMgmtPanel.Controls.Add(this.existingROLabel);
+        this.restockOrdersMgmtPanel.Controls.Add(this.createROButton);
         this.restockOrdersMgmtPanel.Controls.Add(this.restockOrdersMgmtHeaderLabel);
         this.restockOrdersMgmtPanel.Dock = DockStyle.Fill;
         this.restockOrdersMgmtPanel.Location = new Point(711, 393);
@@ -787,6 +797,58 @@ partial class AdminMainMenu
         this.entrepotMgmtHeaderLabel.Text = "Gestion des Entrepôts";
         this.entrepotMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
+        // createROButton
+        // 
+        this.createROButton.Dock = DockStyle.Top;
+        this.createROButton.Location = new Point(10, 69);
+        this.createROButton.Name = "createROButton";
+        this.createROButton.Size = new Size(210, 26);
+        this.createROButton.TabIndex = 4;
+        this.createROButton.Text = "Nouvel ordre de restockage";
+        this.createROButton.UseVisualStyleBackColor = true;
+        this.createROButton.Click += this.CreateROButton_Click;
+        // 
+        // existingROLabel
+        // 
+        this.existingROLabel.Dock = DockStyle.Top;
+        this.existingROLabel.Location = new Point(10, 95);
+        this.existingROLabel.Name = "existingROLabel";
+        this.existingROLabel.Size = new Size(210, 23);
+        this.existingROLabel.TabIndex = 5;
+        this.existingROLabel.Text = "Ordres de restockage existants:";
+        this.existingROLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // roSearchFilterTextBox
+        // 
+        this.roSearchFilterTextBox.Dock = DockStyle.Top;
+        this.roSearchFilterTextBox.Location = new Point(10, 118);
+        this.roSearchFilterTextBox.Name = "roSearchFilterTextBox";
+        this.roSearchFilterTextBox.Size = new Size(210, 23);
+        this.roSearchFilterTextBox.TabIndex = 6;
+        this.roSearchFilterTextBox.TextChanged += this.RoSearchFilterTextBox_TextChanged;
+        // 
+        // roSearchResultsListBox
+        // 
+        this.roSearchResultsListBox.Dock = DockStyle.Top;
+        this.roSearchResultsListBox.FormattingEnabled = true;
+        this.roSearchResultsListBox.ItemHeight = 15;
+        this.roSearchResultsListBox.Location = new Point(10, 141);
+        this.roSearchResultsListBox.Name = "roSearchResultsListBox";
+        this.roSearchResultsListBox.Size = new Size(210, 94);
+        this.roSearchResultsListBox.TabIndex = 7;
+        this.roSearchResultsListBox.SelectedIndexChanged += this.RoSearchResultsListBox_SelectedIndexChanged;
+        // 
+        // viewROButton
+        // 
+        this.viewROButton.Dock = DockStyle.Top;
+        this.viewROButton.Location = new Point(10, 235);
+        this.viewROButton.Name = "viewROButton";
+        this.viewROButton.Size = new Size(210, 26);
+        this.viewROButton.TabIndex = 8;
+        this.viewROButton.Text = "Nouvel ordre de restockage";
+        this.viewROButton.UseVisualStyleBackColor = true;
+        this.viewROButton.Click += this.ViewROButton_Click;
+        // 
         // AdminMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -802,6 +864,7 @@ partial class AdminMainMenu
         this.mainPanel.ResumeLayout(false);
         this.shipmentOrderMgmtPanel.ResumeLayout(false);
         this.restockOrdersMgmtPanel.ResumeLayout(false);
+        this.restockOrdersMgmtPanel.PerformLayout();
         this.shipmentMgmtPanel.ResumeLayout(false);
         this.fournisseursMgmtPanel.ResumeLayout(false);
         this.produitsMgmtPanel.ResumeLayout(false);
@@ -885,4 +948,9 @@ partial class AdminMainMenu
     private ComboBox entrepotSelector;
     private Label existingEntrepotsLabel;
     private Button createEntrepotButton;
+    private Button createROButton;
+    private Button viewROButton;
+    private ListBox roSearchResultsListBox;
+    private TextBox roSearchFilterTextBox;
+    private Label existingROLabel;
 }

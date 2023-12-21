@@ -303,6 +303,31 @@ public partial class AdminMainMenu : Form {
 
     #endregion
 
+    #region Gestion des Restock Orders
+
+
+    private void CreateROButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<RestockOrderService>().CreateNewDtoInstance();
+    }
+
+    private void RoSearchFilterTextBox_TextChanged(object sender, EventArgs e) {
+        this.roSearchResultsListBox.DataSource =
+            this.ParentFacade.GetService<RestockOrderService>().SearchRestockOrders(this.roSearchFilterTextBox.Text);
+    }
+
+    private void RoSearchResultsListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        this.viewROButton.Enabled = this.roSearchResultsListBox.SelectedItem is not null;
+    }
+
+    private void ViewROButton_Click(object sender, EventArgs e) {
+        _ = this.ParentFacade.GetService<RestockOrderService>().DisplayDtoInstance(
+            (RestockOrderDTO) this.roSearchResultsListBox.SelectedItem
+            );
+    }
+
+
+    #endregion
+
 
     private void ButtonQuit_Click(object sender, EventArgs e) {
         this.ParentFacade.ShutdownParentApplication();
