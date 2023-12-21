@@ -213,14 +213,6 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     }
 
     /// <summary>
-    /// Effectue l'action de visualisation d'un utilisateur.
-    /// </summary>
-    private void DoVisualizeAction()
-    {
-        this.DialogResult = DialogResult.OK;
-    }
-
-    /// <summary>
     /// Effectue l'action de modification d'un utilisateur.
     /// </summary>
     private void DoEditAction()
@@ -255,13 +247,6 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
             this.roleslistBox.SelectedItems.Add(role);
         }
     }
-    /// <summary>
-    /// Effectue l'action de suppression d'un utilisateur.
-    /// </summary>
-    private void DoDeleteAction()
-    {
-        this.DialogResult = DialogResult.OK;
-    }
 
     /// <summary>
     /// Gère l'événement de clic du bouton Annuler, définissant le DialogResult sur Annuler.
@@ -277,20 +262,22 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     /// <param name="args">Les arguments de l'événement.</param>
     private void ActionButton_Click(object sender, EventArgs e)
     {
-        switch (this.workingViewIntent) {
-            case ViewIntentEnum.Creation:
-                this.DoCreateAction();
-                break;
-            case ViewIntentEnum.Edition:
-                this.DoEditAction();
-                break;
-            case ViewIntentEnum.Deletion:
-                this.DoDeleteAction();
-                break;
-            case ViewIntentEnum.Visualization:
-            default:
-                this.DoVisualizeAction();
-                break;
+        try {
+            switch (this.workingViewIntent) {
+                case ViewIntentEnum.Creation:
+                case ViewIntentEnum.Edition:
+                    this.SaveDataInInstance();
+                    break;
+                case ViewIntentEnum.Deletion:
+                case ViewIntentEnum.Visualization:
+                default:
+                    break;
+            }
+            this.DialogResult = DialogResult.OK;
+
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message);
+            return;
         }
     }
 }
