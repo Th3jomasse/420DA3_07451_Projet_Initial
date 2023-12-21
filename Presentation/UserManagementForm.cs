@@ -259,7 +259,6 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         } else {
             EntrepotDTO entrepotSelectionne = (EntrepotDTO) this.warehouseComboBox.SelectedItem;
             this.workingDtoInstance.WarehouseWork = entrepotSelectionne;
-            this.workingDtoInstance.WarehouseWork = entrepotSelectionne.Id;
         }
 
         this.workingDtoInstance.Roles = this.roleslistBox.SelectedItems.Cast<RoleDTO>().ToList();
