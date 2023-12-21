@@ -1117,4 +1117,5 @@ partial class AdminMainMenu {
     private Button button5;
     private Button button6;
     private Button button7;
+    private Label ShipmentLabel;
 }
