@@ -248,6 +248,23 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         }
     }
 
+    private void SaveDataInInstance() {
+        this.ValidateChildren();
+        this.workingDtoInstance.UserName = this.nameTextBox.Text;
+        this.workingDtoInstance.Password = this.passwordHashtextBox.Text;
+
+        if (this.warehouseComboBox.SelectedIndex == this.nullWarehouseCombobox) {
+            this.workingDtoInstance.WarehouseWork = null;
+            this.workingDtoInstance.WarehouseWork = null;
+        } else {
+            EntrepotDTO entrepotSelectionne = (EntrepotDTO) this.warehouseComboBox.SelectedItem;
+            this.workingDtoInstance.WarehouseWork = entrepotSelectionne;
+            this.workingDtoInstance.WarehouseWork = entrepotSelectionne.Id;
+        }
+
+        this.workingDtoInstance.Roles = this.roleslistBox.SelectedItems.Cast<RoleDTO>().ToList();
+    }
+
     /// <summary>
     /// Gère l'événement de clic du bouton Annuler, définissant le DialogResult sur Annuler.
     /// </summary>
