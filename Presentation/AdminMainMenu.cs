@@ -328,7 +328,11 @@ public partial class AdminMainMenu : Form {
 
     #endregion
 
+    #region Gestion des Shipments
+    private void CreateShipmentButton_Click(object sender, EventArgs e) {
 
+    }
+    #endregion
     private void ButtonQuit_Click(object sender, EventArgs e) {
         this.ParentFacade.ShutdownParentApplication();
     }

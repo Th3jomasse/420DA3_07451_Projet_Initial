@@ -24,13 +24,13 @@ public class ShipOrdersDTO: AbstractDTO<int> {
     public DateTime? DateUpdated { get; set; }
     public DateTime? DateDeleted { get; set; }
     public DateTime? DateCompleted { get; set; }
-    public byte[] RowVersion { get; set; }
+    public byte[] RowVersion { get; set; } = null!;
 
     public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
     public ProduitsDTO Produit { get; set; }
     public ShipmentsDTO Shipment { get; set; }
-    public ClientDTO Client { get; set; } 
-    public EntrepotDTO Warehouse { get; set; }
+    public ClientDTO Client { get; set; } = null!;
+    public EntrepotDTO Warehouse { get; set; } = null!;
 
     public ShipOrdersDTO() { }
 

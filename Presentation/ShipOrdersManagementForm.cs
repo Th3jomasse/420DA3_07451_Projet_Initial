@@ -33,7 +33,6 @@ public partial class ShipOrdersManagementForm : Form, IDtoManagementView<ShipOrd
      return this.ShowDialog();
     }
     DialogResult IDtoManagementView<ShipOrdersDTO>.OpenForDeletion(ShipOrdersDTO instance) {
-        _ = MessageBox.Show("Cette action n'est pas autorisée.");
         return DialogResult.Cancel;
     }
 

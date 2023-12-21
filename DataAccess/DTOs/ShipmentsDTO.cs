@@ -20,7 +20,7 @@ public class ShipmentsDTO : AbstractDTO<int> {
     public DateTime? DateDeleted { get; set; }
     public Byte[]? RowVersion { get; set; }
 
-    public ShipOrdersDTO ShipOrders {get; set;}
+    public ShipOrdersDTO ShipOrders {get; set;} = null!;
     public ShipmentsDTO() { }
 
     public ShipmentsDTO(ShippingCompanyEnum shippingCompany, int shipOrderId) {

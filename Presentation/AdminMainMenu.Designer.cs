@@ -1,7 +1,6 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class AdminMainMenu
-{
+partial class AdminMainMenu {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -11,10 +10,8 @@ partial class AdminMainMenu
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
-    {
-        if (disposing && (components != null))
-        {
+    protected override void Dispose(bool disposing) {
+        if (disposing && (components != null)) {
             components.Dispose();
         }
         base.Dispose(disposing);
@@ -27,860 +24,1012 @@ partial class AdminMainMenu
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        this.bottomBarPanel = new Panel();
-        this.buttonQuit = new Button();
-        this.topBarPanel = new Panel();
-        this.mainPanel = new TableLayoutPanel();
-        this.shipmentOrderMgmtPanel = new Panel();
-        this.shipmentOrdersMgmtHeaderLabel = new Label();
-        this.restockOrdersMgmtPanel = new Panel();
-        this.restockOrdersMgmtHeaderLabel = new Label();
-        this.shipmentMgmtPanel = new Panel();
-        this.shipmentMgmtHeaderLabel = new Label();
-        this.fournisseursMgmtPanel = new Panel();
-        this.fournisseursMgmtHeaderLabel = new Label();
-        this.produitsMgmtPanel = new Panel();
-        this.produitsMgmtHeaderLabel = new Label();
-        this.addressManagementPanel = new Panel();
-        this.addressMgmtMainPanel = new Panel();
-        this.deleteAddressButton = new Button();
-        this.editAddressButton = new Button();
-        this.viewAddressButton = new Button();
-        this.filteredAddresses = new ListBox();
-        this.addressSearchTextBox = new TextBox();
-        this.existingAddressesLabel = new Label();
-        this.createAddressButton = new Button();
-        this.addressMgmtTopBar = new Panel();
-        this.addressMgmtLabel = new Label();
-        this.clientsMgmtPanel = new Panel();
-        this.clientMgmtMainPanel = new Panel();
-        this.clientDeleteButton = new Button();
-        this.clientEditButton = new Button();
-        this.clientViewButton = new Button();
-        this.filteredClients = new ListBox();
-        this.clientFilteringBox = new TextBox();
-        this.existingClientsLabel = new Label();
-        this.clientCreateButton = new Button();
-        this.clientMgmtTopBar = new Panel();
-        this.clientMgmtLabel = new Label();
-        this.utilisateurMgMtPanel = new Panel();
-        this.utilisateurMgmtMainPanel = new Panel();
-        this.deleteUserButton = new Button();
-        this.editUserButton = new Button();
-        this.viewUserButton = new Button();
-        this.UserComboBox = new ComboBox();
-        this.utilisateurSeparatorLabel = new Label();
-        this.newUserButton = new Button();
-        this.UserLabel = new Label();
-        this.roleMgmtPanel = new Panel();
-        this.RoleSearchTextBox = new TextBox();
-        this.RolesFilterListBox = new ListBox();
-        this.RoleDeleteButton = new Button();
-        this.RoleEditButton = new Button();
-        this.RoleViewButton = new Button();
-        this.RoleSearchLabel = new Label();
-        this.RoleCreateButton = new Button();
-        this.RolesLabel = new Label();
-        this.entrepotMgmtPanel = new Panel();
-        this.deleteEntrepotButton = new Button();
-        this.editEntrepotButton = new Button();
-        this.viewEntrepotButton = new Button();
-        this.entrepotSelector = new ComboBox();
-        this.existingEntrepotsLabel = new Label();
-        this.createEntrepotButton = new Button();
-        this.entrepotMgmtHeaderLabel = new Label();
-        this.createROButton = new Button();
-        this.existingROLabel = new Label();
-        this.roSearchFilterTextBox = new TextBox();
-        this.roSearchResultsListBox = new ListBox();
-        this.viewROButton = new Button();
-        this.bottomBarPanel.SuspendLayout();
-        this.mainPanel.SuspendLayout();
-        this.shipmentOrderMgmtPanel.SuspendLayout();
-        this.restockOrdersMgmtPanel.SuspendLayout();
-        this.shipmentMgmtPanel.SuspendLayout();
-        this.fournisseursMgmtPanel.SuspendLayout();
-        this.produitsMgmtPanel.SuspendLayout();
-        this.addressManagementPanel.SuspendLayout();
-        this.addressMgmtMainPanel.SuspendLayout();
-        this.addressMgmtTopBar.SuspendLayout();
-        this.clientsMgmtPanel.SuspendLayout();
-        this.clientMgmtMainPanel.SuspendLayout();
-        this.clientMgmtTopBar.SuspendLayout();
-        this.utilisateurMgMtPanel.SuspendLayout();
-        this.utilisateurMgmtMainPanel.SuspendLayout();
-        this.roleMgmtPanel.SuspendLayout();
-        this.entrepotMgmtPanel.SuspendLayout();
+        bottomBarPanel = new Panel();
+        buttonQuit = new Button();
+        topBarPanel = new Panel();
+        mainPanel = new TableLayoutPanel();
+        shipmentOrderMgmtPanel = new Panel();
+        shipmentOrdersMgmtHeaderLabel = new Label();
+        restockOrdersMgmtPanel = new Panel();
+        viewROButton = new Button();
+        roSearchResultsListBox = new ListBox();
+        roSearchFilterTextBox = new TextBox();
+        existingROLabel = new Label();
+        createROButton = new Button();
+        restockOrdersMgmtHeaderLabel = new Label();
+        shipmentMgmtPanel = new Panel();
+        shipmentMgmtHeaderLabel = new Label();
+        fournisseursMgmtPanel = new Panel();
+        fournisseursMgmtHeaderLabel = new Label();
+        produitsMgmtPanel = new Panel();
+        produitsMgmtHeaderLabel = new Label();
+        addressManagementPanel = new Panel();
+        addressMgmtMainPanel = new Panel();
+        deleteAddressButton = new Button();
+        editAddressButton = new Button();
+        viewAddressButton = new Button();
+        filteredAddresses = new ListBox();
+        addressSearchTextBox = new TextBox();
+        existingAddressesLabel = new Label();
+        createAddressButton = new Button();
+        addressMgmtTopBar = new Panel();
+        addressMgmtLabel = new Label();
+        clientsMgmtPanel = new Panel();
+        clientMgmtMainPanel = new Panel();
+        clientDeleteButton = new Button();
+        clientEditButton = new Button();
+        clientViewButton = new Button();
+        filteredClients = new ListBox();
+        clientFilteringBox = new TextBox();
+        existingClientsLabel = new Label();
+        clientCreateButton = new Button();
+        clientMgmtTopBar = new Panel();
+        clientMgmtLabel = new Label();
+        utilisateurMgMtPanel = new Panel();
+        utilisateurMgmtMainPanel = new Panel();
+        deleteUserButton = new Button();
+        editUserButton = new Button();
+        viewUserButton = new Button();
+        UserComboBox = new ComboBox();
+        utilisateurSeparatorLabel = new Label();
+        newUserButton = new Button();
+        UserLabel = new Label();
+        roleMgmtPanel = new Panel();
+        RoleSearchTextBox = new TextBox();
+        RolesFilterListBox = new ListBox();
+        RoleDeleteButton = new Button();
+        RoleEditButton = new Button();
+        RoleViewButton = new Button();
+        RoleSearchLabel = new Label();
+        RoleCreateButton = new Button();
+        RolesLabel = new Label();
+        entrepotMgmtPanel = new Panel();
+        deleteEntrepotButton = new Button();
+        editEntrepotButton = new Button();
+        viewEntrepotButton = new Button();
+        entrepotSelector = new ComboBox();
+        existingEntrepotsLabel = new Label();
+        createEntrepotButton = new Button();
+        entrepotMgmtHeaderLabel = new Label();
+        CreateShipmentButton = new Button();
+        this.ShipmentLabel = new Label();
+        textBox1 = new TextBox();
+        listBox1 = new ListBox();
+        button2 = new Button();
+        button3 = new Button();
+        ViewShipmentButton = new Button();
+        listBox2 = new ListBox();
+        textBox2 = new TextBox();
+        label2 = new Label();
+        button8 = new Button();
+        button5 = new Button();
+        button6 = new Button();
+        button7 = new Button();
+        bottomBarPanel.SuspendLayout();
+        mainPanel.SuspendLayout();
+        shipmentOrderMgmtPanel.SuspendLayout();
+        restockOrdersMgmtPanel.SuspendLayout();
+        shipmentMgmtPanel.SuspendLayout();
+        fournisseursMgmtPanel.SuspendLayout();
+        produitsMgmtPanel.SuspendLayout();
+        addressManagementPanel.SuspendLayout();
+        addressMgmtMainPanel.SuspendLayout();
+        addressMgmtTopBar.SuspendLayout();
+        clientsMgmtPanel.SuspendLayout();
+        clientMgmtMainPanel.SuspendLayout();
+        clientMgmtTopBar.SuspendLayout();
+        utilisateurMgMtPanel.SuspendLayout();
+        utilisateurMgmtMainPanel.SuspendLayout();
+        roleMgmtPanel.SuspendLayout();
+        entrepotMgmtPanel.SuspendLayout();
         this.SuspendLayout();
         // 
         // bottomBarPanel
         // 
-        this.bottomBarPanel.Controls.Add(this.buttonQuit);
-        this.bottomBarPanel.Dock = DockStyle.Bottom;
-        this.bottomBarPanel.Location = new Point(0, 821);
-        this.bottomBarPanel.Name = "bottomBarPanel";
-        this.bottomBarPanel.Size = new Size(1184, 40);
-        this.bottomBarPanel.TabIndex = 0;
+        bottomBarPanel.Controls.Add(buttonQuit);
+        bottomBarPanel.Dock = DockStyle.Bottom;
+        bottomBarPanel.Location = new Point(0, 821);
+        bottomBarPanel.Name = "bottomBarPanel";
+        bottomBarPanel.Size = new Size(1184, 40);
+        bottomBarPanel.TabIndex = 0;
         // 
         // buttonQuit
         // 
-        this.buttonQuit.Location = new Point(1069, 6);
-        this.buttonQuit.Name = "buttonQuit";
-        this.buttonQuit.Size = new Size(103, 31);
-        this.buttonQuit.TabIndex = 0;
-        this.buttonQuit.Text = "Quitter";
-        this.buttonQuit.UseVisualStyleBackColor = true;
-        this.buttonQuit.Click += this.ButtonQuit_Click;
+        buttonQuit.Location = new Point(1069, 6);
+        buttonQuit.Name = "buttonQuit";
+        buttonQuit.Size = new Size(103, 31);
+        buttonQuit.TabIndex = 0;
+        buttonQuit.Text = "Quitter";
+        buttonQuit.UseVisualStyleBackColor = true;
+        buttonQuit.Click += this.ButtonQuit_Click;
         // 
         // topBarPanel
         // 
-        this.topBarPanel.Dock = DockStyle.Top;
-        this.topBarPanel.Location = new Point(0, 0);
-        this.topBarPanel.Name = "topBarPanel";
-        this.topBarPanel.Size = new Size(1184, 40);
-        this.topBarPanel.TabIndex = 1;
+        topBarPanel.Dock = DockStyle.Top;
+        topBarPanel.Location = new Point(0, 0);
+        topBarPanel.Name = "topBarPanel";
+        topBarPanel.Size = new Size(1184, 40);
+        topBarPanel.TabIndex = 1;
         // 
         // mainPanel
         // 
-        this.mainPanel.ColumnCount = 5;
-        this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        this.mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        this.mainPanel.Controls.Add(this.shipmentOrderMgmtPanel, 4, 1);
-        this.mainPanel.Controls.Add(this.restockOrdersMgmtPanel, 3, 1);
-        this.mainPanel.Controls.Add(this.shipmentMgmtPanel, 0, 1);
-        this.mainPanel.Controls.Add(this.fournisseursMgmtPanel, 4, 0);
-        this.mainPanel.Controls.Add(this.produitsMgmtPanel, 3, 0);
-        this.mainPanel.Controls.Add(this.addressManagementPanel, 1, 0);
-        this.mainPanel.Controls.Add(this.clientsMgmtPanel, 1, 1);
-        this.mainPanel.Controls.Add(this.utilisateurMgMtPanel, 2, 0);
-        this.mainPanel.Controls.Add(this.roleMgmtPanel, 2, 1);
-        this.mainPanel.Controls.Add(this.entrepotMgmtPanel, 0, 0);
-        this.mainPanel.Dock = DockStyle.Fill;
-        this.mainPanel.Location = new Point(0, 40);
-        this.mainPanel.Name = "mainPanel";
-        this.mainPanel.RowCount = 2;
-        this.mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        this.mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        this.mainPanel.Size = new Size(1184, 781);
-        this.mainPanel.TabIndex = 2;
+        mainPanel.ColumnCount = 5;
+        mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        mainPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        mainPanel.Controls.Add(shipmentOrderMgmtPanel, 4, 1);
+        mainPanel.Controls.Add(restockOrdersMgmtPanel, 3, 1);
+        mainPanel.Controls.Add(shipmentMgmtPanel, 0, 1);
+        mainPanel.Controls.Add(fournisseursMgmtPanel, 4, 0);
+        mainPanel.Controls.Add(produitsMgmtPanel, 3, 0);
+        mainPanel.Controls.Add(addressManagementPanel, 1, 0);
+        mainPanel.Controls.Add(clientsMgmtPanel, 1, 1);
+        mainPanel.Controls.Add(utilisateurMgMtPanel, 2, 0);
+        mainPanel.Controls.Add(roleMgmtPanel, 2, 1);
+        mainPanel.Controls.Add(entrepotMgmtPanel, 0, 0);
+        mainPanel.Dock = DockStyle.Fill;
+        mainPanel.Location = new Point(0, 40);
+        mainPanel.Name = "mainPanel";
+        mainPanel.RowCount = 2;
+        mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        mainPanel.Size = new Size(1184, 781);
+        mainPanel.TabIndex = 2;
         // 
         // shipmentOrderMgmtPanel
         // 
-        this.shipmentOrderMgmtPanel.Controls.Add(this.shipmentOrdersMgmtHeaderLabel);
-        this.shipmentOrderMgmtPanel.Dock = DockStyle.Fill;
-        this.shipmentOrderMgmtPanel.Location = new Point(947, 393);
-        this.shipmentOrderMgmtPanel.Name = "shipmentOrderMgmtPanel";
-        this.shipmentOrderMgmtPanel.Padding = new Padding(10);
-        this.shipmentOrderMgmtPanel.Size = new Size(234, 385);
-        this.shipmentOrderMgmtPanel.TabIndex = 9;
+        shipmentOrderMgmtPanel.Controls.Add(button5);
+        shipmentOrderMgmtPanel.Controls.Add(shipmentOrdersMgmtHeaderLabel);
+        shipmentOrderMgmtPanel.Controls.Add(button6);
+        shipmentOrderMgmtPanel.Controls.Add(button7);
+        shipmentOrderMgmtPanel.Controls.Add(button8);
+        shipmentOrderMgmtPanel.Controls.Add(label2);
+        shipmentOrderMgmtPanel.Controls.Add(listBox2);
+        shipmentOrderMgmtPanel.Controls.Add(textBox2);
+        shipmentOrderMgmtPanel.Dock = DockStyle.Fill;
+        shipmentOrderMgmtPanel.Location = new Point(947, 393);
+        shipmentOrderMgmtPanel.Name = "shipmentOrderMgmtPanel";
+        shipmentOrderMgmtPanel.Padding = new Padding(10);
+        shipmentOrderMgmtPanel.Size = new Size(234, 385);
+        shipmentOrderMgmtPanel.TabIndex = 9;
         // 
         // shipmentOrdersMgmtHeaderLabel
         // 
-        this.shipmentOrdersMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.shipmentOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.shipmentOrdersMgmtHeaderLabel.Location = new Point(10, 10);
-        this.shipmentOrdersMgmtHeaderLabel.Name = "shipmentOrdersMgmtHeaderLabel";
-        this.shipmentOrdersMgmtHeaderLabel.Size = new Size(214, 59);
-        this.shipmentOrdersMgmtHeaderLabel.TabIndex = 3;
-        this.shipmentOrdersMgmtHeaderLabel.Text = "Gestion des ordres d'expédition";
-        this.shipmentOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        shipmentOrdersMgmtHeaderLabel.Dock = DockStyle.Top;
+        shipmentOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        shipmentOrdersMgmtHeaderLabel.Location = new Point(10, 10);
+        shipmentOrdersMgmtHeaderLabel.Name = "shipmentOrdersMgmtHeaderLabel";
+        shipmentOrdersMgmtHeaderLabel.Size = new Size(214, 59);
+        shipmentOrdersMgmtHeaderLabel.TabIndex = 3;
+        shipmentOrdersMgmtHeaderLabel.Text = "Gestion des ordres d'expédition";
+        shipmentOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // restockOrdersMgmtPanel
         // 
-        this.restockOrdersMgmtPanel.Controls.Add(this.viewROButton);
-        this.restockOrdersMgmtPanel.Controls.Add(this.roSearchResultsListBox);
-        this.restockOrdersMgmtPanel.Controls.Add(this.roSearchFilterTextBox);
-        this.restockOrdersMgmtPanel.Controls.Add(this.existingROLabel);
-        this.restockOrdersMgmtPanel.Controls.Add(this.createROButton);
-        this.restockOrdersMgmtPanel.Controls.Add(this.restockOrdersMgmtHeaderLabel);
-        this.restockOrdersMgmtPanel.Dock = DockStyle.Fill;
-        this.restockOrdersMgmtPanel.Location = new Point(711, 393);
-        this.restockOrdersMgmtPanel.Name = "restockOrdersMgmtPanel";
-        this.restockOrdersMgmtPanel.Padding = new Padding(10);
-        this.restockOrdersMgmtPanel.Size = new Size(230, 385);
-        this.restockOrdersMgmtPanel.TabIndex = 8;
-        // 
-        // restockOrdersMgmtHeaderLabel
-        // 
-        this.restockOrdersMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.restockOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.restockOrdersMgmtHeaderLabel.Location = new Point(10, 10);
-        this.restockOrdersMgmtHeaderLabel.Name = "restockOrdersMgmtHeaderLabel";
-        this.restockOrdersMgmtHeaderLabel.Size = new Size(210, 59);
-        this.restockOrdersMgmtHeaderLabel.TabIndex = 3;
-        this.restockOrdersMgmtHeaderLabel.Text = "Gestion des ordres de restockage";
-        this.restockOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // shipmentMgmtPanel
-        // 
-        this.shipmentMgmtPanel.Controls.Add(this.shipmentMgmtHeaderLabel);
-        this.shipmentMgmtPanel.Dock = DockStyle.Fill;
-        this.shipmentMgmtPanel.Location = new Point(3, 393);
-        this.shipmentMgmtPanel.Name = "shipmentMgmtPanel";
-        this.shipmentMgmtPanel.Padding = new Padding(10);
-        this.shipmentMgmtPanel.Size = new Size(230, 385);
-        this.shipmentMgmtPanel.TabIndex = 7;
-        // 
-        // shipmentMgmtHeaderLabel
-        // 
-        this.shipmentMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.shipmentMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.shipmentMgmtHeaderLabel.Location = new Point(10, 10);
-        this.shipmentMgmtHeaderLabel.Name = "shipmentMgmtHeaderLabel";
-        this.shipmentMgmtHeaderLabel.Size = new Size(210, 59);
-        this.shipmentMgmtHeaderLabel.TabIndex = 2;
-        this.shipmentMgmtHeaderLabel.Text = "Gestion des Expéditions";
-        this.shipmentMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // fournisseursMgmtPanel
-        // 
-        this.fournisseursMgmtPanel.Controls.Add(this.fournisseursMgmtHeaderLabel);
-        this.fournisseursMgmtPanel.Dock = DockStyle.Fill;
-        this.fournisseursMgmtPanel.Location = new Point(947, 3);
-        this.fournisseursMgmtPanel.Name = "fournisseursMgmtPanel";
-        this.fournisseursMgmtPanel.Padding = new Padding(10);
-        this.fournisseursMgmtPanel.Size = new Size(234, 384);
-        this.fournisseursMgmtPanel.TabIndex = 6;
-        // 
-        // fournisseursMgmtHeaderLabel
-        // 
-        this.fournisseursMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.fournisseursMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.fournisseursMgmtHeaderLabel.Location = new Point(10, 10);
-        this.fournisseursMgmtHeaderLabel.Name = "fournisseursMgmtHeaderLabel";
-        this.fournisseursMgmtHeaderLabel.Size = new Size(214, 59);
-        this.fournisseursMgmtHeaderLabel.TabIndex = 3;
-        this.fournisseursMgmtHeaderLabel.Text = "Gestion des Expéditions";
-        this.fournisseursMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // produitsMgmtPanel
-        // 
-        this.produitsMgmtPanel.Controls.Add(this.produitsMgmtHeaderLabel);
-        this.produitsMgmtPanel.Dock = DockStyle.Fill;
-        this.produitsMgmtPanel.Location = new Point(711, 3);
-        this.produitsMgmtPanel.Name = "produitsMgmtPanel";
-        this.produitsMgmtPanel.Padding = new Padding(10);
-        this.produitsMgmtPanel.Size = new Size(230, 384);
-        this.produitsMgmtPanel.TabIndex = 5;
-        // 
-        // produitsMgmtHeaderLabel
-        // 
-        this.produitsMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.produitsMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.produitsMgmtHeaderLabel.Location = new Point(10, 10);
-        this.produitsMgmtHeaderLabel.Name = "produitsMgmtHeaderLabel";
-        this.produitsMgmtHeaderLabel.Size = new Size(210, 59);
-        this.produitsMgmtHeaderLabel.TabIndex = 3;
-        this.produitsMgmtHeaderLabel.Text = "Gestion des Produits";
-        this.produitsMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // addressManagementPanel
-        // 
-        this.addressManagementPanel.Controls.Add(this.addressMgmtMainPanel);
-        this.addressManagementPanel.Controls.Add(this.addressMgmtTopBar);
-        this.addressManagementPanel.Dock = DockStyle.Fill;
-        this.addressManagementPanel.Location = new Point(239, 3);
-        this.addressManagementPanel.Name = "addressManagementPanel";
-        this.addressManagementPanel.Padding = new Padding(10);
-        this.addressManagementPanel.Size = new Size(230, 384);
-        this.addressManagementPanel.TabIndex = 0;
-        // 
-        // addressMgmtMainPanel
-        // 
-        this.addressMgmtMainPanel.Controls.Add(this.deleteAddressButton);
-        this.addressMgmtMainPanel.Controls.Add(this.editAddressButton);
-        this.addressMgmtMainPanel.Controls.Add(this.viewAddressButton);
-        this.addressMgmtMainPanel.Controls.Add(this.filteredAddresses);
-        this.addressMgmtMainPanel.Controls.Add(this.addressSearchTextBox);
-        this.addressMgmtMainPanel.Controls.Add(this.existingAddressesLabel);
-        this.addressMgmtMainPanel.Controls.Add(this.createAddressButton);
-        this.addressMgmtMainPanel.Dock = DockStyle.Fill;
-        this.addressMgmtMainPanel.Location = new Point(10, 69);
-        this.addressMgmtMainPanel.Name = "addressMgmtMainPanel";
-        this.addressMgmtMainPanel.Size = new Size(210, 305);
-        this.addressMgmtMainPanel.TabIndex = 1;
-        // 
-        // deleteAddressButton
-        // 
-        this.deleteAddressButton.Dock = DockStyle.Top;
-        this.deleteAddressButton.Location = new Point(0, 218);
-        this.deleteAddressButton.Name = "deleteAddressButton";
-        this.deleteAddressButton.Size = new Size(210, 26);
-        this.deleteAddressButton.TabIndex = 6;
-        this.deleteAddressButton.Text = "Supprimer l'Adresse";
-        this.deleteAddressButton.UseVisualStyleBackColor = true;
-        this.deleteAddressButton.Click += this.DeleteAddressButton_Click;
-        // 
-        // editAddressButton
-        // 
-        this.editAddressButton.Dock = DockStyle.Top;
-        this.editAddressButton.Location = new Point(0, 192);
-        this.editAddressButton.Name = "editAddressButton";
-        this.editAddressButton.Size = new Size(210, 26);
-        this.editAddressButton.TabIndex = 5;
-        this.editAddressButton.Text = "Modifier l'Adresse";
-        this.editAddressButton.UseVisualStyleBackColor = true;
-        this.editAddressButton.Click += this.EditAddressButton_Click;
-        // 
-        // viewAddressButton
-        // 
-        this.viewAddressButton.Dock = DockStyle.Top;
-        this.viewAddressButton.Location = new Point(0, 166);
-        this.viewAddressButton.Name = "viewAddressButton";
-        this.viewAddressButton.Size = new Size(210, 26);
-        this.viewAddressButton.TabIndex = 4;
-        this.viewAddressButton.Text = "Voir Détails";
-        this.viewAddressButton.UseVisualStyleBackColor = true;
-        this.viewAddressButton.Click += this.ViewAddressButton_Click;
-        // 
-        // filteredAddresses
-        // 
-        this.filteredAddresses.Dock = DockStyle.Top;
-        this.filteredAddresses.FormattingEnabled = true;
-        this.filteredAddresses.ItemHeight = 15;
-        this.filteredAddresses.Location = new Point(0, 72);
-        this.filteredAddresses.Name = "filteredAddresses";
-        this.filteredAddresses.Size = new Size(210, 94);
-        this.filteredAddresses.TabIndex = 3;
-        this.filteredAddresses.SelectedIndexChanged += this.FilteredAddresses_SelectedIndexChanged;
-        // 
-        // addressSearchTextBox
-        // 
-        this.addressSearchTextBox.Dock = DockStyle.Top;
-        this.addressSearchTextBox.Location = new Point(0, 49);
-        this.addressSearchTextBox.Name = "addressSearchTextBox";
-        this.addressSearchTextBox.Size = new Size(210, 23);
-        this.addressSearchTextBox.TabIndex = 2;
-        this.addressSearchTextBox.TextChanged += this.AddressSearchTextBox_TextChanged;
-        // 
-        // existingAddressesLabel
-        // 
-        this.existingAddressesLabel.Dock = DockStyle.Top;
-        this.existingAddressesLabel.Location = new Point(0, 26);
-        this.existingAddressesLabel.Name = "existingAddressesLabel";
-        this.existingAddressesLabel.Size = new Size(210, 23);
-        this.existingAddressesLabel.TabIndex = 1;
-        this.existingAddressesLabel.Text = "Adresses existantes:";
-        this.existingAddressesLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // createAddressButton
-        // 
-        this.createAddressButton.Dock = DockStyle.Top;
-        this.createAddressButton.Location = new Point(0, 0);
-        this.createAddressButton.Name = "createAddressButton";
-        this.createAddressButton.Size = new Size(210, 26);
-        this.createAddressButton.TabIndex = 0;
-        this.createAddressButton.Text = "Nouvelle Adresse";
-        this.createAddressButton.UseVisualStyleBackColor = true;
-        this.createAddressButton.Click += this.CreateAddressButton_Click;
-        // 
-        // addressMgmtTopBar
-        // 
-        this.addressMgmtTopBar.Controls.Add(this.addressMgmtLabel);
-        this.addressMgmtTopBar.Dock = DockStyle.Top;
-        this.addressMgmtTopBar.Location = new Point(10, 10);
-        this.addressMgmtTopBar.Name = "addressMgmtTopBar";
-        this.addressMgmtTopBar.Size = new Size(210, 59);
-        this.addressMgmtTopBar.TabIndex = 0;
-        // 
-        // addressMgmtLabel
-        // 
-        this.addressMgmtLabel.Dock = DockStyle.Fill;
-        this.addressMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.addressMgmtLabel.Location = new Point(0, 0);
-        this.addressMgmtLabel.Name = "addressMgmtLabel";
-        this.addressMgmtLabel.Size = new Size(210, 59);
-        this.addressMgmtLabel.TabIndex = 0;
-        this.addressMgmtLabel.Text = "Gestion des Adresses";
-        this.addressMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // clientsMgmtPanel
-        // 
-        this.clientsMgmtPanel.Controls.Add(this.clientMgmtMainPanel);
-        this.clientsMgmtPanel.Controls.Add(this.clientMgmtTopBar);
-        this.clientsMgmtPanel.Dock = DockStyle.Fill;
-        this.clientsMgmtPanel.Location = new Point(239, 393);
-        this.clientsMgmtPanel.Name = "clientsMgmtPanel";
-        this.clientsMgmtPanel.Padding = new Padding(10);
-        this.clientsMgmtPanel.Size = new Size(230, 385);
-        this.clientsMgmtPanel.TabIndex = 1;
-        // 
-        // clientMgmtMainPanel
-        // 
-        this.clientMgmtMainPanel.Controls.Add(this.clientDeleteButton);
-        this.clientMgmtMainPanel.Controls.Add(this.clientEditButton);
-        this.clientMgmtMainPanel.Controls.Add(this.clientViewButton);
-        this.clientMgmtMainPanel.Controls.Add(this.filteredClients);
-        this.clientMgmtMainPanel.Controls.Add(this.clientFilteringBox);
-        this.clientMgmtMainPanel.Controls.Add(this.existingClientsLabel);
-        this.clientMgmtMainPanel.Controls.Add(this.clientCreateButton);
-        this.clientMgmtMainPanel.Dock = DockStyle.Fill;
-        this.clientMgmtMainPanel.Location = new Point(10, 69);
-        this.clientMgmtMainPanel.Name = "clientMgmtMainPanel";
-        this.clientMgmtMainPanel.Size = new Size(210, 306);
-        this.clientMgmtMainPanel.TabIndex = 1;
-        // 
-        // clientDeleteButton
-        // 
-        this.clientDeleteButton.Dock = DockStyle.Top;
-        this.clientDeleteButton.Location = new Point(0, 245);
-        this.clientDeleteButton.Name = "clientDeleteButton";
-        this.clientDeleteButton.Size = new Size(210, 35);
-        this.clientDeleteButton.TabIndex = 9;
-        this.clientDeleteButton.Text = "Supprimer l'Adresse";
-        this.clientDeleteButton.UseVisualStyleBackColor = true;
-        this.clientDeleteButton.Click += this.ClientDeleteButton_Click;
-        // 
-        // clientEditButton
-        // 
-        this.clientEditButton.Dock = DockStyle.Top;
-        this.clientEditButton.Location = new Point(0, 210);
-        this.clientEditButton.Name = "clientEditButton";
-        this.clientEditButton.Size = new Size(210, 35);
-        this.clientEditButton.TabIndex = 8;
-        this.clientEditButton.Text = "Modifier l'Adresse";
-        this.clientEditButton.UseVisualStyleBackColor = true;
-        this.clientEditButton.Click += this.ClientEditButton_Click;
-        // 
-        // clientViewButton
-        // 
-        this.clientViewButton.Dock = DockStyle.Top;
-        this.clientViewButton.Location = new Point(0, 175);
-        this.clientViewButton.Name = "clientViewButton";
-        this.clientViewButton.Size = new Size(210, 35);
-        this.clientViewButton.TabIndex = 7;
-        this.clientViewButton.Text = "Voir Détails";
-        this.clientViewButton.UseVisualStyleBackColor = true;
-        this.clientViewButton.Click += this.ClientViewButton_Click;
-        // 
-        // filteredClients
-        // 
-        this.filteredClients.Dock = DockStyle.Top;
-        this.filteredClients.FormattingEnabled = true;
-        this.filteredClients.ItemHeight = 15;
-        this.filteredClients.Location = new Point(0, 81);
-        this.filteredClients.Name = "filteredClients";
-        this.filteredClients.Size = new Size(210, 94);
-        this.filteredClients.TabIndex = 4;
-        this.filteredClients.SelectedIndexChanged += this.FilteredClients_SelectedIndexChanged;
-        // 
-        // clientFilteringBox
-        // 
-        this.clientFilteringBox.Dock = DockStyle.Top;
-        this.clientFilteringBox.Location = new Point(0, 58);
-        this.clientFilteringBox.Name = "clientFilteringBox";
-        this.clientFilteringBox.Size = new Size(210, 23);
-        this.clientFilteringBox.TabIndex = 3;
-        this.clientFilteringBox.TextChanged += this.ClientFilteringBox_TextChanged;
-        // 
-        // existingClientsLabel
-        // 
-        this.existingClientsLabel.Dock = DockStyle.Top;
-        this.existingClientsLabel.Location = new Point(0, 35);
-        this.existingClientsLabel.Name = "existingClientsLabel";
-        this.existingClientsLabel.Size = new Size(210, 23);
-        this.existingClientsLabel.TabIndex = 2;
-        this.existingClientsLabel.Text = "Clients existants:";
-        this.existingClientsLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // clientCreateButton
-        // 
-        this.clientCreateButton.Dock = DockStyle.Top;
-        this.clientCreateButton.Location = new Point(0, 0);
-        this.clientCreateButton.Name = "clientCreateButton";
-        this.clientCreateButton.Size = new Size(210, 35);
-        this.clientCreateButton.TabIndex = 1;
-        this.clientCreateButton.Text = "Nouveau Client";
-        this.clientCreateButton.UseVisualStyleBackColor = true;
-        this.clientCreateButton.Click += this.ClientCreateButton_Click;
-        // 
-        // clientMgmtTopBar
-        // 
-        this.clientMgmtTopBar.Controls.Add(this.clientMgmtLabel);
-        this.clientMgmtTopBar.Dock = DockStyle.Top;
-        this.clientMgmtTopBar.Location = new Point(10, 10);
-        this.clientMgmtTopBar.Name = "clientMgmtTopBar";
-        this.clientMgmtTopBar.Size = new Size(210, 59);
-        this.clientMgmtTopBar.TabIndex = 0;
-        // 
-        // clientMgmtLabel
-        // 
-        this.clientMgmtLabel.Dock = DockStyle.Fill;
-        this.clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.clientMgmtLabel.Location = new Point(0, 0);
-        this.clientMgmtLabel.Name = "clientMgmtLabel";
-        this.clientMgmtLabel.Size = new Size(210, 59);
-        this.clientMgmtLabel.TabIndex = 0;
-        this.clientMgmtLabel.Text = "Gestion des clients";
-        this.clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // utilisateurMgMtPanel
-        // 
-        this.utilisateurMgMtPanel.Controls.Add(this.utilisateurMgmtMainPanel);
-        this.utilisateurMgMtPanel.Location = new Point(475, 3);
-        this.utilisateurMgMtPanel.Name = "utilisateurMgMtPanel";
-        this.utilisateurMgMtPanel.Size = new Size(230, 384);
-        this.utilisateurMgMtPanel.TabIndex = 2;
-        // 
-        // utilisateurMgmtMainPanel
-        // 
-        this.utilisateurMgmtMainPanel.Controls.Add(this.deleteUserButton);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.editUserButton);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.viewUserButton);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.UserComboBox);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.utilisateurSeparatorLabel);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.newUserButton);
-        this.utilisateurMgmtMainPanel.Controls.Add(this.UserLabel);
-        this.utilisateurMgmtMainPanel.Dock = DockStyle.Fill;
-        this.utilisateurMgmtMainPanel.Location = new Point(0, 0);
-        this.utilisateurMgmtMainPanel.Name = "utilisateurMgmtMainPanel";
-        this.utilisateurMgmtMainPanel.Padding = new Padding(10);
-        this.utilisateurMgmtMainPanel.Size = new Size(230, 384);
-        this.utilisateurMgmtMainPanel.TabIndex = 0;
-        // 
-        // deleteUserButton
-        // 
-        this.deleteUserButton.Dock = DockStyle.Top;
-        this.deleteUserButton.Location = new Point(10, 193);
-        this.deleteUserButton.Name = "deleteUserButton";
-        this.deleteUserButton.Size = new Size(210, 26);
-        this.deleteUserButton.TabIndex = 19;
-        this.deleteUserButton.Text = "Supprimer Utilisateur";
-        this.deleteUserButton.UseVisualStyleBackColor = true;
-        this.deleteUserButton.Click += this.DeleteUserButton_Click;
-        // 
-        // editUserButton
-        // 
-        this.editUserButton.Dock = DockStyle.Top;
-        this.editUserButton.Location = new Point(10, 167);
-        this.editUserButton.Name = "editUserButton";
-        this.editUserButton.Size = new Size(210, 26);
-        this.editUserButton.TabIndex = 18;
-        this.editUserButton.Text = "Modifier Utilisteur";
-        this.editUserButton.UseVisualStyleBackColor = true;
-        this.editUserButton.Click += this.EditUserButton_Click;
-        // 
-        // viewUserButton
-        // 
-        this.viewUserButton.Dock = DockStyle.Top;
-        this.viewUserButton.Location = new Point(10, 141);
-        this.viewUserButton.Name = "viewUserButton";
-        this.viewUserButton.Size = new Size(210, 26);
-        this.viewUserButton.TabIndex = 17;
-        this.viewUserButton.Text = "Voir Détails";
-        this.viewUserButton.UseVisualStyleBackColor = true;
-        this.viewUserButton.Click += this.ViewUserButton_Click;
-        // 
-        // UserComboBox
-        // 
-        this.UserComboBox.Dock = DockStyle.Top;
-        this.UserComboBox.FormattingEnabled = true;
-        this.UserComboBox.Location = new Point(10, 118);
-        this.UserComboBox.Name = "UserComboBox";
-        this.UserComboBox.Size = new Size(210, 23);
-        this.UserComboBox.TabIndex = 16;
-        // 
-        // utilisateurSeparatorLabel
-        // 
-        this.utilisateurSeparatorLabel.Dock = DockStyle.Top;
-        this.utilisateurSeparatorLabel.Location = new Point(10, 95);
-        this.utilisateurSeparatorLabel.Name = "utilisateurSeparatorLabel";
-        this.utilisateurSeparatorLabel.Size = new Size(210, 23);
-        this.utilisateurSeparatorLabel.TabIndex = 15;
-        this.utilisateurSeparatorLabel.Text = "Utilisateurs existants:";
-        this.utilisateurSeparatorLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // newUserButton
-        // 
-        this.newUserButton.Dock = DockStyle.Top;
-        this.newUserButton.Location = new Point(10, 69);
-        this.newUserButton.Name = "newUserButton";
-        this.newUserButton.Size = new Size(210, 26);
-        this.newUserButton.TabIndex = 14;
-        this.newUserButton.Text = "Nouveau Utilisateur";
-        this.newUserButton.UseVisualStyleBackColor = true;
-        this.newUserButton.Click += this.CreateUserButton_Click;
-        // 
-        // UserLabel
-        // 
-        this.UserLabel.Dock = DockStyle.Top;
-        this.UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.UserLabel.Location = new Point(10, 10);
-        this.UserLabel.Name = "UserLabel";
-        this.UserLabel.Size = new Size(210, 59);
-        this.UserLabel.TabIndex = 13;
-        this.UserLabel.Text = "Gestion des Utilisateurs";
-        this.UserLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // roleMgmtPanel
-        // 
-        this.roleMgmtPanel.Controls.Add(this.RoleSearchTextBox);
-        this.roleMgmtPanel.Controls.Add(this.RolesFilterListBox);
-        this.roleMgmtPanel.Controls.Add(this.RoleDeleteButton);
-        this.roleMgmtPanel.Controls.Add(this.RoleEditButton);
-        this.roleMgmtPanel.Controls.Add(this.RoleViewButton);
-        this.roleMgmtPanel.Controls.Add(this.RoleSearchLabel);
-        this.roleMgmtPanel.Controls.Add(this.RoleCreateButton);
-        this.roleMgmtPanel.Controls.Add(this.RolesLabel);
-        this.roleMgmtPanel.Location = new Point(475, 393);
-        this.roleMgmtPanel.Name = "roleMgmtPanel";
-        this.roleMgmtPanel.Size = new Size(230, 385);
-        this.roleMgmtPanel.TabIndex = 3;
-        // 
-        // RoleSearchTextBox
-        // 
-        this.RoleSearchTextBox.Location = new Point(15, 127);
-        this.RoleSearchTextBox.Name = "RoleSearchTextBox";
-        this.RoleSearchTextBox.Size = new Size(198, 23);
-        this.RoleSearchTextBox.TabIndex = 15;
-        this.RoleSearchTextBox.TextChanged += this.RoleSearchTextBox_TextChanged;
-        // 
-        // RolesFilterListBox
-        // 
-        this.RolesFilterListBox.FormattingEnabled = true;
-        this.RolesFilterListBox.ItemHeight = 15;
-        this.RolesFilterListBox.Location = new Point(15, 150);
-        this.RolesFilterListBox.Name = "RolesFilterListBox";
-        this.RolesFilterListBox.Size = new Size(198, 94);
-        this.RolesFilterListBox.TabIndex = 14;
-        // 
-        // RoleDeleteButton
-        // 
-        this.RoleDeleteButton.Location = new Point(15, 314);
-        this.RoleDeleteButton.Name = "RoleDeleteButton";
-        this.RoleDeleteButton.Size = new Size(198, 35);
-        this.RoleDeleteButton.TabIndex = 13;
-        this.RoleDeleteButton.Text = "Supprimer Rôle";
-        this.RoleDeleteButton.UseVisualStyleBackColor = true;
-        this.RoleDeleteButton.Click += this.RoleDeleteButton_Click;
-        // 
-        // RoleEditButton
-        // 
-        this.RoleEditButton.Location = new Point(15, 279);
-        this.RoleEditButton.Name = "RoleEditButton";
-        this.RoleEditButton.Size = new Size(198, 35);
-        this.RoleEditButton.TabIndex = 12;
-        this.RoleEditButton.Text = "Modifier Rôle";
-        this.RoleEditButton.UseVisualStyleBackColor = true;
-        this.RoleEditButton.Click += this.RoleEditButton_Click;
-        // 
-        // RoleViewButton
-        // 
-        this.RoleViewButton.Location = new Point(15, 244);
-        this.RoleViewButton.Name = "RoleViewButton";
-        this.RoleViewButton.Size = new Size(198, 35);
-        this.RoleViewButton.TabIndex = 11;
-        this.RoleViewButton.Text = "Voir Détails";
-        this.RoleViewButton.UseVisualStyleBackColor = true;
-        this.RoleViewButton.Click += this.RoleViewButton_Click;
-        // 
-        // RoleSearchLabel
-        // 
-        this.RoleSearchLabel.AutoSize = true;
-        this.RoleSearchLabel.Location = new Point(72, 108);
-        this.RoleSearchLabel.Name = "RoleSearchLabel";
-        this.RoleSearchLabel.Size = new Size(79, 15);
-        this.RoleSearchLabel.TabIndex = 9;
-        this.RoleSearchLabel.Text = "Rôle existants";
-        // 
-        // RoleCreateButton
-        // 
-        this.RoleCreateButton.Location = new Point(15, 69);
-        this.RoleCreateButton.Name = "RoleCreateButton";
-        this.RoleCreateButton.Size = new Size(198, 35);
-        this.RoleCreateButton.TabIndex = 8;
-        this.RoleCreateButton.Text = "Nouveau Rôles";
-        this.RoleCreateButton.UseVisualStyleBackColor = true;
-        this.RoleCreateButton.Click += this.RoleCreateButton_Click;
-        // 
-        // RolesLabel
-        // 
-        this.RolesLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.RolesLabel.Location = new Point(15, 10);
-        this.RolesLabel.Name = "RolesLabel";
-        this.RolesLabel.Size = new Size(205, 59);
-        this.RolesLabel.TabIndex = 7;
-        this.RolesLabel.Text = "Gestion des Rôles";
-        this.RolesLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // entrepotMgmtPanel
-        // 
-        this.entrepotMgmtPanel.Controls.Add(this.deleteEntrepotButton);
-        this.entrepotMgmtPanel.Controls.Add(this.editEntrepotButton);
-        this.entrepotMgmtPanel.Controls.Add(this.viewEntrepotButton);
-        this.entrepotMgmtPanel.Controls.Add(this.entrepotSelector);
-        this.entrepotMgmtPanel.Controls.Add(this.existingEntrepotsLabel);
-        this.entrepotMgmtPanel.Controls.Add(this.createEntrepotButton);
-        this.entrepotMgmtPanel.Controls.Add(this.entrepotMgmtHeaderLabel);
-        this.entrepotMgmtPanel.Dock = DockStyle.Fill;
-        this.entrepotMgmtPanel.Location = new Point(3, 3);
-        this.entrepotMgmtPanel.Name = "entrepotMgmtPanel";
-        this.entrepotMgmtPanel.Padding = new Padding(10);
-        this.entrepotMgmtPanel.Size = new Size(230, 384);
-        this.entrepotMgmtPanel.TabIndex = 4;
-        // 
-        // deleteEntrepotButton
-        // 
-        this.deleteEntrepotButton.Dock = DockStyle.Top;
-        this.deleteEntrepotButton.Location = new Point(10, 193);
-        this.deleteEntrepotButton.Name = "deleteEntrepotButton";
-        this.deleteEntrepotButton.Size = new Size(210, 26);
-        this.deleteEntrepotButton.TabIndex = 7;
-        this.deleteEntrepotButton.Text = "Supprimer l'Entrepôt";
-        this.deleteEntrepotButton.UseVisualStyleBackColor = true;
-        this.deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
-        // 
-        // editEntrepotButton
-        // 
-        this.editEntrepotButton.Dock = DockStyle.Top;
-        this.editEntrepotButton.Location = new Point(10, 167);
-        this.editEntrepotButton.Name = "editEntrepotButton";
-        this.editEntrepotButton.Size = new Size(210, 26);
-        this.editEntrepotButton.TabIndex = 6;
-        this.editEntrepotButton.Text = "Modifier l'Entrepôt";
-        this.editEntrepotButton.UseVisualStyleBackColor = true;
-        this.editEntrepotButton.Click += this.EditEntrepotButton_Click;
-        // 
-        // viewEntrepotButton
-        // 
-        this.viewEntrepotButton.Dock = DockStyle.Top;
-        this.viewEntrepotButton.Location = new Point(10, 141);
-        this.viewEntrepotButton.Name = "viewEntrepotButton";
-        this.viewEntrepotButton.Size = new Size(210, 26);
-        this.viewEntrepotButton.TabIndex = 5;
-        this.viewEntrepotButton.Text = "Voir Détails";
-        this.viewEntrepotButton.UseVisualStyleBackColor = true;
-        this.viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
-        // 
-        // entrepotSelector
-        // 
-        this.entrepotSelector.Dock = DockStyle.Top;
-        this.entrepotSelector.FormattingEnabled = true;
-        this.entrepotSelector.Location = new Point(10, 118);
-        this.entrepotSelector.Name = "entrepotSelector";
-        this.entrepotSelector.Size = new Size(210, 23);
-        this.entrepotSelector.TabIndex = 4;
-        this.entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
-        // 
-        // existingEntrepotsLabel
-        // 
-        this.existingEntrepotsLabel.Dock = DockStyle.Top;
-        this.existingEntrepotsLabel.Location = new Point(10, 95);
-        this.existingEntrepotsLabel.Name = "existingEntrepotsLabel";
-        this.existingEntrepotsLabel.Size = new Size(210, 23);
-        this.existingEntrepotsLabel.TabIndex = 3;
-        this.existingEntrepotsLabel.Text = "Entrepôts existants:";
-        this.existingEntrepotsLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // createEntrepotButton
-        // 
-        this.createEntrepotButton.Dock = DockStyle.Top;
-        this.createEntrepotButton.Location = new Point(10, 69);
-        this.createEntrepotButton.Name = "createEntrepotButton";
-        this.createEntrepotButton.Size = new Size(210, 26);
-        this.createEntrepotButton.TabIndex = 2;
-        this.createEntrepotButton.Text = "Nouveau Entrepôt";
-        this.createEntrepotButton.UseVisualStyleBackColor = true;
-        this.createEntrepotButton.Click += this.CreateEntrepotButton_Click;
-        // 
-        // entrepotMgmtHeaderLabel
-        // 
-        this.entrepotMgmtHeaderLabel.Dock = DockStyle.Top;
-        this.entrepotMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.entrepotMgmtHeaderLabel.Location = new Point(10, 10);
-        this.entrepotMgmtHeaderLabel.Name = "entrepotMgmtHeaderLabel";
-        this.entrepotMgmtHeaderLabel.Size = new Size(210, 59);
-        this.entrepotMgmtHeaderLabel.TabIndex = 1;
-        this.entrepotMgmtHeaderLabel.Text = "Gestion des Entrepôts";
-        this.entrepotMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // createROButton
-        // 
-        this.createROButton.Dock = DockStyle.Top;
-        this.createROButton.Location = new Point(10, 69);
-        this.createROButton.Name = "createROButton";
-        this.createROButton.Size = new Size(210, 26);
-        this.createROButton.TabIndex = 4;
-        this.createROButton.Text = "Nouvel ordre de restockage";
-        this.createROButton.UseVisualStyleBackColor = true;
-        this.createROButton.Click += this.CreateROButton_Click;
-        // 
-        // existingROLabel
-        // 
-        this.existingROLabel.Dock = DockStyle.Top;
-        this.existingROLabel.Location = new Point(10, 95);
-        this.existingROLabel.Name = "existingROLabel";
-        this.existingROLabel.Size = new Size(210, 23);
-        this.existingROLabel.TabIndex = 5;
-        this.existingROLabel.Text = "Ordres de restockage existants:";
-        this.existingROLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // roSearchFilterTextBox
-        // 
-        this.roSearchFilterTextBox.Dock = DockStyle.Top;
-        this.roSearchFilterTextBox.Location = new Point(10, 118);
-        this.roSearchFilterTextBox.Name = "roSearchFilterTextBox";
-        this.roSearchFilterTextBox.Size = new Size(210, 23);
-        this.roSearchFilterTextBox.TabIndex = 6;
-        this.roSearchFilterTextBox.TextChanged += this.RoSearchFilterTextBox_TextChanged;
-        // 
-        // roSearchResultsListBox
-        // 
-        this.roSearchResultsListBox.Dock = DockStyle.Top;
-        this.roSearchResultsListBox.FormattingEnabled = true;
-        this.roSearchResultsListBox.ItemHeight = 15;
-        this.roSearchResultsListBox.Location = new Point(10, 141);
-        this.roSearchResultsListBox.Name = "roSearchResultsListBox";
-        this.roSearchResultsListBox.Size = new Size(210, 94);
-        this.roSearchResultsListBox.TabIndex = 7;
-        this.roSearchResultsListBox.SelectedIndexChanged += this.RoSearchResultsListBox_SelectedIndexChanged;
+        restockOrdersMgmtPanel.Controls.Add(viewROButton);
+        restockOrdersMgmtPanel.Controls.Add(roSearchResultsListBox);
+        restockOrdersMgmtPanel.Controls.Add(roSearchFilterTextBox);
+        restockOrdersMgmtPanel.Controls.Add(existingROLabel);
+        restockOrdersMgmtPanel.Controls.Add(createROButton);
+        restockOrdersMgmtPanel.Controls.Add(restockOrdersMgmtHeaderLabel);
+        restockOrdersMgmtPanel.Dock = DockStyle.Fill;
+        restockOrdersMgmtPanel.Location = new Point(711, 393);
+        restockOrdersMgmtPanel.Name = "restockOrdersMgmtPanel";
+        restockOrdersMgmtPanel.Padding = new Padding(10);
+        restockOrdersMgmtPanel.Size = new Size(230, 385);
+        restockOrdersMgmtPanel.TabIndex = 8;
         // 
         // viewROButton
         // 
-        this.viewROButton.Dock = DockStyle.Top;
-        this.viewROButton.Location = new Point(10, 235);
-        this.viewROButton.Name = "viewROButton";
-        this.viewROButton.Size = new Size(210, 26);
-        this.viewROButton.TabIndex = 8;
-        this.viewROButton.Text = "Nouvel ordre de restockage";
-        this.viewROButton.UseVisualStyleBackColor = true;
-        this.viewROButton.Click += this.ViewROButton_Click;
+        viewROButton.Dock = DockStyle.Top;
+        viewROButton.Location = new Point(10, 235);
+        viewROButton.Name = "viewROButton";
+        viewROButton.Size = new Size(210, 26);
+        viewROButton.TabIndex = 8;
+        viewROButton.Text = "Nouvel ordre de restockage";
+        viewROButton.UseVisualStyleBackColor = true;
+        viewROButton.Click += this.ViewROButton_Click;
+        // 
+        // roSearchResultsListBox
+        // 
+        roSearchResultsListBox.Dock = DockStyle.Top;
+        roSearchResultsListBox.FormattingEnabled = true;
+        roSearchResultsListBox.ItemHeight = 15;
+        roSearchResultsListBox.Location = new Point(10, 141);
+        roSearchResultsListBox.Name = "roSearchResultsListBox";
+        roSearchResultsListBox.Size = new Size(210, 94);
+        roSearchResultsListBox.TabIndex = 7;
+        roSearchResultsListBox.SelectedIndexChanged += this.RoSearchResultsListBox_SelectedIndexChanged;
+        // 
+        // roSearchFilterTextBox
+        // 
+        roSearchFilterTextBox.Dock = DockStyle.Top;
+        roSearchFilterTextBox.Location = new Point(10, 118);
+        roSearchFilterTextBox.Name = "roSearchFilterTextBox";
+        roSearchFilterTextBox.Size = new Size(210, 23);
+        roSearchFilterTextBox.TabIndex = 6;
+        roSearchFilterTextBox.TextChanged += this.RoSearchFilterTextBox_TextChanged;
+        // 
+        // existingROLabel
+        // 
+        existingROLabel.Dock = DockStyle.Top;
+        existingROLabel.Location = new Point(10, 95);
+        existingROLabel.Name = "existingROLabel";
+        existingROLabel.Size = new Size(210, 23);
+        existingROLabel.TabIndex = 5;
+        existingROLabel.Text = "Ordres de restockage existants:";
+        existingROLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // createROButton
+        // 
+        createROButton.Dock = DockStyle.Top;
+        createROButton.Location = new Point(10, 69);
+        createROButton.Name = "createROButton";
+        createROButton.Size = new Size(210, 26);
+        createROButton.TabIndex = 4;
+        createROButton.Text = "Nouvel ordre de restockage";
+        createROButton.UseVisualStyleBackColor = true;
+        createROButton.Click += this.CreateROButton_Click;
+        // 
+        // restockOrdersMgmtHeaderLabel
+        // 
+        restockOrdersMgmtHeaderLabel.Dock = DockStyle.Top;
+        restockOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        restockOrdersMgmtHeaderLabel.Location = new Point(10, 10);
+        restockOrdersMgmtHeaderLabel.Name = "restockOrdersMgmtHeaderLabel";
+        restockOrdersMgmtHeaderLabel.Size = new Size(210, 59);
+        restockOrdersMgmtHeaderLabel.TabIndex = 3;
+        restockOrdersMgmtHeaderLabel.Text = "Gestion des ordres de restockage";
+        restockOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // shipmentMgmtPanel
+        // 
+        shipmentMgmtPanel.Controls.Add(shipmentMgmtHeaderLabel);
+        shipmentMgmtPanel.Dock = DockStyle.Fill;
+        shipmentMgmtPanel.Location = new Point(3, 393);
+        shipmentMgmtPanel.Name = "shipmentMgmtPanel";
+        shipmentMgmtPanel.Padding = new Padding(10);
+        shipmentMgmtPanel.Size = new Size(230, 385);
+        shipmentMgmtPanel.TabIndex = 7;
+        // 
+        // shipmentMgmtHeaderLabel
+        // 
+        shipmentMgmtHeaderLabel.Dock = DockStyle.Top;
+        shipmentMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        shipmentMgmtHeaderLabel.Location = new Point(10, 10);
+        shipmentMgmtHeaderLabel.Name = "shipmentMgmtHeaderLabel";
+        shipmentMgmtHeaderLabel.Size = new Size(210, 59);
+        shipmentMgmtHeaderLabel.TabIndex = 2;
+        shipmentMgmtHeaderLabel.Text = "Gestion des Expéditions";
+        shipmentMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // fournisseursMgmtPanel
+        // 
+        fournisseursMgmtPanel.Controls.Add(ViewShipmentButton);
+        fournisseursMgmtPanel.Controls.Add(button3);
+        fournisseursMgmtPanel.Controls.Add(button2);
+        fournisseursMgmtPanel.Controls.Add(listBox1);
+        fournisseursMgmtPanel.Controls.Add(textBox1);
+        fournisseursMgmtPanel.Controls.Add(this.ShipmentLabel);
+        fournisseursMgmtPanel.Controls.Add(CreateShipmentButton);
+        fournisseursMgmtPanel.Controls.Add(fournisseursMgmtHeaderLabel);
+        fournisseursMgmtPanel.Dock = DockStyle.Fill;
+        fournisseursMgmtPanel.Location = new Point(947, 3);
+        fournisseursMgmtPanel.Name = "fournisseursMgmtPanel";
+        fournisseursMgmtPanel.Padding = new Padding(10);
+        fournisseursMgmtPanel.Size = new Size(234, 384);
+        fournisseursMgmtPanel.TabIndex = 6;
+        // 
+        // fournisseursMgmtHeaderLabel
+        // 
+        fournisseursMgmtHeaderLabel.Dock = DockStyle.Top;
+        fournisseursMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        fournisseursMgmtHeaderLabel.Location = new Point(10, 10);
+        fournisseursMgmtHeaderLabel.Name = "fournisseursMgmtHeaderLabel";
+        fournisseursMgmtHeaderLabel.Size = new Size(214, 59);
+        fournisseursMgmtHeaderLabel.TabIndex = 3;
+        fournisseursMgmtHeaderLabel.Text = "Gestion des Expéditions";
+        fournisseursMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // produitsMgmtPanel
+        // 
+        produitsMgmtPanel.Controls.Add(produitsMgmtHeaderLabel);
+        produitsMgmtPanel.Dock = DockStyle.Fill;
+        produitsMgmtPanel.Location = new Point(711, 3);
+        produitsMgmtPanel.Name = "produitsMgmtPanel";
+        produitsMgmtPanel.Padding = new Padding(10);
+        produitsMgmtPanel.Size = new Size(230, 384);
+        produitsMgmtPanel.TabIndex = 5;
+        // 
+        // produitsMgmtHeaderLabel
+        // 
+        produitsMgmtHeaderLabel.Dock = DockStyle.Top;
+        produitsMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        produitsMgmtHeaderLabel.Location = new Point(10, 10);
+        produitsMgmtHeaderLabel.Name = "produitsMgmtHeaderLabel";
+        produitsMgmtHeaderLabel.Size = new Size(210, 59);
+        produitsMgmtHeaderLabel.TabIndex = 3;
+        produitsMgmtHeaderLabel.Text = "Gestion des Produits";
+        produitsMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // addressManagementPanel
+        // 
+        addressManagementPanel.Controls.Add(addressMgmtMainPanel);
+        addressManagementPanel.Controls.Add(addressMgmtTopBar);
+        addressManagementPanel.Dock = DockStyle.Fill;
+        addressManagementPanel.Location = new Point(239, 3);
+        addressManagementPanel.Name = "addressManagementPanel";
+        addressManagementPanel.Padding = new Padding(10);
+        addressManagementPanel.Size = new Size(230, 384);
+        addressManagementPanel.TabIndex = 0;
+        // 
+        // addressMgmtMainPanel
+        // 
+        addressMgmtMainPanel.Controls.Add(deleteAddressButton);
+        addressMgmtMainPanel.Controls.Add(editAddressButton);
+        addressMgmtMainPanel.Controls.Add(viewAddressButton);
+        addressMgmtMainPanel.Controls.Add(filteredAddresses);
+        addressMgmtMainPanel.Controls.Add(addressSearchTextBox);
+        addressMgmtMainPanel.Controls.Add(existingAddressesLabel);
+        addressMgmtMainPanel.Controls.Add(createAddressButton);
+        addressMgmtMainPanel.Dock = DockStyle.Fill;
+        addressMgmtMainPanel.Location = new Point(10, 69);
+        addressMgmtMainPanel.Name = "addressMgmtMainPanel";
+        addressMgmtMainPanel.Size = new Size(210, 305);
+        addressMgmtMainPanel.TabIndex = 1;
+        // 
+        // deleteAddressButton
+        // 
+        deleteAddressButton.Dock = DockStyle.Top;
+        deleteAddressButton.Location = new Point(0, 218);
+        deleteAddressButton.Name = "deleteAddressButton";
+        deleteAddressButton.Size = new Size(210, 26);
+        deleteAddressButton.TabIndex = 6;
+        deleteAddressButton.Text = "Supprimer l'Adresse";
+        deleteAddressButton.UseVisualStyleBackColor = true;
+        deleteAddressButton.Click += this.DeleteAddressButton_Click;
+        // 
+        // editAddressButton
+        // 
+        editAddressButton.Dock = DockStyle.Top;
+        editAddressButton.Location = new Point(0, 192);
+        editAddressButton.Name = "editAddressButton";
+        editAddressButton.Size = new Size(210, 26);
+        editAddressButton.TabIndex = 5;
+        editAddressButton.Text = "Modifier l'Adresse";
+        editAddressButton.UseVisualStyleBackColor = true;
+        editAddressButton.Click += this.EditAddressButton_Click;
+        // 
+        // viewAddressButton
+        // 
+        viewAddressButton.Dock = DockStyle.Top;
+        viewAddressButton.Location = new Point(0, 166);
+        viewAddressButton.Name = "viewAddressButton";
+        viewAddressButton.Size = new Size(210, 26);
+        viewAddressButton.TabIndex = 4;
+        viewAddressButton.Text = "Voir Détails";
+        viewAddressButton.UseVisualStyleBackColor = true;
+        viewAddressButton.Click += this.ViewAddressButton_Click;
+        // 
+        // filteredAddresses
+        // 
+        filteredAddresses.Dock = DockStyle.Top;
+        filteredAddresses.FormattingEnabled = true;
+        filteredAddresses.ItemHeight = 15;
+        filteredAddresses.Location = new Point(0, 72);
+        filteredAddresses.Name = "filteredAddresses";
+        filteredAddresses.Size = new Size(210, 94);
+        filteredAddresses.TabIndex = 3;
+        filteredAddresses.SelectedIndexChanged += this.FilteredAddresses_SelectedIndexChanged;
+        // 
+        // addressSearchTextBox
+        // 
+        addressSearchTextBox.Dock = DockStyle.Top;
+        addressSearchTextBox.Location = new Point(0, 49);
+        addressSearchTextBox.Name = "addressSearchTextBox";
+        addressSearchTextBox.Size = new Size(210, 23);
+        addressSearchTextBox.TabIndex = 2;
+        addressSearchTextBox.TextChanged += this.AddressSearchTextBox_TextChanged;
+        // 
+        // existingAddressesLabel
+        // 
+        existingAddressesLabel.Dock = DockStyle.Top;
+        existingAddressesLabel.Location = new Point(0, 26);
+        existingAddressesLabel.Name = "existingAddressesLabel";
+        existingAddressesLabel.Size = new Size(210, 23);
+        existingAddressesLabel.TabIndex = 1;
+        existingAddressesLabel.Text = "Adresses existantes:";
+        existingAddressesLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // createAddressButton
+        // 
+        createAddressButton.Dock = DockStyle.Top;
+        createAddressButton.Location = new Point(0, 0);
+        createAddressButton.Name = "createAddressButton";
+        createAddressButton.Size = new Size(210, 26);
+        createAddressButton.TabIndex = 0;
+        createAddressButton.Text = "Nouvelle Adresse";
+        createAddressButton.UseVisualStyleBackColor = true;
+        createAddressButton.Click += this.CreateAddressButton_Click;
+        // 
+        // addressMgmtTopBar
+        // 
+        addressMgmtTopBar.Controls.Add(addressMgmtLabel);
+        addressMgmtTopBar.Dock = DockStyle.Top;
+        addressMgmtTopBar.Location = new Point(10, 10);
+        addressMgmtTopBar.Name = "addressMgmtTopBar";
+        addressMgmtTopBar.Size = new Size(210, 59);
+        addressMgmtTopBar.TabIndex = 0;
+        // 
+        // addressMgmtLabel
+        // 
+        addressMgmtLabel.Dock = DockStyle.Fill;
+        addressMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        addressMgmtLabel.Location = new Point(0, 0);
+        addressMgmtLabel.Name = "addressMgmtLabel";
+        addressMgmtLabel.Size = new Size(210, 59);
+        addressMgmtLabel.TabIndex = 0;
+        addressMgmtLabel.Text = "Gestion des Adresses";
+        addressMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // clientsMgmtPanel
+        // 
+        clientsMgmtPanel.Controls.Add(clientMgmtMainPanel);
+        clientsMgmtPanel.Controls.Add(clientMgmtTopBar);
+        clientsMgmtPanel.Dock = DockStyle.Fill;
+        clientsMgmtPanel.Location = new Point(239, 393);
+        clientsMgmtPanel.Name = "clientsMgmtPanel";
+        clientsMgmtPanel.Padding = new Padding(10);
+        clientsMgmtPanel.Size = new Size(230, 385);
+        clientsMgmtPanel.TabIndex = 1;
+        // 
+        // clientMgmtMainPanel
+        // 
+        clientMgmtMainPanel.Controls.Add(clientDeleteButton);
+        clientMgmtMainPanel.Controls.Add(clientEditButton);
+        clientMgmtMainPanel.Controls.Add(clientViewButton);
+        clientMgmtMainPanel.Controls.Add(filteredClients);
+        clientMgmtMainPanel.Controls.Add(clientFilteringBox);
+        clientMgmtMainPanel.Controls.Add(existingClientsLabel);
+        clientMgmtMainPanel.Controls.Add(clientCreateButton);
+        clientMgmtMainPanel.Dock = DockStyle.Fill;
+        clientMgmtMainPanel.Location = new Point(10, 69);
+        clientMgmtMainPanel.Name = "clientMgmtMainPanel";
+        clientMgmtMainPanel.Size = new Size(210, 306);
+        clientMgmtMainPanel.TabIndex = 1;
+        // 
+        // clientDeleteButton
+        // 
+        clientDeleteButton.Dock = DockStyle.Top;
+        clientDeleteButton.Location = new Point(0, 245);
+        clientDeleteButton.Name = "clientDeleteButton";
+        clientDeleteButton.Size = new Size(210, 35);
+        clientDeleteButton.TabIndex = 9;
+        clientDeleteButton.Text = "Supprimer l'Adresse";
+        clientDeleteButton.UseVisualStyleBackColor = true;
+        clientDeleteButton.Click += this.ClientDeleteButton_Click;
+        // 
+        // clientEditButton
+        // 
+        clientEditButton.Dock = DockStyle.Top;
+        clientEditButton.Location = new Point(0, 210);
+        clientEditButton.Name = "clientEditButton";
+        clientEditButton.Size = new Size(210, 35);
+        clientEditButton.TabIndex = 8;
+        clientEditButton.Text = "Modifier l'Adresse";
+        clientEditButton.UseVisualStyleBackColor = true;
+        clientEditButton.Click += this.ClientEditButton_Click;
+        // 
+        // clientViewButton
+        // 
+        clientViewButton.Dock = DockStyle.Top;
+        clientViewButton.Location = new Point(0, 175);
+        clientViewButton.Name = "clientViewButton";
+        clientViewButton.Size = new Size(210, 35);
+        clientViewButton.TabIndex = 7;
+        clientViewButton.Text = "Voir Détails";
+        clientViewButton.UseVisualStyleBackColor = true;
+        clientViewButton.Click += this.ClientViewButton_Click;
+        // 
+        // filteredClients
+        // 
+        filteredClients.Dock = DockStyle.Top;
+        filteredClients.FormattingEnabled = true;
+        filteredClients.ItemHeight = 15;
+        filteredClients.Location = new Point(0, 81);
+        filteredClients.Name = "filteredClients";
+        filteredClients.Size = new Size(210, 94);
+        filteredClients.TabIndex = 4;
+        filteredClients.SelectedIndexChanged += this.FilteredClients_SelectedIndexChanged;
+        // 
+        // clientFilteringBox
+        // 
+        clientFilteringBox.Dock = DockStyle.Top;
+        clientFilteringBox.Location = new Point(0, 58);
+        clientFilteringBox.Name = "clientFilteringBox";
+        clientFilteringBox.Size = new Size(210, 23);
+        clientFilteringBox.TabIndex = 3;
+        clientFilteringBox.TextChanged += this.ClientFilteringBox_TextChanged;
+        // 
+        // existingClientsLabel
+        // 
+        existingClientsLabel.Dock = DockStyle.Top;
+        existingClientsLabel.Location = new Point(0, 35);
+        existingClientsLabel.Name = "existingClientsLabel";
+        existingClientsLabel.Size = new Size(210, 23);
+        existingClientsLabel.TabIndex = 2;
+        existingClientsLabel.Text = "Clients existants:";
+        existingClientsLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // clientCreateButton
+        // 
+        clientCreateButton.Dock = DockStyle.Top;
+        clientCreateButton.Location = new Point(0, 0);
+        clientCreateButton.Name = "clientCreateButton";
+        clientCreateButton.Size = new Size(210, 35);
+        clientCreateButton.TabIndex = 1;
+        clientCreateButton.Text = "Nouveau Client";
+        clientCreateButton.UseVisualStyleBackColor = true;
+        clientCreateButton.Click += this.ClientCreateButton_Click;
+        // 
+        // clientMgmtTopBar
+        // 
+        clientMgmtTopBar.Controls.Add(clientMgmtLabel);
+        clientMgmtTopBar.Dock = DockStyle.Top;
+        clientMgmtTopBar.Location = new Point(10, 10);
+        clientMgmtTopBar.Name = "clientMgmtTopBar";
+        clientMgmtTopBar.Size = new Size(210, 59);
+        clientMgmtTopBar.TabIndex = 0;
+        // 
+        // clientMgmtLabel
+        // 
+        clientMgmtLabel.Dock = DockStyle.Fill;
+        clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        clientMgmtLabel.Location = new Point(0, 0);
+        clientMgmtLabel.Name = "clientMgmtLabel";
+        clientMgmtLabel.Size = new Size(210, 59);
+        clientMgmtLabel.TabIndex = 0;
+        clientMgmtLabel.Text = "Gestion des clients";
+        clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // utilisateurMgMtPanel
+        // 
+        utilisateurMgMtPanel.Controls.Add(utilisateurMgmtMainPanel);
+        utilisateurMgMtPanel.Location = new Point(475, 3);
+        utilisateurMgMtPanel.Name = "utilisateurMgMtPanel";
+        utilisateurMgMtPanel.Size = new Size(230, 384);
+        utilisateurMgMtPanel.TabIndex = 2;
+        // 
+        // utilisateurMgmtMainPanel
+        // 
+        utilisateurMgmtMainPanel.Controls.Add(deleteUserButton);
+        utilisateurMgmtMainPanel.Controls.Add(editUserButton);
+        utilisateurMgmtMainPanel.Controls.Add(viewUserButton);
+        utilisateurMgmtMainPanel.Controls.Add(UserComboBox);
+        utilisateurMgmtMainPanel.Controls.Add(utilisateurSeparatorLabel);
+        utilisateurMgmtMainPanel.Controls.Add(newUserButton);
+        utilisateurMgmtMainPanel.Controls.Add(UserLabel);
+        utilisateurMgmtMainPanel.Dock = DockStyle.Fill;
+        utilisateurMgmtMainPanel.Location = new Point(0, 0);
+        utilisateurMgmtMainPanel.Name = "utilisateurMgmtMainPanel";
+        utilisateurMgmtMainPanel.Padding = new Padding(10);
+        utilisateurMgmtMainPanel.Size = new Size(230, 384);
+        utilisateurMgmtMainPanel.TabIndex = 0;
+        // 
+        // deleteUserButton
+        // 
+        deleteUserButton.Dock = DockStyle.Top;
+        deleteUserButton.Location = new Point(10, 193);
+        deleteUserButton.Name = "deleteUserButton";
+        deleteUserButton.Size = new Size(210, 26);
+        deleteUserButton.TabIndex = 19;
+        deleteUserButton.Text = "Supprimer Utilisateur";
+        deleteUserButton.UseVisualStyleBackColor = true;
+        deleteUserButton.Click += this.DeleteUserButton_Click;
+        // 
+        // editUserButton
+        // 
+        editUserButton.Dock = DockStyle.Top;
+        editUserButton.Location = new Point(10, 167);
+        editUserButton.Name = "editUserButton";
+        editUserButton.Size = new Size(210, 26);
+        editUserButton.TabIndex = 18;
+        editUserButton.Text = "Modifier Utilisteur";
+        editUserButton.UseVisualStyleBackColor = true;
+        editUserButton.Click += this.EditUserButton_Click;
+        // 
+        // viewUserButton
+        // 
+        viewUserButton.Dock = DockStyle.Top;
+        viewUserButton.Location = new Point(10, 141);
+        viewUserButton.Name = "viewUserButton";
+        viewUserButton.Size = new Size(210, 26);
+        viewUserButton.TabIndex = 17;
+        viewUserButton.Text = "Voir Détails";
+        viewUserButton.UseVisualStyleBackColor = true;
+        viewUserButton.Click += this.ViewUserButton_Click;
+        // 
+        // UserComboBox
+        // 
+        UserComboBox.Dock = DockStyle.Top;
+        UserComboBox.FormattingEnabled = true;
+        UserComboBox.Location = new Point(10, 118);
+        UserComboBox.Name = "UserComboBox";
+        UserComboBox.Size = new Size(210, 23);
+        UserComboBox.TabIndex = 16;
+        // 
+        // utilisateurSeparatorLabel
+        // 
+        utilisateurSeparatorLabel.Dock = DockStyle.Top;
+        utilisateurSeparatorLabel.Location = new Point(10, 95);
+        utilisateurSeparatorLabel.Name = "utilisateurSeparatorLabel";
+        utilisateurSeparatorLabel.Size = new Size(210, 23);
+        utilisateurSeparatorLabel.TabIndex = 15;
+        utilisateurSeparatorLabel.Text = "Utilisateurs existants:";
+        utilisateurSeparatorLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // newUserButton
+        // 
+        newUserButton.Dock = DockStyle.Top;
+        newUserButton.Location = new Point(10, 69);
+        newUserButton.Name = "newUserButton";
+        newUserButton.Size = new Size(210, 26);
+        newUserButton.TabIndex = 14;
+        newUserButton.Text = "Nouveau Utilisateur";
+        newUserButton.UseVisualStyleBackColor = true;
+        newUserButton.Click += this.CreateUserButton_Click;
+        // 
+        // UserLabel
+        // 
+        UserLabel.Dock = DockStyle.Top;
+        UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        UserLabel.Location = new Point(10, 10);
+        UserLabel.Name = "UserLabel";
+        UserLabel.Size = new Size(210, 59);
+        UserLabel.TabIndex = 13;
+        UserLabel.Text = "Gestion des Utilisateurs";
+        UserLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // roleMgmtPanel
+        // 
+        roleMgmtPanel.Controls.Add(RoleSearchTextBox);
+        roleMgmtPanel.Controls.Add(RolesFilterListBox);
+        roleMgmtPanel.Controls.Add(RoleDeleteButton);
+        roleMgmtPanel.Controls.Add(RoleEditButton);
+        roleMgmtPanel.Controls.Add(RoleViewButton);
+        roleMgmtPanel.Controls.Add(RoleSearchLabel);
+        roleMgmtPanel.Controls.Add(RoleCreateButton);
+        roleMgmtPanel.Controls.Add(RolesLabel);
+        roleMgmtPanel.Location = new Point(475, 393);
+        roleMgmtPanel.Name = "roleMgmtPanel";
+        roleMgmtPanel.Size = new Size(230, 385);
+        roleMgmtPanel.TabIndex = 3;
+        // 
+        // RoleSearchTextBox
+        // 
+        RoleSearchTextBox.Location = new Point(15, 127);
+        RoleSearchTextBox.Name = "RoleSearchTextBox";
+        RoleSearchTextBox.Size = new Size(198, 23);
+        RoleSearchTextBox.TabIndex = 15;
+        RoleSearchTextBox.TextChanged += this.RoleSearchTextBox_TextChanged;
+        // 
+        // RolesFilterListBox
+        // 
+        RolesFilterListBox.FormattingEnabled = true;
+        RolesFilterListBox.ItemHeight = 15;
+        RolesFilterListBox.Location = new Point(15, 150);
+        RolesFilterListBox.Name = "RolesFilterListBox";
+        RolesFilterListBox.Size = new Size(198, 94);
+        RolesFilterListBox.TabIndex = 14;
+        // 
+        // RoleDeleteButton
+        // 
+        RoleDeleteButton.Location = new Point(15, 314);
+        RoleDeleteButton.Name = "RoleDeleteButton";
+        RoleDeleteButton.Size = new Size(198, 35);
+        RoleDeleteButton.TabIndex = 13;
+        RoleDeleteButton.Text = "Supprimer Rôle";
+        RoleDeleteButton.UseVisualStyleBackColor = true;
+        RoleDeleteButton.Click += this.RoleDeleteButton_Click;
+        // 
+        // RoleEditButton
+        // 
+        RoleEditButton.Location = new Point(15, 279);
+        RoleEditButton.Name = "RoleEditButton";
+        RoleEditButton.Size = new Size(198, 35);
+        RoleEditButton.TabIndex = 12;
+        RoleEditButton.Text = "Modifier Rôle";
+        RoleEditButton.UseVisualStyleBackColor = true;
+        RoleEditButton.Click += this.RoleEditButton_Click;
+        // 
+        // RoleViewButton
+        // 
+        RoleViewButton.Location = new Point(15, 244);
+        RoleViewButton.Name = "RoleViewButton";
+        RoleViewButton.Size = new Size(198, 35);
+        RoleViewButton.TabIndex = 11;
+        RoleViewButton.Text = "Voir Détails";
+        RoleViewButton.UseVisualStyleBackColor = true;
+        RoleViewButton.Click += this.RoleViewButton_Click;
+        // 
+        // RoleSearchLabel
+        // 
+        RoleSearchLabel.AutoSize = true;
+        RoleSearchLabel.Location = new Point(72, 108);
+        RoleSearchLabel.Name = "RoleSearchLabel";
+        RoleSearchLabel.Size = new Size(79, 15);
+        RoleSearchLabel.TabIndex = 9;
+        RoleSearchLabel.Text = "Rôle existants";
+        // 
+        // RoleCreateButton
+        // 
+        RoleCreateButton.Location = new Point(15, 69);
+        RoleCreateButton.Name = "RoleCreateButton";
+        RoleCreateButton.Size = new Size(198, 35);
+        RoleCreateButton.TabIndex = 8;
+        RoleCreateButton.Text = "Nouveau Rôles";
+        RoleCreateButton.UseVisualStyleBackColor = true;
+        RoleCreateButton.Click += this.RoleCreateButton_Click;
+        // 
+        // RolesLabel
+        // 
+        RolesLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        RolesLabel.Location = new Point(15, 10);
+        RolesLabel.Name = "RolesLabel";
+        RolesLabel.Size = new Size(205, 59);
+        RolesLabel.TabIndex = 7;
+        RolesLabel.Text = "Gestion des Rôles";
+        RolesLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // entrepotMgmtPanel
+        // 
+        entrepotMgmtPanel.Controls.Add(deleteEntrepotButton);
+        entrepotMgmtPanel.Controls.Add(editEntrepotButton);
+        entrepotMgmtPanel.Controls.Add(viewEntrepotButton);
+        entrepotMgmtPanel.Controls.Add(entrepotSelector);
+        entrepotMgmtPanel.Controls.Add(existingEntrepotsLabel);
+        entrepotMgmtPanel.Controls.Add(createEntrepotButton);
+        entrepotMgmtPanel.Controls.Add(entrepotMgmtHeaderLabel);
+        entrepotMgmtPanel.Dock = DockStyle.Fill;
+        entrepotMgmtPanel.Location = new Point(3, 3);
+        entrepotMgmtPanel.Name = "entrepotMgmtPanel";
+        entrepotMgmtPanel.Padding = new Padding(10);
+        entrepotMgmtPanel.Size = new Size(230, 384);
+        entrepotMgmtPanel.TabIndex = 4;
+        // 
+        // deleteEntrepotButton
+        // 
+        deleteEntrepotButton.Dock = DockStyle.Top;
+        deleteEntrepotButton.Location = new Point(10, 193);
+        deleteEntrepotButton.Name = "deleteEntrepotButton";
+        deleteEntrepotButton.Size = new Size(210, 26);
+        deleteEntrepotButton.TabIndex = 7;
+        deleteEntrepotButton.Text = "Supprimer l'Entrepôt";
+        deleteEntrepotButton.UseVisualStyleBackColor = true;
+        deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
+        // 
+        // editEntrepotButton
+        // 
+        editEntrepotButton.Dock = DockStyle.Top;
+        editEntrepotButton.Location = new Point(10, 167);
+        editEntrepotButton.Name = "editEntrepotButton";
+        editEntrepotButton.Size = new Size(210, 26);
+        editEntrepotButton.TabIndex = 6;
+        editEntrepotButton.Text = "Modifier l'Entrepôt";
+        editEntrepotButton.UseVisualStyleBackColor = true;
+        editEntrepotButton.Click += this.EditEntrepotButton_Click;
+        // 
+        // viewEntrepotButton
+        // 
+        viewEntrepotButton.Dock = DockStyle.Top;
+        viewEntrepotButton.Location = new Point(10, 141);
+        viewEntrepotButton.Name = "viewEntrepotButton";
+        viewEntrepotButton.Size = new Size(210, 26);
+        viewEntrepotButton.TabIndex = 5;
+        viewEntrepotButton.Text = "Voir Détails";
+        viewEntrepotButton.UseVisualStyleBackColor = true;
+        viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
+        // 
+        // entrepotSelector
+        // 
+        entrepotSelector.Dock = DockStyle.Top;
+        entrepotSelector.FormattingEnabled = true;
+        entrepotSelector.Location = new Point(10, 118);
+        entrepotSelector.Name = "entrepotSelector";
+        entrepotSelector.Size = new Size(210, 23);
+        entrepotSelector.TabIndex = 4;
+        entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
+        // 
+        // existingEntrepotsLabel
+        // 
+        existingEntrepotsLabel.Dock = DockStyle.Top;
+        existingEntrepotsLabel.Location = new Point(10, 95);
+        existingEntrepotsLabel.Name = "existingEntrepotsLabel";
+        existingEntrepotsLabel.Size = new Size(210, 23);
+        existingEntrepotsLabel.TabIndex = 3;
+        existingEntrepotsLabel.Text = "Entrepôts existants:";
+        existingEntrepotsLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // createEntrepotButton
+        // 
+        createEntrepotButton.Dock = DockStyle.Top;
+        createEntrepotButton.Location = new Point(10, 69);
+        createEntrepotButton.Name = "createEntrepotButton";
+        createEntrepotButton.Size = new Size(210, 26);
+        createEntrepotButton.TabIndex = 2;
+        createEntrepotButton.Text = "Nouveau Entrepôt";
+        createEntrepotButton.UseVisualStyleBackColor = true;
+        createEntrepotButton.Click += this.CreateEntrepotButton_Click;
+        // 
+        // entrepotMgmtHeaderLabel
+        // 
+        entrepotMgmtHeaderLabel.Dock = DockStyle.Top;
+        entrepotMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        entrepotMgmtHeaderLabel.Location = new Point(10, 10);
+        entrepotMgmtHeaderLabel.Name = "entrepotMgmtHeaderLabel";
+        entrepotMgmtHeaderLabel.Size = new Size(210, 59);
+        entrepotMgmtHeaderLabel.TabIndex = 1;
+        entrepotMgmtHeaderLabel.Text = "Gestion des Entrepôts";
+        entrepotMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // CreateShipmentButton
+        // 
+        CreateShipmentButton.Location = new Point(14, 69);
+        CreateShipmentButton.Name = "CreateShipmentButton";
+        CreateShipmentButton.Size = new Size(210, 26);
+        CreateShipmentButton.TabIndex = 4;
+        CreateShipmentButton.Text = "Nouvelle Expédition";
+        CreateShipmentButton.UseVisualStyleBackColor = true;
+        // 
+        // ShipmentLabel
+        // 
+        this.ShipmentLabel.AutoSize = true;
+        this.ShipmentLabel.Location = new Point(111, 101);
+        this.ShipmentLabel.Name = "ShipmentLabel";
+        this.ShipmentLabel.Size = new Size(38, 15);
+        this.ShipmentLabel.TabIndex = 5;
+        this.ShipmentLabel.Text = "label1";
+        // 
+        // textBox1
+        // 
+        textBox1.Location = new Point(14, 118);
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(210, 23);
+        textBox1.TabIndex = 6;
+        // 
+        // listBox1
+        // 
+        listBox1.FormattingEnabled = true;
+        listBox1.ItemHeight = 15;
+        listBox1.Location = new Point(15, 141);
+        listBox1.Name = "listBox1";
+        listBox1.Size = new Size(210, 94);
+        listBox1.TabIndex = 7;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(15, 287);
+        button2.Name = "button2";
+        button2.Size = new Size(210, 26);
+        button2.TabIndex = 8;
+        button2.Text = "button2";
+        button2.UseVisualStyleBackColor = true;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(15, 261);
+        button3.Name = "button3";
+        button3.Size = new Size(210, 26);
+        button3.TabIndex = 9;
+        button3.Text = "button3";
+        button3.UseVisualStyleBackColor = true;
+        // 
+        // ViewShipmentButton
+        // 
+        ViewShipmentButton.Location = new Point(15, 235);
+        ViewShipmentButton.Name = "ViewShipmentButton";
+        ViewShipmentButton.Size = new Size(210, 26);
+        ViewShipmentButton.TabIndex = 10;
+        ViewShipmentButton.Text = "Voir Détails";
+        ViewShipmentButton.UseVisualStyleBackColor = true;
+        // 
+        // listBox2
+        // 
+        listBox2.FormattingEnabled = true;
+        listBox2.ItemHeight = 15;
+        listBox2.Location = new Point(15, 141);
+        listBox2.Name = "listBox2";
+        listBox2.Size = new Size(210, 94);
+        listBox2.TabIndex = 15;
+        // 
+        // textBox2
+        // 
+        textBox2.Location = new Point(14, 118);
+        textBox2.Name = "textBox2";
+        textBox2.Size = new Size(210, 23);
+        textBox2.TabIndex = 14;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(111, 101);
+        label2.Name = "label2";
+        label2.Size = new Size(38, 15);
+        label2.TabIndex = 13;
+        label2.Text = "label2";
+        // 
+        // button8
+        // 
+        button8.Location = new Point(14, 69);
+        button8.Name = "button8";
+        button8.Size = new Size(210, 26);
+        button8.TabIndex = 12;
+        button8.Text = "button8";
+        button8.UseVisualStyleBackColor = true;
+        // 
+        // button5
+        // 
+        button5.Location = new Point(15, 235);
+        button5.Name = "button5";
+        button5.Size = new Size(210, 26);
+        button5.TabIndex = 14;
+        button5.Text = "button5";
+        button5.UseVisualStyleBackColor = true;
+        // 
+        // button6
+        // 
+        button6.Location = new Point(15, 261);
+        button6.Name = "button6";
+        button6.Size = new Size(210, 26);
+        button6.TabIndex = 13;
+        button6.Text = "button6";
+        button6.UseVisualStyleBackColor = true;
+        // 
+        // button7
+        // 
+        button7.Location = new Point(15, 287);
+        button7.Name = "button7";
+        button7.Size = new Size(210, 26);
+        button7.TabIndex = 12;
+        button7.Text = "button7";
+        button7.UseVisualStyleBackColor = true;
         // 
         // AdminMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(1184, 861);
-        this.Controls.Add(this.mainPanel);
-        this.Controls.Add(this.topBarPanel);
-        this.Controls.Add(this.bottomBarPanel);
+        this.Controls.Add(mainPanel);
+        this.Controls.Add(topBarPanel);
+        this.Controls.Add(bottomBarPanel);
         this.Name = "AdminMainMenu";
         this.Text = "Menu Administration";
         this.WindowState = FormWindowState.Maximized;
-        this.bottomBarPanel.ResumeLayout(false);
-        this.mainPanel.ResumeLayout(false);
-        this.shipmentOrderMgmtPanel.ResumeLayout(false);
-        this.restockOrdersMgmtPanel.ResumeLayout(false);
-        this.restockOrdersMgmtPanel.PerformLayout();
-        this.shipmentMgmtPanel.ResumeLayout(false);
-        this.fournisseursMgmtPanel.ResumeLayout(false);
-        this.produitsMgmtPanel.ResumeLayout(false);
-        this.addressManagementPanel.ResumeLayout(false);
-        this.addressMgmtMainPanel.ResumeLayout(false);
-        this.addressMgmtMainPanel.PerformLayout();
-        this.addressMgmtTopBar.ResumeLayout(false);
-        this.clientsMgmtPanel.ResumeLayout(false);
-        this.clientMgmtMainPanel.ResumeLayout(false);
-        this.clientMgmtMainPanel.PerformLayout();
-        this.clientMgmtTopBar.ResumeLayout(false);
-        this.utilisateurMgMtPanel.ResumeLayout(false);
-        this.utilisateurMgmtMainPanel.ResumeLayout(false);
-        this.roleMgmtPanel.ResumeLayout(false);
-        this.roleMgmtPanel.PerformLayout();
-        this.entrepotMgmtPanel.ResumeLayout(false);
+        bottomBarPanel.ResumeLayout(false);
+        mainPanel.ResumeLayout(false);
+        shipmentOrderMgmtPanel.ResumeLayout(false);
+        shipmentOrderMgmtPanel.PerformLayout();
+        restockOrdersMgmtPanel.ResumeLayout(false);
+        restockOrdersMgmtPanel.PerformLayout();
+        shipmentMgmtPanel.ResumeLayout(false);
+        fournisseursMgmtPanel.ResumeLayout(false);
+        fournisseursMgmtPanel.PerformLayout();
+        produitsMgmtPanel.ResumeLayout(false);
+        addressManagementPanel.ResumeLayout(false);
+        addressMgmtMainPanel.ResumeLayout(false);
+        addressMgmtMainPanel.PerformLayout();
+        addressMgmtTopBar.ResumeLayout(false);
+        clientsMgmtPanel.ResumeLayout(false);
+        clientMgmtMainPanel.ResumeLayout(false);
+        clientMgmtMainPanel.PerformLayout();
+        clientMgmtTopBar.ResumeLayout(false);
+        utilisateurMgMtPanel.ResumeLayout(false);
+        utilisateurMgmtMainPanel.ResumeLayout(false);
+        roleMgmtPanel.ResumeLayout(false);
+        roleMgmtPanel.PerformLayout();
+        entrepotMgmtPanel.ResumeLayout(false);
         this.ResumeLayout(false);
     }
 
@@ -953,4 +1102,19 @@ partial class AdminMainMenu
     private ListBox roSearchResultsListBox;
     private TextBox roSearchFilterTextBox;
     private Label existingROLabel;
+    private Button button8;
+    private Label label2;
+    private ListBox listBox2;
+    private TextBox textBox2;
+    private Label label3;
+    private Button ViewShipmentButton;
+    private Button button3;
+    private Button button2;
+    private ListBox listBox1;
+    private TextBox textBox1;
+    private Label label1;
+    private Button CreateShipmentButton;
+    private Button button5;
+    private Button button6;
+    private Button button7;
 }

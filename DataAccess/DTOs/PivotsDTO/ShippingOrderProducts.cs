@@ -10,6 +10,6 @@ public class ShippingOrderProducts {
     public int ShipOrderId { get; set; }
     public int Qty { get; set; }
 
-    public ProduitsDTO Produits { get; set; }
-    public ShipOrdersDTO ShipOrders { get; set; }
+    public ProduitsDTO Produits { get; set; } = null!;
+    public ShipOrdersDTO ShipOrders { get; set; } = null!;
 }

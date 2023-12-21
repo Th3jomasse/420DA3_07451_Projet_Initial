@@ -17,6 +17,8 @@ internal class AdminFacade : AbstractFacade {
     public EntrepotService EntrepotService { get; set; }
     public AddressService AddressService { get; set; }
     public RestockOrderService RestockOrderService { get; set; }
+    public ShipOrdersService ShipOrdersService { get; set; }
+    public ShipmentsService ShipmentsService { get; set; }
 
     // TODO: ajoutez des propriétés pour vos services ici
 
@@ -27,6 +29,8 @@ internal class AdminFacade : AbstractFacade {
         this.EntrepotService = new EntrepotService(this, this.Context);
         this.AddressService = new AddressService(this, this.Context);
         this.RestockOrderService = new RestockOrderService(this, this.Context);
+        this.ShipOrdersService= new ShipOrdersService(this, this.Context);
+        this.ShipmentsService=new ShipmentsService(this, this.Context);
 
         // TODO: initialisez vos propriétés de services ici
 
