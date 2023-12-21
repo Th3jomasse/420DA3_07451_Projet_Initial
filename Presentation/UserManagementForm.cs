@@ -52,7 +52,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
 
         this.actionButton.Text = "Create";
         this.EnableEditableFieldsCreate();
-        this.SetFields(blankInstance);
+        _ = this.OpenFor(blankInstance);
 
         return this.ShowDialog();
     }
@@ -68,7 +68,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
 
         this.actionButton.Text = "Delete";
         this.DisableEditableFields();
-        this.SetFields(instance);
+        _ = this.OpenFor(instance);
 
         return this.ShowDialog();
     }
@@ -84,7 +84,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
 
         this.actionButton.Text = "Save";
         this.EnableEditableFields();
-        this.SetFields(instance);
+        _ = this.OpenFor(instance);
 
         return this.ShowDialog();
     }
@@ -100,27 +100,12 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
 
         this.actionButton.Text = "OK";
         this.DisableEditableFields();
-        this.SetFields(instance);
+        _ = this.OpenFor(instance);
 
         return this.ShowDialog();
     }
 
-    /// <summary>
-    /// Définit les champs du formulaire en fonction des valeurs de l'objet UserDTO.
-    /// </summary>
-    /// <param name="dto">L'objet UserDTO utilisé pour remplir les champs du formulaire.</param>
-    private void SetFields(UserDTO instance)
-    {
-        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
-            throw new Exception("Incorrect Username");
-        }
-        if (!string.IsNullOrEmpty(this.passwordTextBox.Text)
-            && !UserDTO.ValidatePasswordUser(this.passwordTextBox.Text)) {
-            throw new Exception("Incorect password");
-        }
-        if (string.IsNullOrEmpty(this.passwordHashtextBox.Text)) {
-            throw new Exception("Password Hash is empty");
-        } 
+    private DialogResult OpenFor(UserDTO instance) {
         this.workingDtoInstance = instance;
         switch (this.workingViewIntent) {
             case ViewIntentEnum.Creation:
@@ -133,10 +118,27 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
             case ViewIntentEnum.Deletion:
             default:
                 this.DisableEditableFields();
-                break;        
+                break;
         }
         this.LoadUserDataInControls(instance);
-        _ = this.ShowDialog();
+        return this.ShowDialog();
+    }
+    /// <summary>
+    /// Définit les champs du formulaire en fonction des valeurs de l'objet UserDTO.
+    /// </summary>
+    /// <param name="dto">L'objet UserDTO utilisé pour remplir les champs du formulaire.</param>
+    private void SetFieldsValidate(UserDTO instance)
+    {
+        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
+            throw new Exception("Incorrect Username");
+        }
+        if (!string.IsNullOrEmpty(this.passwordTextBox.Text)
+            && !UserDTO.ValidatePasswordUser(this.passwordTextBox.Text)) {
+            throw new Exception("Incorect password");
+        }
+        if (string.IsNullOrEmpty(this.passwordHashtextBox.Text)) {
+            throw new Exception("Password Hash is empty");
+        } 
     }
 
     /// <summary>
@@ -249,7 +251,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     }
 
     private void SaveDataInInstance() {
-        this.SetFields();
+        this.SetFieldsValidate();
         this.workingDtoInstance.UserName = this.nameTextBox.Text;
         this.workingDtoInstance.Password = this.passwordHashtextBox.Text;
 
@@ -294,6 +296,25 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         } catch (Exception ex) {
             _ = MessageBox.Show(ex.Message);
             return;
+        }
+    }
+    private void NameTextBox_TextChanged(object sender, EventArgs e) {
+        if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
+            this.nameTextBox.ForeColor = Color.Red;
+            this.nameTextBox.Invalidate(true);
+        } else {
+            this.nameTextBox.ForeColor = SystemColors.WindowText;
+            this.nameTextBox.Invalidate(true);
+        }
+    }
+
+    private void NameTextBox_Leave(object sender, EventArgs e) {
+        UserDTO? existingUser =
+            this.facade.GetService<UserService>().FindUserByUsername(this.nameTextBox.Text);
+        if (existingUser is not null) {
+            _ = MessageBox.Show("Un utilisateur avec le même username existe déjà!");
+            this.nameTextBox.ForeColor = Color.Red;
+            this.nameTextBox.Invalidate(true);
         }
     }
 }
