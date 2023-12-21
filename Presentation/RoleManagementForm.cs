@@ -28,6 +28,7 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
         // dans le champ associé et éviter de devoir dealer avec un type nullable.
         this.workingDtoInstance = new RoleDTO("", null);
         this.InitializeComponent();
+        this.Load
     }
     /// <summary>
     /// Ouvre le formulaire pour créer un nouveau rôle avec l'instance vierge fournie.
