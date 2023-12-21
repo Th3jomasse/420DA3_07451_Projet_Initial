@@ -34,10 +34,10 @@ partial class RoleManagementForm
         this.roleDescriptionTextBox = new TextBox();
         this.roleNameTextBox = new TextBox();
         this.RolenameLabel = new Label();
-        this.idTextBox = new TextBox();
         this.idLabel = new Label();
         this.userIdlabel = new Label();
-        this.RoleIdtextBox = new TextBox();
+        this.userIdtextBox = new TextBox();
+        this.idRoleComboBox = new ComboBox();
         this.SuspendLayout();
         // 
         // actionButton
@@ -92,14 +92,6 @@ partial class RoleManagementForm
         this.RolenameLabel.Text = "RoleName:";
         this.RolenameLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // idTextBox
-        // 
-        this.idTextBox.Location = new Point(154, 32);
-        this.idTextBox.Name = "idTextBox";
-        this.idTextBox.ReadOnly = true;
-        this.idTextBox.Size = new Size(331, 23);
-        this.idTextBox.TabIndex = 31;
-        // 
         // idLabel
         // 
         this.idLabel.Location = new Point(25, 31);
@@ -118,20 +110,29 @@ partial class RoleManagementForm
         this.userIdlabel.Text = "UserId:";
         this.userIdlabel.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // RoleIdtextBox
+        // userIdtextBox
         // 
-        this.RoleIdtextBox.Location = new Point(154, 88);
-        this.RoleIdtextBox.Name = "RoleIdtextBox";
-        this.RoleIdtextBox.ReadOnly = true;
-        this.RoleIdtextBox.Size = new Size(331, 23);
-        this.RoleIdtextBox.TabIndex = 48;
+        this.userIdtextBox.Location = new Point(154, 88);
+        this.userIdtextBox.Name = "userIdtextBox";
+        this.userIdtextBox.ReadOnly = true;
+        this.userIdtextBox.Size = new Size(331, 23);
+        this.userIdtextBox.TabIndex = 48;
+        // 
+        // idRoleComboBox
+        // 
+        this.idRoleComboBox.FormattingEnabled = true;
+        this.idRoleComboBox.Location = new Point(154, 31);
+        this.idRoleComboBox.Name = "idRoleComboBox";
+        this.idRoleComboBox.Size = new Size(331, 23);
+        this.idRoleComboBox.TabIndex = 49;
         // 
         // RoleManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(586, 285);
-        this.Controls.Add(this.RoleIdtextBox);
+        this.Controls.Add(this.idRoleComboBox);
+        this.Controls.Add(this.userIdtextBox);
         this.Controls.Add(this.userIdlabel);
         this.Controls.Add(this.actionButton);
         this.Controls.Add(this.cancelButton);
@@ -139,7 +140,6 @@ partial class RoleManagementForm
         this.Controls.Add(this.roleDescriptionTextBox);
         this.Controls.Add(this.roleNameTextBox);
         this.Controls.Add(this.RolenameLabel);
-        this.Controls.Add(this.idTextBox);
         this.Controls.Add(this.idLabel);
         this.Name = "RoleManagementForm";
         this.Text = "RoleManagementForm";
@@ -157,5 +157,6 @@ partial class RoleManagementForm
     private TextBox idTextBox;
     private Label idLabel;
     private Label userIdlabel;
-    private TextBox RoleIdtextBox;
+    private TextBox userIdtextBox;
+    private ComboBox idRoleComboBox;
 }

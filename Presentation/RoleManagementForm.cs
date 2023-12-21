@@ -29,100 +29,73 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
         this.workingDtoInstance = new RoleDTO("", null);
         this.InitializeComponent();
     }
-    /// <summary>
-    /// Ouvre le formulaire pour créer un nouveau rôle avec l'instance vierge fournie.
-    /// </summary>
-    /// <param name="blankInstance">L'instance vierge à utiliser pour créer un nouveau rôle.</param>
-    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForCreation(RoleDTO blankInstance)
-    {
-        this.workingDtoInstance = blankInstance;
+
+    public DialogResult OpenForCreation(RoleDTO blankInstance) {
         this.workingViewIntent = ViewIntentEnum.Creation;
-
-        this.actionButton.Text = "Create";
-        this.EnableEditableFields();
-        this.SetFields(blankInstance);
-
-        return this.ShowDialog();
+        this.actionButton.Text = "Créer!";
+        return this.OpenFor(blankInstance);
     }
-    /// <summary>
-    /// Ouvre le formulaire pour supprimer un rôle existant avec l'instance fournie.
-    /// </summary>
-    /// <param name="instance">L'instance représentant le rôle à supprimer.</param>
-    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForDeletion(RoleDTO instance)
-    {
-        this.workingDtoInstance = instance;
+
+    public DialogResult OpenForDeletion(RoleDTO instance) {
         this.workingViewIntent = ViewIntentEnum.Deletion;
-
-        this.actionButton.Text = "Delete";
-        this.DisableEditableFields();
-        this.SetFields(instance);
-
-        return this.ShowDialog();
+        this.actionButton.Text = "Supprimer!";
+        return this.OpenFor(instance);
     }
-    /// <summary>
-    /// Ouvre le formulaire pour éditer un rôle existant avec l'instance fournie.
-    /// </summary>
-    /// <param name="instance">L'instance représentant le rôle à éditer.</param>
-    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForEdition(RoleDTO instance)
-    {
-        this.workingDtoInstance = instance;
+
+    public DialogResult OpenForEdition(RoleDTO instance) {
         this.workingViewIntent = ViewIntentEnum.Edition;
-
-        this.actionButton.Text = "Save";
-        this.EnableEditableFields();
-        this.SetFields(instance);
-
-        return this.ShowDialog();
+        this.actionButton.Text = "Sauvegarder!";
+        return this.OpenFor(instance);
     }
-    /// <summary>
-    /// Ouvre le formulaire pour visualiser un rôle existant avec l'instance fournie.
-    /// </summary>
-    /// <param name="instance">L'instance représentant le rôle à visualiser.</param>
-    /// <returns>Le résultat de la boîte de dialogue du formulaire.</returns>
-    public DialogResult OpenForVisualization(RoleDTO instance)
-    {
-        this.workingDtoInstance = instance;
+
+    public DialogResult OpenForVisualization(RoleDTO instance) {
         this.workingViewIntent = ViewIntentEnum.Visualization;
-
         this.actionButton.Text = "OK";
-        this.DisableEditableFields();
-        this.SetFields(instance);
-
-        return this.ShowDialog();
+        return this.OpenFor(instance);
     }
-    /// <summary>
-    /// Remplis les contrôles graphiques de la fenêtre avec les valeurs des propriétés
-    /// de l'instance de l'entité gérée reçue en paramètre.
-    /// </summary>
-    /// <param name="dto"></param>
-    private void SetFields(RoleDTO dto)
-    {
-
-        this.idTextBox.Text = dto.Id.ToString() ?? "";
-        this.roleNameTextBox.Text = dto.RoleName ?? "";
-    }
-
-    /// <summary>
-    /// Désactive les contrôles graphiques des champs de données
-    /// </summary>
-    private void DisableEditableFields()
-    {
-        this.roleNameTextBox.Enabled = false;
-        this.roleDescriptionTextBox.Enabled = false;
-    }
-
-    /// <summary>
-    /// Active les contrôles graphiques des champs de données
-    /// </summary>
-    private void EnableEditableFields()
-    {
+    private void ActivateControls() {
+        this.idRoleComboBox.Enabled = false;
         this.roleNameTextBox.Enabled = true;
+        this.userIdtextBox.Enabled = true;
         this.roleDescriptionTextBox.Enabled = true;
     }
 
+    private void DeactivateControls() {
+        this.idRoleComboBox.Enabled = true;
+        this.roleNameTextBox.Enabled = false;
+        this.userIdtextBox.Enabled = false;
+        this.roleDescriptionTextBox.Enabled = false;
+    }
+
+    private DialogResult OpenFor(RoleDTO instance) {
+        this.workingDtoInstance = instance;
+        this.LoadInstanceDataInControls(instance);
+        switch (this.workingViewIntent) {
+            case ViewIntentEnum.Creation:
+            case ViewIntentEnum.Edition:
+                this.ActivateControls();
+                break;
+            case ViewIntentEnum.Visualization:
+            case ViewIntentEnum.Deletion:
+                this.DeactivateControls();
+                break;
+            default:
+                throw new NotImplementedException("Porbleme survenu.");
+        }
+        return this.ShowDialog();
+    }
+    private void LoadInstanceDataInControls(RoleDTO instance) {
+        this.idRoleComboBox.Text = instance.Id.ToString();
+        this.roleNameTextBox.Text = instance.RoleName;
+        this.roleDescriptionLabel.Text = instance.RoleDescription;
+    }
+    private bool ValidateControlsData() {
+        return this.idRoleComboBox.SelectedItem is null
+            ? throw new Exception("Pas de Role sélectionnée.")
+            : this.roleNameTextBox.Text.IsNullOrEmpty()
+                ? throw new Exception("Nom Role vide.")
+                : true;
+    }
     /// <summary>
     /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de création
     /// </summary>
@@ -141,14 +114,6 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
         this.workingDtoInstance.RoleName = this.roleNameTextBox.Text;
         this.workingDtoInstance.RoleDescription = this.roleDescriptionTextBox.Text.IsNullOrEmpty() ? null : this.roleDescriptionLabel.Text;
 
-        this.DialogResult = DialogResult.OK;
-    }
-
-    /// <summary>
-    /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de visualisation
-    /// </summary>
-    private void DoVisualizeAction()
-    {
         this.DialogResult = DialogResult.OK;
     }
 
@@ -174,14 +139,6 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
     }
 
     /// <summary>
-    /// Actions à faire lorsque le bouton d'action est cliqué pour l'intention de suppression
-    /// </summary>
-    private void DoDeleteAction()
-    {
-        this.DialogResult = DialogResult.OK;
-    }
-
-    /// <summary>
     /// Gestionnaire de l'événement clic du bouton annuler.
     /// </summary>
     /// <param name="sender"></param>
@@ -200,20 +157,21 @@ public partial class RoleManagementForm : Form, IDtoManagementView<RoleDTO>
     /// <param name="args"></param>
     private void ActionButton_Click(object sender, EventArgs e)
     {
-        switch (this.workingViewIntent) {
-            case ViewIntentEnum.Creation:
-                this.DoCreateAction();
-                break;
-            case ViewIntentEnum.Edition:
-                this.DoEditAction();
-                break;
-            case ViewIntentEnum.Deletion:
-                this.DoDeleteAction();
-                break;
-            case ViewIntentEnum.Visualization:
-            default:
-                this.DoVisualizeAction();
-                break;
+        try {
+            if (this.ValidateControlsData()) {
+                switch (this.workingViewIntent) {
+                    case ViewIntentEnum.Creation:
+                    case ViewIntentEnum.Edition:
+                        break;
+                    case ViewIntentEnum.Visualization:
+                    case ViewIntentEnum.Deletion:
+                    default:
+                        break;
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message, "Erreur!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -127,7 +127,7 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
     /// Définit les champs du formulaire en fonction des valeurs de l'objet UserDTO.
     /// </summary>
     /// <param name="dto">L'objet UserDTO utilisé pour remplir les champs du formulaire.</param>
-    private void SetFieldsValidate(UserDTO instance)
+    private void SetFieldsValidate()
     {
         if (!UserDTO.ValidateNameUser(this.nameTextBox.Text)) {
             throw new Exception("Incorrect Username");
