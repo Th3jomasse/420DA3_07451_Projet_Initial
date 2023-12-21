@@ -13,10 +13,10 @@ internal class AdminFacade : AbstractFacade {
     private AdminMainMenu MainMenu { get; set; }
     private AppDbContext Context { get; set; }
 
-    private ClientService ClientService { get; set; }
-    private EntrepotService EntrepotService { get; set; }
-    private AddressService AddressService { get; set; }
-    private RestockOrderService RestockOrderService { get; set; }
+    public ClientService ClientService { get; set; }
+    public EntrepotService EntrepotService { get; set; }
+    public AddressService AddressService { get; set; }
+    public RestockOrderService RestockOrderService { get; set; }
 
     // TODO: ajoutez des propriétés pour vos services ici
 

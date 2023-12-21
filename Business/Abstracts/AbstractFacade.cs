@@ -54,14 +54,14 @@ public abstract class AbstractFacade : IFacade {
     /// <returns></returns>
     /// <exception cref="Exception">Si aucune propriété initialisée du type requis existe dans la facade concrète.</exception>
     public ServiceType GetService<ServiceType>() where ServiceType : IService {
-        List<PropertyInfo> properties = this.GetType().GetProperties().ToList();
+        List<PropertyInfo> properties = this.GetType().GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).ToList();
         foreach (PropertyInfo property in properties) {
             if (property.PropertyType == typeof(ServiceType)) {
                 return (ServiceType) (property.GetValue(this) 
                     ?? throw new Exception($"Property of type [{typeof(ServiceType).Name}] is empty (not initialized)."));
             }
         }
-        List<FieldInfo> fields = this.GetType().GetFields().ToList();
+        List<FieldInfo> fields = this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).ToList();
         foreach (FieldInfo field in fields) {
             if (field.FieldType == typeof(ServiceType)) {
                 return (ServiceType) (field.GetValue(this)
