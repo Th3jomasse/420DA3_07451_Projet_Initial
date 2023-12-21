@@ -21,6 +21,8 @@ public class AppDbContext : AbstractContext {
     public DbSet<DTOs.RoleDTO> Roles { get; set; }
     public DbSet<AddressDTO> Addresses { get; set; }
     public DbSet<RestockOrderDTO> RestockOrders { get; set; }
+    public DbSet<ShipOrdersDTO> ShipOrders { get; set; }    
+    public DbSet<ShipmentsDTO> Shipments { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         base.OnConfiguring(optionsBuilder);
@@ -244,25 +246,137 @@ public class AppDbContext : AbstractContext {
             .HasColumnName("PoidsKilo")
             .IsRequired(true);
 
-        
-        
+
+
         #endregion
+
+        #region Shipments
+        _ = modelBuilder.Entity<ShipmentsDTO>()
+           .ToTable("Shipments")
+           .HasKey(sh => sh.Id);
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.ShippingCompany)
+            .HasColumnName("ShippingCompany")
+            .HasColumnType("nvarchar(10)")
+            .HasConversion<string>();
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.ShipOrderId)
+            .HasColumnName("ShipOrderId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.TrackingNumber)
+            .HasColumnName("TrackingNumber")
+            .HasColumnType("bigint");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.DateShipped)
+            .HasColumnName("DateShipped")
+             .HasColumnType("datetime2(5)");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.DateDelivered)
+            .HasColumnName("DateDelivered")
+             .HasColumnType("datetime2(5)");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.DateCreated)
+            .HasColumnName("DateCreated")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.DateUpdated)
+            .HasColumnName("DateUpdated")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.DateDeleted)
+            .HasColumnName("DateDeleted")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipmentsDTO>().Property(sh => sh.RowVersion)
+            .HasColumnName("RowVersion")
+            .IsRowVersion();
+
+        _ = modelBuilder.Entity<ShipmentsDTO>()
+            .HasOne(sh => sh.ShipOrders)
+            .WithOne(so => so.Shipment)
+            .HasForeignKey<ShipmentsDTO>(sh => sh.ShipOrderId);
+        #endregion
+
+        #region ShipOrders
+        _ = modelBuilder.Entity<ShipOrdersDTO>()
+            .ToTable("ShipOrders")
+            .HasKey(so => so.Id);
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.WarehouseId)
+            .HasColumnName("WarehouseId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.CustomerId)
+            .HasColumnName("CustomerId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DestName)
+            .HasColumnName("DestName")
+            .HasColumnType("nvarchar(64)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DestFirstName)
+            .HasColumnName("DestFirstName")
+            .HasColumnType("nvarchar(64)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.Address)
+            .HasColumnName("Address")
+            .HasColumnType("nvarchar(256)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.PostalCode)
+            .HasColumnName("PostalCode")
+            .HasColumnType("nvarchar(6)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.Status)
+            .HasColumnName("Status")
+            .HasColumnType("nvarchar(20)")
+            .HasConversion<string>();
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.ShipOrderDate)
+            .HasColumnName("ShipOrderDate")
+            .HasColumnType("datetime2(5)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DateCompleted)
+            .HasColumnName("DateCompleted")
+            .HasColumnType("datetime2(5)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DateCreated)
+            .HasColumnName("DateCreated")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DateUpdated)
+            .HasColumnName("DateUpdated")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.DateDeleted)
+            .HasColumnName("DateDeleted")
+            .HasColumnType("datetime2(7)");
+        _ = modelBuilder.Entity<ShipOrdersDTO>().Property(so => so.RowVersion)
+            .HasColumnName("RowVersion")
+            .IsRowVersion();
+
+        _ = modelBuilder.Entity<ShipOrdersDTO>()
+           .HasOne(so => so.Warehouse)
+           .WithMany(wh => wh.ShipOrders)
+           .HasForeignKey(so => so.WarehouseId);
+
+        _ = modelBuilder.Entity<ShipOrdersDTO>()
+            .HasOne(so => so.Client)
+            .WithMany(Client => Client.ShipOrders)
+            .HasForeignKey(so => so.CustomerId);
+
+
+
+
+        #endregion
+
+
+        
 
         #region Association ShippingOrder - Product
 
 
         _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
-            .HasKey(sp => new { sp.ShippingOrderId, sp.ProduitId });
+            .HasKey(sp => new { sp.ShipOrderId, sp.ProductId });
          
         _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
-            .HasOne(sp => sp.ShippingOrder)
+            .HasOne(sp => sp.ShipOrders)
             .WithMany(so => so.ShippingOrderProducts)
-            .HasForeignKey(sp => sp.ShippingOrderId);
+            .HasForeignKey(sp => sp.ShipOrderId);
         
         _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>()
-            .HasOne(sp => sp.Produit)
+            .HasOne(sp => sp.Produits)
             .WithMany(p => p.ShippingOrderProducts)
-            .HasForeignKey(sp => sp.ProduitId);
+            .HasForeignKey(sp => sp.ProductId);
+
+        _ = modelBuilder.Entity<DTOs.PivotsDTO.ShippingOrderProducts>().Property(sp => sp.Qty)
+            .HasColumnName("Qty")
+            .HasColumnType("int");
 
         #endregion
 

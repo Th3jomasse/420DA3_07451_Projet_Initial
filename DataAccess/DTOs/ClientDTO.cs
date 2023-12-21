@@ -33,6 +33,7 @@ public class ClientDTO : AbstractDTO<int> {
 
     public List<ProduitsDTO> ProduitsDuClient { get; set; } = new List<ProduitsDTO>();
 
+    public List<ShipOrdersDTO> ShipOrders { get; set; }
 
     public ClientDTO() : base() { }
 

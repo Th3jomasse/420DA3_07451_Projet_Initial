@@ -13,14 +13,14 @@ public class ShipmentsDTO : AbstractDTO<int> {
     public int ShipOrderId { get; set; }
     public long TrackingNumber { get; set; }
     public DateTime? DateCreated { get; set; }
-    public DateTime? DateCompleted { get; set; }  
+    public DateTime? DateDelivered { get; set; }  
     public DateTime? DateShipped { get; set; }
     public DateTime? DateUpdated { get; set; }
   
     public DateTime? DateDeleted { get; set; }
     public Byte[]? RowVersion { get; set; }
 
-
+    public ShipOrdersDTO ShipOrders {get; set;}
     public ShipmentsDTO() { }
 
     public ShipmentsDTO(ShippingCompanyEnum shippingCompany, int shipOrderId) {
@@ -34,8 +34,13 @@ public class ShipmentsDTO : AbstractDTO<int> {
         this.TrackingNumber = trackingNumber;
         this.DateCreated = dateCreated;
         this.DateUpdated = dateUpdated;
-        this.DateCompleted = dateCompleted;
+        this.DateDelivered = dateCompleted;
         this.DateShipped = dateShipped;
         this.DateDeleted = dateDeleted;
+    }
+
+    public override string ToString() {
+        return this.Id.ToString() + "-" + this.ShippingCompany.ToString() + "-" + this.DateShipped.ToString();
+
     }
 }

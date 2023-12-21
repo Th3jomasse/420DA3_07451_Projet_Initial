@@ -7,12 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _420DA3_07451_Projet_Initial.Business;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ShipOrdersDTO: AbstractDTO<int> {
 
     public int WarehouseId { get; set; }
-    public int ShipmentId { get; set; }
     public string DestName { get; set; }
     public string DestFirstName { get; set; }
     public string Address { get; set; }
@@ -26,7 +26,7 @@ public class ShipOrdersDTO: AbstractDTO<int> {
     public DateTime? DateCompleted { get; set; }
     public byte[] RowVersion { get; set; }
 
-
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
     public ProduitsDTO Produit { get; set; }
     public ShipmentsDTO Shipment { get; set; }
     public ClientDTO Client { get; set; } 
@@ -34,10 +34,9 @@ public class ShipOrdersDTO: AbstractDTO<int> {
 
     public ShipOrdersDTO() { }
 
-    public ShipOrdersDTO(int warehouseid, int shipmentId, string destName, string destFirstName, string address,
+    public ShipOrdersDTO(int warehouseid, string destName, string destFirstName, string address,
     string postalCode, int customerId, DateTime shipOrderDate) {
         this.WarehouseId = warehouseid;
-        this.ShipmentId = shipmentId;
         this.DestName = destName;
         this.DestFirstName = destFirstName;
         this.Address = address;
@@ -47,14 +46,13 @@ public class ShipOrdersDTO: AbstractDTO<int> {
         this.Status = ShipOrderEnum.NEW;
     }
 
-    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
+   
 
-    protected ShipOrdersDTO(int warehouseid, int shipmentId, string destName, string destFirstName, string address,
+    protected ShipOrdersDTO(int warehouseid,  string destName, string destFirstName, string address,
     string postalCode, int customerId, ShipOrderEnum status, DateTime shipOrderDate, DateTime dateCreated, DateTime dateUpdated, 
-    DateTime dateCompleted, byte[] rowversion, DateTime? dateDeleted) : this(warehouseid, shipmentId, destName, destFirstName, address, postalCode, customerId,
+    DateTime dateCompleted, byte[] rowversion, DateTime? dateDeleted) : this(warehouseid,  destName, destFirstName, address, postalCode, customerId,
      shipOrderDate) {
         this.WarehouseId = warehouseid;
-        this.ShipmentId = shipmentId;
         this.DestName = destName;
         this.DestFirstName = destFirstName;
         this.Address = address;
@@ -68,5 +66,11 @@ public class ShipOrdersDTO: AbstractDTO<int> {
         this.RowVersion = rowversion;
         this.DateDeleted = dateDeleted;
     }
+
+        public override string ToString() {
+        return this.Id.ToString() + "-" + this.ShipOrderDate.ToString() + "-" + this.Status.ToString();
+
+    }
 }
+
 
