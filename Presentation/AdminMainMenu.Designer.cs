@@ -178,7 +178,7 @@ partial class AdminMainMenu
         this.shipmentOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.shipmentOrdersMgmtHeaderLabel.Location = new Point(10, 10);
         this.shipmentOrdersMgmtHeaderLabel.Name = "shipmentOrdersMgmtHeaderLabel";
-        this.shipmentOrdersMgmtHeaderLabel.Size = new Size(214, 40);
+        this.shipmentOrdersMgmtHeaderLabel.Size = new Size(214, 59);
         this.shipmentOrdersMgmtHeaderLabel.TabIndex = 3;
         this.shipmentOrdersMgmtHeaderLabel.Text = "Gestion des ordres d'expédition";
         this.shipmentOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -199,7 +199,7 @@ partial class AdminMainMenu
         this.restockOrdersMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.restockOrdersMgmtHeaderLabel.Location = new Point(10, 10);
         this.restockOrdersMgmtHeaderLabel.Name = "restockOrdersMgmtHeaderLabel";
-        this.restockOrdersMgmtHeaderLabel.Size = new Size(210, 40);
+        this.restockOrdersMgmtHeaderLabel.Size = new Size(210, 59);
         this.restockOrdersMgmtHeaderLabel.TabIndex = 3;
         this.restockOrdersMgmtHeaderLabel.Text = "Gestion des ordres de restockage";
         this.restockOrdersMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -220,7 +220,7 @@ partial class AdminMainMenu
         this.shipmentMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.shipmentMgmtHeaderLabel.Location = new Point(10, 10);
         this.shipmentMgmtHeaderLabel.Name = "shipmentMgmtHeaderLabel";
-        this.shipmentMgmtHeaderLabel.Size = new Size(210, 40);
+        this.shipmentMgmtHeaderLabel.Size = new Size(210, 59);
         this.shipmentMgmtHeaderLabel.TabIndex = 2;
         this.shipmentMgmtHeaderLabel.Text = "Gestion des Expéditions";
         this.shipmentMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -241,7 +241,7 @@ partial class AdminMainMenu
         this.fournisseursMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.fournisseursMgmtHeaderLabel.Location = new Point(10, 10);
         this.fournisseursMgmtHeaderLabel.Name = "fournisseursMgmtHeaderLabel";
-        this.fournisseursMgmtHeaderLabel.Size = new Size(214, 40);
+        this.fournisseursMgmtHeaderLabel.Size = new Size(214, 59);
         this.fournisseursMgmtHeaderLabel.TabIndex = 3;
         this.fournisseursMgmtHeaderLabel.Text = "Gestion des Expéditions";
         this.fournisseursMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -262,7 +262,7 @@ partial class AdminMainMenu
         this.produitsMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.produitsMgmtHeaderLabel.Location = new Point(10, 10);
         this.produitsMgmtHeaderLabel.Name = "produitsMgmtHeaderLabel";
-        this.produitsMgmtHeaderLabel.Size = new Size(210, 40);
+        this.produitsMgmtHeaderLabel.Size = new Size(210, 59);
         this.produitsMgmtHeaderLabel.TabIndex = 3;
         this.produitsMgmtHeaderLabel.Text = "Gestion des Produits";
         this.produitsMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -288,9 +288,9 @@ partial class AdminMainMenu
         this.addressMgmtMainPanel.Controls.Add(this.existingAddressesLabel);
         this.addressMgmtMainPanel.Controls.Add(this.createAddressButton);
         this.addressMgmtMainPanel.Dock = DockStyle.Fill;
-        this.addressMgmtMainPanel.Location = new Point(10, 50);
+        this.addressMgmtMainPanel.Location = new Point(10, 69);
         this.addressMgmtMainPanel.Name = "addressMgmtMainPanel";
-        this.addressMgmtMainPanel.Size = new Size(210, 324);
+        this.addressMgmtMainPanel.Size = new Size(210, 305);
         this.addressMgmtMainPanel.TabIndex = 1;
         // 
         // deleteAddressButton
@@ -373,7 +373,7 @@ partial class AdminMainMenu
         this.addressMgmtTopBar.Dock = DockStyle.Top;
         this.addressMgmtTopBar.Location = new Point(10, 10);
         this.addressMgmtTopBar.Name = "addressMgmtTopBar";
-        this.addressMgmtTopBar.Size = new Size(210, 40);
+        this.addressMgmtTopBar.Size = new Size(210, 59);
         this.addressMgmtTopBar.TabIndex = 0;
         // 
         // addressMgmtLabel
@@ -382,7 +382,7 @@ partial class AdminMainMenu
         this.addressMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.addressMgmtLabel.Location = new Point(0, 0);
         this.addressMgmtLabel.Name = "addressMgmtLabel";
-        this.addressMgmtLabel.Size = new Size(210, 40);
+        this.addressMgmtLabel.Size = new Size(210, 59);
         this.addressMgmtLabel.TabIndex = 0;
         this.addressMgmtLabel.Text = "Gestion des Adresses";
         this.addressMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -408,9 +408,9 @@ partial class AdminMainMenu
         this.clientMgmtMainPanel.Controls.Add(this.existingClientsLabel);
         this.clientMgmtMainPanel.Controls.Add(this.clientCreateButton);
         this.clientMgmtMainPanel.Dock = DockStyle.Fill;
-        this.clientMgmtMainPanel.Location = new Point(10, 50);
+        this.clientMgmtMainPanel.Location = new Point(10, 69);
         this.clientMgmtMainPanel.Name = "clientMgmtMainPanel";
-        this.clientMgmtMainPanel.Size = new Size(210, 325);
+        this.clientMgmtMainPanel.Size = new Size(210, 306);
         this.clientMgmtMainPanel.TabIndex = 1;
         // 
         // clientDeleteButton
@@ -493,7 +493,7 @@ partial class AdminMainMenu
         this.clientMgmtTopBar.Dock = DockStyle.Top;
         this.clientMgmtTopBar.Location = new Point(10, 10);
         this.clientMgmtTopBar.Name = "clientMgmtTopBar";
-        this.clientMgmtTopBar.Size = new Size(210, 40);
+        this.clientMgmtTopBar.Size = new Size(210, 59);
         this.clientMgmtTopBar.TabIndex = 0;
         // 
         // clientMgmtLabel
@@ -502,7 +502,7 @@ partial class AdminMainMenu
         this.clientMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.clientMgmtLabel.Location = new Point(0, 0);
         this.clientMgmtLabel.Name = "clientMgmtLabel";
-        this.clientMgmtLabel.Size = new Size(210, 40);
+        this.clientMgmtLabel.Size = new Size(210, 59);
         this.clientMgmtLabel.TabIndex = 0;
         this.clientMgmtLabel.Text = "Gestion des clients";
         this.clientMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -534,7 +534,7 @@ partial class AdminMainMenu
         // deleteUserButton
         // 
         this.deleteUserButton.Dock = DockStyle.Top;
-        this.deleteUserButton.Location = new Point(10, 174);
+        this.deleteUserButton.Location = new Point(10, 193);
         this.deleteUserButton.Name = "deleteUserButton";
         this.deleteUserButton.Size = new Size(210, 26);
         this.deleteUserButton.TabIndex = 19;
@@ -545,7 +545,7 @@ partial class AdminMainMenu
         // editUserButton
         // 
         this.editUserButton.Dock = DockStyle.Top;
-        this.editUserButton.Location = new Point(10, 148);
+        this.editUserButton.Location = new Point(10, 167);
         this.editUserButton.Name = "editUserButton";
         this.editUserButton.Size = new Size(210, 26);
         this.editUserButton.TabIndex = 18;
@@ -556,7 +556,7 @@ partial class AdminMainMenu
         // viewUserButton
         // 
         this.viewUserButton.Dock = DockStyle.Top;
-        this.viewUserButton.Location = new Point(10, 122);
+        this.viewUserButton.Location = new Point(10, 141);
         this.viewUserButton.Name = "viewUserButton";
         this.viewUserButton.Size = new Size(210, 26);
         this.viewUserButton.TabIndex = 17;
@@ -568,7 +568,7 @@ partial class AdminMainMenu
         // 
         this.UserComboBox.Dock = DockStyle.Top;
         this.UserComboBox.FormattingEnabled = true;
-        this.UserComboBox.Location = new Point(10, 99);
+        this.UserComboBox.Location = new Point(10, 118);
         this.UserComboBox.Name = "UserComboBox";
         this.UserComboBox.Size = new Size(210, 23);
         this.UserComboBox.TabIndex = 16;
@@ -576,7 +576,7 @@ partial class AdminMainMenu
         // utilisateurSeparatorLabel
         // 
         this.utilisateurSeparatorLabel.Dock = DockStyle.Top;
-        this.utilisateurSeparatorLabel.Location = new Point(10, 76);
+        this.utilisateurSeparatorLabel.Location = new Point(10, 95);
         this.utilisateurSeparatorLabel.Name = "utilisateurSeparatorLabel";
         this.utilisateurSeparatorLabel.Size = new Size(210, 23);
         this.utilisateurSeparatorLabel.TabIndex = 15;
@@ -586,7 +586,7 @@ partial class AdminMainMenu
         // newUserButton
         // 
         this.newUserButton.Dock = DockStyle.Top;
-        this.newUserButton.Location = new Point(10, 50);
+        this.newUserButton.Location = new Point(10, 69);
         this.newUserButton.Name = "newUserButton";
         this.newUserButton.Size = new Size(210, 26);
         this.newUserButton.TabIndex = 14;
@@ -600,7 +600,7 @@ partial class AdminMainMenu
         this.UserLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.UserLabel.Location = new Point(10, 10);
         this.UserLabel.Name = "UserLabel";
-        this.UserLabel.Size = new Size(210, 40);
+        this.UserLabel.Size = new Size(210, 59);
         this.UserLabel.TabIndex = 13;
         this.UserLabel.Text = "Gestion des Utilisateurs";
         this.UserLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -622,23 +622,24 @@ partial class AdminMainMenu
         // 
         // RoleSearchTextBox
         // 
-        this.RoleSearchTextBox.Location = new Point(15, 108);
+        this.RoleSearchTextBox.Location = new Point(15, 127);
         this.RoleSearchTextBox.Name = "RoleSearchTextBox";
         this.RoleSearchTextBox.Size = new Size(198, 23);
         this.RoleSearchTextBox.TabIndex = 15;
+        this.RoleSearchTextBox.TextChanged += this.RoleSearchTextBox_TextChanged;
         // 
         // RolesFilterListBox
         // 
         this.RolesFilterListBox.FormattingEnabled = true;
         this.RolesFilterListBox.ItemHeight = 15;
-        this.RolesFilterListBox.Location = new Point(15, 131);
+        this.RolesFilterListBox.Location = new Point(15, 150);
         this.RolesFilterListBox.Name = "RolesFilterListBox";
         this.RolesFilterListBox.Size = new Size(198, 94);
         this.RolesFilterListBox.TabIndex = 14;
         // 
         // RoleDeleteButton
         // 
-        this.RoleDeleteButton.Location = new Point(15, 295);
+        this.RoleDeleteButton.Location = new Point(15, 314);
         this.RoleDeleteButton.Name = "RoleDeleteButton";
         this.RoleDeleteButton.Size = new Size(198, 35);
         this.RoleDeleteButton.TabIndex = 13;
@@ -648,7 +649,7 @@ partial class AdminMainMenu
         // 
         // RoleEditButton
         // 
-        this.RoleEditButton.Location = new Point(15, 260);
+        this.RoleEditButton.Location = new Point(15, 279);
         this.RoleEditButton.Name = "RoleEditButton";
         this.RoleEditButton.Size = new Size(198, 35);
         this.RoleEditButton.TabIndex = 12;
@@ -658,7 +659,7 @@ partial class AdminMainMenu
         // 
         // RoleViewButton
         // 
-        this.RoleViewButton.Location = new Point(15, 225);
+        this.RoleViewButton.Location = new Point(15, 244);
         this.RoleViewButton.Name = "RoleViewButton";
         this.RoleViewButton.Size = new Size(198, 35);
         this.RoleViewButton.TabIndex = 11;
@@ -669,7 +670,7 @@ partial class AdminMainMenu
         // RoleSearchLabel
         // 
         this.RoleSearchLabel.AutoSize = true;
-        this.RoleSearchLabel.Location = new Point(72, 93);
+        this.RoleSearchLabel.Location = new Point(72, 108);
         this.RoleSearchLabel.Name = "RoleSearchLabel";
         this.RoleSearchLabel.Size = new Size(79, 15);
         this.RoleSearchLabel.TabIndex = 9;
@@ -677,7 +678,7 @@ partial class AdminMainMenu
         // 
         // RoleCreateButton
         // 
-        this.RoleCreateButton.Location = new Point(15, 50);
+        this.RoleCreateButton.Location = new Point(15, 69);
         this.RoleCreateButton.Name = "RoleCreateButton";
         this.RoleCreateButton.Size = new Size(198, 35);
         this.RoleCreateButton.TabIndex = 8;
@@ -687,13 +688,13 @@ partial class AdminMainMenu
         // 
         // RolesLabel
         // 
-        this.RolesLabel.AutoSize = true;
         this.RolesLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        this.RolesLabel.Location = new Point(39, 20);
+        this.RolesLabel.Location = new Point(15, 10);
         this.RolesLabel.Name = "RolesLabel";
-        this.RolesLabel.Size = new Size(149, 21);
+        this.RolesLabel.Size = new Size(205, 59);
         this.RolesLabel.TabIndex = 7;
         this.RolesLabel.Text = "Gestion des Rôles";
+        this.RolesLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // entrepotMgmtPanel
         // 
@@ -714,7 +715,7 @@ partial class AdminMainMenu
         // deleteEntrepotButton
         // 
         this.deleteEntrepotButton.Dock = DockStyle.Top;
-        this.deleteEntrepotButton.Location = new Point(10, 174);
+        this.deleteEntrepotButton.Location = new Point(10, 193);
         this.deleteEntrepotButton.Name = "deleteEntrepotButton";
         this.deleteEntrepotButton.Size = new Size(210, 26);
         this.deleteEntrepotButton.TabIndex = 7;
@@ -725,7 +726,7 @@ partial class AdminMainMenu
         // editEntrepotButton
         // 
         this.editEntrepotButton.Dock = DockStyle.Top;
-        this.editEntrepotButton.Location = new Point(10, 148);
+        this.editEntrepotButton.Location = new Point(10, 167);
         this.editEntrepotButton.Name = "editEntrepotButton";
         this.editEntrepotButton.Size = new Size(210, 26);
         this.editEntrepotButton.TabIndex = 6;
@@ -736,7 +737,7 @@ partial class AdminMainMenu
         // viewEntrepotButton
         // 
         this.viewEntrepotButton.Dock = DockStyle.Top;
-        this.viewEntrepotButton.Location = new Point(10, 122);
+        this.viewEntrepotButton.Location = new Point(10, 141);
         this.viewEntrepotButton.Name = "viewEntrepotButton";
         this.viewEntrepotButton.Size = new Size(210, 26);
         this.viewEntrepotButton.TabIndex = 5;
@@ -748,7 +749,7 @@ partial class AdminMainMenu
         // 
         this.entrepotSelector.Dock = DockStyle.Top;
         this.entrepotSelector.FormattingEnabled = true;
-        this.entrepotSelector.Location = new Point(10, 99);
+        this.entrepotSelector.Location = new Point(10, 118);
         this.entrepotSelector.Name = "entrepotSelector";
         this.entrepotSelector.Size = new Size(210, 23);
         this.entrepotSelector.TabIndex = 4;
@@ -757,7 +758,7 @@ partial class AdminMainMenu
         // existingEntrepotsLabel
         // 
         this.existingEntrepotsLabel.Dock = DockStyle.Top;
-        this.existingEntrepotsLabel.Location = new Point(10, 76);
+        this.existingEntrepotsLabel.Location = new Point(10, 95);
         this.existingEntrepotsLabel.Name = "existingEntrepotsLabel";
         this.existingEntrepotsLabel.Size = new Size(210, 23);
         this.existingEntrepotsLabel.TabIndex = 3;
@@ -767,7 +768,7 @@ partial class AdminMainMenu
         // createEntrepotButton
         // 
         this.createEntrepotButton.Dock = DockStyle.Top;
-        this.createEntrepotButton.Location = new Point(10, 50);
+        this.createEntrepotButton.Location = new Point(10, 69);
         this.createEntrepotButton.Name = "createEntrepotButton";
         this.createEntrepotButton.Size = new Size(210, 26);
         this.createEntrepotButton.TabIndex = 2;
@@ -781,7 +782,7 @@ partial class AdminMainMenu
         this.entrepotMgmtHeaderLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
         this.entrepotMgmtHeaderLabel.Location = new Point(10, 10);
         this.entrepotMgmtHeaderLabel.Name = "entrepotMgmtHeaderLabel";
-        this.entrepotMgmtHeaderLabel.Size = new Size(210, 40);
+        this.entrepotMgmtHeaderLabel.Size = new Size(210, 59);
         this.entrepotMgmtHeaderLabel.TabIndex = 1;
         this.entrepotMgmtHeaderLabel.Text = "Gestion des Entrepôts";
         this.entrepotMgmtHeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
