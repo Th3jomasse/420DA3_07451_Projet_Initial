@@ -164,6 +164,9 @@ public partial class UserManagementForm : Form, IDtoManagementView<UserDTO>
         this.roleslistBox.Enabled = true;
     }
 
+    /// <summary>
+    /// Charge dans le combobox les entrepots.
+    /// </summary>
     public void LoadWarehousesInCombobox(List<EntrepotDTO> warehouseList) {
         this.warehouseComboBox.Items.Clear();
         this.warehouseComboBox.Items.AddRange(warehouseList.ToArray());
