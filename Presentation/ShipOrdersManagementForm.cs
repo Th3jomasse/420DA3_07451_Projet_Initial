@@ -17,12 +17,35 @@ using System.Windows.Forms;
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class ShipOrdersManagementForm : Form, IDtoManagementView<ShipOrdersDTO> {
     private readonly AbstractFacade facade;
-    private RestockOrderDTO workingInstance = null!;
+    private ShipOrdersDTO workingInstance = null!;
     private ViewIntentEnum viewIntent;
 
 
     public ShipOrdersManagementForm(AbstractFacade facade) {
         this.facade = facade;
+        this.workingInstance = new ShipOrdersDTO();
         InitializeComponent();
     }
+
+    DialogResult IDtoManagementView<ShipOrdersDTO>.OpenForCreation(ShipOrdersDTO blankInstance) {
+        this.workingInstance=blankInstance;
+        this.viewIntent = ViewIntentEnum.Creation;
+     return this.ShowDialog();
+    }
+    DialogResult IDtoManagementView<ShipOrdersDTO>.OpenForDeletion(ShipOrdersDTO instance) {
+        _ = MessageBox.Show("Cette action n'est pas autorisée.");
+        return DialogResult.Cancel;
+    }
+
+    DialogResult IDtoManagementView<ShipOrdersDTO>.OpenForEdition(ShipOrdersDTO instance) {
+
+        return this.ShowDialog();
+    }
+
+    DialogResult IDtoManagementView<ShipOrdersDTO>.OpenForVisualization(ShipOrdersDTO instance) {
+        this.viewIntent = ViewIntentEnum.Visualization;
+
+        return this.ShowDialog();
+    }
+
 }
